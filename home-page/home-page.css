@@ -1,0 +1,151 @@
+/*
+=========================
+    Global CSS
+=========================
+*/
+
+body {
+    font-family: "Roboto";
+}
+
+/*
+=========================
+    Navigation
+=========================
+*/
+
+#header {
+    margin: 0 auto;
+    position: relative;
+}
+
+.navigation {
+    height: 100px;
+    padding: 0px 30px;
+    background-color: #fff;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    padding: 5px 0 0 80px;
+    width: 160px;
+    height: auto;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.nav-links-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.nav-links-wrapper:nth-child(3) {
+    gap: 60px;
+    padding-left: 40px;
+}
+
+.nav-links-wrapper:nth-child(3) .nav-item {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 5px 12px;
+    border-radius: 5px;
+}
+
+.nav-links-wrapper:nth-child(3) .nav-item:hover{
+    background-color: #00A4BD;
+    cursor: pointer;
+}
+
+.nav-item a,
+.nav-item button {
+    letter-spacing: 3px;
+    font-size: 20px;
+    width: 200px;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item button {
+    border: none;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+
+.nav-item button:hover {
+    background-color: #00A4BD;
+}
+
+.dropdown {
+    display: inline-block;
+    width: 200px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    overflow: auto;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    background-color: white;
+}
+
+.dropdown-content a {
+    display: block;
+    position: relative;
+    z-index: 2;
+    color: #000000;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    color: black;
+    background-color: #00A4BD;
+}
+
+/*
+=========================
+    Hero
+=========================
+*/
+
+.hero {
+    display: flex;
+}
+
+.hero__recipe-of-the-day {
+    width: 50%;
+}
+
+
+.hero__latest-recipies-wrapper ul {
+    display: grid;
+    grid-template:
+        "title title"
+        "recipe recipe"
+}
+
+.hero-img-holder {
+    border-radius: 6px;
+    margin-bottom: 8px;
+    height: 160px;
+    width: 300px;
+    background-image: url("/img/dishes/Best-Lasagna-550.jpg");
+    background-position: center center;
+    background-size: cover;
+}
