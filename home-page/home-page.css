@@ -7,6 +7,7 @@
 body {
     font-family: "Roboto";
     box-sizing: border-box;
+    background-color: var(--body);
 }
 
 :root {
@@ -15,6 +16,9 @@ body {
     --red: #FF0000;
     --box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     --black: black;
+    --brown: brown;
+    --body: #F0F9F9;
+    --orange: orange;
 }
 
 
@@ -27,10 +31,11 @@ body {
 #header {
     margin: 0 auto;
     position: relative;
+    z-index: 1;
 }
 
 .navigation {
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
     height: 120px;
     padding: 0px 50px;
@@ -186,28 +191,252 @@ body {
 =========================
 */
 
-.hero {
-    display: flex;
+.section {
+    padding: 10px 40px;
+    height: 80vh;
 }
 
-.hero__recipe-of-the-day {
+.hero {
+    display: flex;
+    margin-top: 40px;
+}
+
+/*
+=========================
+     TODAYS RECIPE
+=========================
+*/
+
+
+.today-recipe {
+    position: relative;
     width: 50%;
 }
 
-
-.hero__latest-recipies-wrapper ul {
-    display: grid;
-    grid-template:
-        "title title"
-        "recipe recipe"
+.today-recipe img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-.hero-img-holder {
-    border-radius: 6px;
-    margin-bottom: 8px;
-    height: 160px;
+.today-recipe article {
+    position: absolute;
+    display: flex;
+    z-index: 0;
+    flex-direction: column;
+    justify-content: center;
+    bottom: 20%;
+    left: 10%;
+    border: 1px solid var(--black);
+    margin: 20px;
+    padding: 10px;
+    width: 700px;
+    height: 350px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: var(--white);
+    opacity: 0.8;
+}
+
+.today-recipe .today-recipe-title {
+    padding: 0 10px;
+    font-size: 20px;
+}
+
+.today-recipe h2 {
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--brown);
+    letter-spacing: 1.5px;
+    margin: 7px 0px;
+}
+
+.descr {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.today-recipe a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 3px 8px;
+    border: 1px solid var(--black);
+    display: inline-block;
+    width: 150px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: var(--grey);
+}
+
+.today-recipe a:hover {
+    background-color: var(--white)
+}
+
+
+/*
+=========================
+     RECENTLY ADDED
+=========================
+*/
+
+.recently-recipies {
+    width: 50%;
+}
+
+.recently-recipies .card-list {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    gap: 40px;
+    padding-left: 150px;
+}
+
+
+
+.card-list a {
+    text-decoration: none;
+}
+
+img {
+    /* object-fit: cover; */
+    border-radius: 5px 5px 0 0;
+}
+
+.recently-recipies h2 {
+    font-size: 35px;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 3px;
+    border-bottom: 3px solid var(--brown);
     width: 300px;
-    background-image: url("/img/dishes/Best-Lasagna-550.jpg");
-    background-position: center center;
-    background-size: cover;
+}
+
+.recently-recipies h2:hover {
+    border-bottom: 3px solid var(--orange);
+}
+
+.card-item {
+    margin-bottom: 10px;
+    background-color: var(--white);
+}
+
+.card-item:hover {
+    margin-bottom: 10px;
+    background-color: var(--white);
+    -webkit-box-shadow: 6px 9px 2px 0px #FF8333;
+    box-shadow: 6px 9px 2px 0px #FF8333;
+}
+
+.recipies-title {
+    text-decoration: none;
+    color: black;
+}
+
+.card-item .card-title {
+    color: var(--black);
+    font-size: 35px;
+    margin: 10px 0;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.card-item .card-descr {
+    margin-bottom: 10px;
+    font-size: 23px;
+    color: var(--grey);
+    padding: 0px 10px;
+    text-align: left;
+    font-style: italic;
+}
+
+.card-item span i {
+    margin: 15px 5px;
+    color: var(--grey);
+    font-size: 20px;
+}
+
+.card-item span {
+    color: var(--grey);
+    font-size: 20px;
+}
+
+/*
+=========================
+     SUMMER RECIPIES
+=========================
+*/
+
+.summer-recipies {
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.summer-recipies .card-list {
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    align-items: center;
+    gap: 30px;
+}
+
+.summer-recipies h2 {
+    font-size: 35px;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 3px;
+    border-bottom: 3px solid var(--brown);
+    width: 500px;
+}
+
+.summer-recipies h2:hover {
+    border-bottom: 3px solid var(--orange);
+}
+
+.card-item {
+    margin-bottom: 10px;
+    background-color: var(--white);
+}
+
+.card-item:hover {
+    margin-bottom: 10px;
+    background-color: var(--white);
+    -webkit-box-shadow: 6px 9px 2px 0px #FF8333;
+    box-shadow: 6px 9px 2px 0px #FF8333;
+}
+
+.recipies-title {
+    text-decoration: none;
+    color: black;
+}
+
+.card-item .card-title {
+    color: var(--black);
+    font-size: 35px;
+    margin: 10px 0;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.card-item .card-descr {
+    margin-bottom: 10px;
+    font-size: 23px;
+    color: var(--grey);
+    padding: 0px 10px;
+    text-align: left;
+    font-style: italic;
+}
+
+.card-item span i {
+    margin: 15px 5px;
+    color: var(--grey);
+    font-size: 20px;
+}
+
+.card-item span {
+    color: var(--grey);
+    font-size: 20px;
 }
