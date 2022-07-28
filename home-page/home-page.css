@@ -24,6 +24,28 @@ body {
 
 /*
 =========================
+    Global CSS HERO
+=========================
+*/
+
+/* h2 */
+.section-title {
+    font-size: 35px;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 3px;
+    border-bottom: 3px solid var(--brown);
+    width: 300px;
+}
+
+.section-title:hover{
+    border-bottom: 3px solid var(--orange);
+}
+
+
+
+/*
+=========================
     Navigation
 =========================
 */
@@ -295,8 +317,6 @@ body {
     padding-left: 150px;
 }
 
-
-
 .card-list a {
     text-decoration: none;
 }
@@ -304,19 +324,6 @@ body {
 img {
     /* object-fit: cover; */
     border-radius: 5px 5px 0 0;
-}
-
-.recently-recipies h2 {
-    font-size: 35px;
-    margin: 0 auto;
-    text-align: center;
-    letter-spacing: 3px;
-    border-bottom: 3px solid var(--brown);
-    width: 300px;
-}
-
-.recently-recipies h2:hover {
-    border-bottom: 3px solid var(--orange);
 }
 
 .card-item {
@@ -365,78 +372,32 @@ img {
 }
 
 /*
-=========================
-     SUMMER RECIPIES
-=========================
+==============================
+SUMMER RECIPIES & FRESH SALADS
+==============================
 */
 
-.summer-recipies {
+.summer-section .recipies {
     max-width: 1000px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 300px;
 }
 
-.summer-recipies .card-list {
+.summer-section .recipies .card-list,
+.fresh-salads-section .recipies .card-list {
     display: grid;
     grid-template-columns: 300px 300px 300px;
     align-items: center;
     gap: 30px;
 }
 
-.summer-recipies h2 {
-    font-size: 35px;
-    margin: 0 auto;
-    text-align: center;
-    letter-spacing: 3px;
-    border-bottom: 3px solid var(--brown);
+.summer-section h2,
+.fresh-salads-section h2 {
     width: 500px;
 }
 
-.summer-recipies h2:hover {
-    border-bottom: 3px solid var(--orange);
-}
-
-.card-item {
-    margin-bottom: 10px;
-    background-color: var(--white);
-}
-
-.card-item:hover {
-    margin-bottom: 10px;
-    background-color: var(--white);
-    -webkit-box-shadow: 6px 9px 2px 0px #FF8333;
-    box-shadow: 6px 9px 2px 0px #FF8333;
-}
-
-.recipies-title {
-    text-decoration: none;
-    color: black;
-}
-
-.card-item .card-title {
-    color: var(--black);
-    font-size: 35px;
-    margin: 10px 0;
-    letter-spacing: 3px;
-    text-align: center;
-}
-
-.card-item .card-descr {
-    margin-bottom: 10px;
-    font-size: 23px;
-    color: var(--grey);
-    padding: 0px 10px;
-    text-align: left;
-    font-style: italic;
-}
-
-.card-item span i {
-    margin: 15px 5px;
-    color: var(--grey);
-    font-size: 20px;
-}
-
-.card-item span {
-    color: var(--grey);
-    font-size: 20px;
+.fresh-salads-section {
+    margin-top: 150px;
+    margin: 0 auto;
+    max-width: 1000px;
 }
