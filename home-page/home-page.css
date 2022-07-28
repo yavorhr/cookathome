@@ -327,11 +327,14 @@ img {
 }
 
 .card-item {
+    display: inline-block;
+    transition: 0.8s;
     margin-bottom: 10px;
     background-color: var(--white);
 }
 
 .card-item:hover {
+    transform: translateY(-15px);
     margin-bottom: 10px;
     background-color: var(--white);
     -webkit-box-shadow: 6px 9px 2px 0px #FF8333;
