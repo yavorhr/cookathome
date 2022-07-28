@@ -60,17 +60,17 @@ body {
     max-width: 600px;
     border: 0;
     outline: none;
-    background-color: lightgrey ;
+    background-color: lightgrey;
     border-radius: 60px;
     padding: 24px 20px;
 }
 
-::placeholder{
+::placeholder {
     color: white;
     font-size: 20px;
 }
 
-.search-bar form button{
+.search-bar form button {
     position: relative;
     right: 60px;
     border: none;
@@ -78,13 +78,93 @@ body {
 }
 
 
-.search-bar form button i{
+.search-bar form button i {
     font-size: 18px;
     background-color: ghostwhite;
     color: gray;
     opacity: 0.7;
     padding: 10px;
     border-radius: 30px;
-
 }
+
+/*
+=========================
+     ALL RECIPIES
+=========================
+*/
+
+.card-list {
+    display: grid;
+    grid-template-columns: 650px 650px;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.horizontal-list-item a {
+    display: flex;
+    flex-direction: row;
+}
+
+.img-holder{
+    width: 50%;
+}
+
+.img-holder img {
+    width: max-content;
+    height: 96%;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 5px 0 0 5px;
+}
+
+.card-list a {
+    text-decoration: none;
+}
+
+.card-item {
+    display: inline-block;
+    margin-bottom: 10px;
+    background-color: var(--white);
+}
+
+.title {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
+
+.card-item .card-title {
+    color: var(--black);
+    font-size: 35px;
+    margin: 15px 0;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.card-item .card-descr {
+    margin-bottom: 10px;
+    font-size: 23px;
+    color: var(--grey);
+    padding: 0px 10px;
+    text-align: left;
+    font-style: italic;
+}
+
+.card-item span {
+    display: inline-block;
+    color: var(--grey);
+    font-size: 20px;
+    margin-top: 45px;
+    margin-left: 5px;
+}
+
+.card-item span i {
+    margin: 15px 5px;
+    color: var(--grey);
+    font-size: 20px;
+}
+
+
 
