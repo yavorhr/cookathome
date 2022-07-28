@@ -38,7 +38,7 @@ body {
     width: 300px;
 }
 
-.section-title:hover{
+.section-title:hover {
     border-bottom: 3px solid var(--orange);
 }
 
@@ -400,4 +400,64 @@ SUMMER RECIPIES & FRESH SALADS
     margin-top: 150px;
     margin: 0 auto;
     max-width: 1000px;
+}
+
+/*
+==============================
+            FOOTER
+==============================
+*/
+
+footer {
+    width: 100%;
+    height: 140px;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0a8ea6;
+}
+
+footer ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+footer .list-icons a {
+    color: #9efcff;
+    font-size: 30px;
+    display: inline-block;
+    transition: 0.8s;
+}
+
+footer .list-icons li a:hover {
+    transform: translateY(-15px);
+}
+
+footer .list-links li a {
+    font-size: 1.3em;
+    color: var(--white);
+    display: inline-block;
+    transition: 0.8s;
+    text-decoration: none;
+    opacity: 0.80;
+    font-weight: 400;
+}
+
+footer .list-links li a:hover {
+    opacity: 1;
+}
+
+footer p {
+    color: var(--white);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
 }
