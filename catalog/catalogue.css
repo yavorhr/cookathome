@@ -1,0 +1,90 @@
+/*
+=========================
+    Global CSS
+=========================
+*/
+
+body {
+    font-family: "Roboto";
+    box-sizing: border-box;
+    background-color: var(--body);
+}
+
+:root {
+    --grey: #A8ACAF;
+    --white: #ffffff;
+    --red: #FF0000;
+    --box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --black: black;
+    --brown: brown;
+    --body: #F0F9F9;
+    --orange: orange;
+}
+
+/*
+=========================
+         SEARCHBAR
+=========================
+*/
+
+.search-bar {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #E2F3F3;
+}
+
+.search-bar .title {
+    font-size: 40px;
+    margin: 30px 0;
+    letter-spacing: 3px;
+}
+
+.search-bar form {
+    margin: 0 auto;
+    max-width: 700px;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+}
+
+.search-bar .descr {
+    font-size: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.search-bar input {
+    background-color: transparent;
+    flex: 1;
+    max-width: 600px;
+    border: 0;
+    outline: none;
+    background-color: lightgrey ;
+    border-radius: 60px;
+    padding: 24px 20px;
+}
+
+::placeholder{
+    color: white;
+    font-size: 20px;
+}
+
+.search-bar form button{
+    position: relative;
+    right: 60px;
+    border: none;
+    border-radius: 30px;
+}
+
+
+.search-bar form button i{
+    font-size: 18px;
+    background-color: ghostwhite;
+    color: gray;
+    opacity: 0.7;
+    padding: 10px;
+    border-radius: 30px;
+
+}
+
