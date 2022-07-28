@@ -93,6 +93,10 @@ body {
 =========================
 */
 
+section{
+    height: 100vh;
+}
+
 .card-list {
     display: grid;
     grid-template-columns: 650px 650px;
@@ -121,6 +125,10 @@ body {
 
 .card-list a {
     text-decoration: none;
+}
+
+.card-list a:hover {
+  border: 1px solid var(--orange);
 }
 
 .card-item {

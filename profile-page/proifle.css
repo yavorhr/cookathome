@@ -1,0 +1,80 @@
+/*
+=========================
+    Global CSS
+=========================
+*/
+
+body {
+    font-family: "Roboto";
+    box-sizing: border-box;
+    background-color: var(--body);
+}
+
+:root {
+    --grey: #A8ACAF;
+    --white: #ffffff;
+    --red: #FF0000;
+    --box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --black: black;
+    --brown: brown;
+    --body: #F0F9F9;
+    --orange: orange;
+}
+
+/*
+=========================
+        PROFILE
+=========================
+*/
+
+.user-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 50px;
+}
+
+.user-details .img-holder {
+    width: 20%;
+    height: auto;
+}
+
+.user-details img {
+    border-radius: 50%;
+}
+
+.user-information {
+    display: grid;
+    gap: 20px;
+    grid-column: 1fr 1fr;
+    grid-template:
+        "title title"
+        "name username"
+        "email phone";
+}
+
+.title{
+    grid-area: title;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 900;
+    padding: 5px;
+    border-bottom: 1px solid var(--grey);
+}
+
+.user-information label{
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.user-information p{
+    font-size: 14px;
+    color: var(--grey);
+    letter-spacing: 1px;
+    
+}
