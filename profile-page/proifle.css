@@ -27,17 +27,33 @@ body {
 =========================
 */
 
+.user-profile {
+    max-width: 800px;
+    margin: 0 auto;
+    border: #A8ACAF;
+    border-radius: 20px;
+    border: none;
+    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    padding: 15px;
+    margin-top: 30px;
+}
+
+.user-profile{
+    display: flex;
+    flex-direction: column;
+}
+
 .user-details {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 50px;
+    gap: 30px;
+    height: 30vh;
 }
 
 .user-details .img-holder {
-    width: 20%;
+    width: 30%;
     height: auto;
 }
 
@@ -46,6 +62,7 @@ body {
 }
 
 .user-information {
+    width: 60%;
     display: grid;
     gap: 20px;
     grid-column: 1fr 1fr;
@@ -55,7 +72,7 @@ body {
         "email phone";
 }
 
-.title{
+.title {
     grid-area: title;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -65,16 +82,102 @@ body {
     border-bottom: 1px solid var(--grey);
 }
 
-.user-information label{
+.user-information label {
     font-size: 17px;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 
-.user-information p{
+.user-information p {
     font-size: 14px;
     color: var(--grey);
     letter-spacing: 1px;
-    
+    letter-spacing: 1px;
+
+}
+
+/*
+=========================
+        RECIPIES
+=========================
+*/
+
+.card-list {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    gap: 30px;
+}
+
+.card-list a {
+    text-decoration: none;
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.card-item {
+    display: inline-block;
+    transition: 0.8s;
+    margin-bottom: 10px;
+    background-color: var(--white);
+}
+
+.card-item:hover {
+    transform: translateY(-15px);
+    margin-bottom: 10px;
+    background-color: var(--white);
+    -webkit-box-shadow: 6px 9px 2px 0px #FF8333;
+    box-shadow: 6px 9px 2px 0px #FF8333;
+}
+
+.recipies-title {
+    color: black;
+    letter-spacing: 1px;
+    font-weight: lighter;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.card-item .card-title {
+    color: var(--black);
+    font-size: 18px;
+    margin: 10px 0;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.card-item .card-descr {
+    margin-bottom: 8px;
+    font-size: 17px;
+    color: var(--grey);
+    padding: 0px 10px;
+    text-align: left;
+    font-style: italic;
+}
+
+.card-item span i {
+    margin: 15px 5px;
+    color: var(--grey);
+    font-size: 15px;
+}
+
+.card-item span {
+    color: var(--grey);
+    font-size: 15px;
+}
+
+/* Show all button */
+.show-all {
+    text-align: end;
+    font-size: 18px;
+}
+
+.show-all a {
+    color: var(--black);
+}
+
+.show-all a:hover {
+    border-bottom: 1px solid black
 }
