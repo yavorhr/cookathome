@@ -1,0 +1,70 @@
+/*
+=========================
+    Global CSS
+=========================
+*/
+
+body {
+    font-family: "Roboto";
+    box-sizing: border-box;
+    background-color: var(--body);
+    overflow: hidden;
+}
+
+:root {
+    --grey: #A8ACAF;
+    --white: #ffffff;
+    --red: #FF0000;
+    --box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --black: black;
+    --brown: brown;
+    --body: #F0F9F9;
+    --orange: orange;
+    --blue:#1B8AD9;
+}
+
+.login {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 20px;
+    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    border-radius: 20px;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+}
+
+form button{
+    width: 90%;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 15px;
+    background-color: var(--blue);
+    color: var(--white);
+    cursor: pointer;
+}
+
+form button:hover{
+    border:1px solid var(--black)
+}
+
+.login form input{
+    padding: 10px;
+    width: 90%;
+    border: none;
+    background-color:transparent;
+    border-bottom: 1px solid gray;
+    outline: none;
+
+}
+
+::placeholder{
+    letter-spacing: 1px;
+}
