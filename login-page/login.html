@@ -19,13 +19,21 @@
 </head>
 
 <body>
-    <section class="login">
+    <section class="login-section mrgn-auto">
         <h1>Login</h1>
         <form action="">
-            <input type="text" required placeholder="Username">
-            <input type="password" required placeholder="Password">
+            <div class="text-field">
+                <input type="text" required>
+                <span></span>
+                <label for="">Username</label>
+            </div>
+            <div class="text-field">
+                <input type="password" required>
+                <span></span>
+                <label for="">Password</label>
+            </div>
             <button type="submit">Login</button>
-            <div>
+            <div class="sign-up-link">
                 <p>Not a member ?</p>
                 <a href="">Sign up</a>
             </div>
