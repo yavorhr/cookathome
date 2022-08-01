@@ -1,0 +1,25 @@
+/*
+=========================
+    Global CSS
+=========================
+*/
+
+body {
+    font-family: "Roboto";
+    box-sizing: border-box;
+    background-color: var(--body);
+    overflow: hidden;
+    background-image: url('/img/veggies.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+
+.mrgn-auto {
+    margin: 0 auto;
+}
+
+/*
+=========================
+      DETAILS 
+=========================
+*/
