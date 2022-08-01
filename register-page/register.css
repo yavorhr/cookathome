@@ -1,0 +1,121 @@
+/*
+=========================
+    Global CSS
+=========================
+*/
+
+body {
+    font-family: "Roboto";
+    box-sizing: border-box;
+    background-color: var(--body);
+    overflow: hidden;
+}
+
+.mrgn-auto {
+    margin: 0 auto;
+}
+
+/*
+=========================
+        REGISTER 
+=========================
+*/
+
+:root {
+    --grey: #A8ACAF;
+    --white: #ffffff;
+    --body: #F0F9F9;
+    --blue: #2691d9;
+    --lightgray: lightslategray;
+}
+
+.register-section {
+    max-width: 700px;
+    width: 100%;
+    margin-top: 50px;
+    background-color: var(--white);
+    padding: 25px 30px;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+}
+
+.register-section .title {
+    position: relative;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.register-section .title:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 140px;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.register-section form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+form .user-details .txt-fields {
+    width: calc(100% / 2 - 20px);
+    margin-bottom: 15px;
+}
+
+.user-details .txt-fields input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 18px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+
+.txt-fields label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+form button {
+    height: 45px;
+    margin: 35px 0;
+    width: 100%;
+    outline: none;
+    color: #ffffff;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+
+@media(max-width:584px) {
+    .register-section {
+        max-width: 100%;
+    }
+
+    .txt-fields {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+
+}

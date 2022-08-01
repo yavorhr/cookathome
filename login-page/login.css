@@ -27,7 +27,7 @@ body {
     --white: #ffffff;
     --body: #F0F9F9;
     --blue: #2691d9;
-    --lightgray:lightslategray;
+    --lightgray: lightslategray;
 }
 
 .login-section {
@@ -87,8 +87,8 @@ form .text-field {
     transition: .5s;
 }
 
-.text-field input:focus~label,
-.text-field input:valid~label {
+.text-field input:focus ~ label,
+.text-field input:valid ~ label {
     top: -5px;
     color: var(--blue);
 }
