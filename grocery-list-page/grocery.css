@@ -81,7 +81,7 @@ body {
     cursor: pointer;
 }
 
-.tasks {
+.groceries {
     width: 100%;
     box-shadow: var(--box-shadow);
     margin-top: 40px;
@@ -91,7 +91,7 @@ body {
     list-style: none;
 }
 
-.task {
+.food-item {
     background-color: var(--white);
     height: 50px;
     padding: 5px 10px;
@@ -103,11 +103,11 @@ body {
     border-bottom: 2px solid #d1d3d4;
 }
 
-.task p {
+.food-item p {
     cursor: pointer;
 }
 
-.task button {
+.food-item button {
     border: none;
     background-color: #19A68C;
     height: 100%;
