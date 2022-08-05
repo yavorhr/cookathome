@@ -109,7 +109,7 @@ body {
 =========================
 */
 
-.btn{
+.btn {
     width: 100px;
     height: 70px;
     color: #fff;
@@ -144,14 +144,12 @@ body {
 }
 
 /* Delete button */
-.delete-btn
-{
+.delete-btn {
     box-shadow: 0 0 0 0 rgba(241, 11, 7, 0.5), 0 0 0 0 rgba(158, 25, 7, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.delete-btn:after
- {
+.delete-btn:after {
     content: '';
     width: 400px;
     height: 400px;
@@ -164,8 +162,7 @@ body {
     transition: transform 05s ease;
 }
 
-.delete-btn:hover
- {
+.delete-btn:hover {
     transform: translate(0, -6px);
     box-shadow: 10px -10px 25px 0 rgba(241, 11, 7, 0.5), -10px 10px 25px 0 rgba(240, 34, 7, 0.5);
 }
@@ -272,28 +269,15 @@ body {
 
 /*
 =========================
-      INGREDIENTS
+     ADD IMAGE BUTTON
 =========================
 */
 
-.cooking-steps {
-    list-style: decimal;
-}
-
-.cooking-steps li {
-    margin-bottom: 7px;
-    font-size: 16px;
-}
-
-.cooking-process h2 {
-    margin-top: 22px;
-}
-
-.add-image-container{
+.add-image-container {
     padding: 30px;
 }
 
-.add-image-container{
+.add-image-container {
     margin: 0 auto;
     margin-top: 40px;
     display: flex;
@@ -308,14 +292,31 @@ body {
     font-size: large;
 }
 
-.add-image-container label span{
+.add-image-container label span {
     font-weight: lighter;
     font-size: small;
     padding-top: 10px;
 }
 
-.add-image-container input{
+.add-image-container input {
     display: none;
+}
+
+
+/*
+=========================
+      COOKING PROCESS
+=========================
+*/
+
+.cooking-process p {
+    font-size: 20px;
+    text-align: left;
+    line-height: 2;
+}
+
+.cooking-process h2 {
+    margin-top: 22px;
 }
 
 

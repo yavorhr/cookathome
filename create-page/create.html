@@ -23,8 +23,72 @@
 
 <body>
     <section class="create">
-        <div class="gallery"></div>
-        
+        <form action="" class="mrgn-auto">
+            <div class="title">
+                <label for="title">Recipe title</label>
+                <input type="text" placeholder="Enter the title" name="title">
+            </div>
+            <div class="descr">
+                <label for="descr">Description</label>
+                <textarea name="descr" id="" cols="30" rows="10" placeholder="Enter short description..."></textarea>
+            </div>
+
+            <div class="category">
+                <label for="category">Category</label>
+                <select type="text" name="category">
+                    <option selected="disabled">Choose category</option> </select>
+            </div>
+
+            <div class="type">
+                <label for="type">Recipe type</label>
+                <input type="text" name="type">
+            </div>
+            <div class="season">
+                <label for="season">Season</label>
+                <input type="text" name="season">
+            </div>
+            <div class="traditional">
+                <label for="traditional">Traditional kitchens</label>
+                <input type="text" name="traditional">
+            </div>
+
+            <div class="ingredients">
+                <label for="ingredients">Ingredients</label>
+                <textarea name="ingredients" id="" cols="30" rows="10"
+                    placeholder="Enter one product per row (ex. : Potatoes - 1 kg.)"></textarea>
+            </div>
+
+            <div class="steps">
+                <label for="steps">Steps</label>
+                <textarea name="steps" id="" cols="30" rows="10" placeholder="Enter one step per row"></textarea>
+            </div>
+            <div class="calories">
+                <label for="calories">Calories</label>
+                <input type="text" name="calories">
+            </div>
+
+            <div class="prep-time">
+                <label for="prep-time">Prep time</label>
+                <input type="text" name="prep-time">
+            </div>
+
+            <div class="cook-time">
+                <label for="cook-time">Cook time</label>
+                <input type="text" name="cook-time">
+            </div>
+            <div class="level">
+                <label for="level">Level of complexity</label>
+                <input type="text" name="level">
+            </div>
+            <div class="occasion">
+                <label for="occasion">Good for: </label>
+                <input class="occasion" type="text" name="occasion">
+            </div>
+            <div class="portions">
+                <label for="portions">Portions</label>
+                <input type="text" name="portions">
+            </div>
+        </form>
     </section>
 
 </body>
