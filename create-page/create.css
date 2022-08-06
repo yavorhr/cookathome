@@ -18,6 +18,11 @@ body {
     margin: 0 auto;
 }
 
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
 /*
 =========================
       CREATE 
@@ -25,10 +30,8 @@ body {
 */
 
 .create {
-    margin-top: 30px;
+    margin: 40px 0;
 }
-
-form {}
 
 form label {
     margin-bottom: 5px;
@@ -36,45 +39,66 @@ form label {
     letter-spacing: 1px;
 }
 
-form select {
-    outline: none;
-    border: none;
-    background-color: #5c6664;
-    color: white;
+/* SELECT DROPDOWN & ::AFTER DROPDOWN EFFECT */
+form select,
+form input,
+form textarea {
+    /* box model */
     padding: 10px 8px;
+    border: none;
+    outline: none;
     border-radius: 10px;
+    background-color: #f0e5db;
+    /*type*/
+    color: grey;
+    font-size: 18px;
+    /*misc*/
     appearance: none;
+}
+
+form select {
     cursor: pointer;
+}
+
+form textarea {
+    resize: none;
+}
+
+::placeholder {
+    font-size: 20px;
+    letter-spacing: 1px;
 }
 
 .select-wrapper {
     position: relative;
 }
 
-
 .select-wrapper::after {
+    /* positioning */
     content: '\25BC';
-    font-size: 20px;
-    color: white;
     position: absolute;
     bottom: 0;
     right: 0;
-    padding: 7px;
-    background-color: #2b2e2e;
-    cursor: pointer;
+    /* box model */
+    padding: 9px;
+    background-color: #575e5e;
+    /*type*/
+    font-size: 20px;
+    color: white;
     border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    /*functionality*/
     transition: .25s all ease;
 }
 
 .select-wrapper:hover::after {
-    color: #23b499;
+    color: rgb(115, 172, 162);
 }
 
 /* FORM AND FORM AFTER EFFECT */
 form {
     /* display props */
     display: grid;
-
     /* positioning */
     position: relative;
     grid-template-columns: repeat(3, 1fr);
@@ -86,116 +110,95 @@ form {
         "steps steps steps"
         "calories prep-time cook-time"
         "level occasion portions";
-
     /* box model */
     width: 1200px;
     gap: 20px;
     padding: 30px;
-
+    background-color: transparent;
+    border: 1px solid black;
     /*type*/
     color: white;
-    background-color: transparent;
-
     /* misc */
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-    border: 1px solid black;
 }
 
 form::before {
     /* positioning */
+    content: '';
     position: absolute;
-    z-index: -1;
     width: 100%;
     height: 100%;
-
-    /*type*/
+    z-index: -1;
+    /*box-model*/
     background-color: rgba(0, 0, 0, .5);
-    content: '';
-
 }
 
 /* FORM CONTENT GRID AREAS */
 .title {
     grid-area: title;
-    display: flex;
-    flex-direction: column;
+
 }
 
 .descr {
     grid-area: descr;
-    display: flex;
-    flex-direction: column;
 }
 
 .category {
     grid-area: category;
-    display: flex;
-    flex-direction: column;
 }
 
 .type {
     grid-area: type;
-    display: flex;
-    flex-direction: column;
+
 }
 
 .season {
     grid-area: season;
-    display: flex;
-    flex-direction: column;
+  
 }
 
 .traditional {
     grid-area: traditional;
-    display: flex;
-    flex-direction: column;
+   
 }
 
 .ingredients {
     grid-area: ingredients;
-    display: flex;
-    flex-direction: column;
+   
 }
 
 .steps {
     grid-area: steps;
-    display: flex;
-    flex-direction: column;
+   ;
 }
 
 .calories {
     grid-area: calories;
-    display: flex;
-    flex-direction: column;
+   
 }
 
 .prep-time {
     grid-area: prep-time;
-    display: flex;
-    flex-direction: column;
+    
 }
 
 .cook-time {
     grid-area: cook-time;
-    display: flex;
-    flex-direction: column;
+   
 }
 
 .level {
     grid-area: level;
-    display: flex;
-    flex-direction: column;
+  
 }
 
 .occasion {
     grid-area: occasion;
-    display: flex;
-    flex-direction: column;
+   
 }
 
 .portions {
     grid-area: portions;
-    display: flex;
-    flex-direction: column;
+ 
 }
