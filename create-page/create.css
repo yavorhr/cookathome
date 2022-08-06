@@ -7,7 +7,10 @@
 body {
     font-family: "Roboto";
     box-sizing: border-box;
-    background-color: var(--body);
+    background-image: url('/img/wood.jpg');
+    background-position: center center;
+    background-repeat: none;
+    background-size: cover;
     height: 100vh;
 }
 
@@ -25,14 +28,56 @@ body {
     margin-top: 30px;
 }
 
-.create form {
+form {}
+
+form label {
+    margin-bottom: 5px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+form select {
+    outline: none;
+    border: none;
+    background-color: #5c6664;
+    color: white;
+    padding: 10px 8px;
+    border-radius: 10px;
+    appearance: none;
+    cursor: pointer;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+
+.select-wrapper::after {
+    content: '\25BC';
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 7px;
+    background-color: #2b2e2e;
+    cursor: pointer;
+    border-radius: 0 10px 10px 0;
+    transition: .25s all ease;
+}
+
+.select-wrapper:hover::after {
+    color: #23b499;
+}
+
+/* FORM AND FORM AFTER EFFECT */
+form {
+    /* display props */
     display: grid;
+
+    /* positioning */
+    position: relative;
     grid-template-columns: repeat(3, 1fr);
-    width: 1200px;
-    gap: 20px;
-    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-    padding: 25px;
     grid-template: "title title title"
         ". descr ."
         "category type season"
@@ -40,9 +85,37 @@ body {
         "ingredients ingredients ingredients"
         "steps steps steps"
         "calories prep-time cook-time"
-        "level occasion portions"
+        "level occasion portions";
+
+    /* box model */
+    width: 1200px;
+    gap: 20px;
+    padding: 30px;
+
+    /*type*/
+    color: white;
+    background-color: transparent;
+
+    /* misc */
+    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    border: 1px solid black;
 }
 
+form::before {
+    /* positioning */
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+
+    /*type*/
+    background-color: rgba(0, 0, 0, .5);
+    content: '';
+
+}
+
+/* FORM CONTENT GRID AREAS */
 .title {
     grid-area: title;
     display: flex;
