@@ -1,0 +1,215 @@
+/*
+=========================
+    Global CSS
+=========================
+*/
+
+body {
+    font-family: "Roboto";
+    box-sizing: border-box;
+    background-image: url('/img/wood.jpg');
+    background-position: center center;
+    background-repeat: none;
+    background-size: cover;
+    height: 100vh;
+}
+
+.mrgn-auto {
+    margin: 0 auto;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+=========================
+      EDIT PAGE 
+=========================
+*/
+
+h1 {
+    grid-area: heading;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.create {
+    margin: 40px 0;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+/* SELECT DROPDOWN & ::AFTER DROPDOWN EFFECT */
+form select,
+form input,
+form textarea {
+    /* box model */
+    padding: 10px 8px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: #f0e5db;
+    /*type*/
+    color: grey;
+    font-size: 18px;
+    /*misc*/
+    appearance: none;
+}
+
+form select {
+    cursor: pointer;
+}
+
+form textarea {
+    resize: none;
+}
+
+::placeholder {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    /* positioning */
+    content: '\25BC';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* box model */
+    padding: 9px;
+    background-color: #575e5e;
+    /*type*/
+    font-size: 20px;
+    color: white;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    /*functionality*/
+    transition: .25s all ease;
+}
+
+.select-wrapper:hover::after {
+    color: rgb(115, 172, 162);
+}
+
+/* FORM AND FORM AFTER EFFECT */
+form {
+    /* display props */
+    display: grid;
+    /* positioning */
+    position: relative;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template: 
+    "heading heading heading"
+    "title title title"
+        ". descr ."
+        "category type season"
+        "traditional . ."
+        "ingredients ingredients ingredients"
+        "steps steps steps"
+        "calories prep-time cook-time"
+        "level occasion portions";
+    /* box model */
+    width: 1200px;
+    gap: 20px;
+    padding: 30px;
+    background-color: transparent;
+    border: 1px solid black;
+    /*type*/
+    color: white;
+    /* misc */
+    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+}
+
+form::before {
+    /* positioning */
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /*box-model*/
+    background-color: rgba(0, 0, 0, .5);
+}
+
+/* FORM CONTENT GRID AREAS */
+.title {
+    grid-area: title;
+
+}
+
+.descr {
+    grid-area: descr;
+}
+
+.category {
+    grid-area: category;
+}
+
+.type {
+    grid-area: type;
+
+}
+
+.season {
+    grid-area: season;
+
+}
+
+.traditional {
+    grid-area: traditional;
+
+}
+
+.ingredients {
+    grid-area: ingredients;
+
+}
+
+.steps {
+    grid-area: steps;
+    ;
+}
+
+.calories {
+    grid-area: calories;
+
+}
+
+.prep-time {
+    grid-area: prep-time;
+
+}
+
+.cook-time {
+    grid-area: cook-time;
+
+}
+
+.level {
+    grid-area: level;
+
+}
+
+.occasion {
+    grid-area: occasion;
+
+}
+
+.portions {
+    grid-area: portions;
+
+}
