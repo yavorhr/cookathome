@@ -1,6 +1,6 @@
 /*
 =========================
-    Global CSS
+       Global CSS
 =========================
 */
 
@@ -8,6 +8,10 @@ body {
     font-family: "Roboto";
     box-sizing: border-box;
     background-color: var(--body);
+}
+
+section{
+    height: 100vh;
 }
 
 :root {
@@ -23,53 +27,60 @@ body {
 
 /*
 =========================
-         SEARCHBAR
+      CREATE PAGE
 =========================
 */
 
-/* display props */
-/* positioning */
-/* box model */
-/*type*/
-/* misc */
-/*functionality*/
+
+/* SEARCH BAR */
 
 .search-bar {
+    /* positioning */
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
     background-color: #E2F3F3;
+    /* box-model */
+    padding: 20px;
+    /* type */
+    text-align: center;
 }
 
 .search-bar .title {
-    font-size: 40px;
     margin: 30px 0;
+
+    font-size: 40px;
     letter-spacing: 3px;
 }
 
 .search-bar form {
-    margin: 0 auto;
-    max-width: 700px;
+    /* display */
     display: flex;
-    align-items: center;
+    /* positioning */
+    max-width: 700px;
     padding: 30px;
+    margin: 0 auto;
+    /* type */
+    align-items: center;
 }
 
 .search-bar .descr {
-    font-size: 20px;
     margin-bottom: 10px;
+
+    font-size: 20px;
     letter-spacing: 2px;
 }
 
 .search-bar input {
+    /* positioning */
     background-color: transparent;
-    flex: 1;
     max-width: 600px;
+    padding: 15px 20px;
+    flex: 1;
     border: 0;
+    /* border-box */
     outline: none;
     background-color: lightgrey;
     border-radius: 60px;
-    padding: 24px 20px;
 }
 
 ::placeholder {
@@ -80,40 +91,61 @@ body {
 .search-bar form button {
     position: relative;
     right: 60px;
+
     border: none;
     border-radius: 30px;
 }
 
-
 .search-bar form button i {
-    font-size: 18px;
+    /* border-box */
     background-color: ghostwhite;
-    color: gray;
-    opacity: 0.7;
     padding: 10px;
     border-radius: 30px;
+    /* type */
+    font-size: 18px;
+    color: gray;
+
+    opacity: 0.7;
 }
 
 /*
-=========================
      ALL RECIPIES
-=========================
 */
 
 section {
     height: 100vh;
 }
 
+.section-title {
+    /* positioning */
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
+
+    border-bottom: 3px solid var(--brown);
+    /* type */
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.section-title:hover {
+    border-bottom: 3px solid var(--orange);
+}
+
 .card-list {
+    /* display */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
+    /* positioning */
     max-width: 1800px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
-horizontal-list-item {
+/* CARD ITEM */
+.horizontal-list-item {
     border-radius: 10px;
 }
 
@@ -126,14 +158,15 @@ horizontal-list-item {
     width: 40%;
 }
 
-.card-item {
+.card-info {
     width: 60%;
 }
 
-
 .img-holder img {
-    width: max-content;
     height: 100%;
+
+    width: max-content;
+
     background-size: cover;
     background-position: center center;
     border-radius: 5px 0 0 5px;
@@ -148,7 +181,7 @@ horizontal-list-item {
     border-radius: 10px;
 }
 
-.card-item {
+.card-info {
     display: inline-block;
     padding-bottom: 10px;
     background-color: var(--white);
@@ -160,7 +193,7 @@ horizontal-list-item {
     color: black;
 }
 
-.card-item .card-title {
+.card-info .card-title {
     color: var(--black);
     font-size: 22px;
     margin: 10px 0;
@@ -168,7 +201,7 @@ horizontal-list-item {
     text-align: center;
 }
 
-.card-item .card-descr {
+.card-info .card-descr {
     font-size: 18px;
     color: var(--grey);
     padding: 0px 10px;
@@ -176,7 +209,7 @@ horizontal-list-item {
     font-style: italic;
 }
 
-.card-item span {
+.card-info span {
     display: inline-block;
     color: var(--grey);
     font-size: 18px;
@@ -184,7 +217,7 @@ horizontal-list-item {
     margin-left: 5px;
 }
 
-.card-item span i {
+.card-info span i {
     margin: 0 10px;
     color: var(--grey);
     font-size: 18px;
