@@ -36,20 +36,41 @@
             <div class="category">
                 <label for="category">Category</label>
                 <select type="text" name="category">
-                    <option selected="disabled">Choose category</option> </select>
+                    <option selected="disabled"> --- </option>
+                    <option value="Pork meals">Pork meals</option>
+                    <option value="Chicken meals">Pork meals</option>
+                    <option value="Veggie meals">Veggie meals</option>
+                </select>
             </div>
 
             <div class="type">
-                <label for="type">Recipe type</label>
-                <input type="text" name="type">
+                <label for="type">Type</label>
+                <select type="text" name="category">
+                    <option selected="disabled"> --- </option>
+                    <option value="Lamb soup">Lamb soup</option>
+                    <option value="Baclava">Baclava</option>
+                    <option value="Babek">Babek</option>
+                </select>
             </div>
             <div class="season">
                 <label for="season">Season</label>
-                <input type="text" name="season">
+                <select type="text" name="season">
+                    <option selected="disabled"> --- </option>
+                    <option value="Spring">Spring</option>
+                    <option value="Summer">Summer</option>
+                    <option value="Autumn">Autumn</option>
+                    <option value="Winter">Winter</option>
+                </select>
             </div>
             <div class="traditional">
-                <label for="traditional">Traditional kitchens</label>
-                <input type="text" name="traditional">
+                <label for="traditional">Traditional kitchen</label>
+                <select type="text" name="traditional">
+                    <option selected="disabled"> --- </option>
+                    <option value="Bulgarian">Bulgarian</option>
+                    <option value="German">German</option>
+                    <option value="English">English</option>
+                    <option value="Serbian">Serbian</option>
+                </select>
             </div>
 
             <div class="ingredients">
@@ -60,29 +81,48 @@
 
             <div class="steps">
                 <label for="steps">Steps</label>
-                <textarea name="steps" id="" cols="30" rows="10" placeholder="Enter one step per row"></textarea>
+                <textarea name="steps" id="" cols="30" rows="10"
+                    placeholder="Enter one step per row (ex. : 1. Boil the potatoes)"></textarea>
             </div>
             <div class="calories">
-                <label for="calories">Calories</label>
+                <label for="calories">Calories (in kcal)</label>
                 <input type="text" name="calories">
             </div>
 
             <div class="prep-time">
-                <label for="prep-time">Prep time</label>
+                <label for="prep-time">Prep time (in minutes)</label>
                 <input type="text" name="prep-time">
             </div>
 
             <div class="cook-time">
-                <label for="cook-time">Cook time</label>
+                <label for="cook-time">Cook time (in minutes)</label>
                 <input type="text" name="cook-time">
             </div>
+
             <div class="level">
                 <label for="level">Level of complexity</label>
-                <input type="text" name="level">
+                <select type="text" name="level">
+                    <option selected="disabled">---</option>
+                    <option value="Bulgarian">Easy</option>
+                    <option value="German">Average</option>
+                    <option value="English">Complex</option>
+                    <option value="Serbian">Very complex</option>
+                </select>
             </div>
             <div class="occasion">
-                <label for="occasion">Good for: </label>
-                <input class="occasion" type="text" name="occasion">
+                <label for="occasion">Good for</label>
+                <select type="text" name="occasion">
+                    <option selected="disabled">---</option>
+                    <option value="">Breakfast</option>
+                    <option value="">Lunch</option>
+                    <option value="">Dinner</option>
+                    <option value="">Office</option>
+                    <option value="">On the road</option>
+                    <option value="">School</option>
+                    <option value="">Guests</option>
+                    <option value="">Guests</option>
+                    <option value="">Snack</option>
+                </select>
             </div>
             <div class="portions">
                 <label for="portions">Portions</label>
