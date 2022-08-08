@@ -1,0 +1,136 @@
+/*
+=========================
+       Global CSS
+=========================
+*/
+
+body {
+    font-family: "Roboto";
+    box-sizing: border-box;
+    background-color: var(--body);
+    height: 100vh;
+}
+
+section{
+    height: 100vh;
+    padding: 0px 20px;
+}
+
+:root {
+    --grey: #A8ACAF;
+    --white: #ffffff;
+    --red: #FF0000;
+    --box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --black: black;
+    --brown: brown;
+    --body: #F0F9F9;
+    --orange: orange;
+}
+
+
+/*
+     MY RECIPIES
+*/
+
+section {
+    height: 100vh;
+}
+
+.section-title {
+    /* positioning */
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 30px;
+
+    border-bottom: 3px solid var(--brown);
+    /* type */
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.section-title:hover {
+    border-bottom: 3px solid var(--orange);
+}
+
+.card-list {
+    /* display */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 40px;
+    /* positioning */
+    max-width: 1800px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* CARD ITEM */
+.list-item {
+    border-radius: 10px;
+}
+
+.list-item a {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-holder img {
+    height: 100%;
+
+    width: max-content;
+
+    background-size: cover;
+    background-position: center center;
+    border-radius: 5px 5px 0 0;
+}
+
+.card-list a {
+    text-decoration: none;
+}
+
+.card-list a:hover {
+    border: 1px solid var(--orange);
+    border-radius: 10px;
+}
+
+.card-info {
+    display: inline-block;
+    padding-bottom: 10px;
+    background-color: var(--white);
+}
+
+.title {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
+
+.card-info .card-title {
+    color: var(--black);
+    font-size: 22px;
+    margin: 10px 0;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.card-info .card-descr {
+    font-size: 18px;
+    color: var(--grey);
+    padding: 0px 10px;
+    text-align: left;
+    font-style: italic;
+}
+
+.card-info span {
+    display: inline-block;
+    color: var(--grey);
+    font-size: 18px;
+    margin-top: 30px;
+    margin-left: 5px;
+}
+
+.card-info span i {
+    margin: 0 10px;
+    color: var(--grey);
+    font-size: 18px;
+}
