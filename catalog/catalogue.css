@@ -8,10 +8,12 @@ body {
     font-family: "Roboto";
     box-sizing: border-box;
     background-color: var(--body);
+    height: 100vh;
 }
 
 section{
     height: 100vh;
+    padding: 0px 20px;
 }
 
 :root {
@@ -136,7 +138,7 @@ section {
 .card-list {
     /* display */
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 40px;
     /* positioning */
     max-width: 1800px;
@@ -145,21 +147,13 @@ section {
 }
 
 /* CARD ITEM */
-.horizontal-list-item {
+.list-item {
     border-radius: 10px;
 }
 
-.horizontal-list-item a {
+.list-item a {
     display: flex;
-    flex-direction: row;
-}
-
-.img-holder {
-    width: 40%;
-}
-
-.card-info {
-    width: 60%;
+    flex-direction: column;
 }
 
 .img-holder img {
@@ -169,7 +163,7 @@ section {
 
     background-size: cover;
     background-position: center center;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px 5px 0 0;
 }
 
 .card-list a {
