@@ -206,9 +206,120 @@ body {
 }
 
 /*
-=========================
-    Hero
-=========================
+    ARTICLES GALLERY
+*/
+
+.articles {
+    width: 1400px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+/* Articles grid */
+.image-grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template:
+        "first third fourth"
+        "second third fifth";
+
+    padding: 16px;
+    gap: 20px;
+}
+
+.first,
+.second,
+.fourth,
+.fifth {
+    width: 400px;
+    height: 250px;
+}
+
+.third {
+    width: 500px;
+    height: 100%;
+}
+
+.first {
+    grid-area: first;
+}
+
+.second {
+    grid-area: second;
+}
+
+.third {
+    grid-area: third;
+}
+
+.fourth {
+    grid-area: fourth;
+}
+
+.fifth {
+    grid-area: fifth;
+}
+
+.article-item .info {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%, 0);
+    z-index: 1;
+}
+
+/* Article Pseudo element */
+.article-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.article-item::after {
+    /* position */
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    bottom: 0;
+    left: 0;
+    /*box-model*/
+    background: linear-gradient(180deg, rgba(219, 219, 100, 0) 11%, rgba(10, 10, 5, 0.9191877434567577) 85%);
+}
+
+/* Image hover effect */
+.article-item img {
+    position: relative;
+    transition: all .4s lienar;
+}
+
+.article-item:hover img {
+    transform: scale(1.1);
+    transition-duration: 2s;
+}
+
+/* Article fonts */
+.info h3 {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #fff;
+    z-index: 1;
+}
+
+.info p {
+    color: #fff;
+    text-align: center;
+}
+.info span {
+    border-left: 1px solid #fff;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
+
+/*
+     TODAYS RECIPE
 */
 
 .section {
@@ -220,13 +331,6 @@ body {
     display: flex;
     margin-top: 40px;
 }
-
-/*
-=========================
-     TODAYS RECIPE
-=========================
-*/
-
 
 .today-recipe {
     position: relative;
