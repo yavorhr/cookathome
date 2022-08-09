@@ -21,7 +21,6 @@ body {
     --orange: orange;
 }
 
-
 /*
 =========================
     Global CSS HERO
@@ -30,12 +29,13 @@ body {
 
 /* h2 */
 .section-title {
-    font-size: 35px;
+    font-size: 30px;
     margin: 0 auto;
     text-align: center;
     letter-spacing: 3px;
     border-bottom: 3px solid var(--brown);
     width: 300px;
+    margin-bottom: 20px;
 }
 
 .section-title:hover {
@@ -210,7 +210,7 @@ body {
 */
 
 .articles {
-    width: 1400px;
+    width: 1800px;
     margin: 0 auto;
     margin-top: 30px;
 }
@@ -232,12 +232,12 @@ body {
 .second,
 .fourth,
 .fifth {
-    width: 400px;
+    width: 500px;
     height: 250px;
 }
 
 .third {
-    width: 500px;
+    width: 600px;
     height: 100%;
 }
 
@@ -311,6 +311,7 @@ body {
     color: #fff;
     text-align: center;
 }
+
 .info span {
     border-left: 1px solid #fff;
     margin-left: 5px;
@@ -401,11 +402,8 @@ body {
     background-color: var(--white)
 }
 
-
 /*
-=========================
      RECENTLY ADDED
-=========================
 */
 
 .recently-recipies {
@@ -414,9 +412,8 @@ body {
 
 .recently-recipies .card-list {
     display: grid;
-    grid-template-columns: 300px 300px;
-    gap: 40px;
-    padding-left: 150px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .card-list a {
@@ -439,8 +436,8 @@ img {
     transform: translateY(-15px);
     margin-bottom: 10px;
     background-color: var(--white);
-    -webkit-box-shadow: 6px 9px 2px 0px #FF8333;
-    box-shadow: 6px 9px 2px 0px #FF8333;
+    -webkit-box-shadow: 6px 6px 2px 0px #FF8333;
+    box-shadow: 6px 6px 2px 0px #FF8333;
 }
 
 .recipies-title {
@@ -450,7 +447,7 @@ img {
 
 .card-item .card-title {
     color: var(--black);
-    font-size: 35px;
+    font-size: 25px;
     margin: 10px 0;
     letter-spacing: 3px;
     text-align: center;
@@ -458,7 +455,7 @@ img {
 
 .card-item .card-descr {
     margin-bottom: 10px;
-    font-size: 23px;
+    font-size: 20px;
     color: var(--grey);
     padding: 0px 10px;
     text-align: left;
@@ -468,12 +465,12 @@ img {
 .card-item span i {
     margin: 15px 5px;
     color: var(--grey);
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .card-item span {
     color: var(--grey);
-    font-size: 20px;
+    font-size: 18px;
 }
 
 /*
@@ -485,7 +482,7 @@ SUMMER RECIPIES & FRESH SALADS
 .summer-section .recipies {
     max-width: 1000px;
     margin: 0 auto;
-    margin-top: 300px;
+    margin-top: 30px;
 }
 
 .summer-section .recipies .card-list,
@@ -502,8 +499,8 @@ SUMMER RECIPIES & FRESH SALADS
 }
 
 .fresh-salads-section {
-    margin-top: 150px;
     margin: 0 auto;
+    margin-top: 30px;
     max-width: 1000px;
 }
 
