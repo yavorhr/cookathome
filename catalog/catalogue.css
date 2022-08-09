@@ -11,7 +11,7 @@ body {
     height: 100vh;
 }
 
-section{
+section {
     height: 100vh;
     padding: 0px 20px;
 }
@@ -34,7 +34,9 @@ section{
 */
 
 
-/* SEARCH BAR */
+/*
+    SEARCH BAR  
+*/
 
 .search-bar {
     /* positioning */
