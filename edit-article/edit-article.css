@@ -1,0 +1,166 @@
+/*
+=========================
+    Global CSS
+=========================
+*/
+
+body {
+    font-family: "Roboto";
+    box-sizing: border-box;
+    background-image: url('/img/white\ \(5\).jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.mrgn-auto {
+    margin: 0 auto;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-section {
+    margin: 40px 0;
+}
+
+form label {
+    margin-bottom: 5px;
+
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+/* SELECT DROPDOWN & ::AFTER DROPDOWN EFFECT */
+form select,
+form input,
+form textarea {
+    /* box model */
+    padding: 10px 8px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: rgba(224, 230, 230, 0.986);
+    /*type*/
+    color: grey;
+    font-size: 18px;
+    /*misc*/
+    appearance: none;
+}
+
+form select:focus,
+form input:focus,
+form textarea:focus {
+    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+}
+
+form select {
+    cursor: pointer;
+}
+
+form textarea {
+    resize: none;
+}
+
+::placeholder {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    /* positioning */
+    content: '\25BC';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* box model */
+    padding: 9px;
+    background-color: #888f8f;
+    /*type*/
+    font-size: 20px;
+    color: white;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    /*functionality*/
+    transition: .25s all ease;
+}
+
+.select-wrapper:hover::after {
+    color: rgb(115, 172, 162);
+}
+
+/* 
+    Form Grid 
+*/
+
+form {
+    /* display props */
+    display: grid;
+    /* positioning */
+    position: relative;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    grid-template: "title title title"
+        "descr category ."
+        "descr image-url . "
+        "content content content";
+    gap: 20px;
+    /* box model */
+    width: 1200px;
+    padding: 30px;
+    /*type*/
+    color: white;
+    /* misc */
+    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+}
+
+.title {
+    grid-area: title;
+    width: 800px;
+}
+
+.descr {
+    grid-area: descr;
+    width: 500px;
+}
+
+.image-url {
+    grid-area: image-url;
+}
+
+.category {
+    grid-area: category;
+    width: 300px;
+}
+
+
+.content {
+    grid-area: content;
+    width: 1000px;
+}
+
+/*
+    Form Pseudo Overlay Element
+*/
+
+form::before {
+    /* positioning */
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /*box-model*/
+    background-color: rgba(156, 163, 163, 0.5);
+}
+
+

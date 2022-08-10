@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Article</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="edit-article.css">
+    <!-- Fontawesone icons -->
+    <script src="https://kit.fontawesome.com/799b29f3c6.js" crossorigin="anonymous"></script>
+    <!-- Roboto font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Roboto&display=swap" rel="stylesheet">
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="../reset.css/reset.css">
+</head>
+
+<body>
+    <section class="edit-section">
+        <form action="" class="mrgn-auto">
+            <div class="title wrapper flex-col">
+                <label for="title">Title</label>
+                <input type="text" placeholder="Please enter article title" name="title">
+            </div>
+     
+                <div class="image-url wrapper flex-col">
+                    <label for="image-url">Cover image</label>
+                    <input type="text" placeholder="Please insert url" name="title">
+                </div>
+                <div class="descr wrapper flex-col">
+                    <label for="descr">Description</label>
+                    <textarea name="descr" id="" cols="30" rows="5"
+                        placeholder="Please enter short description"></textarea>
+                </div>
+
+                <div class="category select-wrapper flex-col">
+                    <label for="category">Category</label>
+                    <select type="text" name="category">
+                        <option selected="disabled"> --- </option>
+                        <option value="Proteins">Proteins</option>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Workout">Workout</option>
+                        <option value="Quick meals">Quick meals</option>
+                        <option value="Smoothies">Smoothies</option>
+                    </select>
+                </div>
+           
+            <div class="content flex-col">
+                <label for="content">Text</label>
+                <textarea name="content" id="" cols="30" rows="20"
+                    placeholder="Please insert your text here"></textarea>
+            </div>
+        </form>
+    </section>
+
+
+</body>
+
+</html>
