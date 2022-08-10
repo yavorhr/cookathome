@@ -9,7 +9,6 @@ body {
     height: 100vh;
 }
 
-
 /*
 Article Categories
 */
@@ -41,7 +40,6 @@ Article Categories
 
     gap: 20px;
 }
-
 
 .article-item .info {
     position: absolute;
