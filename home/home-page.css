@@ -58,21 +58,21 @@ body {
     width: 100%;
     height: 120px;
     padding: 0px 50px;
-    background-color: var(--white);
+    background-color: #62A5A1;
     box-shadow: var(--box-shadow)
 }
 
 .logo {
-    margin-left: 20px;
     width: 130px;
     height: auto;
     border-radius: 70%;
+}
+
+.logo:hover {
     box-shadow: var(--box-shadow);
-    margin-right: 30px;
 }
 
 /* Nav links <ul/> align items */
-
 .navigation {
     position: relative;
     display: flex;
@@ -84,35 +84,10 @@ body {
 .nav-links-wrapper {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
-.nav-links-wrapper:nth-child(2) {
-    margin-left: -400px;
-    gap: 30px;
-}
-
-.nav-links-wrapper:nth-child(1) {
-    gap: 20px;
-}
-
-/* Logout, Register Login styling */
-.nav-links-wrapper:nth-child(3) {
-    gap: 40px;
-    padding-left: 40px;
-}
-
-.nav-links-wrapper:nth-child(3) .nav-item {
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    padding: 5px 12px;
-    border-radius: 5px;
-}
-
-.nav-links-wrapper:nth-child(3) .nav-item:hover {
-    background-color: var(--grey);
-    cursor: pointer;
-}
-
-/* Button and nav-item styling */
+/* Button and links styling */
 .nav-item a {
     letter-spacing: 3px;
     font-size: 18px;
@@ -120,26 +95,68 @@ body {
 }
 
 .nav-item .dropdown button {
-    letter-spacing: 2px;
     font-size: 18px;
-    width: 200px;
-}
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    font-weight: bold;
 
-/* .nav-item {
-    position: relative;
-} */
+    transition: color .3s ease-in-out;
+}
 
 .nav-item button {
     border: none;
-    box-shadow: var(--box-shadow);
-    padding: 5px 10px;
+    padding: 10px 14px;
     border-radius: 5px;
     background-color: transparent;
     cursor: pointer;
 }
 
 .nav-item button:hover {
-    background-color: var(--grey);
+    color: black;
+}
+
+/*
+    Sign up & Register links
+*/
+
+.sign-up-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color:#B54484;
+    padding: 10px 14px;
+    height: 60px;
+    width: fit-content;
+    border-radius: 8px;
+    margin-right: 20px;
+
+}
+
+.sign-up-links a,
+.logout-btn {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    transition: color .2s ease-in;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.logout-btn {
+    background-color:#B54484;
+
+}
+
+.sign-up-links span {
+    font-size: 18px;
+    color: white;
+}
+
+.sign-up-links a:hover,
+.logout-btn:hover {
+    color: black;
 }
 
 /* Dropdown CSS */
@@ -232,38 +249,62 @@ body {
     color: #62A5A1 !important;
 }
 
+
+
+/* 
+    Favorites button
+*/
+
 .nav-item.favourites i {
     color: var(--red);
-    margin-right: 5px;
+    transition: color .3s ease-in-out;
+    font-size: 30px;
+}
+
+.favourites:hover .fa-solid {
+    color: white;
+}
+
+/* 
+    Search button
+*/
+
+.search button {
+    position: relative;
+    display: inline-block;
+    height: 120px;
+    padding: 40px;
+}
+
+.search button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    background-color: grey;
+}
+
+.search button:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    background-color: grey;
 }
 
 .nav-item.search i {
     color: var(--grey);
-    margin-right: 5px;
+    font-size: 50px;
 }
 
-
-
-
-
-
-
-
-
-/* Search and favourites CSS */
-
-.nav-links-wrapper .nav-item.favourites button,
-.nav-links-wrapper .nav-item.search button {
-    width: 50px;
-    border-radius: 20%;
-    padding: 10px;
-    border: none;
+.search:hover .fa-solid {
+    color: black !important;
 }
 
-.nav-links-wrapper:nth-child(1) {
-    display: flex;
-    align-items: center;
-}
 
 /*
     ARTICLES GALLERY
