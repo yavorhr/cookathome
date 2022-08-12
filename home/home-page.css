@@ -7,7 +7,7 @@
 body {
     font-family: "Roboto";
     box-sizing: border-box;
-    background-image: linear-gradient(180deg, rgba(240,249,249,0.8744631641719187) 10%, rgba(231, 247, 247, 0.986) 50%, rgba(240,249,249,0.7147059507396709) 100%); 
+    background-image: linear-gradient(180deg, rgba(240, 249, 249, 0.8744631641719187) 10%, rgba(231, 247, 247, 0.986) 50%, rgba(240, 249, 249, 0.7147059507396709) 100%);
 }
 
 :root {
@@ -55,7 +55,6 @@ body {
 }
 
 .navigation {
-    /* position: fixed; */
     width: 100%;
     height: 120px;
     padding: 0px 50px;
@@ -74,7 +73,8 @@ body {
 
 /* Nav links <ul/> align items */
 
-.nav-links {
+.navigation {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -91,18 +91,15 @@ body {
     gap: 30px;
 }
 
-
 .nav-links-wrapper:nth-child(1) {
     gap: 20px;
 }
 
 /* Logout, Register Login styling */
-
 .nav-links-wrapper:nth-child(3) {
     gap: 40px;
     padding-left: 40px;
 }
-
 
 .nav-links-wrapper:nth-child(3) .nav-item {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -116,7 +113,6 @@ body {
 }
 
 /* Button and nav-item styling */
-
 .nav-item a {
     letter-spacing: 3px;
     font-size: 18px;
@@ -129,9 +125,9 @@ body {
     width: 200px;
 }
 
-.nav-item {
+/* .nav-item {
     position: relative;
-}
+} */
 
 .nav-item button {
     border: none;
@@ -149,10 +145,91 @@ body {
 /* Dropdown CSS */
 
 .dropdown {
+    /* position: relative; */
     display: inline-block;
     width: 200px;
 }
 
+.dropdown-content {
+    /* position */
+    position: absolute;
+    padding: 10px;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    /* animate the dropdowns-invisible at start */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity .120ms ease-in-out, transform .120ms ease-in-out;
+    /* box-model */
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+    overflow: auto;
+    /* functions */
+    pointer-events: none;
+    z-index: 1;
+}
+
+.dropdown>.all-recipies-btn:focus+.dropdown-content {
+    display: block;
+    background-color: var(--white);
+    /* make the dropdown visible */
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Dropdown Grid links */
+.information-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, max-content);
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    gap: 30px;
+}
+
+.dropdown-heading span {
+    display: block;
+    margin-bottom: 10px;
+
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 21px;
+    letter-spacing: 2px;
+    color: #62A5A1;
+    font-weight: lighter;
+}
+
+.dropdown-links a {
+    display: block;
+    position: relative;
+
+    padding: 3px;
+
+    font-size: 20px;
+    color: var(--black);
+    text-decoration: none;
+}
+
+.dropdown-links {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+
+    text-align: left;
+}
+
+.dropdown-links a:hover {
+    color:  #62A5A1;
+}
+
+.view-more {
+    text-transform: uppercase;
+    margin-top: 5px;
+    font-size: 15px !important;
+    letter-spacing: 1px;
+    color: #62A5A1 !important;
+}
 
 .nav-item.favourites i {
     color: var(--red);
@@ -164,31 +241,13 @@ body {
     margin-right: 5px;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    width: 100%;
-    overflow: auto;
-    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
-}
 
-.dropdown:hover .dropdown-content {
-    display: block;
-    background-color: var(--white);
-}
 
-.dropdown-content a {
-    display: block;
-    position: relative;
-    color: var(--black);
-    padding: 3px;
-    text-decoration: none;
-}
 
-.dropdown-content a:hover {
-    color: black;
-    background-color: var(--grey)
-}
+
+
+
+
 
 /* Search and favourites CSS */
 
@@ -210,9 +269,11 @@ body {
 */
 
 .articles {
+    position: relative;
     width: 1800px;
     margin: 0 auto;
     margin-top: 30px;
+    z-index: 0;
 }
 
 /* Articles grid */

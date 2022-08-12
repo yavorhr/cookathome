@@ -21,43 +21,81 @@
 <body>
     <header id="header">
         <nav class="navigation">
-            <ul type="none" class="nav-links">
-                <div class="nav-links-wrapper">
-                    <a href=""><img class="logo" src="../img/logo.png" /></a>
-                    <li class="nav-item search"><button><i class="fa-solid fa-magnifying-glass"></i></button></li>
-                    <li class="nav-item favourites"><button> <i class="fa-solid fa-heart"></i> </button></li>
+            <div class="nav-links-wrapper">
+                <a href=""><img class="logo" src="../img/logo.png" /></a>
+                <div class="nav-item search">
+                    <button>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
                 </div>
-                <div class="nav-links-wrapper">
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <button>Recipies</button>
-                            <div class="dropdown-content">
-                                <a href="#">Breakfast</a>
-                                <a href="#">Lunch</a>
-                                <a href="#">Dinner</a>
-                                <a href="#">Dessert</a>
+                <div class="nav-item favourites">
+                    <button>
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="nav-links-wrapper">
+                <div class="nav-item">
+                    <div class="dropdown">
+                        <button class="all-recipies-btn">Recipies</button>
+                        <div class="dropdown-content information-grid">
+                            <div class="dropdown-heading">
+                                <span>Season</span>
+                                <div class="dropdown-links">
+                                    <a href="#">Breakfast</a>
+                                    <a href="#">Lunch</a>
+                                    <a href="#">Dinner</a>
+                                    <a href="#">Dessert</a>
+                                    <a class="view-more" href="#">view more...</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-heading">
+                                <span>During the day</span>
+                                <div class="dropdown-links">
+                                    <a href="#">Breakfast</a>
+                                    <a href="#">Lunch</a>
+                                    <a href="#">Dinner</a>
+                                    <a href="#">Dessert</a>
+                                    <a class="view-more" href="#">view more...</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-heading"> <span>Main ingredients</span>
+                                <div class="dropdown-links">
+                                    <a href="#">Pork</a>
+                                    <a href="#">Chicken</a>
+                                    <a href="#">Fish</a>
+                                    <a href="#">Lamb</a>
+                                    <a class="view-more" href="#">view more...</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-heading"> <span>Kitchen</span>
+                                <div class="dropdown-links">
+                                    <a href="#">Bulgarian</a>
+                                    <a href="#">Turkish</a>
+                                    <a href="#">Serbian</a>
+                                    <a href="#">Lamb</a>
+                                    <a class="view-more" href="#">view more...</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-heading"> <span>Quick & Easy</span>
+                                <div class="dropdown-links">
+                                    <a href="#">Breakfasts for quickers</a>
+                                    <a href="#">Quick lunches</a>
+                                    <a href="#">Easy dinners</a>
+                                    <a href="#">Desserts for beginners</a>
+                                    <a class="view-more" href="#">view more...</a>
+                                </div>
                             </div>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <button>Quick & Easy</button>
-                            <div class="dropdown-content">
-                                <a href="#">Breakfasts for quickers</a>
-                                <a href="#">Quick lunches</a>
-                                <a href="#">Easy dinners</a>
-                                <a href="#">Desserts for beginners</a>
-                            </div>
-                        </div>
-                    </li>
+                    </div>
                 </div>
-                <div class="nav-links-wrapper">
-                    <li class="nav-item"><a>Blog</a></li>
-                    <li class="nav-item"><a>Logout</a></li>
-                    <li class="nav-item"><a>Login</a></li>
-                    <li class="nav-item"><a>Register</a></li>
-                </div>
-            </ul>
+            </div>
+            <div class="nav-links-wrapper">
+                <div class="nav-item"><a>Blog</a></div>
+                <div class="nav-item"><a>Logout</a></div>
+                <div class="nav-item"><a>Login</a></div>
+                <div class="nav-item"><a>Register</a></div>
+            </div>
         </nav>
     </header>
 
@@ -73,7 +111,7 @@
                         </div>
                     </a>
                 </li>
-                     <li class="article-item second">
+                <li class="article-item second">
                     <a href="">
                         <img src="/img/details/pork (2).jpg" class="section" alt="recipe details">
                         <div class="info">
