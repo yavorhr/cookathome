@@ -182,10 +182,10 @@ body {
 .information-grid {
     display: grid !important;
     grid-template-columns: repeat(4, max-content);
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: space-evenly;
     width: 100vw;
-    gap: 30px;
+    gap: 40px;
 }
 
 .dropdown-heading span {
@@ -202,11 +202,12 @@ body {
 
 .dropdown-links a {
     display: block;
+    width: 250px;
     position: relative;
 
     padding: 3px;
 
-    font-size: 20px;
+    font-size: 18px;
     color: var(--black);
     text-decoration: none;
 }
@@ -220,7 +221,7 @@ body {
 }
 
 .dropdown-links a:hover {
-    color:  #62A5A1;
+    color: #62A5A1;
 }
 
 .view-more {
