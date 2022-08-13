@@ -254,7 +254,7 @@ body {
     Favorites button
 */
 
-.favourites button{
+.favourites button {
     background-color: transparent !important;
     border: none;
     cursor: pointer;
@@ -275,12 +275,11 @@ body {
     Search button
 */
 
-
 .search button {
     position: relative;
     display: inline-block;
     height: 120px;
-    padding: 40px;  
+    padding: 40px;
 }
 
 .search button:before {
@@ -330,190 +329,6 @@ body {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     background-color: white;
-}
-
-@media screen and (max-width:768px) {
-    .hamburger {
-        display: block;
-    }
-
-    body {
-        overflow: hidden;
-      }
-
-    /* Hamburger menu */
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-    .logo-favorite-icons .favourites {
-        display: none;
-    }
-
-    /* Navigation order */
-    .navigation {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        position: fixed;
-        top: 0;
-
-        padding: 0px;
-    }
-
-    .navigation> :nth-child(1) {
-        order: 2;
-    }
-
-    .navigation> :nth-child(4) {
-        order: 1;
-    }
-
-    .navigation> :nth-child(5) {
-        order: 3;
-    }
-
-    /* Recipies and Blog buttons */
-    .wrapper-links {
-        display: none;
-        position: absolute;
-        width: 100vw;
-
-        bottom: 0px;
-        left: 0px;
-        gap: 10px;
-        padding: 10px;
-
-        background-color: #62A5A1;
-
-        transition: 0.2s ease-in-out;
-        transform: translateY(0);
-    }
-
-    .wrapper-links.active {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
-        transform: translateY(107px);
-    }
-
-    /* 
-        Register & Login links
-     */
-
-    .sign-up-links {
-        display: none;
-        position: absolute;
-        width: 100vw;
-        margin-left: 0;
-        bottom: 0;
-        margin: 0;
-        border-radius: 0;
-        transform: translateY(0);
-    }
-
-    .sign-up-links.active {
-        display: inline-block !important;
-        transform: translateY(46px);
-
-    }
-
-/* 
-    Grid
-*/
-    .information-grid {
-        grid-template-columns: repeat(1, 1fr);
-    
-        width: 100vw;
-        height: 100vh;
-
-    }
-
-    .dropdown-heading span {
-        display: block;
-        margin-bottom: 2px;
-
-        text-transform: uppercase;
-        text-align: left;
-        font-size: 20px;
-        letter-spacing: 2px;
-        color: white;
-        font-weight: lighter;
-    }
-
-    .dropdown-links a {
-        display: block;
-        width: 100%;
-        position: relative;
-
-        padding: 3px;
-
-        font-size: 18px;
-        color: var(--black);
-        text-decoration: none;
-        border-bottom: 1px solid white;
-    }
-
-    .dropdown-links {
-        display: flex;
-        flex-direction: column;
-        gap: .25rem;
-
-        text-align: left;
-    }
-
-    .view-more {
-        text-transform: uppercase;
-        margin-top: 5px;
-        font-size: 15px !important;
-        letter-spacing: 1px;
-
-    }
-
-    .dropdown-content {
-        background-color: #62A5A1 !important;
-    }
-
-    .nav-link {
-        color: white !important;
-    }
-
-    /* Search */
-    .search button {
-        position: relative;
-        display: inline-block;
-        height: 120px;
-        padding-left: 20px;
-    }
-
-    .search button:before {
-        display: none;
-    }
-
-    .search button:after {
-        display: none;
-    }
-
-    .nav-item.search i {
-        color: var(--grey);
-        font-size: 30px;
-    }
-
-    .search:hover .fa-solid {
-        color: black !important;
-    }
-
 }
 
 
@@ -876,4 +691,162 @@ footer p {
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 14px;
+}
+
+@media screen and (max-width:768px) {
+    .hamburger {
+        display: block;
+    }
+
+    /* Hamburger menu */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .favourites{
+        position: absolute;
+        left: 55px;
+    }
+
+    /* Navigation order */
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+
+        height: 90px;
+        padding: 0px;
+    }
+
+    .logo {
+        width: 100px;
+        border-radius: 70%;
+    }
+
+    .navigation> :nth-child(1) {
+        order: 2;
+    }
+
+    .navigation> :nth-child(4) {
+        order: 1;
+    }
+
+    .navigation> :nth-child(5) {
+        order: 3;
+    }
+
+    /* Recipies and Blog buttons */
+    .wrapper-links {
+        display: none;
+        position: absolute;
+        width: 100vw;
+
+        bottom: 0px;
+        left: 0px;
+        gap: 10px;
+        padding: 10px;
+
+        background-color: #62A5A1;
+
+        transition: 0.2s ease-in-out;
+        transform: translateY(0);
+    }
+
+    .wrapper-links.active {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        transform: translateY(122px);
+    }
+
+    /* 
+        Register & Login links
+     */
+
+    .sign-up-links {
+        display: none;
+        position: absolute;
+        width: 100vw;
+        margin-left: 0;
+        bottom: 0;
+        margin: 0;
+        border-radius: 0;
+        transform: translateY(0);
+    }
+
+    .sign-up-links.active {
+        display: inline-block !important;
+        transform: translateY(60px);
+
+    }
+
+    /* 
+    Grid
+*/
+    .information-grid {
+        grid-template-columns: repeat(1, 1fr);
+
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .dropdown-heading span {
+        display: block;
+        margin-bottom: 5px;
+
+        font-size: 20px;
+        letter-spacing: 2px;
+
+        color: white;
+        font-weight: lighter;
+    }
+
+    .dropdown-links a {
+        width: 100%;
+        border-bottom: 1px solid white;
+    }
+
+    .dropdown-links a:hover {
+        color: black !important;
+    }
+
+    .dropdown-content {
+        background-color: #62A5A1 !important;
+    }
+
+    .nav-link {
+        color: white !important;
+    }
+
+    /* Search */
+    .search button {
+        padding-left: 20px;
+    }
+
+    .search button:before,
+    .search button:after {
+        display: none;
+    }
+
+    .nav-item.search i {
+        color: var(--grey);
+        font-size: 30px;
+    }
+
+    .search:hover .fa-solid {
+        color: black !important;
+    }
 }
