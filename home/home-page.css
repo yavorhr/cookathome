@@ -447,9 +447,8 @@ body {
     padding-left: 5px;
 }
 
-
 /*
-     TODAYS RECIPE
+    TODAYS RECIPE
 */
 
 .section {
@@ -469,11 +468,12 @@ body {
 
 .today-recipe img {
     object-fit: cover;
+ 
     width: 100%;
     height: 100%;
-    position: absolute;
     top: 0;
     left: 0;
+
     z-index: -1;
 }
 
@@ -481,15 +481,18 @@ body {
     position: absolute;
     display: flex;
     z-index: 0;
+
     flex-direction: column;
     justify-content: center;
-    bottom: 20%;
-    left: 10%;
+
     border: 1px solid var(--black);
-    margin: 20px;
-    padding: 10px;
-    width: 700px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     height: 350px;
+    width: 90%;
+
     vertical-align: middle;
     text-align: center;
     background-color: var(--white);
@@ -694,6 +697,23 @@ footer p {
 }
 
 @media screen and (max-width:768px) {
+
+    /* h2 */
+    .section-title {
+        font-size: 22px;
+        margin: 0 auto;
+        text-align: center;
+        letter-spacing: 2px;
+        border-bottom: 3px solid var(--brown);
+        width: 60%;
+        margin-bottom: 20px;
+    }
+
+
+    .section {
+        padding: 10px 20px;
+    }
+
     .hamburger {
         display: block;
     }
@@ -711,7 +731,7 @@ footer p {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    .favourites{
+    .favourites {
         position: absolute;
         left: 55px;
     }
@@ -722,7 +742,6 @@ footer p {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        position: fixed;
         top: 0;
 
         height: 90px;
@@ -746,7 +765,10 @@ footer p {
         order: 3;
     }
 
-    /* Recipies and Blog buttons */
+    /* 
+        Recipies and Blog buttons 
+    */
+
     .wrapper-links {
         display: none;
         position: absolute;
@@ -769,12 +791,12 @@ footer p {
         justify-content: center;
         align-items: center;
 
-        transform: translateY(122px);
+        transform: translateY(123px);
     }
 
     /* 
         Register & Login links
-     */
+    */
 
     .sign-up-links {
         display: none;
@@ -794,8 +816,8 @@ footer p {
     }
 
     /* 
-    Grid
-*/
+        Grid
+    */
     .information-grid {
         grid-template-columns: repeat(1, 1fr);
 
@@ -831,7 +853,10 @@ footer p {
         color: white !important;
     }
 
-    /* Search */
+    /* 
+        Search button 
+    */
+
     .search button {
         padding-left: 20px;
     }
@@ -849,4 +874,141 @@ footer p {
     .search:hover .fa-solid {
         color: black !important;
     }
+
+    /*
+        Articles
+    */
+
+    .articles {
+        display: none;
+    }
+
+    /*
+        Hero section
+    */
+
+    .hero {
+        flex-direction: column;
+        margin-top: 0px;
+    }
+
+    .today-recipe {
+        position: relative;
+
+        width: 90%;
+        margin: 0 auto;
+       
+
+        height: 600px;
+    }
+
+    
+    .today-recipe img{
+        object-fit: cover;
+        z-index: -1; 
+    }
+
+    .today-recipe article {
+        display: flex;
+        flex-direction: column;
+
+        position: absolute;
+        z-index: 1;
+      
+        justify-content: center;
+
+        border: none;
+        box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+
+        height: 90%;
+        width: 90%;
+
+        flex-wrap: nowrap;
+
+        text-align: center;
+        padding: 20px;
+    }
+
+    .today-recipe .today-recipe-title {
+        padding: 0 10px;
+        font-size: 16px;
+    }
+
+    .today-recipe h2 {
+        font-size: 18px;
+        font-weight: bold;
+        color: var(--brown);
+    }
+
+    .today-recipe a{
+        font-size: 16px;
+    } 
+
+    .today-recipe .descr{
+        margin-bottom: 7px;
+        font-size: 16px;
+    }
+    /*
+     RECENTLY ADDED
+*/
+
+    .recently-recipies {
+        width: 100%;
+    }
+
+    .recently-recipies .card-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .card-list a {
+        text-decoration: none;
+    }
+
+    img {
+        /* object-fit: cover; */
+        border-radius: 5px 5px 0 0;
+    }
+
+    .card-item {
+        display: inline-block;
+        background-color: var(--white);
+    }
+
+    .recipies-title {
+        text-decoration: none;
+        color: black;
+    }
+
+
+    .card-item .card-title {
+        color: var(--black);
+        font-size: 20px;
+        margin: 10px 0;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+    .card-item .card-descr {
+        margin-bottom: 10px;
+        font-size: 20px;
+        color: var(--grey);
+        padding: 0px 10px;
+        text-align: left;
+        font-style: italic;
+    }
+
+    .card-item span i {
+        margin: 10px 5px;
+        color: var(--grey);
+        font-size: 15px;
+    }
+
+    .card-item span {
+        color: var(--grey);
+        font-size: 18px;
+    }
+
+
 }
