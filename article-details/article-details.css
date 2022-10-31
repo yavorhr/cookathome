@@ -7,25 +7,17 @@ body {
 }
 
 section {
-    width: 1000px;
+    width: 1200px;
     margin: 0 auto;
 }
 
 /*
-================
- Article header
-================
+==================
+  Article header
+==================
 */
 
-.article-head {
-    display: grid;
-    grid-template-columns: 100px 1fr 100px 100px;
-    margin: 25px 0;
-    padding: 0 15px;
-    gap: 20px;
 
-    font-style: italic;
-}
 
 .article-head .main-info h1 {
     text-align: center;
@@ -53,27 +45,29 @@ section {
 =========================
 */
 
+
+
 .btn {
     position: relative;
     width: 60px;
     height: 50px;
 
-    border-radius: 30px;
     background-color: transparent;
+    border: none;
 
-    color: #fff;
+    color: black;
 
+    cursor: pointer;
     overflow: hidden;
 }
 
 /* Edit button */
 .edit-btn {
-    margin-left: 30px;
+    box-shadow: 0 0 0 0 rgba(241, 253, 29, 0.5), 0 0 0 0 rgba(210, 228, 50, 0.5);
 
-    box-shadow: 0 0 0 0 rgba(241, 253, 29, 0.5), 0 0 0 0 rgba(252, 176, 69, 0.5);
-
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
+
 
 .edit-btn:after {
     content: '';
@@ -83,8 +77,7 @@ section {
     top: -50px;
     left: -100px;
 
-    background-color: #FAFA37;
-    background-image: linear-gradient(225deg, rgba(241, 253, 29, 0.5) 0%, rgba(252, 176, 69, 0.5) 50%, #fcb045 100%);
+    background-color: transparent;
 
     transition: transform 05s ease;
 
@@ -93,13 +86,13 @@ section {
 
 .edit-btn:hover {
     transform: translate(0, -6px);
-    box-shadow: 10px -10px 25px 0 rgba(241, 253, 29, 1), -10px 10px 25px 0 rgba(252, 176, 69, 0.5);
+    box-shadow: 10px -10px 25px 0 rgba(241, 253, 29, 1), -10px 10px 25px 0 rgba(244, 247, 77, 0.5);
+    background-image: linear-gradient(225deg, rgba(241, 253, 29, 0.5) 0%, rgba(235, 231, 31, 0.5) 50%, #fcb045 100%);
 }
 
 /* Delete button */
 .delete-btn {
     box-shadow: 0 0 0 0 rgba(241, 11, 7, 0.5), 0 0 0 0 rgba(158, 25, 7, 0.5);
-    
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -110,25 +103,23 @@ section {
     height: 400px;
     top: -50px;
     left: -100px;
-    
-    background-color: red;
-    background-image: linear-gradient(225deg, rgba(241, 11, 7, 0.5) 0%, rgba(211, 74, 11, 0.5) 50%);
-    
+
+    background-color: transparent;
+
     transition: transform 05s ease;
     z-index: -1;
 }
 
 .delete-btn:hover {
     box-shadow: 10px -10px 25px 0 rgba(241, 11, 7, 0.5), -10px 10px 25px 0 rgba(240, 34, 7, 0.5);
-    
     transform: translate(0, -6px);
+    background-image: linear-gradient(225deg, rgba(241, 11, 7, 0.5) 0%, rgba(211, 74, 11, 0.5) 50%);
 }
 
 /* Favorites button */
 .fav-btn {
     width: 70px;
 
-    border-radius: 40px;
     box-shadow: 0 0 0 0 rgb(241, 165, 163), 0 0 0 0 rgba(226, 158, 149, 0.5);
 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -142,8 +133,8 @@ section {
     top: -50px;
     left: -100px;
 
-    background-color: rgb(241, 165, 163);
-    background-image: linear-gradient(225deg, rgb(241, 165, 163) 0%, rgba(238, 84, 84, 0.5) 50%);
+    background-color: transparent;
+
     outline: none;
 
     transition: transform 05s ease;
@@ -152,8 +143,30 @@ section {
 
 .fav-btn:hover {
     box-shadow: 10px -10px 25px 0 rgb(241, 165, 163), -10px 10px 25px 0 rgba(238, 84, 84, 0.5);
-   
     transform: translate(0, -6px);
+    background-image: linear-gradient(225deg, rgb(241, 165, 163) 0%, rgba(238, 84, 84, 0.5) 50%);
+
+    
+}
+
+.article_content {
+    display: flex;
+}
+
+.ingr {
+    width: 30%;
+}
+
+.ingr h3 {
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.article_content li {
+    font-size: 20px;
+    line-height: 1.8;
+    letter-spacing: 2px;
 }
 
 .title {
@@ -165,19 +178,38 @@ section {
 
 .descr {
     margin-bottom: 30px;
-   
+
     text-align: center;
     font-size: 19px;
     font-style: italic;
 }
 
 .article-image {
-    float: right;
+    width: 60%;
     height: 500px;
-    
+
     border-radius: 5px;
 }
 
-.content {
-    line-height: 1.8;
+/*
+============
+    ICONS
+============
+*/
+
+
+.wrapper i {
+    font-size: 30px;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    background-color: #e4dede;
+    gap: 10px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
 }
