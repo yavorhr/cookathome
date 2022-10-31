@@ -331,122 +331,6 @@ body {
     background-color: white;
 }
 
-
-/*
-    ARTICLES GALLERY
-*/
-
-.articles {
-    position: relative;
-    width: 1800px;
-    margin: 0 auto;
-    margin-top: 30px;
-    z-index: 0;
-}
-
-/* Articles grid */
-.image-grid {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    grid-template:
-        "first third fourth"
-        "second third fifth";
-
-    padding: 16px;
-    gap: 20px;
-}
-
-.first,
-.second,
-.fourth,
-.fifth {
-    width: 500px;
-    height: 250px;
-}
-
-.third {
-    width: 600px;
-    height: 100%;
-}
-
-.first {
-    grid-area: first;
-}
-
-.second {
-    grid-area: second;
-}
-
-.third {
-    grid-area: third;
-}
-
-.fourth {
-    grid-area: fourth;
-}
-
-.fifth {
-    grid-area: fifth;
-}
-
-.article-item .info {
-    position: absolute;
-    left: 50%;
-    bottom: 10px;
-    transform: translate(-50%, 0);
-    z-index: 1;
-}
-
-/* Article Pseudo element */
-.article-item {
-    position: relative;
-    overflow: hidden;
-}
-
-.article-item::after {
-    /* position */
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 60%;
-    bottom: 0;
-    left: 0;
-    /*box-model*/
-    background: linear-gradient(180deg, rgba(219, 219, 100, 0) 11%, rgba(10, 10, 5, 0.9191877434567577) 85%);
-}
-
-/* Image hover effect */
-.article-item img {
-    position: relative;
-    transition: all .4s lienar;
-}
-
-.article-item:hover img {
-    transform: scale(1.1);
-    transition-duration: 2s;
-}
-
-/* Article fonts */
-.info h3 {
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 15px;
-    color: #fff;
-    z-index: 1;
-}
-
-.info p {
-    color: #fff;
-    text-align: center;
-}
-
-.info span {
-    border-left: 1px solid #fff;
-    margin-left: 5px;
-    padding-left: 5px;
-}
-
 /*
     TODAYS RECIPE
 */
@@ -468,7 +352,7 @@ body {
 
 .today-recipe img {
     object-fit: cover;
- 
+
     width: 100%;
     height: 100%;
     top: 0;
@@ -535,7 +419,7 @@ body {
 }
 
 /*
-     RECENTLY ADDED
+    LATEST
 */
 
 .recently-recipies {
@@ -544,7 +428,7 @@ body {
 
 .recently-recipies .card-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
@@ -620,8 +504,8 @@ SUMMER RECIPIES & FRESH SALADS
 .summer-section .recipies .card-list,
 .fresh-salads-section .recipies .card-list {
     display: grid;
-    grid-template-columns: 300px 300px 300px;
     align-items: center;
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
@@ -708,7 +592,6 @@ footer p {
         width: 60%;
         margin-bottom: 20px;
     }
-
 
     .section {
         padding: 10px 20px;
@@ -880,7 +763,7 @@ footer p {
     */
 
     .articles {
-        display: none;
+       
     }
 
     /*
@@ -897,15 +780,14 @@ footer p {
 
         width: 90%;
         margin: 0 auto;
-       
 
         height: 600px;
     }
 
-    
-    .today-recipe img{
+
+    .today-recipe img {
         object-fit: cover;
-        z-index: -1; 
+        z-index: -1;
     }
 
     .today-recipe article {
@@ -914,7 +796,7 @@ footer p {
 
         position: absolute;
         z-index: 1;
-      
+
         justify-content: center;
 
         border: none;
@@ -940,14 +822,15 @@ footer p {
         color: var(--brown);
     }
 
-    .today-recipe a{
+    .today-recipe a {
         font-size: 16px;
-    } 
+    }
 
-    .today-recipe .descr{
+    .today-recipe .descr {
         margin-bottom: 7px;
         font-size: 16px;
     }
+
     /*
      RECENTLY ADDED
 */
@@ -962,12 +845,19 @@ footer p {
         gap: 20px;
     }
 
+    .card-list {
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+    }
+
     .card-list a {
         text-decoration: none;
     }
 
     img {
-        /* object-fit: cover; */
         border-radius: 5px 5px 0 0;
     }
 
@@ -980,7 +870,6 @@ footer p {
         text-decoration: none;
         color: black;
     }
-
 
     .card-item .card-title {
         color: var(--black);
@@ -1010,5 +899,16 @@ footer p {
         font-size: 18px;
     }
 
+
+    /*
+    ==============================
+    SUMMER RECIPIES & FRESH SALADS
+    ==============================
+    */
+
+    .summer-section,
+    .fresh-salads-section {
+        display: none;
+    }
 
 }
