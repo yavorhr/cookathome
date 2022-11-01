@@ -19,13 +19,23 @@ section {
     margin-bottom: 30px;
 }
 
+.btn {
+    background-color: transparent;
+    border: none;
+
+    color: black;
+
+    cursor: pointer;
+    overflow: hidden;
+}
+
 /*
 ==================
   Header Section 
 ==================
 */
 
-.header{
+.header {
     max-width: 1200px;
     text-align: center;
 }
@@ -71,7 +81,7 @@ section {
     align-items: center;
 
     width: 20%;
-    gap:30px;
+    gap: 10px;
 }
 
 /*
@@ -99,7 +109,7 @@ section {
     border-radius: 50%;
 }
 
-.user__stats{
+.user__stats {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,8 +118,65 @@ section {
     font-size: 12px;
 }
 
-.stats__wrapper i{
+.stats__wrapper i {
     font-size: 16px;
+}
+
+/*
+    User profile
+*/
+
+.user--icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template:
+        "edit delete add"
+        "fav cooked cooked";
+
+    padding: 15px;
+
+    background-color: #e4dede;
+}
+
+.wrapper .edit {
+    grid-area: edit;
+}
+
+.wrapper .fav-btn {
+    grid-area: fav;
+}
+
+.wrapper .add-photo-btn {
+    grid-area: add;
+}
+
+.wrapper .delete {
+    grid-area: delete;
+}
+
+.wrapper .cooked {
+    grid-area: cooked;
+}
+
+
+.user--icons .wrapper .btn i {
+    font-size: 28px;
+    padding: 5px;
+    transition: 0.8s;
+}
+
+.user--icons .wrapper .btn i:hover {
+    transform: translateY(-4px);
+    color: grey;
+}
+
+.user--icons .wrapper i {
+    font-size: 28px;
+    padding: 5px;
+}
+
+.user--icons .wrapper span {
+    margin-top: 3px;
 }
 
 /*
@@ -117,7 +184,7 @@ section {
 */
 
 .article--img--icons {
-    width: 50%;
+   width: 50%;
 }
 
 .image {
@@ -135,10 +202,13 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+
     gap: 14px;
 
-    margin-top: 30px;
-    padding: 12px;
+    width: 50%;
+
+    margin-bottom: 5px;
+    padding: 5px 3px;
 
     background-color: #e4dede;
 }
@@ -151,36 +221,20 @@ section {
 }
 
 /*
-    Buttons styling
+    Icons styling
 */
 
-.btn {
-    background-color: transparent;
-    border: none;
-
-    color: black;
-
-    cursor: pointer;
-    overflow: hidden;
+.icons .wrapper .btn i {
+    font-size: 15px;
+    padding: 3px;
 }
 
-.wrapper .btn i {
-    font-size: 28px;
-    padding: 5px;
-    transition: 0.8s;
+.icons .wrapper i {
+    font-size: 20px;
+    padding: 3px;
 }
 
-.wrapper .btn i:hover {
-    transform: translateY(-4px);
-    color: grey;
-}
-
-.wrapper i {
-    font-size: 28px;
-    padding: 5px;
-}
-
-.wrapper span {
+.icons .wrapper span {
     margin-top: 3px;
 }
 
@@ -188,26 +242,27 @@ section {
     Products
 */
 
-.products{
+.products {
     display: flex;
     flex-direction: column;
     justify-content: center;
- }
- 
- .products h3 {
-     font-size: 26px;
-     font-weight: bold;
-     letter-spacing: 3px;
- }
- 
- .products ol{
-     margin-top: 5px;
-     padding: 0px;
- }
- 
- .content li {
-     font-size: 20px;
-     line-height: 1.8;
-     letter-spacing: 2px;
- }
- 
+    align-items: flex-start;
+}
+
+.products h3 {
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 3px;
+
+    margin: 10px 0px;
+}
+
+.products ol {
+    margin-top: 0px;
+}
+
+.content li {
+    font-size: 20px;
+    line-height: 1.8;
+    letter-spacing: 2px;
+}
