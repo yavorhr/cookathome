@@ -616,9 +616,10 @@ footer p {
 
 /*
 =========================
-    MEDIA SCREEN RES
+   Media Mobile Screen
 =========================
 */
+
 @media screen and (max-width:768px) {
 
     /*

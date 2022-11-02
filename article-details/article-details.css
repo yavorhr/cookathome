@@ -14,9 +14,10 @@ body {
 
 section {
     margin: 0 auto;
-    width: 1500px;
+    max-width: 1500px;
+    min-width: 500px;
 
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .btn {
@@ -66,8 +67,10 @@ section {
     align-items: flex-start;
     justify-content: center;
 
-    width: 1500px;
+    max-width: 1500px;
+
     margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 /*
@@ -81,7 +84,7 @@ section {
     align-items: center;
 
     width: 20%;
-    gap: 10px;
+    gap: 7px;
 }
 
 /*
@@ -93,11 +96,12 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     gap: 7px;
 
     padding: 10px 12px;
-    width: 70%;
-    height: 60%;
+    width: 90%;
+    height: auto;
 
     text-align: center;
 
@@ -123,7 +127,7 @@ section {
 }
 
 /*
-    User profile
+    User profile icons
 */
 
 .user--icons {
@@ -133,7 +137,9 @@ section {
         "edit delete add"
         "fav cooked cooked";
 
-    padding: 15px;
+    width: 90%;
+   
+    padding: 10px;
 
     background-color: #e4dede;
 }
@@ -157,7 +163,6 @@ section {
 .wrapper .cooked {
     grid-area: cooked;
 }
-
 
 .user--icons .wrapper .btn i {
     font-size: 28px;
@@ -184,11 +189,13 @@ section {
 */
 
 .article--img--icons {
-   width: 50%;
+    width: 70%;
 }
 
 .image {
-    width: 100%;
+    width: 90%;
+    object-fit: cover;
+    background-position: center center;
     height: 500px;
 
     border-radius: 5px;
@@ -239,32 +246,181 @@ section {
 }
 
 /*
-    Products
+==========================
+  Products & 
+  cooking steps section
+==========================
 */
 
-.products, .steps {
+.recipe{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    padding-left: 40px;
 }
 
-.products h3,
-.steps h3 {
+.recipe h3 {
     font-size: 26px;
     font-weight: bold;
     letter-spacing: 3px;
-
-    margin: 10px 0px;
+    text-align: start;
 }
 
 .products ul {
     margin-top: 0px;
     list-style-type: square;
+    margin-bottom: 0px;
 }
 
-.content li {
-    font-size: 20px;
-    line-height: 1.8;
-    letter-spacing: 2px;
+
+/*
+=========================
+   Media Mobile Screen
+=========================
+*/
+
+@media screen and (max-width:768px) {
+    section{
+        width: 100%;
+    }
+
+    .hero {
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+    }
+
+    
+/*
+    Recipe icons and recipe image
+*/
+
+.article--img--icons {
+  width: 70%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.image {
+    width: 90%;
+    height: auto;
+
+    border-radius: 5px;
+}
+
+/*
+    Icons styling
+*/
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    width: 90%;
+    
+    margin-top: 5px;
+    padding: 2px 2px;
+
+    background-color: #e4dede;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*
+    Icons styling
+*/
+
+.icons .wrapper .btn i {
+    font-size: 15px;
+    padding: 3px;
+}
+
+.icons .wrapper i {
+    font-size: 15px;
+    padding: 3px;
+}
+
+.icons .wrapper span {
+    margin-top: 3px;
+    font-size: 15px;
+}
+
+/*
+    User profile
+*/
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 7px;
+    width: 100%;
+
+    margin-right: 9px;
+    padding: 5px;
+
+    height: auto;
+
+    text-align: center;
+
+    background-color: #cfd8d8;
+}
+
+.profile--image {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.user__stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 12px;
+}
+
+/*
+    User profile
+*/
+
+.user--icons {
+    padding: 5px;
+    margin-right: 10px;
+    width: 100%;
+
+  
+   
+    gap: 5px;
+}
+
+.user--icons .wrapper .btn i {
+    font-size: 15px;
+    padding: 3px;
+    transition: 0.8s;
+}
+
+.user--icons .wrapper i {
+    font-size: 13px;
+    padding: 3px;
+}
+
+.user--icons .wrapper span {
+    margin-top: 3px;
+}
+
+
+
+
 }
