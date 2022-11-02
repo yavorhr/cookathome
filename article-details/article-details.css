@@ -242,14 +242,15 @@ section {
     Products
 */
 
-.products {
+.products, .steps {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
 }
 
-.products h3 {
+.products h3,
+.steps h3 {
     font-size: 26px;
     font-weight: bold;
     letter-spacing: 3px;
@@ -257,8 +258,9 @@ section {
     margin: 10px 0px;
 }
 
-.products ol {
+.products ul {
     margin-top: 0px;
+    list-style-type: square;
 }
 
 .content li {
