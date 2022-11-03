@@ -24,9 +24,9 @@ body {
 }
 
 /*
-=========================
-      CREATE 
-=========================
+======================
+    Create Section 
+======================
 */
 
 .create {
@@ -60,10 +60,6 @@ form select {
     cursor: pointer;
 }
 
-form textarea {
-    resize: none;
-}
-
 ::placeholder {
     font-size: 20px;
     letter-spacing: 1px;
@@ -71,6 +67,7 @@ form textarea {
 
 .select-wrapper {
     position: relative;
+
 }
 
 .select-wrapper::after {
@@ -95,24 +92,28 @@ form textarea {
     color: rgb(115, 172, 162);
 }
 
+.group--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+
+    padding: 20px;
+}
+
+.group--wrapper .select-wrapper {
+    min-width: 20%;
+}
+
 /* FORM AND FORM AFTER EFFECT */
 form {
-    /* display props */
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     /* positioning */
     position: relative;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template: "title title title"
-        ". descr ."
-        "category type season"
-        "traditional . ."
-        "ingredients ingredients ingredients"
-        "steps steps steps"
-        "calories prep-time cook-time"
-        "level occasion portions";
     /* box model */
-    width: 1200px;
-    gap: 20px;
+    width: 90%;
     padding: 30px;
     background-color: transparent;
     border: 1px solid black;
@@ -123,82 +124,25 @@ form {
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
 }
 
-form::before {
-    /* positioning */
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    /*box-model*/
-    background-color: rgba(0, 0, 0, .5);
-}
-
-/* FORM CONTENT GRID AREAS */
 .title {
-    grid-area: title;
-
+    width: 40%;
+    margin: 0 auto;
 }
 
 .descr {
-    grid-area: descr;
+    width: 40%;
+    margin: 0 auto;
 }
 
-.category {
-    grid-area: category;
-}
-
-.type {
-    grid-area: type;
-
-}
-
-.season {
-    grid-area: season;
-  
-}
-
-.traditional {
-    grid-area: traditional;
-   
-}
-
-.ingredients {
-    grid-area: ingredients;
-   
-}
-
+.ingredients,
 .steps {
-    grid-area: steps;
-   ;
+    width: 70%;
+    margin: 0 auto;
 }
 
-.calories {
-    grid-area: calories;
+
+/* FORM CONTENT GRID AREAS */
+
+@media screen and (max-width:768px) {
    
-}
-
-.prep-time {
-    grid-area: prep-time;
-    
-}
-
-.cook-time {
-    grid-area: cook-time;
-   
-}
-
-.level {
-    grid-area: level;
-  
-}
-
-.occasion {
-    grid-area: occasion;
-   
-}
-
-.portions {
-    grid-area: portions;
- 
 }
