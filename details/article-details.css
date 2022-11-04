@@ -12,12 +12,13 @@ body {
     /* overflow: hidden; */
 }
 
-section {
+.mrgn-auto{
     margin: 0 auto;
-    max-width: 1500px;
-    min-width: 500px;
+}
 
-    margin-bottom: 50px;
+section {
+    max-width: 1500px;
+    margin: 50px 0;
 }
 
 .btn {
@@ -30,6 +31,18 @@ section {
     overflow: hidden;
 }
 
+.dspl-flex-col-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dspl-flex-row-center{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /*
 ==================
   Header Section 
@@ -39,6 +52,7 @@ section {
 .header {
     max-width: 1200px;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .recipe--header {
@@ -48,8 +62,6 @@ section {
 }
 
 .descr {
-    margin-bottom: 10px;
-
     text-align: center;
     font-size: 19px;
     font-style: italic;
@@ -68,9 +80,6 @@ section {
     justify-content: center;
 
     max-width: 1500px;
-
-    margin: 0 auto;
-    margin-bottom: 50px;
 }
 
 /*
@@ -78,10 +87,6 @@ section {
 */
 
 .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
     width: 20%;
     gap: 7px;
@@ -92,11 +97,6 @@ section {
 */
 
 .user-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
     gap: 7px;
 
     padding: 10px 12px;
@@ -114,9 +114,6 @@ section {
 }
 
 .user__stats {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 10px;
 
     font-size: 12px;
@@ -131,37 +128,19 @@ section {
 */
 
 .user--icons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template:
-        "edit delete add"
-        "fav cooked cooked";
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
 
-    width: 90%;
-   
     padding: 10px;
 
+    width: 90%;
     background-color: #e4dede;
+   
 }
 
-.wrapper .edit {
-    grid-area: edit;
-}
-
-.wrapper .fav-btn {
-    grid-area: fav;
-}
-
-.wrapper .add-photo-btn {
-    grid-area: add;
-}
-
-.wrapper .delete {
-    grid-area: delete;
-}
-
-.wrapper .cooked {
-    grid-area: cooked;
+.user--icons .main-wrap{
+    width: 50%;
 }
 
 .user--icons .wrapper .btn i {
@@ -192,24 +171,77 @@ section {
     width: 70%;
 }
 
-.image {
-    width: 90%;
-    object-fit: cover;
-    background-position: center center;
-    height: 500px;
+/*
+=========================
+      Grid Gallery
+=========================
+*/
 
-    border-radius: 5px;
+.recipe-details {
+    padding: 0px 50px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    margin-top: 10px;
+    
+    grid-auto-rows: 250px;
+    gap: 16px;
+}
+
+.image-grid>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.image-grid-col-2 {
+    grid-column: span 2;
+}
+
+.image-grid-row-2 {
+    grid-row: span 2;
 }
 
 /*
-    Icons styling
+     Add Image Button
+*/
+
+.add-image-container {
+    padding: 30px;
+}
+
+.add-image-container {
+    margin-top: 40px;
+
+    width: 80%;
+    height: 50%;
+    border: 1px dotted black;
+    border-radius: 20px;
+
+    font-size: large;
+
+    cursor: pointer;
+}
+
+.add-image-container label span {
+    font-weight: lighter;
+    font-size: small;
+    padding-top: 10px;
+}
+
+.add-image-container input {
+    display: none;
+}
+
+/*
+    Recipe icons styling
 */
 
 .icons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     gap: 14px;
 
     width: 50%;
@@ -219,17 +251,6 @@ section {
 
     background-color: #e4dede;
 }
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/*
-    Icons styling
-*/
 
 .icons .wrapper .btn i {
     font-size: 15px;
@@ -246,34 +267,56 @@ section {
 }
 
 /*
-==========================
-  Products & 
-  cooking steps section
-==========================
+================
+    Products 
+================
 */
 
-.recipe{
+.products {
+    width: 40%;
+}
+
+.products li {
+    margin-bottom: 10px;
+}
+
+.products li p {
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.food-item {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
 
-    padding-left: 40px;
+    padding: 5px 10px;
+    margin-top: 10px;
+
+    height: 50px;
+    width: 100%;
+    background-color: var(--white);
+    border-radius: 0px;
+    border-bottom: 2px solid #d1d3d4;
 }
 
-.recipe h3 {
-    font-size: 26px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    text-align: start;
+.food-item p {
+    cursor: pointer;
 }
 
-.products ul {
-    margin-top: 0px;
-    list-style-type: square;
-    margin-bottom: 0px;
+.food-item button {
+    border: none;
+    background-color: #19A68C;
+    height: 100%;
+    width: 50px;
+    color: var(--white);
+    border-radius: 5px;
+    cursor: pointer;
 }
 
+.food-item button i {
+    color: #fff;
+}
 
 /*
 =========================

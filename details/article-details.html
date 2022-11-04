@@ -19,7 +19,8 @@
 </head>
 
 <body>
-    <section class="header">
+
+    <section class="header mrgn-auto">
         <article>
             <h1 class="recipe--header">Pork steaks</h1>
         </article>
@@ -32,9 +33,9 @@
         </article>
     </section>
 
-    <section class="hero">
-        <article class="content">
-            <div class="user-details">
+    <section class="hero mrgn-auto">
+        <article class="content dspl-flex-col-center">
+            <div class="user-details dspl-flex-col-center">
                 <div class="img-holder">
                     <img class="profile--image"
                         src="https://ted-conferences-speaker-photos-production.s3.amazonaws.com/yoa4pm3vyerco6hqbhjxly3bf41d"
@@ -44,7 +45,7 @@
                     <p>Ivan Ivanov</p>
                     <p>Beginner</p>
                 </div>
-                <div class="user__stats">
+                <div class="user__stats dspl-flex-row-center">
                     <div class="stats__wrapper">
                         <i class="fa-solid fa-utensils"></i>
                         <p>31</p>
@@ -63,80 +64,113 @@
             </div>
 
             <div class="user--icons">
-                <div>
+                <div class="main-wrap">
                     <div class="wrapper">
-                        <button class="btn edit"> <i class="fa-solid fa-pen-to-square"></i> </button>
+                        <button class="btn"> <i class="fa-solid fa-pen-to-square"></i> </button>
                         <span>Edit</span>
                     </div>
                     <div class="wrapper">
-                        <button class="btn delete"><i class="fa-regular fa-trash-can"></i></button>
+                        <button class="btn"><i class="fa-regular fa-trash-can"></i></button>
                         <span>Delete</span>
                     </div>
-                    <div class="wrapper">
-                        <button class="btn add-photo-btn"><i class="fa-regular fa-images"></i></button>
-                        <span>Add photo</span>
-                    </div>
+
                 </div>
-                <div>
+                <div class="main-wrap">
                     <div class="wrapper">
-                        <button class="fav-btn btn"><i class="fa-solid fa-heart"></i> </button>
+                        <button class="btn"><i class="fa-solid fa-heart"></i> </button>
                         <span>Favourites</span>
                     </div>
                     <div class="wrapper">
-                        <button class="cooked btn"><i class="fa-regular fa-circle-check"></i> </button>
-                        <span>Add to cooked</span>
+                        <button class="btn"><i class="fa-regular fa-circle-check"></i> </button>
+                        <span>Cooked</span>
                     </div>
                 </div>
             </div>
         </article>
 
         <article class="article--img--icons">
-            <div class="icons">
-                <div class="wrapper">
+            <div class="icons dspl-flex-row-center">
+                <div class="wrapper dspl-flex-col-center">
                     <i class="fa-regular fa-clock"></i>
                     <span>Prep time:</span>
                     <p></p>
                 </div>
-                <div class="wrapper">
+                <div class="wrapper dspl-flex-col-center">
                     <i class="fa-regular fa-clock"></i>
                     <span>Cook time:</span>
                     <p></p>
                 </div>
-                <div class="wrapper">
+                <div class="wrapper dspl-flex-col-center">
                     <i class="fa-solid fa-clock"></i>
                     <span>Total time:</span>
                     <p></p>
                 </div>
-                <div class="wrapper">
+                <div class="wrapper dspl-flex-col-center">
                     <i class="fa-sharp fa-solid fa-utensils"></i>
                     <span>Portions:</span>
                     <p></p>
                 </div>
             </div>
 
-            <img src="/img/dishes/Best-Lasagna-550.jpg" class="image" alt="">
+            <div class="image-grid">
+                <img class="image-grid-col-2 image-grid-row-2" src="/img/details/pork (1).jpg" alt="recipe details">
+                <img src="/img/details/pork (2).jpg" alt="recipe details">
+                <img src="/img/details/pork (3).jpg" alt="recipe details">
+                <img src="/img/details/pork (4).jpg" alt="recipe details">
+                <div class="add-image-container mrgn-auto dspl-flex-col-center">
+                    <label for="images">+ Add images</label>
+                    <br />
+                    <span>up to 4 images</span>
+                    <input type="file" name="images" class="add-img"></input>
+                </div>
+            </div>
         </article>
     </section>
 
     <section class="recipe">
-        <article class="products">
-            <h3>Products :</h3>
-            <ul>
-                <li>Potato</li>
-                <li>Tomatoe</li>
-                <li>Lettuce</li>
-                <li>Pork</li>
-            </ul>
-        </article>
+        <ul class="products mrgn-auto">
+            <h2 class="title">Products</h2>
+            <li class="food-item">
+                <p>Tomatoes</p>
+                <button><i class="fa-solid fa-plus"></i></button>
+            </li>
+            <li class="food-item">
+                <p>Potatoes</p>
+                <button><i class="fa-solid fa-plus"></i></button>
+            </li>
+            <li class="food-item">
+                <p>Carrots</p>
+                <button><i class="fa-solid fa-plus"></i></button>
+            </li>
+            <li class="food-item">
+                <p>Cucum</p>
+                <button><i class="fa-solid fa-plus"></i></button>
+            </li>
+        </ul>
     </section>
 
     <section class="recipe">
-        <article class="steps">
-            <h3>How to cook :</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi eum fugit assumenda eius dignissimos
-                sunt, optio corrupti ipsam asperiores iure pariatur ullam officiis quisquam possimus qui. Facilis
-                adipisci numquam commodi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quasi atque sapiente, corrupti esse, magni, ipsum nihil ut alias eaque deserunt similique laboriosam magnam dolorum distinctio impedit voluptate nulla iusto?</p>
-        </article>
+        <div class="cooking-process">
+            <h2 class="title">How to cook</h2>
+            <p>Place the fish on a cutting board and cut into 2-inch pieces. Set aside.
+                In a large pot, bring 2 quarts of water to a boil. Add the soba noodles and cook for 2 to 3
+                minutes, or until tender but still a little firm. Drain in a colander and rinse under cold running water
+                to
+                remove the surface starch.
+                Set the same pot you used to cook the noodles over high heat and add chicken stock and 1 cup
+                water.
+                Bring the liquid to a boil..
+                Add the edamame and fish to the pot and cover with a lid. Cook at a gentle simmer (small bubbles
+                around
+                the edges) for 3 to 5 minutes, or until the fish is just cooked through and is opaque in the center.
+                Exact cooking time will depend upon the thickness of the fish pieces..
+                With a slotted spoon, remove the fish from the broth and divide it among the bowls, placing it on
+                top
+                of
+                the noodles.
+                Ladle the soup over the bowls of noodles and top each with chopped chives.
+            </p>
+        </div>
     </section>
 </body>
 
