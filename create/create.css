@@ -11,7 +11,6 @@ body {
     background-position: center center;
     background-repeat: none;
     background-size: cover;
-    height: 100vh;
 }
 
 .mrgn-auto {
@@ -39,7 +38,10 @@ form label {
     letter-spacing: 1px;
 }
 
-/* SELECT DROPDOWN & ::AFTER DROPDOWN EFFECT */
+/* 
+    Select Dropdown & :: After Dropdown effect
+*/
+
 form select,
 form input,
 form textarea {
@@ -67,10 +69,9 @@ form select {
 
 .select-wrapper {
     position: relative;
-
 }
 
-.select-wrapper::after {
+.after::after {
     /* positioning */
     content: '\25BC';
     position: absolute;
@@ -92,23 +93,11 @@ form select {
     color: rgb(115, 172, 162);
 }
 
-.group--wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 10px;
+/*
+    Form and Form After Effect
+*/
 
-    padding: 20px;
-}
-
-.group--wrapper .select-wrapper {
-    min-width: 20%;
-}
-
-/* FORM AND FORM AFTER EFFECT */
 form {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     /* positioning */
     position: relative;
@@ -124,25 +113,59 @@ form {
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
 }
 
+/*
+    Form Inputs and Text-areas positioniong
+*/
+
+.group--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+
+    padding: 20px;
+}
+
+
+.group--wrapper .select-wrapper {
+    width: 20%;
+}
+
 .title {
-    width: 40%;
-    margin: 0 auto;
+    width: 50%;
 }
 
 .descr {
-    width: 40%;
-    margin: 0 auto;
+    width: 50%;
 }
 
 .ingredients,
 .steps {
     width: 70%;
-    margin: 0 auto;
 }
 
 
-/* FORM CONTENT GRID AREAS */
 
 @media screen and (max-width:768px) {
-   
+    .title {
+        width: 80%;
+    }
+    
+    .descr {
+        width: 70%;
+    }
+    
+    .ingredients,
+    .steps {
+        width: 70%;
+    } 
+
+    .group--wrapper{
+        flex-direction: column;
+    }
+
+    .group--wrapper .select-wrapper {
+        width: 40%;
+    }
+    
 }

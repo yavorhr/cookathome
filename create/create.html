@@ -23,18 +23,18 @@
 
 <body>
     <section class="create">
-        <form action="" class="mrgn-auto">
-            <div class="title wrapper flex-col">
+        <form action="" class="mrgn-auto flex-col">
+            <div class="title wrapper flex-col mrgn-auto">
                 <label for="title">Recipe title</label>
                 <input type="text" placeholder="Enter the title" name="title">
             </div>
-            <div class="descr wrapper flex-col">
+            <div class="descr wrapper flex-col mrgn-auto">
                 <label for="descr">Description</label>
                 <textarea name="descr" id="" cols="10" rows="10" placeholder="Enter short description..."></textarea>
             </div>
 
             <div class="group--wrapper">
-                <div class="category select-wrapper flex-col">
+                <div class="category select-wrapper flex-col after">
                     <label for="category">Category</label>
                     <select type="text" name="category">
                         <option selected="disabled"> --- </option>
@@ -44,7 +44,7 @@
                     </select>
                 </div>
 
-                <div class="type select-wrapper flex-col">
+                <div class="type select-wrapper flex-col after">
                     <label for="type">Type</label>
                     <select type="text" name="category">
                         <option selected="disabled"> --- </option>
@@ -53,7 +53,7 @@
                         <option value="Babek">Babek</option>
                     </select>
                 </div>
-                <div class="season select-wrapper flex-col">
+                <div class="season select-wrapper flex-col after">
                     <label for="season">Season</label>
                     <select type="text" name="season">
                         <option selected="disabled"> --- </option>
@@ -63,7 +63,7 @@
                         <option value="Winter">Winter</option>
                     </select>
                 </div>
-                <div class="traditional select-wrapper flex-col">
+                <div class="traditional select-wrapper flex-col after">
                     <label for="traditional">Kitchen</label>
                     <select type="text" name="traditional">
                         <option selected="disabled"> --- </option>
@@ -75,13 +75,13 @@
                 </div>
             </div>
 
-            <div class="ingredients flex-col">
+            <div class="ingredients flex-col mrgn-auto">
                 <label for="ingredients">Ingredients</label>
                 <textarea name="ingredients" id="" cols="30" rows="10"
                     placeholder="Enter one product per row (ex. : Potatoes - 1 kg.)"></textarea>
             </div>
 
-            <div class="steps flex-col">
+            <div class="steps flex-col mrgn-auto">
                 <label for="steps">Steps</label>
                 <textarea name="steps" id="" cols="30" rows="10"
                     placeholder="Enter one step per row (ex. : 1. Boil the potatoes)"></textarea>
@@ -105,7 +105,7 @@
             </div>
 
             <div class="group--wrapper">
-                <div class="level select-wrapper flex-col">
+                <div class="level select-wrapper flex-col after">
                     <label for="level">Complexity</label>
                     <select type="text" name="level">
                         <option selected="disabled">---</option>
@@ -115,7 +115,7 @@
                         <option value="Serbian">Very complex</option>
                     </select>
                 </div>
-                <div class="occasion select-wrapper flex-col">
+                <div class="occasion select-wrapper flex-col after">
                     <label for="occasion">Good for</label>
                     <select type="text" name="occasion">
                         <option selected="disabled">---</option>
@@ -130,7 +130,7 @@
                         <option value="">Snack</option>
                     </select>
                 </div>
-                <div class="portions flex-col">
+                <div class="portions flex-col select-wrapper">
                     <label for="portions">Portions</label>
                     <input type="text" name="portions">
                 </div>
