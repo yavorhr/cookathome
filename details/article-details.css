@@ -30,13 +30,6 @@ section {
     overflow: hidden;
 }
 
-.flex-col-centered {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 /*
 ==================
   Header Section 
@@ -48,7 +41,7 @@ section {
     text-align: center;
 }
 
-.article--header {
+.recipe--header {
     font-size: 35px;
     letter-spacing: 1px;
     text-transform: capitalize;
@@ -81,7 +74,7 @@ section {
 }
 
 /*
-   User profile 
+   User profile and products 
 */
 
 .content {
@@ -95,7 +88,7 @@ section {
 }
 
 /*
-    User profile stats
+    User profile
 */
 
 .user-details {
@@ -103,12 +96,10 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     gap: 7px;
 
-    /* positioning */
     padding: 10px 12px;
-
-    /* box model */
     width: 90%;
     height: auto;
 
@@ -142,12 +133,35 @@ section {
 .user--icons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
-    padding: 10px;
+    grid-template:
+        "edit delete add"
+        "fav cooked cooked";
 
     width: 90%;
+   
+    padding: 10px;
 
     background-color: #e4dede;
+}
+
+.wrapper .edit {
+    grid-area: edit;
+}
+
+.wrapper .fav-btn {
+    grid-area: fav;
+}
+
+.wrapper .add-photo-btn {
+    grid-area: add;
+}
+
+.wrapper .delete {
+    grid-area: delete;
+}
+
+.wrapper .cooked {
+    grid-area: cooked;
 }
 
 .user--icons .wrapper .btn i {
@@ -171,7 +185,7 @@ section {
 }
 
 /*
-    Article icons and article cover photo
+    Recipe icons and recipe image
 */
 
 .article--img--icons {
@@ -194,10 +208,11 @@ section {
 .icons {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 
+    gap: 14px;
 
-    width: 40%;
+    width: 50%;
 
     margin-bottom: 5px;
     padding: 5px 3px;
@@ -232,11 +247,12 @@ section {
 
 /*
 ==========================
-    Article content
+  Products & 
+  cooking steps section
 ==========================
 */
 
-.article--content {
+.recipe{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -245,18 +261,28 @@ section {
     padding-left: 40px;
 }
 
-.article--content h3 {
+.recipe h3 {
     font-size: 26px;
     font-weight: bold;
     letter-spacing: 3px;
     text-align: start;
 }
 
+.products ul {
+    margin-top: 0px;
+    list-style-type: square;
+    margin-bottom: 0px;
+}
 
-/* ============================================ */
+
+/*
+=========================
+   Media Mobile Screen
+=========================
+*/
 
 @media screen and (max-width:768px) {
-    section {
+    section{
         width: 100%;
     }
 
@@ -266,115 +292,135 @@ section {
         width: 100%;
     }
 
-    /*
-    Article icons and article cover photo
+    
+/*
+    Recipe icons and recipe image
 */
 
-    .article--img--icons {
-        width: 70%;
-        display: flex;
-        flex-direction: column-reverse;
-    }
+.article--img--icons {
+  width: 70%;
+  display: flex;
+  flex-direction: column-reverse;
+}
 
-    .image {
-        width: 90%;
-        height: auto;
+.image {
+    width: 90%;
+    height: auto;
 
-        border-radius: 5px;
-    }
+    border-radius: 5px;
+}
 
-    /*
+/*
     Icons styling
 */
 
-    .icons {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 
-        width: 90%;
+    width: 90%;
+    
+    margin-top: 5px;
+    padding: 2px 2px;
 
-        margin-top: 5px;
-        padding: 2px 2px;
+    background-color: #e4dede;
+}
 
-        background-color: #e4dede;
-    }
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-    .wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /*
+/*
     Icons styling
 */
-    .icons .wrapper .btn i {
-        font-size: 15px;
-        padding: 3px;
-    }
 
-    .icons .wrapper i {
-        font-size: 15px;
-        padding: 3px;
-    }
+.icons .wrapper .btn i {
+    font-size: 15px;
+    padding: 3px;
+}
 
-    .icons .wrapper span {
-        margin-top: 3px;
-        font-size: 15px;
-    }
+.icons .wrapper i {
+    font-size: 15px;
+    padding: 3px;
+}
 
-    /*
+.icons .wrapper span {
+    margin-top: 3px;
+    font-size: 15px;
+}
+
+/*
     User profile
 */
 
-    .user-details {
-        width: 100%;
+.user-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-        margin-right: 9px;
-        padding: 5px;
-    }
+    gap: 7px;
+    width: 100%;
 
-    .profile--image {
-        width: 100%;
-        border-radius: 50%;
-    }
+    margin-right: 9px;
+    padding: 5px;
 
-    .user__stats {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
+    height: auto;
 
-        font-size: 12px;
-    }
+    text-align: center;
 
-    /*
+    background-color: #cfd8d8;
+}
+
+.profile--image {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.user__stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 12px;
+}
+
+/*
     User profile
 */
 
-    .user--icons {
-        padding: 5px;
-        margin-right: 10px;
-        width: 100%;
+.user--icons {
+    padding: 5px;
+    margin-right: 10px;
+    width: 100%;
 
-        gap: 5px;
-    }
+  
+   
+    gap: 5px;
+}
 
-    .user--icons .wrapper .btn i {
-        font-size: 15px;
-        padding: 3px;
-        transition: 0.8s;
-    }
+.user--icons .wrapper .btn i {
+    font-size: 15px;
+    padding: 3px;
+    transition: 0.8s;
+}
 
-    .user--icons .wrapper i {
-        font-size: 13px;
-        padding: 3px;
-    }
+.user--icons .wrapper i {
+    font-size: 13px;
+    padding: 3px;
+}
 
-    .user--icons .wrapper span {
-        margin-top: 3px;
-    }
+.user--icons .wrapper span {
+    margin-top: 3px;
+}
+
+
+
+
 }
