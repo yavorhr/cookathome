@@ -9,18 +9,18 @@ body {
     box-sizing: border-box;
     background-image: linear-gradient(180deg, rgba(240, 249, 249, 0.8744631641719187) 10%, rgba(231, 247, 247, 0.986) 50%, rgba(240, 249, 249, 0.7147059507396709) 100%);
     height: 100vh;
-    /* overflow: hidden; */
 }
 
-.mrgn-auto{
+.mrgn-auto {
     margin: 0 auto;
 }
 
 section {
     max-width: 1500px;
     margin: 0 auto;
+    padding: 0 20px;
 
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .btn {
@@ -33,18 +33,19 @@ section {
     overflow: hidden;
 }
 
-.dspl-flex-col-center{
+.dspl-flex-col-center {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.dspl-flex-row-center{
-   display: flex;
+.dspl-flex-row-center {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
+
 /*
 ==================
   Header Section 
@@ -53,8 +54,8 @@ section {
 
 .header {
     max-width: 1200px;
-    text-align: center;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .recipe--header {
@@ -89,7 +90,6 @@ section {
 */
 
 .content {
-
     width: 20%;
     gap: 7px;
 }
@@ -102,13 +102,15 @@ section {
     gap: 7px;
 
     padding: 10px 12px;
+
+    /* Box model */
     width: 90%;
     height: auto;
+    background-color: #cfd8d8;
 
     text-align: center;
-
-    background-color: #cfd8d8;
 }
+
 
 .profile--image {
     width: 100%;
@@ -117,7 +119,6 @@ section {
 
 .user__stats {
     gap: 10px;
-
     font-size: 12px;
 }
 
@@ -138,16 +139,15 @@ section {
 
     width: 90%;
     background-color: #e4dede;
-   
 }
 
-.user--icons .main-wrap{
+.user--icons .main-wrap {
     width: 50%;
 }
 
 .user--icons .wrapper .btn i {
-    font-size: 28px;
     padding: 5px;
+    font-size: 28px;
     transition: 0.8s;
 }
 
@@ -188,7 +188,7 @@ section {
     grid-template-columns: repeat(4, 1fr);
 
     margin-top: 10px;
-    
+
     grid-auto-rows: 250px;
     gap: 16px;
 }
@@ -221,18 +221,19 @@ section {
 
     width: 80%;
     height: 50%;
+
     border: 1px dotted black;
     border-radius: 20px;
 
     font-size: large;
-
     cursor: pointer;
 }
 
 .add-image-container label span {
+    padding-top: 10px;
+
     font-weight: lighter;
     font-size: small;
-    padding-top: 10px;
 }
 
 .add-image-container input {
@@ -246,22 +247,21 @@ section {
 .icons {
     gap: 14px;
 
-    width: 50%;
-
-    margin-bottom: 5px;
     padding: 5px 3px;
 
+    width: 50%;
+    margin-bottom: 5px;
     background-color: #e4dede;
 }
 
 .icons .wrapper .btn i {
-    font-size: 15px;
     padding: 3px;
+    font-size: 15px;
 }
 
 .icons .wrapper i {
-    font-size: 20px;
     padding: 3px;
+    font-size: 20px;
 }
 
 .icons .wrapper span {
@@ -292,14 +292,14 @@ section {
     align-items: center;
     justify-content: space-between;
 
-    padding: 5px 10px;
-    margin-top: 10px;
-
     height: 50px;
     width: 100%;
-    background-color: var(--white);
+
+    padding: 5px 10px;
+    margin-top: 10px;
     border-radius: 0px;
     border-bottom: 2px solid #d1d3d4;
+    background-color: var(--white);
 }
 
 .food-item p {
@@ -307,12 +307,13 @@ section {
 }
 
 .food-item button {
-    border: none;
-    background-color: #19A68C;
     height: 100%;
     width: 50px;
-    color: var(--white);
+
     border-radius: 5px;
+    border: none;
+
+    color: var(--white);
     cursor: pointer;
 }
 
@@ -320,7 +321,13 @@ section {
     color: #fff;
 }
 
+.food-item .add {
+    background-color: #19A68C;
+}
 
+.food-item .remove {
+    background-color: rgb(235, 48, 48);
+}
 
 /*
 ==========================
@@ -328,9 +335,9 @@ section {
 ==========================
 */
 
-.cooking-process h2{
-    text-align: center;
+.cooking-process h2 {
     margin-bottom: 10px;
+    text-align: center;
     letter-spacing: 3px;
 }
 
@@ -346,146 +353,146 @@ section {
 =========================
 */
 
+
 @media screen and (max-width:768px) {
-    section{
+    section {
         width: 100%;
     }
+
+    /*
+==================
+  Hero Section 
+==================
+*/
 
     .hero {
-        align-items: flex-start;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
+        gap: 20px;
+    }
+
+    /*
+    User profile and user buttons box - delete, edit, etc.
+*/
+    .content {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+        width: 70%;
+    }
+
+    .user--icons {
+        max-width: 45%;
+
+    }
+
+    .user-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+
+        padding: 5px;
+        margin-right: 9px;
+    }
+
+    .user--icons {
         width: 100%;
     }
 
-    
-/*
-    Recipe icons and recipe image
+    .user--icons .wrapper .btn i {
+        padding: 3px;
+        font-size: 20px;
+    }
+
+    .user--icons .wrapper i {
+        font-size: 20px;
+    }
+
+    /*
+    Recipe time icons box
 */
 
-.article--img--icons {
-  width: 70%;
-  display: flex;
-  flex-direction: column-reverse;
-}
+    .icons {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 2px;
 
-.image {
-    width: 90%;
-    height: auto;
+        width: 100%;
 
-    border-radius: 5px;
-}
+        margin-top: 5px;
+        padding: 2px 2px;
+    }
 
-/*
-    Icons styling
+
+    .article--img--icons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /*
+    Image Grid
 */
 
-.icons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        margin-top: 0px;
+    }
 
-    width: 90%;
-    
-    margin-top: 5px;
-    padding: 2px 2px;
-
-    background-color: #e4dede;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/*
-    Icons styling
+    /*
+=======================
+    Products Section 
+=======================
 */
 
-.icons .wrapper .btn i {
-    font-size: 15px;
-    padding: 3px;
-}
+    .products {
+        width: 70%;
+    }
 
-.icons .wrapper i {
-    font-size: 15px;
-    padding: 3px;
-}
+    .products li {
+        margin-bottom: 7px;
+    }
 
-.icons .wrapper span {
-    margin-top: 3px;
-    font-size: 15px;
-}
+    .products li p {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
 
-/*
-    User profile
-*/
+    .food-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-.user-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+        height: 50px;
+        width: 100%;
 
-    gap: 7px;
-    width: 100%;
+        padding: 4px 8px;
+        margin-top: 10px;
+        border-radius: 0px;
+        border-bottom: 2px solid #d1d3d4;
+        background-color: var(--white);
+    }
 
-    margin-right: 9px;
-    padding: 5px;
+    .food-item button {
+        height: 80%;
+        width: 10%;
 
-    height: auto;
-
-    text-align: center;
-
-    background-color: #cfd8d8;
-}
-
-.profile--image {
-    width: 100%;
-    border-radius: 50%;
-}
-
-.user__stats {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-    font-size: 12px;
-}
-
-/*
-    User profile
-*/
-
-.user--icons {
-    padding: 5px;
-    margin-right: 10px;
-    width: 100%;
-
-  
-   
-    gap: 5px;
-}
-
-.user--icons .wrapper .btn i {
-    font-size: 15px;
-    padding: 3px;
-    transition: 0.8s;
-}
-
-.user--icons .wrapper i {
-    font-size: 13px;
-    padding: 3px;
-}
-
-.user--icons .wrapper span {
-    margin-top: 3px;
-}
-
-
-
+        border-radius: 5px;
+    }
 
 }
