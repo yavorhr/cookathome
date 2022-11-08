@@ -54,20 +54,85 @@ body {
 
 /*
     User Details Positioning : 
-    img holder, user information and user icons
+    1. Img holder
+    2. User information 
+    3. User icons
 */
 
 .user-details {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 30px;
+    gap: 15px;
 }
 
 /*
-    User profile icons
+    1. User profile picture
+*/
+.user-details .img-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 40%;
+    height: auto;
+}
+
+.user-details img {
+    border-radius: 50%;
+}
+
+.img-holder .level {
+    font-size: 20px;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-style: italic;
+}
+
+/*
+    1. User information 
 */
 
+.user-information {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+.user-information label {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.user-information p {
+    font-size: 14px;
+    color: var(--grey);
+    letter-spacing: 1px;
+    letter-spacing: 1px;
+}
+
+.user-personal-data{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap:30px;
+}
+
+/*
+    3. User icons
+*/
+
+.user--icons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
 
 .user--icons .wrapper {
     display: flex;
@@ -75,8 +140,8 @@ body {
     align-items: center;
     justify-content: center;
 
-    padding: 10px;
-    
+    padding: 7px;
+
     background-color: #e4dede;
 }
 
@@ -95,17 +160,6 @@ body {
     margin-top: 3px;
 }
 
-/*
-    Recipe icons and recipe image
-*/
-
-.user--icons {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-}
-
 .user--icons .wrapper .btn i {
     padding: 3px;
     font-size: 20px;
@@ -113,63 +167,6 @@ body {
 
 .user--icons .wrapper {
     font-size: 17px;
-}
-
-.user-details .img-holder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-
-    width: 30%;
-    height: auto;
-}
-
-.img-holder .level {
-    font-size: 20px;
-    text-transform: capitalize;
-    letter-spacing: 2px;
-    font-style: italic;
-}
-
-.user-details img {
-    border-radius: 50%;
-}
-
-.user-information {
-    width: 60%;
-    height: auto;
-    display: grid;
-    gap: 20px;
-    grid-template:
-        "title title"
-        "name username"
-        "email phone";
-}
-
-.title {
-    grid-area: title;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 5px;
-    font-weight: 900;
-    padding: 5px;
-    border-bottom: 1px solid var(--grey);
-}
-
-.user-information label {
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.user-information p {
-    font-size: 14px;
-    color: var(--grey);
-    letter-spacing: 1px;
-    letter-spacing: 1px;
 }
 
 /*
@@ -184,8 +181,6 @@ body {
     grid-template-columns: repeat(3, 180px);
     gap: 20px;
 }
-
-
 
 .card-list a {
     text-decoration: none;
