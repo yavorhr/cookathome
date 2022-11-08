@@ -4,6 +4,16 @@
 =========================
 */
 
+:root {
+    --white: #ffffff;
+    --form-elements-background-clr: rgba(224, 230, 230, 0.986);
+    --green: rgb(115, 172, 162);
+    --black: rgba(0, 0, 0, .5);
+    --grey: grey;
+    --select-background-clr: #888f8f;
+    --form-pseudo-background-clr: rgba(156, 163, 163, 0.5);
+}
+
 body {
     font-family: "Roboto";
     box-sizing: border-box;
@@ -31,11 +41,44 @@ body {
     margin: 40px 0;
 }
 
-form label {
-    margin-bottom: 5px;
+h1 {
+    padding-top: 20px;
 
-    font-size: 24px;
-    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/*
+    Form and Form Before Effect
+*/
+
+form {
+    /* display props */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* positioning */
+    position: relative;
+    /* box model */
+    width: 90%;
+    /*type*/
+    color: var(--white);
+    /* misc */
+    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+}
+
+form::before {
+    /* positioning */
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*box-model*/
+    background-color: var(--form-pseudo-background-clr);
+
+    z-index: -1;
 }
 
 /* 
@@ -50,9 +93,9 @@ form textarea {
     border: none;
     outline: none;
     border-radius: 10px;
-    background-color: rgba(224, 230, 230, 0.986);
+    background-color: var(--form-elements-background-clr);
     /*type*/
-    color: grey;
+    color: var(--grey);
     font-size: 18px;
     /*misc*/
     appearance: none;
@@ -86,7 +129,7 @@ form select {
     right: 0;
     /* box model */
     padding: 9px;
-    background-color: #888f8f;
+    background-color: var(--select-background-clr);
     /*type*/
     font-size: 20px;
     color: white;
@@ -97,65 +140,63 @@ form select {
 }
 
 .select-wrapper:hover::after {
-    color: rgb(115, 172, 162);
+    color: var(--green)
 }
 
 /*
-    Create Form and Form Before Effect
-*/
-
-form {
-    /* display props */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    /* positioning */
-    position: relative;
-    /* box model */
-    width: 90%;
-    /*type*/
-    color: white;
-    /* misc */
-    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-}
-
-form::before {
-    /* positioning */
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    /*box-model*/
-    background-color: rgba(156, 163, 163, 0.5);
-
-    z-index: -1;
-}
-
-/*
-    Form Inputs and Txt-areas positioning
+    Form elemements positioning - inputs, labels and text-areas
 */
 
 .title {
     width: 50%;
-    margin-top:20px;
+    margin-top: 20px;
+}
+
+form label {
+    margin-bottom: 5px;
+
+    font-size: 24px;
+    letter-spacing: 1px;
 }
 
 .image-url {
     width: 60%;
 }
 
-.descr
-{
+.descr {
     width: 60%;
 }
 
 .category {
- width: 30%;
+    width: 30%;
 }
 
-.content{
+.content {
     width: 60%;
     margin-bottom: 20px;
 }
 
+/* 
+    Form Button
+*/
+
+button {
+    padding: 15px 0px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    width: 10%;
+    border-radius: 10px;
+    background-color: var(--background-clr);
+    outline: none;
+
+    font-size: 22px !important;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: var(--form-elements-background-clr);
+    color: var(--grey)
+}
