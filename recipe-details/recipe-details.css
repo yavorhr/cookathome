@@ -156,12 +156,7 @@ section {
     color: grey;
 }
 
-.user--icons .wrapper i {
-    font-size: 28px;
-    padding: 5px;
-}
-
-.user--icons .wrapper span {
+.user--icons .wrapper {
     margin-top: 3px;
 }
 
@@ -383,11 +378,6 @@ section {
         width: 70%;
     }
 
-    .user--icons {
-        max-width: 45%;
-
-    }
-
     .user-details {
         display: flex;
         flex-direction: column;
@@ -401,7 +391,12 @@ section {
     }
 
     .user--icons {
-        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+
+        vertical-align: middle;
     }
 
     .user--icons .wrapper .btn i {
@@ -409,11 +404,11 @@ section {
         font-size: 20px;
     }
 
-    .user--icons .wrapper i {
-        font-size: 20px;
+    .user--icons .wrapper {
+        font-size: 17px;
     }
 
-    /*
+/*
     Recipe time icons box
 */
 
