@@ -4,6 +4,15 @@
 =========================
 */
 
+:root {
+    --white: #ffffff;
+    --black: black;
+    --grey: grey;
+    --green: #19A68C;
+    --body: #F0F9F9;
+    --box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+}
+
 body {
     font-family: "Roboto";
     box-sizing: border-box;
@@ -20,45 +29,40 @@ body {
 
 /*
 =========================
-      GROCERY LIST 
+   Grocery list Section 
 =========================
 */
 
-:root {
-    --white: #ffffff;
-    --black: black;
-    --grey: grey;
-    --green: #19A68C;
-    --body: #F0F9F9;
-    --box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-}
-
 .grocery-list {
-    min-width: 340px;
     width: 500px;
     max-width: 700px;
+    min-width: 340px;
     height: 35%;
+
     margin: 0 auto;
     margin-top: 40px;
 }
 
 .new-task {
     padding: 30px 15px;
+
     background-color: var(--white);
     border-radius: 5px;
     box-shadow: var(--box-shadow);
 }
 
 .new-task input {
-    border-radius: 5px;
+    position: relative;
     width: 70%;
     height: 45px;
-    font-size: 15px;
-    border: 2px solid var(--grey);
+
     padding: 12px;
+    border-radius: 5px;
+    border: 2px solid var(--grey);
+    
+    font-size: 15px;
     color: var(--black);
     font-weight: 500;
-    position: relative;
 }
 
 .new-task input:focus {
@@ -71,48 +75,55 @@ body {
     float: right;
     width: 60px;
     height: 45px;
+    
     border-radius: 3px;
-    font-weight: 500;
-    font-size: 16px;
     background-color: var(--green);
-    color: var(--white);
     border: none;
     outline: none;
     cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--white);
 }
 
 .groceries {
     width: 100%;
-    box-shadow: var(--box-shadow);
+
+    padding: 30px 20px;
     margin-top: 40px;
     background-color: var(--white);
-    padding: 30px 20px;
+    box-shadow: var(--box-shadow);
     border-radius: 5px;
+
     list-style: none;
 }
 
 .food-item {
-    background-color: var(--white);
-    height: 50px;
-    padding: 5px 10px;
-    border-radius: 0px;
-    margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 50px;
+
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: var(--white);
+    border-radius: 0px;
     border-bottom: 2px solid #d1d3d4;
 }
 
-.food-item p {
+.food-item {
     cursor: pointer;
 }
 
 .food-item button {
-    border: none;
-    background-color: #19A68C;
     height: 100%;
     width: 50px;
-    color: var(--white);
+
+    border: none;
+    background-color: var(--green);
     border-radius: 5px;
     cursor: pointer;
+
+    color: var(--white);
 }
