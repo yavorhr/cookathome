@@ -4,6 +4,14 @@
 =========================
 */
 
+:root {
+    --white: #ffffff;
+    --background-clr: #f0e5db;;
+    --green:rgb(115, 172, 162);
+    --black: rgba(0, 0, 0, .5);
+    --silver: #575e5e;
+}
+
 body {
     font-family: "Roboto";
     box-sizing: border-box;
@@ -24,16 +32,25 @@ body {
 
 /*
 ======================
-    Create Section 
+    Edit Section 
 ======================
 */
 
-.create {
+h1 {
+    padding: 20px 0;
+
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.edit {
     margin: 40px 0;
 }
 
 form label {
     margin-bottom: 5px;
+
     font-size: 20px;
     letter-spacing: 1px;
 }
@@ -50,12 +67,23 @@ form textarea {
     border: none;
     outline: none;
     border-radius: 10px;
-    background-color: #f0e5db;
+    background-color: var(--background-clr);
     /*type*/
     color: grey;
     font-size: 18px;
     /*misc*/
     appearance: none;
+}
+
+form::before {
+    /* positioning */
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*box-model*/
+    background-color: var(--black);
+    z-index: -1;
 }
 
 form select {
@@ -79,18 +107,18 @@ form select {
     right: 0;
     /* box model */
     padding: 9px;
-    background-color: #575e5e;
+    border-radius: 0 10px 10px 0;
+    background-color: var(--silver);
+    cursor: pointer;
     /*type*/
     font-size: 20px;
     color: white;
-    border-radius: 0 10px 10px 0;
-    cursor: pointer;
     /*functionality*/
     transition: .25s all ease;
 }
 
 .select-wrapper:hover::after {
-    color: rgb(115, 172, 162);
+    color: var(--green);
 }
 
 /*
@@ -103,11 +131,10 @@ form {
     position: relative;
     /* box model */
     width: 90%;
-    padding: 30px;
     background-color: transparent;
     border: 1px solid black;
     /*type*/
-    color: white;
+    color: var(--white);
     /* misc */
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
@@ -144,28 +171,53 @@ form {
     width: 70%;
 }
 
+button {
+    padding: 15px 0px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
 
+    width: 10%;
+    border-radius: 10px;
+    background-color: var(--background-clr);
+    outline: none;
+
+    font-size: 22px!important;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+button:hover{
+   background-color: var(--green);
+   color: var(--white)
+}
+
+/*
+======================
+  Responsive design
+======================
+*/
 
 @media screen and (max-width:768px) {
     .title {
         width: 80%;
     }
-    
+
     .descr {
         width: 70%;
     }
-    
+
     .ingredients,
     .steps {
         width: 70%;
-    } 
+    }
 
-    .group--wrapper{
+    .group--wrapper {
         flex-direction: column;
     }
 
     .group--wrapper .select-wrapper {
         width: 40%;
     }
-    
+
 }

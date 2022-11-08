@@ -11,7 +11,6 @@ body {
     background-position: center center;
     background-repeat: none;
     background-size: cover;
-    height: 100vh;
 }
 
 .mrgn-auto {
@@ -24,19 +23,10 @@ body {
 }
 
 /*
-=========================
-      EDIT PAGE 
-=========================
+======================
+    Create Section 
+======================
 */
-
-h1 {
-    grid-area: heading;
-    text-align: center;
-    color: white;
-    font-size: 25px;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
 
 .create {
     margin: 40px 0;
@@ -48,7 +38,10 @@ form label {
     letter-spacing: 1px;
 }
 
-/* SELECT DROPDOWN & ::AFTER DROPDOWN EFFECT */
+/* 
+    Select Dropdown & :: After Dropdown effect
+*/
+
 form select,
 form input,
 form textarea {
@@ -65,12 +58,20 @@ form textarea {
     appearance: none;
 }
 
-form select {
-    cursor: pointer;
+form::before {
+    /* positioning */
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /*box-model*/
+    background-color: rgba(0, 0, 0, .5);
 }
 
-form textarea {
-    resize: none;
+
+form select {
+    cursor: pointer;
 }
 
 ::placeholder {
@@ -82,7 +83,7 @@ form textarea {
     position: relative;
 }
 
-.select-wrapper::after {
+.after::after {
     /* positioning */
     content: '\25BC';
     position: absolute;
@@ -104,27 +105,16 @@ form textarea {
     color: rgb(115, 172, 162);
 }
 
-/* FORM AND FORM AFTER EFFECT */
+/*
+    Form and Form After Effect
+*/
+
 form {
-    /* display props */
-    display: grid;
+    justify-content: center;
     /* positioning */
     position: relative;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template: 
-    "heading heading heading"
-    "title title title"
-        ". descr ."
-        "category type season"
-        "traditional . ."
-        "ingredients ingredients ingredients"
-        "steps steps steps"
-        "calories prep-time cook-time"
-        "level occasion portions";
     /* box model */
-    width: 1200px;
-    gap: 20px;
-    padding: 30px;
+    width: 90%;
     background-color: transparent;
     border: 1px solid black;
     /*type*/
@@ -134,82 +124,59 @@ form {
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
 }
 
-form::before {
-    /* positioning */
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    /*box-model*/
-    background-color: rgba(0, 0, 0, .5);
+/*
+    Form Inputs and Text-areas positioniong
+*/
+
+.group--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+
+    padding: 20px;
 }
 
-/* FORM CONTENT GRID AREAS */
-.title {
-    grid-area: title;
 
+.group--wrapper .select-wrapper {
+    width: 20%;
+}
+
+.title {
+    width: 50%;
 }
 
 .descr {
-    grid-area: descr;
+    width: 50%;
 }
 
-.category {
-    grid-area: category;
-}
-
-.type {
-    grid-area: type;
-
-}
-
-.season {
-    grid-area: season;
-
-}
-
-.traditional {
-    grid-area: traditional;
-
-}
-
-.ingredients {
-    grid-area: ingredients;
-
-}
-
+.ingredients,
 .steps {
-    grid-area: steps;
-    ;
+    width: 70%;
 }
 
-.calories {
-    grid-area: calories;
 
-}
 
-.prep-time {
-    grid-area: prep-time;
+@media screen and (max-width:768px) {
+    .title {
+        width: 80%;
+    }
+    
+    .descr {
+        width: 70%;
+    }
+    
+    .ingredients,
+    .steps {
+        width: 70%;
+    } 
 
-}
+    .group--wrapper{
+        flex-direction: column;
+    }
 
-.cook-time {
-    grid-area: cook-time;
-
-}
-
-.level {
-    grid-area: level;
-
-}
-
-.occasion {
-    grid-area: occasion;
-
-}
-
-.portions {
-    grid-area: portions;
-
+    .group--wrapper .select-wrapper {
+        width: 40%;
+    }
+    
 }
