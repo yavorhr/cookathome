@@ -48,6 +48,55 @@ h1 {
     margin: 40px 0;
 }
 
+/* 
+    Form positioning
+*/
+form {
+    justify-content: center;
+    gap: 25px;
+    /* positioning */
+    position: relative;
+    /* box model */
+    width: 90%;
+    background-color: transparent;
+    border: 1px solid black;
+    /*type*/
+    color: var(--white);
+    /* misc */
+    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+}
+
+/*
+    Form Inputs and Text-areas positioniong
+*/
+
+.group--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+
+    padding: 20px;
+}
+
+.group--wrapper .select-wrapper {
+    width: 20%;
+}
+
+.title {
+    width: 50%;
+}
+
+.descr {
+    width: 50%;
+}
+
+.ingredients,
+.steps {
+    width: 70%;
+}
+
 form label {
     margin-bottom: 5px;
 
@@ -119,56 +168,6 @@ form select {
 
 .select-wrapper:hover::after {
     color: var(--green);
-}
-
-/*
-    Form and Form After Effect
-*/
-
-form {
-    justify-content: center;
-    /* positioning */
-    position: relative;
-    /* box model */
-    width: 90%;
-    background-color: transparent;
-    border: 1px solid black;
-    /*type*/
-    color: var(--white);
-    /* misc */
-    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-}
-
-/*
-    Form Inputs and Text-areas positioniong
-*/
-
-.group--wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 10px;
-
-    padding: 20px;
-}
-
-
-.group--wrapper .select-wrapper {
-    width: 20%;
-}
-
-.title {
-    width: 50%;
-}
-
-.descr {
-    width: 50%;
-}
-
-.ingredients,
-.steps {
-    width: 70%;
 }
 
 /*

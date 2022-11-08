@@ -49,10 +49,24 @@ h1 {
     margin: 40px 0;
 }
 
-form label {
-    margin-bottom: 5px;
-    font-size: 20px;
-    letter-spacing: 1px;
+/*
+    Form positioning
+*/
+
+form {
+    justify-content: center;
+    gap: 20px;
+    /* positioning */
+    position: relative;
+    /* box model */
+    width: 90%;
+    background-color: transparent;
+    border: 1px solid black;
+    /*type*/
+    color:var(--white);
+    /* misc */
+    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
 }
 
 /* 
@@ -123,53 +137,14 @@ form select {
 }
 
 /*
-    Form and Form After Effect
+    Form elements styling - inputs, label and text areas
 */
 
-form {
-    justify-content: center;
-    /* positioning */
-    position: relative;
-    /* box model */
-    width: 90%;
-    background-color: transparent;
-    border: 1px solid black;
-    /*type*/
-    color:var(--white);
-    /* misc */
-    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+form label {
+    margin-bottom: 5px;
+    font-size: 20px;
+    letter-spacing: 1px;
 }
-
-/*
-   Form Button
-*/
-
-button {
-    padding: 15px 0px;
-    margin: 0 auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-
-    width: 10%;
-    border-radius: 10px;
-    background-color: var(--background-clr);
-    outline: none;
-
-    font-size: 22px!important;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-button:hover{
-   background-color: var(--green);
-   color: var(--white)
-}
-
-
-/*
-    Form Inputs and Text-areas positioniong
-*/
 
 .group--wrapper {
     display: flex;
@@ -197,7 +172,36 @@ button:hover{
     width: 70%;
 }
 
+/*
+   Form Button
+*/
 
+button {
+    padding: 15px 0px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    width: 10%;
+    border-radius: 10px;
+    background-color: var(--background-clr);
+    outline: none;
+
+    font-size: 22px!important;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+button:hover{
+   background-color: var(--green);
+   color: var(--white)
+}
+
+/*
+======================
+   Responsive design
+======================
+*/
 
 @media screen and (max-width:768px) {
     .title {
