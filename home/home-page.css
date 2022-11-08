@@ -4,25 +4,25 @@
 =========================
 */
 
-body {
-    font-family: "Roboto";
-    box-sizing: border-box;
-    background-image: linear-gradient(180deg, rgba(240, 249, 249, 0.8744631641719187) 10%, rgba(231, 247, 247, 0.986) 50%, rgba(240, 249, 249, 0.7147059507396709) 100%);
+:root {
+	--grey: #A8ACAF;
+	--white: #ffffff;
+	--red: #FF0000;
+	--box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+	--black: black;
+	--brown: brown;
+	--body: #F0F9F9;
+	--orange: orange;
+	--green: #62A5A1;
+	--blue: #0a8ea6;
+	--lightgreen: #9efcff;
+	--user--login--btn--bckgrnd: #B54484;
 }
 
-:root {
-    --grey: #A8ACAF;
-    --white: #ffffff;
-    --red: #FF0000;
-    --box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    --black: black;
-    --brown: brown;
-    --body: #F0F9F9;
-    --orange: orange;
-    --green: #62A5A1;
-    --blue: #0a8ea6;
-    --lightgreen: #9efcff;
-
+body {
+	font-family: "Roboto";
+	box-sizing: border-box;
+	background-image: linear-gradient(180deg, rgba(240, 249, 249, 0.8744631641719187) 10%, rgba(231, 247, 247, 0.986) 50%, rgba(240, 249, 249, 0.7147059507396709) 100%);
 }
 
 /*
@@ -33,17 +33,19 @@ body {
 
 /* h2 */
 .section-title {
-    font-size: 30px;
-    margin: 0 auto;
-    text-align: center;
-    letter-spacing: 3px;
-    border-bottom: 3px solid var(--brown);
-    width: 300px;
-    margin-bottom: 20px;
+	width: 300px;
+
+	margin: 0 auto;
+	margin-bottom: 20px;
+	border-bottom: 3px solid var(--brown);
+
+	text-align: center;
+	font-size: 30px;
+	letter-spacing: 3px;
 }
 
 .section-title:hover {
-    border-bottom: 3px solid var(--orange);
+	border-bottom: 3px solid var(--orange);
 }
 
 /*
@@ -53,67 +55,76 @@ body {
 */
 
 .navigation {
-    width: 100%;
-    height: 120px;
-    padding: 0px 50px;
-    background-color: var(--green);
-    box-shadow: var(--box-shadow)
+	width: 100%;
+	height: 120px;
+
+	padding: 0px 50px;
+	background-color: var(--green);
+	box-shadow: var(--box-shadow)
 }
 
 .logo {
-    width: 130px;
-    height: auto;
-    border-radius: 70%;
+	width: 130px;
+	height: auto;
+
+	border-radius: 70%;
 }
 
 .logo:hover {
-    box-shadow: var(--box-shadow);
+	box-shadow: var(--box-shadow);
 }
 
-/* Nav links <ul/> align items */
-.navigation {
-    position: relative;
-    display: flex;
+/*
+    Nav links <ul/> align items 
+*/
 
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+.navigation {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+
+	position: relative;
 }
 
 .wrapper {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
-/* Button and links styling */
+/*
+    Button and links styling 
+*/
+
 .nav-link {
-    letter-spacing: 3px;
-    font-size: 18px;
-    width: 200px;
+	width: 200px;
+
+	font-size: 18px;
+	letter-spacing: 3px;
 }
 
 .dropdown button {
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: white;
-    font-weight: bold;
-    transition: color .3s ease-in-out;
+	font-size: 18px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: var(--white);
+	font-weight: bold;
+
+	transition: color .3s ease-in-out;
 }
 
 .search button,
 .all-recipies-btn {
-    padding: 10px 14px;
-
-    border: none;
-    border-radius: 5px;
-    background-color: transparent;
-    cursor: pointer;
+	padding: 10px 14px;
+	border: none;
+	border-radius: 5px;
+	background-color: transparent;
+	cursor: pointer;
 }
 
 .nav-item button:hover {
-    color: black;
+	color: var(--black);
 }
 
 /*
@@ -121,135 +132,137 @@ body {
 */
 
 .sign-up-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	width: fit-content;
+	height: 60px;
 
-    padding: 10px 14px;
-    margin-right: 20px;
-    width: fit-content;
-    height: 60px;
-
-    background-color: #B54484;
-    border-radius: 8px;
+	padding: 10px 14px;
+	margin-right: 20px;
+	background-color: var(--user--login--btn--bckgrnd);
+	border-radius: 8px;
 }
 
 .sign-up-links a,
 .logout-btn {
-    font-size: 18px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
+	font-size: 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: white;
 
-    color: white;
-    transition: color .2s ease-in;
+	transition: color .2s ease-in;
 }
 
 .logout-btn {
-    background-color: #B54484;
+	background-color: var(--user--login--btn--bckgrnd);
 }
 
 .sign-up-links span {
-    font-size: 18px;
-    color: white;
+	font-size: 18px;
+	color: var(--white);
 }
 
 .sign-up-links a:hover,
 .logout-btn:hover {
-    color: black;
+	color: var(--black);
 }
 
 /* Dropdown CSS */
 
 .dropdown {
-    display: inline-block;
-    width: 200px;
+	display: inline-block;
+	width: 200px;
 }
 
 .dropdown-content {
-    /* position */
-    position: absolute;
-    padding: 10px;
-    width: 100%;
-    top: 100%;
-    left: 0;
-    /* animate the dropdowns-invisible at start */
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity .120ms ease-in-out, transform .120ms ease-in-out;
-    /* box-model */
-    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
-    overflow: auto;
-    /* functions */
-    pointer-events: none;
-    z-index: 1;
+	/* position */
+	position: absolute;
+	width: 100%;
+	top: 100%;
+	left: 0;
+	/* box-model */
+	padding: 10px;
+	box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+	overflow: auto;
+	/* animate the dropdowns-invisible at start */
+	opacity: 0;
+	transform: translateY(-10px);
+	transition: opacity .120ms ease-in-out, transform .120ms ease-in-out;
+	/* functions */
+	pointer-events: none;
+	z-index: 1;
 }
 
 .dropdown>.all-recipies-btn:focus+.dropdown-content {
-    display: block;
+	display: block;
 
-    background-color: var(--white);
-
-    /* make the dropdown visible */
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+	background-color: var(--white);
+	/* make the dropdown visible */
+	opacity: 1;
+	transform: translateY(0);
+	pointer-events: auto;
 }
 
-/* Dropdown Grid links */
-.information-grid {
-    display: grid !important;
-    width: 100vw;
+/* 
+    Dropdown Grid links
+*/
 
-    grid-template-columns: repeat(4, max-content);
-    align-items: flex-start;
-    justify-content: space-evenly;
-    gap: 40px;
+.information-grid {
+	display: grid !important;
+	grid-template-columns: repeat(4, max-content);
+	align-items: flex-start;
+	justify-content: space-evenly;
+	width: 100vw;
+	gap: 40px;
 }
 
 .dropdown-heading span {
-    display: block;
-    margin-bottom: 10px;
+	display: block;
 
-    text-transform: uppercase;
-    text-align: left;
-    font-size: 21px;
-    letter-spacing: 2px;
-    color: var(--green);
-    font-weight: lighter;
+	margin-bottom: 10px;
+
+	text-align: left;
+	text-transform: uppercase;
+	font-size: 21px;
+	letter-spacing: 2px;
+	color: var(--green);
+	font-weight: lighter;
 }
 
 .dropdown-links a {
-    display: block;
-    width: 250px;
-    position: relative;
+	display: block;
+	position: relative;
+	width: 250px;
 
-    padding: 3px;
+	padding: 3px;
 
-    font-size: 18px;
-    color: var(--black);
-    text-decoration: none;
+	font-size: 18px;
+	color: var(--black);
+	text-decoration: none;
 }
 
 .dropdown-links {
-    display: flex;
-    flex-direction: column;
-    gap: .25rem;
+	display: flex;
+	flex-direction: column;
+	gap: .25rem;
 
-    text-align: left;
+	text-align: left;
 }
 
 .dropdown-links a:hover {
-    color: var(--green);
+	color: var(--green);
 }
 
 .view-more {
-    text-transform: uppercase;
-    margin-top: 5px;
-    font-size: 15px !important;
-    letter-spacing: 1px;
-    color: var(--green) !important;
+	margin-top: 5px;
+
+	text-transform: uppercase;
+	font-size: 15px !important;
+	letter-spacing: 1px;
+	color: var(--green) !important;
 }
 
 /* 
@@ -257,21 +270,22 @@ body {
 */
 
 .favourites button {
-    padding: 10px;
-
-    border: none;
-    background-color: transparent !important;
-    cursor: pointer;
+	/* box model */
+	padding: 10px;
+	border: none;
+	background-color: transparent !important;
+	cursor: pointer;
 }
 
 .nav-item.favourites i {
-    font-size: 30px;
-    color: var(--red);
-    transition: color .3s ease-in-out;
+	font-size: 30px;
+	color: var(--red);
+
+	transition: color .3s ease-in-out;
 }
 
 .favourites:hover .fa-solid {
-    color: white;
+	color: var(--white);
 }
 
 /* 
@@ -279,42 +293,42 @@ body {
 */
 
 .search button {
-    display: inline-block;
-    position: relative;
+	display: inline-block;
+	position: relative;
 
-    height: 120px;
-    padding: 40px;
+	height: 120px;
+	padding: 40px;
 }
 
 .search button:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 1px;
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 1px;
 
-    background-color: grey;
+	background-color: var(--grey);
 }
 
 .search button:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 1px;
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 1px;
 
-    background-color: grey;
+	background-color: var(--grey);
 }
 
 .nav-item.search i {
-    color: var(--grey);
-    font-size: 50px;
+	color: var(--grey);
+	font-size: 50px;
 }
 
 .search:hover .fa-solid {
-    color: black !important;
+	color: var(--black) !important;
 }
 
 /*
@@ -322,588 +336,589 @@ body {
 */
 
 .hamburger {
-    display: none;
-    cursor: pointer;
-    padding-right: 20px;
+	display: none;
+
+	padding-right: 20px;
+	cursor: pointer;
 }
 
 .bar {
-    display: block;
+	display: block;
 
-    width: 25px;
-    height: 3px;
+	width: 25px;
+	height: 3px;
 
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
+	margin: 5px auto;
+	background-color: white;
+	-webkit-transition: all 0.3s ease-in-out;
 
-    transition: all 0.3s ease-in-out;
-
-    background-color: white;
+	transition: all 0.3s ease-in-out;
 }
 
 /*
-=========================
-      TODAY'S RECIPE
-=========================
+=======================
+    Today's recipe
+=======================
 */
 
-
 .section {
-    padding: 10px 40px;
-    height: 100vh;
+	padding: 10px 40px;
 }
 
 .hero {
-    display: flex;
-    margin-top: 40px;
+	display: flex;
+	margin-top: 40px;
 }
 
 .today-recipe {
-    position: relative;
-    width: 50%;
+	position: relative;
+	width: 50%;
 }
 
 .today-recipe img {
-    object-fit: cover;
+	object-fit: cover;
 
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
 
-    z-index: -1;
+	z-index: -1;
 }
 
 .today-recipe article {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    vertical-align: middle;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	vertical-align: middle;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 350px;
-    width: 90%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 350px;
+	width: 90%;
 
-    border: 1px solid var(--black);
+	border: 1px solid var(--black);
+	background-color: var(--white);
 
-    text-align: center;
-    background-color: var(--white);
+	text-align: center;
 
-    transform: translate(-50%, -50%);
-    opacity: 0.8;
-    z-index: 0;
+	transform: translate(-50%, -50%);
+	opacity: 0.8;
+	z-index: 0;
 }
 
 .today-recipe .today-recipe-title {
-    padding: 0 10px;
-    font-size: 20px;
+	padding: 0 10px;
+	font-size: 20px;
 }
 
 .today-recipe h2 {
-    margin: 7px 0px;
+	margin: 7px 0px;
 
-    font-size: 35px;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    color: var(--brown);
+	font-size: 35px;
+	font-weight: bold;
+	letter-spacing: 1.5px;
+	color: var(--brown);
 }
 
 .descr {
-    margin-bottom: 20px;
-    font-size: 18px;
+	margin-bottom: 20px;
+	font-size: 18px;
 }
 
 .today-recipe a {
-    display: inline-block;
-    padding: 3px 8px;
-    margin: 0 auto;
+	display: inline-block;
+	width: 150px;
 
-    width: 150px;
-    border: 1px solid var(--black);
+	padding: 3px 8px;
+	margin: 0 auto;
+	border: 1px solid var(--black);
+	background-color: var(--grey);
 
-    text-align: center;
-    text-decoration: none;
-    font-size: 20px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 20px;
 
-    background-color: var(--grey);
-    color: black;
+	color: black;
 }
 
 .today-recipe a:hover {
-    background-color: var(--white)
+	background-color: var(--white)
 }
 
 /*
-=========================
-    LATEST RECIPIES
-=========================
+============================
+  Recently added recipies
+============================
 */
 
 .recently-recipies {
-    width: 50%;
+	width: 50%;
 }
 
 .recently-recipies .card-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
 }
 
 .card-list a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 img {
-    border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
 }
 
 .card-item {
-    display: inline-block;
-    margin-bottom: 10px;
+	display: inline-block;
 
-    background-color: var(--white);
-    transition: 0.8s;
+	margin-bottom: 10px;
+	background-color: var(--white);
+
+	transition: 0.8s;
 }
 
 .card-item:hover {
-    transform: translateY(-15px);
-    margin-bottom: 10px;
+	margin-bottom: 10px;
+	-webkit-box-shadow: 6px 6px 2px 0px var(--orange);
+	box-shadow: 6px 6px 2px 0px var(--orange);
+	background-color: var(--white);
 
-    -webkit-box-shadow: 6px 6px 2px 0px var(--orange);
-    box-shadow: 6px 6px 2px 0px var(--orange);
-
-    background-color: var(--white);
+	transform: translateY(-15px);
 }
 
 .recipies-title {
-    text-decoration: none;
-    color: black;
+	text-decoration: none;
+	color: black;
 }
 
 .card-item .card-title {
-    margin: 10px 0;
+	margin: 10px 0;
 
-    font-size: 25px;
-    text-align: center;
-    letter-spacing: 3px;
+	font-size: 25px;
+	text-align: center;
+	letter-spacing: 3px;
 
-    color: var(--black);
+	color: var(--black);
 }
 
 .card-item .card-descr {
-    padding: 0px 10px;
-    margin-bottom: 10px;
+	padding: 0px 10px;
+	margin-bottom: 10px;
 
-    font-size: 20px;
-    text-align: left;
-    font-style: italic;
-
-    color: var(--grey);
+	font-size: 20px;
+	text-align: left;
+	font-style: italic;
+	color: var(--grey);
 }
 
 .card-item span i {
-    margin: 15px 5px;
-    color: var(--grey);
-    font-size: 18px;
+	margin: 15px 5px;
+	color: var(--grey);
+	font-size: 18px;
 }
 
 .card-item span {
-    color: var(--grey);
-    font-size: 18px;
+	color: var(--grey);
+	font-size: 18px;
 }
 
 /*
 =================================
-  SUMMER RECIPIES & FRESH SALADS
+  Summer recipies & Fresh salads
 =================================
 */
 
 .summer-section .recipies {
-    max-width: 1000px;
-    margin: 0 auto;
-    margin-top: 30px;
+	max-width: 1000px;
+
+	margin: 0 auto;
+	margin-top: 30px;
 }
 
 .summer-section .recipies .card-list,
 .fresh-salads-section .recipies .card-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    gap: 30px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-items: center;
+	gap: 30px;
 }
 
 .summer-section h2,
 .fresh-salads-section h2 {
-    width: 500px;
+	width: 500px;
 }
 
 .fresh-salads-section {
-    margin: 0 auto;
-    margin-top: 30px;
-    max-width: 1000px;
+	max-width: 1000px;
+
+	margin: 0 auto;
+	margin-top: 30px;
 }
 
 /*
-==============================
-            FOOTER
-==============================
+==============
+    Footer
+==============
 */
 
 footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 
-    width: 100%;
-    height: 160px;
-    padding: 20px 50px;
+	width: 100%;
+	height: 160px;
 
-    background-color: var(--blue)
+	padding: 20px 50px;
+	background-color: var(--blue)
 }
 
 footer ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
 
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 footer .list-icons a {
-    display: inline-block;
-    font-size: 30px;
+	display: inline-block;
 
-    color: var(--lightgreen);
+	font-size: 30px;
+	color: var(--lightgreen);
 
-    transition: 0.8s;
+	transition: 0.8s;
 }
 
 footer .list-icons li a:hover {
-    transform: translateY(-15px);
+	transform: translateY(-15px);
 }
 
 footer .list-links li a {
-    display: inline-block;
+	display: inline-block;
 
-    font-size: 1.3em;
-    text-decoration: none;
-    font-weight: 400;
+	font-size: 1.3em;
+	text-decoration: none;
+	font-weight: 400;
+	color: var(--white);
 
-    color: var(--white);
-
-    transition: 0.8s;
-    opacity: 0.80;
+	transition: 0.8s;
+	opacity: 0.80;
 }
 
 footer .list-links li a:hover {
-    opacity: 1;
+	opacity: 1;
 }
 
 footer p {
-    margin-top: 10px;
-    margin-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 
-    font-size: 14px;
-    text-align: center;
-    color: var(--white);
+	font-size: 14px;
+	text-align: center;
+	color: var(--white);
 }
 
 
 /*
-=========================
-   Media Mobile Screen
-=========================
+====================
+    Responsiveness
+====================
 */
 
 @media screen and (max-width:768px) {
 
-    /*
-        Hero section
-    */
-    .hero {
-        flex-direction: column;
-        margin-top: 0px;
-    }
+	/*
+    Hero section
+ */
 
-    /* 
-        h2 
-    */
-    .section-title {
-        width: 60%!important;
+	.hero {
+		flex-direction: column;
+		margin-top: 0px;
+	}
 
-        font-size: 22px;
-        letter-spacing: 2px;
-        margin-bottom: 20px;
-    }
-
-    .section {
-        padding: 10px 20px;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    /* Hamburger menu */
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-    .favourites {
-        position: absolute;
-        left: 55px;
-    }
-
-    /* Navigation order */
-    .navigation {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-
-        top: 0;
-
-        height: 90px;
-        padding: 0px;
-
-        z-index: 3;
-    }
-
-    .logo {
-        width: 100px;
-        border-radius: 70%;
-    }
-
-    .navigation> :nth-child(1) {
-        order: 2;
-    }
-
-    .navigation> :nth-child(4) {
-        order: 1;
-    }
-
-    .navigation> :nth-child(5) {
-        order: 3;
-    }
-
-    /* 
-        Recipies and Blog buttons 
-    */
-
-    .wrapper-links {
-        display: none;
-        position: absolute;
-        width: 100vw;
-        gap: 10px;
-
-        padding: 10px;
-        bottom: 0px;
-        left: 0px;
-
-        background-color: var(--green);
-
-        transition: 0.2s ease-in-out;
-        transform: translateY(0);
-    }
-
-    .wrapper-links.active {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
-        transform: translateY(123px);
-    }
-
-    /* 
-        Register & Login links
-    */
-
-    .sign-up-links {
-        display: none;
-        position: absolute;
-        width: 100vw;
-
-        margin-left: 0;
-        bottom: 0;
-        margin: 0;
-
-        border-radius: 0;
-
-        transform: translateY(0);
-    }
-
-    .sign-up-links.active {
-        display: inline-block !important;
-        transform: translateY(60px);
-    }
-
-    /* 
-        Grid
-    */
-    .information-grid {
-        grid-template-columns: repeat(1, 1fr);
-
-        width: 100vw;
-        height: 100vh;
-    }
-
-    .dropdown-heading span {
-        margin-bottom: 5px;
-
-        font-size: 20px;
-        color: white;
-    }
-
-    .dropdown-links a {
-        width: 100%;
-        border-bottom: 1px solid white;
-    }
-
-    .dropdown-links a:hover {
-        color: black !important;
-    }
-
-    .dropdown-content {
-        background-color: var(--green) !important;
-    }
-
-    .nav-link {
-        color: var(--white) !important;
-    }
-
-    /* 
-        Search button 
-    */
-    .search button {
-        padding-left: 20px;
-    }
-
-    .search button:before,
-    .search button:after {
-        display: none;
-    }
-
-    .nav-item.search i {
-        font-size: 30px;
-    }
-
-/*
-=========================
-      TODAY'S RECIPE
-=========================
+	/* 
+    h2 
 */
 
-    .today-recipe {
-        width: 90%;
-        height: 600px;
-        
-        margin: 0 auto;
-        margin-top:30px;
-    }
+	.section-title {
+		width: 60% !important;
 
-    .today-recipe img {
-        object-fit: cover;
-        z-index: -1;
-    }
+		font-size: 22px;
+		letter-spacing: 2px;
+		margin-bottom: 20px;
+	}
 
-    .today-recipe article {
-        height: 90%;
-     
-        padding: 20px;
-        border: none;
-        box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
-        flex-wrap: nowrap;
-        
-        z-index: 1;
-    }
+	.section {
+		padding: 10px 20px;
+	}
 
-    .today-recipe .today-recipe-title {
-        font-size: 16px;
-    }
+	.hamburger {
+		display: block;
+	}
 
-    .today-recipe h2 {
-        font-size: 18px;
-    }
-
-    .today-recipe a {
-        font-size: 16px;
-    }
-
-    .today-recipe .descr {
-        margin-bottom: 7px;
-        font-size: 16px;
-    }
-
-/*
-=========================
-    LATEST RECIPIES
-=========================
-*/
-    .recently-recipies {
-        width: 100%;
-    }
-
-    .recently-recipies .card-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .card-list {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        
-        padding: 0;
-    }
-
-    .card-item .card-title {
-        font-size: 20px;
-        letter-spacing: 2px;
-        color: var(--black);
-    }
-
-    .card-item .card-descr {
-        margin-bottom: 5px;
-        font-size: 18x;
-        padding: 0px 5px;
-    }
-
-    .card-item span i {
-        margin: 6px 5px;
-        font-size: 15px;
-    }
-
-    .card-item span {
-        font-size: 16px;
-    }
-
-/*
-===============================
-SUMMER RECIPIES & FRESH SALADS
-===============================
+	/* 
+    Hamburger menu
 */
 
-    .summer-section, .fresh-salads-section{
-        padding: 10px 40px;
-        height: 90vh;
-    }
+	.hamburger.active .bar:nth-child(2) {
+		opacity: 0;
+	}
 
-    .summer-section .recipies .card-list,
-    .fresh-salads-section .recipies .card-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
+	.hamburger.active .bar:nth-child(1) {
+		transform: translateY(8px) rotate(45deg);
+	}
+
+	.hamburger.active .bar:nth-child(3) {
+		transform: translateY(-8px) rotate(-45deg);
+	}
+
+	.favourites {
+		position: absolute;
+		left: 55px;
+	}
+
+	/* 
+    Navigation order 
+*/
+	.navigation {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+
+		top: 0;
+		height: 90px;
+		padding: 0px;
+
+		z-index: 3;
+	}
+
+	.logo {
+		width: 100px;
+		border-radius: 70%;
+	}
+
+	.navigation> :nth-child(1) {
+		order: 2;
+	}
+
+	.navigation> :nth-child(4) {
+		order: 1;
+	}
+
+	.navigation> :nth-child(5) {
+		order: 3;
+	}
+
+	/* 
+    Recipies and Blog buttons 
+*/
+
+	.wrapper-links {
+		display: none;
+		position: absolute;
+		width: 100vw;
+		bottom: 0px;
+		left: 0px;
+		gap: 10px;
+
+		padding: 10px;
+		background-color: var(--green);
+
+		transition: 0.2s ease-in-out;
+		transform: translateY(0);
+	}
+
+	.wrapper-links.active {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
+		transform: translateY(123px);
+	}
+
+	/* 
+    Register & Login links
+*/
+	.sign-up-links {
+		display: none;
+		position: absolute;
+		width: 100vw;
+
+		margin-left: 0;
+		bottom: 0;
+		margin: 0;
+
+		border-radius: 0;
+
+		transform: translateY(0);
+	}
+
+	.sign-up-links.active {
+		display: inline-block !important;
+		transform: translateY(60px);
+	}
+
+	/* 
+	Grid
+*/
+	.information-grid {
+		grid-template-columns: repeat(1, 1fr);
+		width: 100vw;
+	
+	}
+
+	.dropdown-heading span {
+		margin-bottom: 5px;
+
+		font-size: 20px;
+		color: var(--white);
+	}
+
+	.dropdown-links a {
+		width: 100%;
+		border-bottom: 1px solid var(--white);
+	}
+
+	.dropdown-links a:hover {
+		color: black !important;
+	}
+
+	.dropdown-content {
+		background-color: var(--green) !important;
+	}
+
+	.nav-link {
+		color: var(--white) !important;
+	}
+
+	/* 
+	Search button 
+*/
+	.search button {
+		padding-left: 20px;
+	}
+
+	.search button:before,
+	.search button:after {
+		display: none;
+	}
+
+	.nav-item.search i {
+		font-size: 30px;
+	}
+
+	/*
+=======================
+  	Today's Recipe
+=======================
+*/
+
+	.today-recipe {
+		width: 90%;
+		height: 50%;
+
+		margin: 0 auto;
+		margin-top: 30px;
+	}
+
+	.today-recipe img {
+		object-fit: cover;
+		z-index: -1;
+	}
+
+	.today-recipe article {
+		height: 90%;
+
+		padding: 20px;
+		border: none;
+		box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+		flex-wrap: nowrap;
+
+		z-index: 1;
+	}
+
+	.today-recipe .today-recipe-title {
+		font-size: 16px;
+	}
+
+	.today-recipe h2 {
+		font-size: 18px;
+	}
+
+	.today-recipe a {
+		font-size: 16px;
+	}
+
+	.today-recipe .descr {
+		margin-bottom: 7px;
+		font-size: 16px;
+	}
+
+	/*
+=========================
+   Recently recipies
+=========================
+*/
+	.recently-recipies {
+		width: 100%;
+	}
+
+	.recently-recipies .card-list {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.card-list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+
+		padding: 0;
+	}
+
+	.card-item .card-title {
+		font-size: 20px;
+		letter-spacing: 2px;
+		color: var(--black);
+	}
+
+	.card-item .card-descr {
+		margin-bottom: 5px;
+		font-size: 18x;
+		padding: 0px 5px;
+	}
+
+	.card-item span i {
+		margin: 6px 5px;
+		font-size: 15px;
+	}
+
+	.card-item span {
+		font-size: 16px;
+	}
+
+	/*
+================================
+ Summer & Fresh salads sections
+================================
+*/
+
+	.summer-section,
+	.fresh-salads-section {
+		padding: 10px 40px;
+	}
+
+	.summer-section .recipies .card-list,
+	.fresh-salads-section .recipies .card-list {
+		grid-template-columns: repeat(2, 1fr);
+	}
 
 }
