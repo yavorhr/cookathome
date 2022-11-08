@@ -4,6 +4,19 @@
 =========================
 */
 
+:root {
+    --grey: #A8ACAF;
+    --white: #ffffff;
+    --body: #F0F9F9;
+    --black: black;
+    --search--bckgrnd-clr: ##E2F3F3;
+    --search_input--backgrnd: lightgrey;
+    --seach__i--bckgrnd--clr: ghostwhite;
+    --brown: brown;
+    --orange: orange;
+}
+
+
 body {
     font-family: "Roboto";
     box-sizing: border-box;
@@ -11,32 +24,24 @@ body {
     height: 100vh;
 }
 
-section{
-    padding: 0px 20px;
+section {
+    padding: 0px 30px;
 }
 
-:root {
-    --grey: #A8ACAF;
-    --white: #ffffff;
-    --red: #FF0000;
-    --box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    --black: black;
-    --brown: brown;
-    --body: #F0F9F9;
-    --orange: orange;
-}
 
 /*
-    SEARCH BAR  
+======================
+    Search bar box
+======================
 */
 
 .search-bar {
     /* positioning */
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #E2F3F3;
     /* box-model */
     padding: 20px;
+    background-color: var(--search--bckgrnd-clr);
     /* type */
     text-align: center;
 }
@@ -53,12 +58,12 @@ section{
     display: flex;
     /* positioning */
     max-width: 700px;
+    /* box-model */
     padding: 30px;
     margin: 0 auto;
     /* type */
     align-items: center;
 }
-
 
 .search-bar input {
     /* positioning */
@@ -69,12 +74,12 @@ section{
     border: 0;
     /* border-box */
     outline: none;
-    background-color: lightgrey;
+    background-color: var(--search_input--backgrnd);
     border-radius: 60px;
 }
 
 ::placeholder {
-    color: white;
+    color: var(--white);
     font-size: 20px;
 }
 
@@ -88,23 +93,25 @@ section{
 
 .search-bar form button i {
     /* border-box */
-    background-color: ghostwhite;
+    background-color: var(--seach__i--bckgrnd--clr);
     padding: 10px;
     border-radius: 30px;
     /* type */
     font-size: 18px;
-    color: gray;
+    color: var(--grey);
 
     opacity: 0.7;
 }
 
 /*
-     MY RECIPIES
+======================
+  Favourite recipies
+======================
 */
 
 .section-title {
     /* positioning */
-    width: 200px;
+    width: 250px;
     margin: 0 auto;
     margin-top: 30px;
 
@@ -122,8 +129,9 @@ section{
 .card-list {
     /* display */
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0px;
     /* positioning */
     max-width: 1800px;
     margin: 0 auto;
@@ -131,7 +139,7 @@ section{
 }
 
 /* 
-    CARD ITEM 
+   Card Item
 */
 
 .list-item {
@@ -164,6 +172,7 @@ section{
 
 .card-info {
     display: inline-block;
+
     padding-bottom: 10px;
     background-color: var(--white);
 }
@@ -183,23 +192,76 @@ section{
 }
 
 .card-info .card-descr {
+    padding: 0px 10px;
+
     font-size: 18px;
     color: var(--grey);
-    padding: 0px 10px;
     text-align: left;
     font-style: italic;
 }
 
 .card-info span {
     display: inline-block;
-    color: var(--grey);
+
     font-size: 18px;
     margin-top: 20px;
     margin-left: 5px;
+
+    color: var(--grey);
 }
 
 .card-info span i {
     margin: 0 10px;
-    color: var(--grey);
     font-size: 18px;
+    color: var(--grey);
+}
+
+/*
+======================
+   Responsive design
+======================
+*/
+
+@media screen and (max-width: 768px) {
+
+    /*
+        Grid
+    */
+
+    .card-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    /*
+        Font sizes
+    */
+
+    .search-bar .title {
+        font-size: 30px;
+    }
+
+    .section-title {
+        margin-top: 10px;
+        /* type */
+        font-size: 25px;
+        letter-spacing: 2px;
+    }
+
+    .card-info .card-title {
+        font-size: 20px;
+        margin: 5px 0;
+    }
+
+    .card-info span {
+        font-size: 14px;
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+
+    .card-info span i {
+        margin: 0 6px;
+        font-size: 14px;
+    }
+
 }
