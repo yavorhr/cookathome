@@ -63,6 +63,7 @@ body {
 	box-shadow: var(--box-shadow)
 }
 
+
 .logo {
 	width: 130px;
 	height: auto;
@@ -136,8 +137,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
-	width: fit-content;
-	height: 60px;
+
 
 	padding: 10px 14px;
 	margin-right: 20px;
@@ -158,6 +158,26 @@ body {
 
 .logout-btn {
 	background-color: var(--user--login--btn--bckgrnd);
+}
+
+.user-shortcut-buttons {
+	display: flex;
+	align-items: center;
+	margin-right: 5px;
+}
+
+/*
+	User profile button, when user is logged in
+*/
+
+.user-profile-shortcut-btn {
+	width: 40px;
+	padding: 5px;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+
+	font-size: 17px;
 }
 
 .sign-up-links span {
@@ -773,7 +793,7 @@ footer p {
 	.information-grid {
 		grid-template-columns: repeat(1, 1fr);
 		width: 100vw;
-	
+
 	}
 
 	.dropdown-heading span {
