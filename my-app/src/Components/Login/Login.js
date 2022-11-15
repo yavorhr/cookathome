@@ -1,10 +1,7 @@
 import './login.css';
-import Navigation from '../Navigation/Navigation.js';
 
 export default function Login() {
     return (
-        <main>
-            <Navigation />
             <section className="login-section mrgn-auto">
                 <h1>Login</h1>
                 <form action="">
@@ -25,6 +22,5 @@ export default function Login() {
                     </div>
                 </form>
             </section>
-        </main>
     );
 }

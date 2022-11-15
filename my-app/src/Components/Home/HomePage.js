@@ -1,11 +1,8 @@
 import './home-page.css';
-import Navigation from '../Navigation/Navigation.js';
-
 
 export default function HomePage() {
     return (
-        <main className="main">
-            <Navigation />
+        <div>
             <section className="hero section">
                 <div className="today-recipe">
                     <img src="/img/dishes/eggsausage.jpg" alt="" />
@@ -135,7 +132,6 @@ export default function HomePage() {
                     </ul>
                 </div>
             </section>
-        </main>
-
+        </div>
     )
 }
