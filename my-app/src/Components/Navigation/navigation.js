@@ -1,8 +1,8 @@
 import './navigation.css';
 
+
 export default function Navigation() {
     return (
-        <header id="header">
             <nav className="navigation">
                 <article className="wrapper logo-favorite-icons">
                     <a href=""><img className="logo" src="../img/logo.png" /></a>
@@ -189,6 +189,5 @@ export default function Navigation() {
                     <span className="bar"></span>
                 </article>
             </nav>
-        </header>
     )
 }

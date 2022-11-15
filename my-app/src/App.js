@@ -1,12 +1,13 @@
-import Navigation from "./Components/Navigation/Navigation.js";
+import HomePage from "./Components/Home/HomePage.js";
 
 function App() {
     return (
         <div className="App">
-           
-            <Navigation />
+
+            <HomePage />
 
         </div>
+
     );
 }
 
