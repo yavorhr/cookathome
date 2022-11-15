@@ -2,7 +2,7 @@ import './login.css';
 
 export default function Login() {
     return (
-            <section className="login-section mrgn-auto">
+            <section className="login-section">
                 <h1>Login</h1>
                 <form action="">
                     <div className="text-field">

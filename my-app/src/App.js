@@ -1,7 +1,8 @@
+import Navigation from "./Components/Navigation/Navigation.js";
 import HomePage from "./Components/Home/HomePage.js";
 import Login from "./Components/Login/Login.js";
+import Register from "./Components/Register/Register.js";
 import Profile from "./Components/Profile/Profile.js";
-import Navigation from "./Components/Navigation/Navigation.js";
 
 function App() {
     return (
@@ -10,7 +11,9 @@ function App() {
         
             {/* <Login /> */}
 
-            <Profile />
+            {/* <Profile /> */}
+
+            {/* <Register/> */}
         </div>
 
     );

@@ -19,8 +19,10 @@ body {
     overflow: hidden;
 }
 
-.mrgn-auto {
-    margin: 0 auto;
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /*
@@ -35,7 +37,7 @@ body {
 
     background-color: var(--white);
     border-radius: 20px;
-    margin-top: 40px;
+    margin:30px;
     padding: 20px;
 
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);

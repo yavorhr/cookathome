@@ -28,6 +28,12 @@ body {
     margin: 0 auto;
 }
 
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /*
 =========================
     Register section 
@@ -122,11 +128,11 @@ form button:hover {
 
 @media(max-width:768px) {
     .register-section {
-        max-width: 100%;
+        max-width: 90%;
     }
 
     .txt-fields {
-        width: 100%;
+        width: 90%;
         margin-bottom: 15px;
     }
 
