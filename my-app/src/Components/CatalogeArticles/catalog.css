@@ -5,15 +5,23 @@
 body {
     font-family: "Roboto";
     box-sizing: border-box;
-    background-image: linear-gradient(180deg, rgba(240,249,249,0.8744631641719187) 10%, rgba(231, 247, 247, 0.986) 50%, rgba(240,249,249,0.7147059507396709) 100%); 
+    background-image: linear-gradient(180deg, rgba(240, 249, 249, 0.8744631641719187) 10%, rgba(231, 247, 247, 0.986) 50%, rgba(240, 249, 249, 0.7147059507396709) 100%);
     background-position: center center;
+    overflow: scroll;
 }
 
 /*
-=================
- Main 3 Articles
-=================
+===================
+  Main 3 Articles
+===================
 */
+
+.articles {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
 
 .section-info {
     margin-bottom: 20px;
@@ -23,10 +31,10 @@ body {
     letter-spacing: 2px;
 }
 
-.articles {
-    width: 1400px;
+.section-info .descr {
+    width: 700px;
     margin: 0 auto;
-    margin-top: 30px;
+    text-align: center;
 }
 
 .title {
@@ -61,12 +69,12 @@ body {
     height: 300px;
 
     border-radius: 10px;
-    
-    overflow: hidden;
+
+
 }
 
-.article-item:hover{
-    -webkit-box-shadow: 5px 5px 17px 0px #000000; 
+.article-item:hover {
+    -webkit-box-shadow: 5px 5px 17px 0px #000000;
     box-shadow: 5px 5px 17px 0px #000000;
 }
 
@@ -123,18 +131,18 @@ body {
 */
 
 .rest-articles-section {
-    width: 1000px;
+    width: 60%;
     margin: 0 auto;
     margin-top: 30px;
 }
 
 .rest-articles {
-    padding-left: 0;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    padding-left: 0;
 }
 
 .rest-articles a {
@@ -149,28 +157,28 @@ body {
 .card {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
-
 }
 
 .card img {
     padding: 0px 15px 15px 0px;
-    width: 25%;
+    width: 35%;
+    min-width: 200px;
     height: 100%;
 }
 
 .card .card-info {
-    width: 70%;
+    width: 60%;
 }
 
 .rest-articles .card {
     border-bottom: 1px solid grey;
 }
 
-.rest-articles li {
+/* .rest-articles li {
     height: 200px;
-}
+} */
 
 .card-info h3 {
     margin-bottom: 5px;
@@ -195,6 +203,34 @@ body {
 }
 
 .card-info .descr {
+    width: 80%;
     font-size: 18px;
     color: #6e7174;
+}
+
+
+/*
+=====================
+  Responsive design
+=====================
+*/
+
+@media screen and (max-width:980px) {
+    .image-grid {
+        grid-template-columns: repeat(1, 400px);
+    }
+
+    .section-info .descr {
+        width: 600px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+}
+
+@media screen and (max-width:760px) {
+    .section-info .descr {
+        width: 400px;
+    }
+
 }

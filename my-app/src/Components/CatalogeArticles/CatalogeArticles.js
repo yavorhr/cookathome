@@ -8,8 +8,6 @@ export default function CatalogArticles() {
                     <h1 className="title">Breakfast Ideas</h1>
                     <p className="descr">Breakfast is often called 'the most important meal of the day', and for good reason
                     </p>
-                    <p className="descr">It also gives you the energy you need to get things done and helps you focus at work or
-                        at school. Those are just a few reasons why its the most important meal of the day.</p>
                 </article>
                 <ul type="none" className="image-grid">
                     <li className="article-item">
@@ -41,6 +39,7 @@ export default function CatalogArticles() {
                     </li>
                 </ul>
             </section>
+
             <section className="rest-articles-section">
                 <ul className="rest-articles" type="none">
                     <li>
