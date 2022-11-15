@@ -1,14 +1,13 @@
-import Navigation from "./Components/Navigation/navigation.js";
-
-
+import Navigation from "./Components/Navigation/Navigation.js";
 
 function App() {
-  return (
-    <div className="App">
-      <Navigation />
+    return (
+        <div className="App">
+           
+            <Navigation />
 
-    </div>
-  );
+        </div>
+    );
 }
 
 export default App;
