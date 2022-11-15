@@ -4,6 +4,7 @@ import Login from "./Components/Login/Login.js";
 import Register from "./Components/Register/Register.js";
 import Profile from "./Components/Profile/Profile.js";
 import CatalogArticles from "./Components/CatalogeArticles/CatalogeArticles.js";
+import CatalogRecipies from "./Components/CatalogRecipies/CatalogRecipies.js";
 
 function App() {
     return (
@@ -16,7 +17,9 @@ function App() {
 
             {/* <Register/> */}
 
-            <CatalogArticles />
+            {/* <CatalogArticles /> */}
+
+            {/* <CatalogRecipies /> */}
 
         </div>
 
