@@ -285,13 +285,13 @@ body {
 	color: var(--green) !important;
 }
 
-.all-categories-link a{
+.all-categories-link a {
 	text-decoration: none;
 	margin: 0 auto;
 }
 
-.all-categories-link a:hover{
-text-decoration: underline;
+.all-categories-link a:hover {
+	text-decoration: underline;
 }
 
 /* 
@@ -382,6 +382,55 @@ text-decoration: underline;
 	-webkit-transition: all 0.3s ease-in-out;
 
 	transition: all 0.3s ease-in-out;
+}
+
+
+/*
+=========================
+    Gallery Grid
+=========================
+*/
+
+.gallery ul {
+	display: grid;
+	grid-template:
+		"first second third"
+		"fourth second fifth";
+	grid-template-columns: repeat(3, 1fr);
+
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.article-item {
+	position: relative;
+}
+
+.gallery ul .article-item:nth-child(1) {
+	grid-area: first;
+}
+
+.gallery .article-item:nth-child(2) {
+	grid-area: second;
+}
+
+.gallery .article-item:nth-child(3) {
+	grid-area: third;
+}
+
+.gallery .article-item:nth-child(4) {
+	grid-area: fourth;
+}
+
+.gallery .article-item:nth-child(5) {
+	grid-area: fifth;
+}
+
+.gallery .article-item:nth-child(2) img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
 }
 
 /*
@@ -482,23 +531,20 @@ text-decoration: underline;
 ============================
 */
 
-.gallery{
-	width: 90%;
-    margin: 0 auto;
-    margin-top: 30px;
+.gallery {
+	margin: 0 auto;
+	margin-top: 30px;
 }
 
-     </article>
-                <ul type="none" className="image-grid">
-                    <li className="article-item">
-                        <a href="">
-                            <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
-                            <div className="info">
-                                <h3>Egg & Sausage</h3>
-                                <p>08 August <span>Admin</span></p>
-                            </div>
-                        </a>
-                    </li>
+.article-item .info {
+	position: absolute;
+	left: 50%;
+	bottom: 10px;
+
+	transform: translate(-50%, 0);
+
+	z-index: 1;
+}
 
 .recently-recipies {
 	width: 50%;
@@ -571,7 +617,6 @@ img {
 	color: var(--grey);
 	font-size: 18px;
 }
-
 
 /*
 ==============

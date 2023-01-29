@@ -4,9 +4,44 @@ export default function HomePage() {
     return (
         <div>
 
-            <section class="gallery">
-
-                <ul type="none" className="image-grid">
+            <section className="gallery">
+                <ul type="none">
+                    <li className="article-item">
+                        <a href="">
+                            <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
+                            <div className="info">
+                                <h3>Egg & Sausage</h3>
+                                <p>08 August <span>Admin</span></p>
+                            </div>
+                        </a>
+                    </li>
+                    <li className="article-item">
+                        <a href="">
+                            <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
+                            <div className="info">
+                                <h3>Egg & Sausage</h3>
+                                <p>08 August <span>Admin</span></p>
+                            </div>
+                        </a>
+                    </li>
+                    <li className="article-item">
+                        <a href="">
+                            <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
+                            <div className="info">
+                                <h3>Egg & Sausage</h3>
+                                <p>08 August <span>Admin</span></p>
+                            </div>
+                        </a>
+                    </li>
+                    <li className="article-item">
+                        <a href="">
+                            <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
+                            <div className="info">
+                                <h3>Egg & Sausage</h3>
+                                <p>08 August <span>Admin</span></p>
+                            </div>
+                        </a>
+                    </li>
                     <li className="article-item">
                         <a href="">
                             <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />

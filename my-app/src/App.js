@@ -12,7 +12,7 @@ function App() {
         <div className="App">
             {/* <Navigation /> */}
 
-            {/* <HomePage></HomePage> */}
+            <HomePage></HomePage>
 
             {/* <Login /> */}
 
@@ -20,7 +20,7 @@ function App() {
 
             {/* <Register/> */}
 
-            <CatalogArticles />
+            {/* <CatalogArticles /> */}
 
             {/* <CatalogRecipies /> */}
 
