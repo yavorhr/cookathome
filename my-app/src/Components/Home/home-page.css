@@ -66,9 +66,6 @@ body {
 	gap: 20px;
 }
 
-.article-item {
-	position: relative;
-}
 
 .gallery ul .article-item:nth-child(1) {
 	grid-area: first;
@@ -247,97 +244,111 @@ body {
 	color: orange;
 }
 
-
-
-/*
-============================
-  Recently added recipies
-============================
+/* 
+==================
+ Recently added
+==================
 */
-
-.gallery {
-	margin: 0 auto;
-	margin-top: 30px;
-}
-
-.article-item .info {
-	position: absolute;
-	left: 50%;
-	bottom: 10px;
-
-	transform: translate(-50%, 0);
-
-	z-index: 1;
-}
-
-.recently-recipies {
-	width: 50%;
-}
-
-.recently-recipies .card-list {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 20px;
-}
-
-.card-list a {
-	text-decoration: none;
-}
-
-img {
-	border-radius: 5px 5px 0 0;
-}
-
-.card-item {
-	display: inline-block;
-
-	margin-bottom: 10px;
-	background-color: var(--white);
-
-	transition: 0.8s;
-}
-
-.card-item:hover {
-	margin-bottom: 10px;
-	-webkit-box-shadow: 6px 6px 2px 0px var(--orange);
-	box-shadow: 6px 6px 2px 0px var(--orange);
-	background-color: var(--white);
-
-	transform: translateY(-15px);
-}
-
-.recipies-title {
+.recently-recipes nav a{
 	text-decoration: none;
 	color: black;
 }
+/*
+	Navigation
+*/
 
-.card-item .card-title {
-	margin: 10px 0;
-
-	font-size: 25px;
-	text-align: center;
-	letter-spacing: 3px;
-
-	color: var(--black);
+.recently-recipes {
+	width: 90%;
+	margin: 0 auto;
 }
 
-.card-item .card-descr {
-	padding: 0px 10px;
-	margin-bottom: 10px;
-
-	font-size: 20px;
-	text-align: left;
-	font-style: italic;
-	color: var(--grey);
+.recently-recipes nav ul {
+	display: flex;
+	gap: 20px;
 }
 
-.card-item span i {
-	margin: 15px 5px;
-	color: var(--grey);
-	font-size: 18px;
+.recipe-card {
+	display: flex;
+	gap: 20px;
+	text-decoration: none;
 }
 
-.card-item span {
-	color: var(--grey);
-	font-size: 18px;
+.recipe-card img {
+	width: 30%;
+}
+
+.recipe-card div {
+	width: 40%;
+}
+
+.recipe-card a{
+	text-decoration: none;
+}
+
+.card-info {
+	color: black;
+	background-color: transparent!important;
+}
+
+.card-info p {
+	display: flex;
+	gap: 20px;
+}
+
+.card-info p a {
+	border-left: 1px solid grey;
+	padding-left: 10px;
+	color: black;
+}
+
+.card-info a:hover {
+	text-decoration: underline;
+	color: orange;
+}
+
+/* 
+	Recipes grid
+ */
+ 
+.recipes-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template:
+		"first-rec first-rec "
+		"sec-rec third-rec"
+		"fourth-rec fifth-rec"
+		"sixth-rec seventh-rec";
+
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.recipes-grid .recipe-card:nth-child(1) {
+	grid-area: first-rec;
+}
+
+.recipes-grid .recipe-card:nth-child(2) {
+	grid-area: sec-rec;
+}
+
+.recipes-grid .recipe-card:nth-child(3) {
+	grid-area: third-rec;
+}
+
+.recipes-grid .recipe-card:nth-child(4) {
+	grid-area: fourth-rec;
+
+}
+
+.recipes-grid .recipe-card:nth-child(5) {
+	grid-area: fifth-rec;
+}
+
+.recipes-grid .recipe-card:nth-child(6) {
+	grid-area: sixth-rec;
+}
+
+.recipes-grid .recipe-card:nth-child(7) {
+	grid-area: seventh-rec;
 }

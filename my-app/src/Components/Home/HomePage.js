@@ -71,79 +71,121 @@ export default function HomePage() {
                             <article>
                                 <img className="img-holder" src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
                                 </img>
-                                <div class="article-info">
+                                <div className="article-info">
                                     <a href="">Albena</a> sgotvi <a href="">Retro sladkish</a>
                                     <p>4 min ago</p>
                                 </div>
                             </article>
                         </li>
                         <li>
-                        <article>
+                            <article>
                                 <img className="img-holder" src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
                                 </img>
-                                <div class="article-info">
+                                <div className="article-info">
                                     <a href="">Albena</a> sgotvi <a href="">Retro sladkish</a>
                                     <p>4 min ago</p>
                                 </div>
                             </article>
                         </li>
                         <li>
-                        <article>
+                            <article>
                                 <img className="img-holder" src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
                                 </img>
-                                <div class="article-info">
+                                <div className="article-info">
                                     <a href="">Albena</a> sgotvi <a href="">Retro sladkish</a>
                                     <p>4 min ago</p>
                                 </div>
                             </article>
-                        </li>
-
-
-                    </ul>
-                </div>
-            </section>
-
-            <section>
-                <div className="recently-recipies">
-                    <a className="recipies-title" href="">
-                        <h2 className="section-title">Latest recipies</h2>
-                    </a>
-                    <ul className="card-list" type="none">
-                        <li>
-                            <a href="#">
-                                <div className="card-item">
-                                    <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                                    <h3 className="card-title">Lasagna</h3>
-                                    <p className="card-descr">Very delicious dish for the whole family...</p>
-                                    <span><i className="fa-solid fa-clock"></i>30 mins</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div className="card-item">
-                                    <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                                    <h3 className="card-title">Lasagna</h3>
-                                    <p className="card-descr">Very delicious dish for the whole family...</p>
-                                    <span><i className="fa-solid fa-clock"></i>30 mins</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div className="card-item">
-                                    <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                                    <h3 className="card-title">Lasagna</h3>
-                                    <p className="card-descr">Very delicious dish for the whole family...</p>
-                                    <span><i className="fa-solid fa-clock"></i>30 mins</span>
-                                </div>
-                            </a>
                         </li>
                     </ul>
                 </div>
             </section>
 
+            <section className="recently-recipes">
+                <nav>
+                    <ul type="none">
+                        <span>New recipes</span>
+                        <li>
+                            <a href="">All</a>
+                        </li>
+                        <li>
+                            <a href="">Salads</a>
+                        </li>
+                        <li>
+                            <a href="">Main</a>
+                        </li>
+                        <li>
+                            <a href="">Pre-dish</a>
+                        </li>
 
+                        <li>
+                            <a href="">Soups</a>
+                        </li>
+
+                        <li>
+                            <a href="">Fish</a>
+                        </li>
+
+                        <li>
+                            <a href="">Vegan</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <ul className="recipes-grid" type="none">
+                    <li className="recipe-card">
+                        <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
+                        <div className="card-info">
+                            <h3> <a href="">Гризини</a> </h3>
+                            <p>29 Януари <a href="">Йорданка Т.</a> </p>
+                        </div>
+                    </li>
+                    <li className="recipe-card">
+                        <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
+                        <div className="card-info">
+                            <h3> <a href="">Гризини</a> </h3>
+                            <p>29 Януари <a href="">Йорданка Т.</a> </p>
+                        </div>
+                    </li>
+                    <li className="recipe-card">
+                        <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
+                        <div className="card-info">
+                            <h3> <a href="">Гризини</a> </h3>
+                            <p>29 Януари <a href="">Йорданка Т.</a> </p>
+                        </div>
+                    </li>
+                    <li className="recipe-card">
+
+                        <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
+                        <div className="card-info">
+                            <h3> <a href="">Гризини</a> </h3>
+                            <p>29 Януари <a href="">Йорданка Т.</a> </p>
+                        </div>
+                    </li>
+                    <li className="recipe-card">
+                        <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
+                        <div className="card-info">
+                            <h3> <a href="">Гризини</a> </h3>
+                            <p>29 Януари <a href="">Йорданка Т.</a> </p>
+                        </div>
+                    </li>
+                    <li className="recipe-card">
+                        <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
+                        <div className="card-info">
+                            <h3> <a href="">Гризини</a> </h3>
+                            <p>29 Януари <a href="">Йорданка Т.</a> </p>
+                        </div>
+                    </li>
+                    <li className="recipe-card">
+                        <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
+                        <div className="card-info">
+                            <h3><a href="">Гризини</a>
+                            </h3>
+                            <p>29 Януари <a href="">Йорданка Т.</a> </p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
         </div>
     )
 }
