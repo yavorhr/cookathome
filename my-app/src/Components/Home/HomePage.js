@@ -3,7 +3,6 @@ import './home-page.css';
 export default function HomePage() {
     return (
         <div>
-
             <section className="gallery">
                 <ul type="none">
                     <li className="article-item">
@@ -66,6 +65,42 @@ export default function HomePage() {
                         <a href="">Get the recipe</a>
                     </article>
                 </div>
+                <div className="users-recently-added">
+                    <ul type="none">
+                        <li>
+                            <article>
+                                <img className="img-holder" src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
+                                </img>
+                                <div class="article-info">
+                                    <a href="">Albena</a> sgotvi <a href="">Retro sladkish</a>
+                                    <p>4 min ago</p>
+                                </div>
+                            </article>
+                        </li>
+                        <li>
+                        <article>
+                                <img className="img-holder" src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
+                                </img>
+                                <div class="article-info">
+                                    <a href="">Albena</a> sgotvi <a href="">Retro sladkish</a>
+                                    <p>4 min ago</p>
+                                </div>
+                            </article>
+                        </li>
+                        <li>
+                        <article>
+                                <img className="img-holder" src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
+                                </img>
+                                <div class="article-info">
+                                    <a href="">Albena</a> sgotvi <a href="">Retro sladkish</a>
+                                    <p>4 min ago</p>
+                                </div>
+                            </article>
+                        </li>
+
+
+                    </ul>
+                </div>
             </section>
 
             <section>
@@ -108,7 +143,7 @@ export default function HomePage() {
                 </div>
             </section>
 
-          
+
         </div>
     )
 }

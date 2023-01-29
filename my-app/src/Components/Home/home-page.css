@@ -116,6 +116,10 @@ body {
 	width: 50%;
 }
 
+.users-recently-added {
+	width: 40%;
+}
+
 .today-recipe img {
 	object-fit: cover;
 
@@ -187,6 +191,63 @@ body {
 .today-recipe a:hover {
 	background-color: var(--white)
 }
+
+/*
+============================
+  Recently added from users
+============================
+*/
+
+.users-recently-added ul {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.users-recently-added ul article {
+	display: flex;
+	gap: 20px;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.users-recently-added ul li {
+	border-bottom: 1px solid rgb(218, 213, 213);
+	width: 90%;
+	padding-bottom: 10px;
+}
+
+.users-recently-added article img {
+	width: 20%;
+	border-radius: 60%
+}
+
+.users-recently-added article div {
+	width: 60%;
+}
+
+
+.users-recently-added article {
+	font-size: 20px;
+}
+
+.article-info p {
+	color: grey;
+	font-size: 16px;
+}
+
+
+.users-recently-added article a {
+	text-decoration: none;
+	color: black;
+}
+
+.users-recently-added article a:hover {
+	text-decoration: underline;
+	color: orange;
+}
+
+
 
 /*
 ============================
