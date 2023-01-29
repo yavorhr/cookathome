@@ -6,6 +6,7 @@ import Profile from "./Components/Profile/Profile.js";
 import CatalogArticles from "./Components/CatalogeArticles/CatalogeArticles.js";
 import CatalogRecipies from "./Components/CatalogRecipies/CatalogRecipies.js";
 import ArticleDetails from "./Components/ArticleDetails/ArticleDetails.js";
+import { Footer } from "./Components/Footer/Footer.js";
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
             {/* <Navigation /> */}
 
             <HomePage></HomePage>
+
 
             {/* <Login /> */}
 
@@ -26,6 +28,7 @@ function App() {
 
             {/* <ArticleDetails/> */}
 
+            {/* <Footer></Footer> */}
         </div>
 
     );

@@ -55,7 +55,7 @@ body {
 */
 
 .navigation {
-	width: 100vw !important;
+	width: 100vw ;
 	height: 120px;
 
 	padding: 0px 50px;

@@ -1,0 +1,67 @@
+
+/*
+==============
+    Footer
+==============
+*/
+
+footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	height: 160px;
+
+	padding: 20px 50px;
+	background-color: var(--blue)
+}
+
+footer ul {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+
+	margin: 0;
+	padding: 0;
+}
+
+footer .list-icons a {
+	display: inline-block;
+
+	font-size: 30px;
+	color: var(--lightgreen);
+
+	transition: 0.8s;
+}
+
+footer .list-icons li a:hover {
+	transform: translateY(-15px);
+}
+
+footer .list-links li a {
+	display: inline-block;
+
+	font-size: 1.3em;
+	text-decoration: none;
+	font-weight: 400;
+	color: var(--white);
+
+	transition: 0.8s;
+	opacity: 0.80;
+}
+
+footer .list-links li a:hover {
+	opacity: 1;
+}
+
+footer p {
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+	font-size: 14px;
+	text-align: center;
+	color: var(--white);
+}
