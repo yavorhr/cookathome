@@ -5,11 +5,14 @@ import Register from "./Components/Register/Register.js";
 import Profile from "./Components/Profile/Profile.js";
 import CatalogArticles from "./Components/CatalogeArticles/CatalogeArticles.js";
 import CatalogRecipies from "./Components/CatalogRecipies/CatalogRecipies.js";
+import ArticleDetails from "./Components/ArticleDetails/ArticleDetails.js";
 
 function App() {
     return (
         <div className="App">
-            <Navigation />
+            {/* <Navigation /> */}
+
+            {/* <HomePage></HomePage> */}
 
             {/* <Login /> */}
 
@@ -17,9 +20,11 @@ function App() {
 
             {/* <Register/> */}
 
-            {/* <CatalogArticles /> */}
+            <CatalogArticles />
 
             {/* <CatalogRecipies /> */}
+
+            {/* <ArticleDetails/> */}
 
         </div>
 

@@ -482,6 +482,24 @@ text-decoration: underline;
 ============================
 */
 
+.gallery{
+	width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+     </article>
+                <ul type="none" className="image-grid">
+                    <li className="article-item">
+                        <a href="">
+                            <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
+                            <div className="info">
+                                <h3>Egg & Sausage</h3>
+                                <p>08 August <span>Admin</span></p>
+                            </div>
+                        </a>
+                    </li>
+
 .recently-recipies {
 	width: 50%;
 }
@@ -554,38 +572,6 @@ img {
 	font-size: 18px;
 }
 
-/*
-=================================
-  Summer recipies & Fresh salads
-=================================
-*/
-
-.summer-section .recipies {
-	max-width: 1000px;
-
-	margin: 0 auto;
-	margin-top: 30px;
-}
-
-.summer-section .recipies .card-list,
-.fresh-salads-section .recipies .card-list {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	align-items: center;
-	gap: 30px;
-}
-
-.summer-section h2,
-.fresh-salads-section h2 {
-	width: 500px;
-}
-
-.fresh-salads-section {
-	max-width: 1000px;
-
-	margin: 0 auto;
-	margin-top: 30px;
-}
 
 /*
 ==============
@@ -932,21 +918,5 @@ footer p {
 
 	.card-item span {
 		font-size: 16px;
-	}
-
-	/*
-================================
- Summer & Fresh salads sections
-================================
-*/
-
-	.summer-section,
-	.fresh-salads-section {
-		padding: 10px 40px;
-	}
-
-	.summer-section .recipies .card-list,
-	.fresh-salads-section .recipies .card-list {
-		grid-template-columns: repeat(2, 1fr);
 	}
 }

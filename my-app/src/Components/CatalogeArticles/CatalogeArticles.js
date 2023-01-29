@@ -12,7 +12,7 @@ export default function CatalogArticles() {
                 <ul type="none" className="image-grid">
                     <li className="article-item">
                         <a href="">
-                            <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
+                        <img src="/img/dishes/muesli.jpg" alt="recipe details" />
                             <div className="info">
                                 <h3>Egg & Sausage</h3>
                                 <p>08 August <span>Admin</span></p>
@@ -30,7 +30,7 @@ export default function CatalogArticles() {
                     </li>
                     <li className="article-item">
                         <a href="">
-                            <img src="/img/dishes/pancakes.jpg" alt="recipe details" />
+                        <img src="/img/dishes/muesli.jpg" alt="recipe details" />
                             <div className="info">
                                 <h3>Home made pancakes</h3>
                                 <p>08 August <span>Admin</span></p>

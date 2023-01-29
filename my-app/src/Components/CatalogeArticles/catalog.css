@@ -22,7 +22,6 @@ body {
     margin-top: 30px;
 }
 
-
 .section-info {
     margin-bottom: 20px;
     /* type */
@@ -68,9 +67,10 @@ body {
     position: relative;
     height: 300px;
 
+    background-position: center center;
+    background-size: cover;
+
     border-radius: 10px;
-
-
 }
 
 .article-item:hover {
@@ -84,7 +84,7 @@ body {
     content: '';
     position: absolute;
     width: 100%;
-    height: 60%;
+    height: 70%;
     bottom: 0;
     left: 0;
     /*box-model*/
@@ -92,15 +92,16 @@ body {
 }
 
 /* Image hover effect */
-.article-item img {
+.article-item {
     height: 100%;
     position: relative;
+ 
     transition: all .4s lienar;
 }
 
-.article-item:hover img {
-    transform: scale(1.1);
-    transition-duration: 2s;
+.article-item:hover  {
+    transform: scale(1.03);
+    transition-duration: 1s;
 }
 
 /* Article fonts */
