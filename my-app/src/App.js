@@ -7,14 +7,16 @@ import CatalogArticles from "./Components/CatalogeArticles/CatalogeArticles.js";
 import CatalogRecipies from "./Components/CatalogRecipies/CatalogRecipies.js";
 import ArticleDetails from "./Components/ArticleDetails/ArticleDetails.js";
 import { Footer } from "./Components/Footer/Footer.js";
+import  './App.css';
 
 function App() {
     return (
         <div className="App">
             <Navigation />
 
+            <ArticleDetails />
+            
             {/* <HomePage></HomePage> */}
-
 
             {/* <Login /> */}
 
@@ -26,7 +28,6 @@ function App() {
 
             {/* <CatalogRecipies /> */}
 
-            {/* <ArticleDetails/> */}
 
             {/* <Footer></Footer> */}
         </div>
