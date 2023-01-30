@@ -1,0 +1,414 @@
+/*
+=========================
+    Global CSS
+=========================
+*/
+
+:root {
+	--grey: #A8ACAF;
+	--white: #ffffff;
+	--red: #FF0000;
+	--box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+	--black: black;
+	--brown: brown;
+	--body: #F0F9F9;
+	--orange: orange;
+	--green: #62A5A1;
+	--blue: #0a8ea6;
+	--lightgreen: #9efcff;
+	--user--login--btn--bckgrnd: #B54484;
+}
+
+body {
+	font-family: "Roboto";
+	box-sizing: border-box;
+	background-image: linear-gradient(180deg, rgba(240, 249, 249, 0.8744631641719187) 10%, rgba(231, 247, 247, 0.986) 50%, rgba(240, 249, 249, 0.7147059507396709) 100%);
+}
+
+section{
+	height: 10vh;
+}
+
+/*
+===============
+    Gallery 
+===============
+*/
+
+/* 
+	Grid display
+*/
+.gallery ul {
+	display: grid;
+	grid-template:
+		"first second third"
+		"fourth second fifth";
+		
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+
+		justify-content: center;
+		align-items: center;
+
+		padding: 0px;
+}
+
+.gallery ul .article-item:nth-child(1) {
+	grid-area: first;
+}
+
+.gallery .article-item:nth-child(2) {
+	grid-area: second;
+}
+
+.gallery .article-item:nth-child(3) {
+	grid-area: third;
+}
+
+.gallery .article-item:nth-child(4) {
+	grid-area: fourth;
+}
+
+.gallery .article-item:nth-child(5) {
+	grid-area: fifth;
+}
+
+.gallery .article-item:nth-child(2) img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+
+.article-item__info {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+
+    transform: translate(-50%, 0);
+
+    z-index: 1;
+}
+
+/* Pseudo color overlay */
+.article-item::after {
+    /* position */
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    bottom: 0;
+    left: 0;
+    /*box-model*/
+    background: linear-gradient(180deg, rgba(219, 219, 100, 0) 11%, rgba(10, 10, 5, 0.9191877434567577) 85%);
+}
+
+/* Image hover effect */
+.article-item {
+    height: 100%;
+    position: relative;
+	border-radius: 10px;
+
+    transition: all .4s lienar;
+}
+
+.article-item:hover  {
+    transform: scale(1.03);
+    transition-duration: 1s;
+}
+
+/* Article fonts */
+.article-item__info h3 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #fff;
+    z-index: 1;
+}
+
+.article-item__info p {
+    color: #fff;
+    text-align: center;
+}
+
+.article-item:hover {
+    -webkit-box-shadow: 5px 5px 17px 0px #000000;
+    box-shadow: 5px 5px 17px 0px #000000;
+}
+
+.article-item__info span {
+    border-left: 1px solid #fff;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
+/*
+=======================
+    Today's recipe
+=======================
+*/
+
+.hero {
+	display: flex;
+}
+
+.today-recipe {
+	position: relative;
+	width: 50%;
+}
+
+.today-recipe__img-holder{
+	position: relative;
+}
+
+.today-recipe__img-holder img {
+	position: absolute;
+	object-fit: cover;
+	
+	top: 0;
+	left: 0;
+
+	z-index: -1;
+}
+
+.today-recipe article {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 350px;
+	width: 90%;
+	border: 1px solid var(--black);
+	background-color: var(--white);
+
+	text-align: center;
+
+	transform: translate(5%, 15%);
+	opacity: 0.8;
+	z-index: 0;
+}
+
+.today-recipe .today-recipe__title {
+	padding: 0 10px;
+	font-size: 20px;
+}
+
+.today-recipe h2 {
+	margin: 7px 0px;
+
+	font-size: 35px;
+	font-weight: bold;
+	letter-spacing: 1.5px;
+	color: var(--brown);
+}
+
+.today-recipe__descr {
+	margin-bottom: 20px;
+	font-size: 18px;
+}
+
+.today-recipe a {
+	display: inline-block;
+	width: 150px;
+
+	padding: 3px 8px;
+	margin: 0 auto;
+	border: 1px solid var(--black);
+	background-color: var(--grey);
+
+	text-align: center;
+	text-decoration: none;
+	font-size: 20px;
+	color: black;
+}
+
+.today-recipe a:hover {
+	background-color: var(--white)
+}
+
+/*
+============================
+  Recently added from users
+============================
+*/
+
+.recipe-by-user {
+	width: 40%;
+}
+
+.recipe-by-user ul {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;;
+}
+
+.recipe-by-user article {
+	font-size: 20px;
+}
+
+.recipe-by-user ul article {
+	display: flex;
+	gap: 20px;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.recipe-by-user article img {
+	width: 20%;
+	border-radius: 60%
+}
+
+.recipe-by-user article div {
+	width: 60%;
+}
+
+.recipe-by-user article a {
+	text-decoration: none;
+	color: black;
+}
+
+.recipe-by-user article a:hover {
+	text-decoration: underline;
+	color: orange;
+}
+
+.recipe-by-user ul li {
+	border-bottom: 1px solid rgb(218, 213, 213);
+	width: 90%;
+	padding-bottom: 10px;
+}
+
+.recipe-by-user__info p {
+	color: grey;
+	font-size: 16px;
+}
+
+/* 
+==================
+ Recently added
+==================
+*/
+
+/*
+	Navigation
+*/
+
+.latest-recipes nav a {
+	text-decoration: none;
+	color: black;
+	font-size: 20px;
+}
+
+.latest-recipes nav a:hover {
+	text-decoration: underline;
+	color: orange;
+}
+
+.latest-recipes nav ul {
+	display: flex;
+	gap: 20px;
+}
+
+/* 
+	Recipes grid
+ */
+
+.latest-recipes__grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template:
+		"first-rec first-rec "
+		"sec-rec third-rec"
+		"fourth-rec fifth-rec"
+		"sixth-rec seventh-rec";
+
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+
+	padding: 0px;
+}
+
+.latest-recipes__grid .recipe-card:nth-child(1) {
+	grid-area: first-rec;
+}
+
+.latest-recipes__grid .recipe-card:nth-child(2) {
+	grid-area: sec-rec;
+}
+
+.latest-recipes__grid .recipe-card:nth-child(3) {
+	grid-area: third-rec;
+}
+
+.latest-recipes__grid .recipe-card:nth-child(4) {
+	grid-area: fourth-rec;
+
+}
+
+.latest-recipes__grid .recipe-card:nth-child(5) {
+	grid-area: fifth-rec;
+}
+
+.latest-recipes__grid .recipe-card:nth-child(6) {
+	grid-area: sixth-rec;
+}
+
+.latest-recipes__grid .recipe-card:nth-child(7) {
+	grid-area: seventh-rec;
+}
+
+.recently-recipes {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.latest-recipes span {
+	background-color: orange;
+	padding: 10px;
+	border-radius: 20px;
+
+	font-size: 20px;
+}
+
+.recipe-card {
+	display: flex;
+	gap: 20px;
+	text-decoration: none;
+}
+
+.recipe-card img {
+	width: 30%;
+}
+
+.recipe-card div {
+	width: 40%;
+}
+
+.recipe-card a {
+	text-decoration: none;
+}
+
+.recipe-card__info {
+	color: black;
+	background-color: transparent !important;
+}
+
+.recipe-card__info p {
+	display: flex;
+	gap: 20px;
+}
+
+.recipe-card__info p a {
+	border-left: 1px solid grey;
+	padding-left: 10px;
+	color: black;
+}
+
+.recipe-card__info a:hover {
+	text-decoration: underline;
+	color: orange;
+}

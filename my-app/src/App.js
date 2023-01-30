@@ -15,7 +15,6 @@ function App() {
 
             <HomePage></HomePage>
 
-
             {/* <Login /> */}
 
             {/* <Profile /> */}

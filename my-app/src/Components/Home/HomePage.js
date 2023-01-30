@@ -1,77 +1,78 @@
-import './home-page.css';
+import styles from './HomePage.module.css';
 
 export default function HomePage() {
     return (
-        <div>
-            <section className="gallery">
+        <>
+            <section className={styles["gallery"]}>
                 <ul type="none">
-                    <li className="article-item">
+                    <li className={styles["article-item"]}>
                         <a href="">
                             <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
-                            <div className="info">
+                            <div className={styles["article-item__info"]}>
                                 <h3>Egg & Sausage</h3>
                                 <p>08 August <span>Admin</span></p>
                             </div>
                         </a>
                     </li>
-                    <li className="article-item">
+                    <li className={styles["article-item"]}>
                         <a href="">
                             <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
-                            <div className="info">
+                            <div className={styles["article-item__info"]}>
                                 <h3>Egg & Sausage</h3>
                                 <p>08 August <span>Admin</span></p>
                             </div>
                         </a>
                     </li>
-                    <li className="article-item">
+                    <li className={styles["article-item"]}>
                         <a href="">
                             <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
-                            <div className="info">
+                            <div className={styles["article-item__info"]}>
                                 <h3>Egg & Sausage</h3>
                                 <p>08 August <span>Admin</span></p>
                             </div>
                         </a>
                     </li>
-                    <li className="article-item">
+                    <li className={styles["article-item"]}>
                         <a href="">
                             <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
-                            <div className="info">
+                            <div className={styles["article-item__info"]}>
                                 <h3>Egg & Sausage</h3>
                                 <p>08 August <span>Admin</span></p>
                             </div>
                         </a>
                     </li>
-                    <li className="article-item">
+                    <li className={styles["article-item"]}>
                         <a href="">
                             <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
-                            <div className="info">
+                            <div className={styles["article-item__info"]}>
                                 <h3>Egg & Sausage</h3>
                                 <p>08 August <span>Admin</span></p>
                             </div>
                         </a>
                     </li>
                 </ul>
-
             </section>
 
-            <section className="hero section">
-                <div className="today-recipe">
-                    <img src="/img/dishes/eggsausage.jpg" alt="" />
+            <section className={styles['hero']}>
+                <div className={styles["today-recipe"]}>
+                    <div className={styles["today-recipe__img-holder"]}>
+                        <img src="/img/dishes/eggsausage.jpg" alt="" />
+                    </div>
                     <article>
-                        <p className="today-recipe-title">Vegeterian Dinner </p>
+                        <p className={styles["today-recipe__title"]}>Vegeterian Dinner </p>
                         <h2>Roasted Eggplant and Butternut Suqash</h2>
-                        <p className="descr">Dignissimos culpa aliquid ad nulla nemo, esse unde iusto beatae facilis
+                        <p className={styles["today-recipe__descr"]}>Dignissimos culpa aliquid ad nulla nemo, esse unde iusto beatae facilis
                             quia, minima assumenda.</p>
                         <a href="">Get the recipe</a>
                     </article>
                 </div>
-                <div className="users-recently-added">
+                <div className={styles["recipe-by-user"]}>
                     <ul type="none">
                         <li>
                             <article>
-                                <img className="img-holder" src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
+                                <img src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
                                 </img>
-                                <div className="article-info">
+                                <div className={styles["recipe-by-user__info"]}>
                                     <a href="">Albena</a> sgotvi <a href="">Retro sladkish</a>
                                     <p>4 min ago</p>
                                 </div>
@@ -79,9 +80,9 @@ export default function HomePage() {
                         </li>
                         <li>
                             <article>
-                                <img className="img-holder" src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
+                                <img src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
                                 </img>
-                                <div className="article-info">
+                                <div className={styles["recipe-by-user__info"]}>
                                     <a href="">Albena</a> sgotvi <a href="">Retro sladkish</a>
                                     <p>4 min ago</p>
                                 </div>
@@ -89,9 +90,9 @@ export default function HomePage() {
                         </li>
                         <li>
                             <article>
-                                <img className="img-holder" src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
+                                <img src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
                                 </img>
-                                <div className="article-info">
+                                <div className={styles["recipe-by-user__info"]}>
                                     <a href="">Albena</a> sgotvi <a href="">Retro sladkish</a>
                                     <p>4 min ago</p>
                                 </div>
@@ -101,7 +102,7 @@ export default function HomePage() {
                 </div>
             </section>
 
-            <section className="recently-recipes">
+            <section className={styles["latest-recipes"]}>
                 <nav>
                     <ul type="none">
                         <span>New recipes</span>
@@ -132,53 +133,52 @@ export default function HomePage() {
                     </ul>
                 </nav>
 
-                <ul className="recipes-grid" type="none">
-                    <li className="recipe-card">
+                <ul className={styles["latest-recipes__grid"]} type="none">
+                    <li className={styles["recipe-card"]}>
                         <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
-                        <div className="card-info">
+                        <div className={styles["recipe-card__info"]}>
                             <h3> <a href="">Гризини</a> </h3>
                             <p>29 Януари <a href="">Йорданка Т.</a> </p>
                         </div>
                     </li>
-                    <li className="recipe-card">
+                    <li className={styles["recipe-card"]}>
                         <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
-                        <div className="card-info">
+                        <div className={styles["recipe-card__info"]}>
                             <h3> <a href="">Гризини</a> </h3>
                             <p>29 Януари <a href="">Йорданка Т.</a> </p>
                         </div>
                     </li>
-                    <li className="recipe-card">
+                    <li className={styles["recipe-card"]}>
                         <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
-                        <div className="card-info">
+                        <div className={styles["recipe-card__info"]}>
                             <h3> <a href="">Гризини</a> </h3>
                             <p>29 Януари <a href="">Йорданка Т.</a> </p>
                         </div>
                     </li>
-                    <li className="recipe-card">
-
+                    <li className={styles["recipe-card"]}>
                         <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
-                        <div className="card-info">
+                        <div className={styles["recipe-card__info"]}>
                             <h3> <a href="">Гризини</a> </h3>
                             <p>29 Януари <a href="">Йорданка Т.</a> </p>
                         </div>
                     </li>
-                    <li className="recipe-card">
+                    <li className={styles["recipe-card"]}>
                         <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
-                        <div className="card-info">
+                        <div className={styles["recipe-card__info"]}>
                             <h3> <a href="">Гризини</a> </h3>
                             <p>29 Януари <a href="">Йорданка Т.</a> </p>
                         </div>
                     </li>
-                    <li className="recipe-card">
+                    <li className={styles["recipe-card"]}>
                         <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
-                        <div className="card-info">
+                        <div className={styles["recipe-card__info"]}>
                             <h3> <a href="">Гризини</a> </h3>
                             <p>29 Януари <a href="">Йорданка Т.</a> </p>
                         </div>
                     </li>
-                    <li className="recipe-card">
+                    <li className={styles["recipe-card"]}>
                         <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
-                        <div className="card-info">
+                        <div className={styles["recipe-card__info"]}>
                             <h3><a href="">Гризини</a>
                             </h3>
                             <p>29 Януари <a href="">Йорданка Т.</a> </p>
@@ -186,6 +186,6 @@ export default function HomePage() {
                     </li>
                 </ul>
             </section>
-        </div>
+        </>
     )
 }
