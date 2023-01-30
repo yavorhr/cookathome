@@ -27,29 +27,6 @@ body {
 
 /*
 =========================
-        Global CSS 
-=========================
-*/
-
-/* h2 */
-.section-title {
-	width: 300px;
-
-	margin: 0 auto;
-	margin-bottom: 20px;
-	border-bottom: 3px solid var(--brown);
-
-	text-align: center;
-	font-size: 30px;
-	letter-spacing: 3px;
-}
-
-.section-title:hover {
-	border-bottom: 3px solid var(--orange);
-}
-
-/*
-=========================
        Navigation
 =========================
 */
@@ -63,12 +40,19 @@ body {
 	box-shadow: var(--box-shadow)
 }
 
+/* Logo */
 
 .logo {
 	width: 130px;
 	height: auto;
 
 	border-radius: 70%;
+}
+
+.logo-fav-wrapper {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .logo:hover {
@@ -88,11 +72,7 @@ body {
 	position: relative;
 }
 
-.wrapper {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-}
+
 
 /*
     Button and links styling 
@@ -298,7 +278,7 @@ body {
     Favorites button
 */
 
-.favourites button {
+.favorites__btn {
 	/* box model */
 	padding: 10px;
 	border: none;
@@ -306,14 +286,14 @@ body {
 	cursor: pointer;
 }
 
-.fa-solid.fa-heart {
+.fa-heart {
 	font-size: 30px;
 	color: var(--red);
 
 	transition: color .3s ease-in-out;
 }
 
-.favourites:hover .fa-solid.fa-heart {
+.favorites__btn:hover .fa-heart {
 	color: var(--white);
 }
 
@@ -387,7 +367,7 @@ body {
 
 @media screen and (max-width:768px) {
 
-	/*
+/*
     Hero section
  */
 
@@ -416,7 +396,7 @@ body {
 		display: block;
 	}
 
-	/* 
+/* 
     Hamburger menu
 */
 
@@ -556,16 +536,16 @@ body {
 	/* 
 	Search button 
 */
-	.search button {
+	.search__btn {
 		padding-left: 20px;
 	}
 
-	.search button:before,
-	.search button:after {
+	.search__btn:before,
+	.search__btn:after {
 		display: none;
 	}
 
-	.nav-item.search i {
+	.nav-item.search  {
 		font-size: 30px;
 	}
 }

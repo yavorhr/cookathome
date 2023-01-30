@@ -11,9 +11,10 @@ import { Footer } from "./Components/Footer/Footer.js";
 function App() {
     return (
         <div className="App">
-            {/* <Navigation /> */}
+            <Navigation />
 
-            <HomePage></HomePage>
+            {/* <HomePage></HomePage> */}
+
 
             {/* <Login /> */}
 
