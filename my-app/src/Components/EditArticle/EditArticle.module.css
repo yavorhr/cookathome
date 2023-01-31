@@ -14,7 +14,6 @@
     --form-pseudo-background-clr: rgba(156, 163, 163, 0.5);
 }
 
-
 .mrgn-auto {
     margin: 0 auto;
 }
@@ -25,9 +24,9 @@
 }
 
 /*
-======================
+====================
     Edit Section
-======================
+====================
 */
 
 .edit {
@@ -55,11 +54,10 @@ form {
     position: relative;
     /* box model */
     width: 90%;
-    /*type*/
-    color: var(--white);
-    /* misc */
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    /*type*/
+    color: var(--white);
 }
 
 form::before {

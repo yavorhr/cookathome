@@ -22,7 +22,7 @@ export const CreateRecipe = () => {
                         />
                     </div>
                     <div className={styles["group--wrapper"]}>
-                        <div className={`${styles["descr"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
+                        <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
                             <label htmlFor="category">Category</label>
                             <select type="text" name="category">
                                 <option selected="disabled"> --- </option>

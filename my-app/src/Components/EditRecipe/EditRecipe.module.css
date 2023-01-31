@@ -6,8 +6,9 @@
 
 :root {
     --white: #ffffff;
-    --background-clr: #f0e5db;;
-    --green:rgb(115, 172, 162);
+    --background-clr: #f0e5db;
+    ;
+    --green: rgb(115, 172, 162);
     --black: rgba(0, 0, 0, .5);
     --silver: #575e5e;
 }
@@ -15,7 +16,7 @@
 body {
     font-family: "Roboto";
     box-sizing: border-box;
-    background-image: url('/img/wood.jpg');
+    background-image: url('../../../public/img/wood.jpg');
     background-position: center center;
     background-repeat: none;
     background-size: cover;
@@ -31,10 +32,16 @@ body {
 }
 
 /*
-======================
+===================
     Edit Section 
-======================
+===================
 */
+
+.edit {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
 
 h1 {
     padding: 20px 0;
@@ -44,13 +51,8 @@ h1 {
     letter-spacing: 2px;
 }
 
-.edit {
-    margin: 40px 0;
-}
+/* Form positioning */
 
-/* 
-    Form positioning
-*/
 form {
     justify-content: center;
     gap: 25px;
@@ -58,18 +60,15 @@ form {
     position: relative;
     /* box model */
     width: 90%;
+    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
     background-color: transparent;
     border: 1px solid black;
     /*type*/
     color: var(--white);
-    /* misc */
-    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
 }
 
-/*
-    Form Inputs and Text-areas positioniong
-*/
+/* Form Inputs and Text-areas positioniong */
 
 .group--wrapper {
     display: flex;
@@ -104,9 +103,7 @@ form label {
     letter-spacing: 1px;
 }
 
-/* 
-    Select Dropdown & :: After Dropdown effect
-*/
+/* Select Dropdown & :: After Dropdown effect */
 
 form select,
 form input,
@@ -170,9 +167,7 @@ form select {
     color: var(--green);
 }
 
-/*
-   Form Button
-*/
+/* Form Button */
 
 button {
     padding: 15px 0px;
@@ -180,19 +175,18 @@ button {
     margin-top: 30px;
     margin-bottom: 30px;
 
-    width: 10%;
     border-radius: 10px;
     background-color: var(--background-clr);
     outline: none;
 
-    font-size: 22px!important;
+    font-size: 22px !important;
     letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
-button:hover{
-   background-color: var(--green);
-   color: var(--white)
+button:hover {
+    background-color: var(--green);
+    color: var(--white)
 }
 
 /*

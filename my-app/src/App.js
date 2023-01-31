@@ -14,6 +14,7 @@ import { ArticleCategories } from './Components/ArticleCategories/ArticleCategor
 import { CreateArticle } from './Components/CreateArticle/CreateArticle.js';
 import { EditArtice } from './Components/EditArticle/EditArticle.js';
 import { CreateRecipe } from './Components/CreateRecipe/CreateRecipe.js';
+import { EditRecipe } from './Components/EditRecipe/EditRecipe.js';
 
 function App() {
     return (
@@ -28,7 +29,8 @@ function App() {
             {/* <Login /> */}
 
             {/* <CatalogRecipes/> */}
-            <CreateRecipe></CreateRecipe>
+            {/* <CreateRecipe></CreateRecipe> */}
+            <EditRecipe></EditRecipe>
 
             {/* <CatalogArticles /> */}
             {/* <ArticleCategories></ArticleCategories> */}
