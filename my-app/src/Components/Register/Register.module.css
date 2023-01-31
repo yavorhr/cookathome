@@ -12,28 +12,6 @@
     --lightgray: lightslategray;
 }
 
-
-body {
-    font-family: "Roboto";
-    box-sizing: border-box;
-    background-color: var(--body);
-    overflow: hidden;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.mrgn-auto {
-    margin: 0 auto;
-}
-
-.App {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 /*
 =========================
     Register section 
@@ -62,11 +40,11 @@ body {
 .register-section .title:before {
     content: '';
     position: absolute;
-    width: 140px;
     left: 0;
     bottom: 0;
-    height: 3px;
 
+    width: 140px;
+    height: 3px;
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 
@@ -86,14 +64,14 @@ form .user-details .txt-fields {
 .user-details .txt-fields input {
     width: 100%;
     height: 45px;
-
     padding-left: 15px;
-    outline: none;
     border-radius: 5px;
     border: 1px solid #ccc;
     border-bottom-width: 2px;
-
+    outline: none;
+  
     font-size: 18px;
+
     transition: all 0.3s ease;
 }
 
@@ -108,18 +86,18 @@ form .user-details .txt-fields {
 form button {
     width: 100%;
     height: 45px;
-
     margin: 35px 0;
     outline: none;
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
     border-radius: 5px;
     border: none;
-    cursor: pointer;
-
-    color: #ffffff;
+    
+    color: var(--white);
     font-size: 18px;
     font-weight: 500;
     letter-spacing: 1px;
+
+    cursor: pointer;
 }
 
 form button:hover {

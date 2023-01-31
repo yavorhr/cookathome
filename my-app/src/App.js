@@ -18,11 +18,11 @@ function App() {
             
             {/* <HomePage></HomePage> */}
 
-            <Login />
+            {/* <Login /> */}
 
             {/* <Profile /> */}
 
-            {/* <Register/> */}
+            <Register/>
 
             {/* <CatalogArticles /> */}
 
