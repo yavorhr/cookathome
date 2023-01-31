@@ -11,6 +11,7 @@ import ArticleDetails from "./Components/ArticleDetails/ArticleDetails.js";
 import { Footer } from "./Components/common/Footer/Footer.js"
 import { Favorites } from './Components/Favorites/Favorites.js';
 import { ArticleCategories } from './Components/ArticleCategories/ArticleCategories.js';
+import { CreateArticle } from './Components/CreateArticle/CreateArticle.js';
 
 function App() {
     return (
@@ -35,7 +36,9 @@ function App() {
 
             {/* <Footer></Footer> */}
 
-            <ArticleCategories></ArticleCategories>
+            {/* <ArticleCategories></ArticleCategories> */}
+
+            <CreateArticle></CreateArticle>
         </div>
 
     );

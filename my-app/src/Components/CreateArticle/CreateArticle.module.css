@@ -14,14 +14,6 @@
     --form-pseudo-background-clr: rgba(156, 163, 163, 0.5);
 }
 
-body {
-    font-family: "Roboto";
-    box-sizing: border-box;
-    background-image: url('/img/white\ \(5\).jpg');
-    background-position: center center;
-    background-size: cover;
-}
-
 .mrgn-auto {
     margin: 0 auto;
 }
@@ -32,13 +24,15 @@ body {
 }
 
 /*
-=========================
-     Create Section
-=========================
+======================
+    Create Section
+======================
 */
 
 .create {
-    margin: 40px 0;
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 30px;
 }
 
 h1 {
@@ -49,9 +43,7 @@ h1 {
     letter-spacing: 2px;
 }
 
-/*
-    Form and Form Before Effect
-*/
+/* Form and Form Before Effect */
 
 form {
     /* display props */
@@ -81,9 +73,7 @@ form::before {
     z-index: -1;
 }
 
-/* 
-    Select Dropdown & ::After Dropdown Effect 
-*/
+/* Select Dropdown & ::After Dropdown Effect */
 
 form select,
 form input,
@@ -115,6 +105,7 @@ form select {
 ::placeholder {
     font-size: 20px;
     letter-spacing: 1px;
+    color: grey;
 }
 
 .select-wrapper {
@@ -148,7 +139,7 @@ form select {
 */
 
 .title {
-    width: 50%;
+    width: 60%;
     margin-top: 20px;
 }
 
@@ -168,7 +159,7 @@ form label {
 }
 
 .category {
-    width: 30%;
+    width: 60%;
 }
 
 .content {
@@ -176,17 +167,15 @@ form label {
     margin-bottom: 20px;
 }
 
-/* 
-    Form Button
-*/
+/* Form Button */
 
 button {
     padding: 15px 0px;
-    margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 30px;
+    width: 40%!important;
+    margin: 0 auto!important;
 
-    width: 10%;
     border-radius: 10px;
     background-color: var(--background-clr);
     outline: none;
