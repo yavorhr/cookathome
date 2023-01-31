@@ -1,16 +1,3 @@
-/*
-=========================
-       Global CSS
-=========================
-*/
-
-body {
-    font-family: "Roboto";
-    box-sizing: border-box;
-    background-color: var(--body);
-    overflow: scroll;
-}
-
 section {
     height: 100vh;
     padding: 0px 20px;
@@ -28,9 +15,9 @@ section {
 }
 
 /*
-==================
-    Search Bar
-==================
+================
+  Search Bar
+================
 */
 
 .search-bar {
@@ -54,9 +41,9 @@ section {
 .search-bar form {
     /* display */
     display: flex;
-    gap:20px;
+    gap: 20px;
     /* positioning */
-    max-width: 700px;
+    max-width: 500px;
     padding: 30px;
     margin: 0 auto;
     /* type */
@@ -76,6 +63,7 @@ section {
     padding: 15px 20px;
     flex: 1;
     border: 0;
+    width: 60%;
     /* border-box */
     outline: none;
     background-color: lightgrey;
@@ -91,9 +79,14 @@ section {
     position: relative;
     border: none;
     border-radius: 30px;
+    width: 30%;
 }
 
-.search-bar form button i {
+.search-bar form button .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
     /* border-box */
     background-color: ghostwhite;
     padding: 10px;
@@ -214,7 +207,7 @@ section {
     margin-left: 5px;
 }
 
-.card-info span i {
+.card-info .icon {
     margin: 0 10px;
     color: var(--grey);
     font-size: 18px;
@@ -222,7 +215,7 @@ section {
 
 @media screen and (max-width:768px) {
 
-/*
+    /*
     Grid display
 */
 
@@ -249,65 +242,65 @@ section {
         border-bottom: 3px solid var(--orange);
     }
 
-/*
+    /*
        Search Bar
 */
 
-.search-bar .title {
-    margin: 20px 0;
+    .search-bar .title {
+        margin: 20px 0;
 
-    font-size: 23px;
-    letter-spacing: 2px;
-}
+        font-size: 23px;
+        letter-spacing: 2px;
+    }
 
-.search-bar form {
-    padding: 20px;
-}
+    .search-bar form {
+        padding: 20px;
+    }
 
-.search-bar .descr {
-    font-size: 16px;
-    letter-spacing: 2px;
-}
+    .search-bar .descr {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
 
-.search-bar input {
-    /* positioning */
-    max-width: 500px;
-    padding: 10px 12px;
-}
+    .search-bar input {
+        /* positioning */
+        max-width: 500px;
+        padding: 10px 12px;
+    }
 
 
-/* 
+    /* 
 =============
   CARD ITEM 
 =============
 */
 
-.card-info {
-    padding-bottom: 5px;
-}
+    .card-info {
+        padding-bottom: 5px;
+    }
 
-.card-info .card-title {
-    font-size: 18px;
-    margin: 5px 0;
-}
+    .card-info .card-title {
+        font-size: 18px;
+        margin: 5px 0;
+    }
 
-.card-info .card-descr {
-    font-size: 15px;
-    padding: 0px 6px;
-   
-}
+    .card-info .card-descr {
+        font-size: 15px;
+        padding: 0px 6px;
 
-.card-info span {
-    display: inline-block;
-    color: var(--grey);
-    font-size: 15px;
-    margin-top: 10px;
-    margin-left: 5px;
-}
+    }
 
-.card-info span i {
-    font-size: 15px;
-}
+    .card-info span {
+        display: inline-block;
+        color: var(--grey);
+        font-size: 15px;
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+
+    .card-info span i {
+        font-size: 15px;
+    }
 
 
 
