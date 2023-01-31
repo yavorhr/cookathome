@@ -2,8 +2,6 @@ section {
     margin: 0 auto;
     max-width: 1500px;
     min-width: 500px;
-
-    margin-bottom: 50px;
 }
 
 .btn {
@@ -97,7 +95,7 @@ section {
     border-radius: 50%;
 }
 
-.user__stats {
+.user-stats {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -316,14 +314,6 @@ section {
         border-radius: 50%;
     }
 
-    .user__stats {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-
-        font-size: 12px;
-    }
 
     /*
     User profile

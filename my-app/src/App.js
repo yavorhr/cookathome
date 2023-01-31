@@ -14,11 +14,11 @@ function App() {
         <div className="App">
             <Navigation />
 
-            <ArticleDetails />
+            {/* <ArticleDetails /> */}
             
             {/* <HomePage></HomePage> */}
 
-            {/* <Login /> */}
+            <Login />
 
             {/* <Profile /> */}
 

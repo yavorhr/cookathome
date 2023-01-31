@@ -30,7 +30,7 @@ export default function ArticleDetails() {
                             <p>Ivan Ivanov</p>
                             <p>Beginner</p>
                         </div>
-                        <div className={styles["user__stats"]}>
+                        <div className={styles["user-stats"]}>
                             <div className={styles["stats__wrapper"]}>
                                 <FontAwesomeIcon icon={faUtensils} className={styles["icon"]}></FontAwesomeIcon>
                                 <p>31</p>
@@ -90,8 +90,7 @@ export default function ArticleDetails() {
                             <p>21.10.2022</p>
                         </div>
                     </div>
-
-                    <img src="/img/dishes/Best-Lasagna-550.jpg" className="image" alt="" />
+                    <img src="/img/dishes/Best-Lasagna-550.jpg" className={styles["image"]} alt="" />
                 </article>
             </section>
 

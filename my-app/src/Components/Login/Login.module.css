@@ -12,19 +12,6 @@
     --lightgray: lightslategray;
 }
 
-body {
-    font-family: "Roboto";
-    box-sizing: border-box;
-    background-color: var(--body);
-    overflow: hidden;
-}
-
-.App {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 /*
 ====================
    Login Section
@@ -35,13 +22,13 @@ body {
     width: 30%;
     min-width: 400px;
 
-    background-color: var(--white);
-    border-radius: 20px;
     margin:30px;
     padding: 20px;
-
+    
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    background-color: var(--white);
+    border-radius: 20px;
 }
 
 /* 
