@@ -13,35 +13,31 @@ import { Favorites } from './Components/Favorites/Favorites.js';
 import { ArticleCategories } from './Components/ArticleCategories/ArticleCategories.js';
 import { CreateArticle } from './Components/CreateArticle/CreateArticle.js';
 import { EditArtice } from './Components/EditArticle/EditArticle.js';
+import { CreateRecipe } from './Components/CreateRecipe/CreateRecipe.js';
 
 function App() {
     return (
         <div className="App">
             {/* <Navigation /> */}
 
+            {/* <HomePage></HomePage> */}
             {/* <Favorites></Favorites> */}
 
-            {/* <ArticleDetails /> */}
-
-            {/* <HomePage></HomePage> */}
-
+            {/* <Profile /> */}
+            {/* <Register/> */}
             {/* <Login /> */}
 
-            {/* <CatalogArticles /> */}
-
-            {/* <Profile /> */}
-
-            {/* <Register/> */}
-
             {/* <CatalogRecipes/> */}
+            <CreateRecipe></CreateRecipe>
 
-            {/* <Footer></Footer> */}
-
+            {/* <CatalogArticles /> */}
             {/* <ArticleCategories></ArticleCategories> */}
 
+            {/* <ArticleDetails /> */}
             {/* <CreateArticle></CreateArticle> */}
+            {/* <EditArtice></EditArtice> */}
 
-            <EditArtice></EditArtice>
+            {/* <Footer></Footer> */}
         </div>
 
     );

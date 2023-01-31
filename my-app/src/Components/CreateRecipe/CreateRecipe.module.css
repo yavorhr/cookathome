@@ -6,19 +6,18 @@
 
 :root {
     --white: #ffffff;
-    --form-elements-background-clr: rgba(224, 230, 230, 0.986);
-    --green: rgb(115, 172, 162);
+    --background-clr: #f0e5db;;
+    --green:rgb(115, 172, 162);
     --black: rgba(0, 0, 0, .5);
-    --grey: grey;
-    --select-background-clr: #888f8f;
-    --form-pseudo-background-clr: rgba(156, 163, 163, 0.5);
+    --silver: #575e5e;
 }
 
 body {
     font-family: "Roboto";
     box-sizing: border-box;
-    background-image: url('/img/white\ \(5\).jpg');
+    background-image: url('../../../public/img/wood.jpg');
     background-position: center center;
+    background-repeat: none;
     background-size: cover;
 }
 
@@ -32,59 +31,43 @@ body {
 }
 
 /*
-=========================
-     Edit Section
-=========================
+======================
+    Create Section 
+======================
 */
 
-.edit {
-    margin: 40px 0;
+.create {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 30px;
 }
 
 h1 {
-    padding-top: 20px;
+    padding: 20px 0;
 
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
-/*
-    Form positioning and Form::Before effect
-*/
-
+/* Form positioning */
 form {
-    /* display props */
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
     gap: 20px;
     /* positioning */
     position: relative;
     /* box model */
     width: 90%;
+    background-color: transparent;
+    border: 1px solid black;
     /*type*/
-    color: var(--white);
+    color:var(--white);
     /* misc */
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
 }
 
-form::before {
-    /* positioning */
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    /*box-model*/
-    background-color: var(--form-pseudo-background-clr) ;
-
-    z-index: -1;
-}
-
-/* 
-    Select Dropdown & ::After Dropdown Effect 
-*/
-
+/*  Select Dropdown & :: After Dropdown pseudo effect */
 form select,
 form input,
 form textarea {
@@ -93,19 +76,23 @@ form textarea {
     border: none;
     outline: none;
     border-radius: 10px;
-    background-color: var(--form-elements-background-clr);
+    background-color: var(--background-clr);
     /*type*/
-    color: var(--grey);
+    color: var(--silver);
     font-size: 18px;
     /*misc*/
     appearance: none;
 }
 
-form select:focus,
-form input:focus,
-form textarea:focus {
-    -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-    box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+form::before {
+    /* positioning */
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /*box-model*/
+    background-color: var(--black)
 }
 
 form select {
@@ -121,7 +108,7 @@ form select {
     position: relative;
 }
 
-.select-wrapper::after {
+.after::after {
     /* positioning */
     content: '\25BC';
     position: absolute;
@@ -129,10 +116,10 @@ form select {
     right: 0;
     /* box model */
     padding: 9px;
-    background-color: var(--select-background-clr);
+    background-color: var(--silver);
     /*type*/
     font-size: 20px;
-    color: white;
+    color: var(--white);
     border-radius: 0 10px 10px 0;
     cursor: pointer;
     /*functionality*/
@@ -143,42 +130,39 @@ form select {
     color: var(--green)
 }
 
-/*
-    Form Inputs and Txt-areas positioning
-*/
-
 form label {
     margin-bottom: 5px;
-
-    font-size: 24px;
+    font-size: 20px;
     letter-spacing: 1px;
+}
+
+.group--wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+
+    padding: 20px;
+}
+
+.group--wrapper .select-wrapper {
+    width: 20%;
 }
 
 .title {
     width: 50%;
-    margin-top: 20px;
-}
-
-.image-url {
-    width: 60%;
 }
 
 .descr {
-    width: 60%;
+    width: 50%;
 }
 
-.category {
-    width: 30%;
+.ingredients,
+.steps {
+    width: 70%;
 }
 
-.content {
-    width: 60%;
-    margin-bottom: 20px;
-}
-
-/* 
-    Form Button
-*/
+/* Form Button */
 
 button {
     padding: 15px 0px;
@@ -191,12 +175,42 @@ button {
     background-color: var(--background-clr);
     outline: none;
 
-    font-size: 22px !important;
+    font-size: 22px!important;
     letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
-button:hover {
-    background-color: var(--form-elements-background-clr);
-    color: var(--grey)
+button:hover{
+   background-color: var(--green);
+   color: var(--white)
+}
+
+/*
+======================
+  Responsive design
+======================
+*/
+
+@media screen and (max-width:768px) {
+    .title {
+        width: 80%;
+    }
+    
+    .descr {
+        width: 70%;
+    }
+    
+    .ingredients,
+    .steps {
+        width: 70%;
+    } 
+
+    .group--wrapper{
+        flex-direction: column;
+    }
+
+    .group--wrapper .select-wrapper {
+        width: 40%;
+    }
+    
 }
