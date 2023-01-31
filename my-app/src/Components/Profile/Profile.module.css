@@ -1,0 +1,311 @@
+/*
+=================
+    Global CSS
+==================
+*/
+
+:root {
+	--grey: #A8ACAF;
+	--white: #ffffff;
+	--red: #FF0000;
+	--box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+	--black: black;
+	--brown: brown;
+	--body: #F0F9F9;
+	--orange: orange;
+}
+
+.btn {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+
+	color: black;
+
+	overflow: hidden;
+}
+
+/*
+=========================
+   User profile section
+=========================
+*/
+
+.user-profile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+
+/* center section */
+	top: 70%;
+	right: 50%;
+	transform: translate(50%,-50%);
+
+	/* box model */
+	max-width: 1000px;
+	padding: 15px;
+	margin: 30px;
+	border: #A8ACAF;
+	border-radius: 20px;
+	border: none;
+	-webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+	box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+
+}
+
+/*
+User Details Positioning : 
+	1. Img holder
+	2. User information 
+	3. User icons
+*/
+
+.user-details {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 15px;
+}
+
+/* 1. User profile picture */
+.user-details .img-holder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+
+	width: 50%;
+	height: auto;
+}
+
+.user-details img {
+	border-radius: 50%;
+	width: 80%;
+}
+
+.img-holder .level {
+	font-size: 20px;
+	text-transform: capitalize;
+	letter-spacing: 2px;
+	font-style: italic;
+}
+
+/* 2. User information */
+.user-information {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+
+	width: 40%;
+}
+
+.user-information label {
+	font-size: 16px;
+	letter-spacing: 1px;
+	color: var(--grey);
+	text-transform: uppercase;
+}
+
+.user-information p {
+	font-size: 20px;
+	letter-spacing: 1px;
+}
+
+.user-personal-data {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	gap: 30px;
+}
+
+.name,
+.email {
+	margin-bottom: 20px;
+}
+
+.username,
+.phone {
+	margin-bottom: 10px;
+}
+
+/* 3. User icons */
+.user-icons {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.user-icons .wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	padding: 7px;
+	background-color: #e4dede;
+}
+
+.user-icons .wrapper .icon {
+	padding: 3px;
+	font-size: 20px;
+	transition: 0.8s;
+}
+
+.user-icons .wrapper .btn .icon:hover {
+	transform: translateY(-4px);
+	color: grey;
+}
+
+.user-icons .wrapper {
+	margin-top: 3px;
+}
+
+/*
+============
+		Recipies
+============
+*/
+
+.card-list {
+	display: grid;
+	justify-content: center;
+	grid-template-columns: repeat(3, 200px);
+	gap: 20px;
+
+	padding-left: 0px;
+}
+
+.card-list a {
+	text-decoration: none;
+}
+
+img {
+	border-radius: 5px 5px 0 0;
+}
+
+.card-item {
+	transition: 0.8s;
+	margin-bottom: 10px;
+	background-color: var(--white);
+}
+
+.card-item:hover {
+	margin-bottom: 5px;
+	-webkit-box-shadow: 6px 9px 2px 0px #FF8333;
+	box-shadow: 6px 9px 2px 0px #FF8333;
+	background-color: var(--white);
+
+	transform: translateY(-5px);
+}
+
+.recipies-title {
+	margin-bottom: 10px;
+
+	text-align: center;
+	letter-spacing: 1px;
+	font-weight: lighter;
+	color: black;
+}
+
+.card-item .card-title {
+	color: var(--black);
+	font-size: 18px;
+	margin: 10px 0;
+	letter-spacing: 3px;
+	text-align: center;
+}
+
+.card-item .card-descr {
+	margin-bottom: 5px;
+	padding: 0px 10px;
+
+	font-size: 15px;
+	text-align: left;
+	font-style: italic;
+	color: var(--grey);
+}
+
+.card-item span .icon {
+	margin: 15px 5px;
+
+	font-size: 15px;
+	color: var(--grey);
+}
+
+.card-item span {
+	font-size: 14px;
+	color: var(--grey);
+}
+
+/* Show all button */
+
+.show-all {
+	font-size: 18px;
+	text-align: end;
+}
+
+.show-all a {
+	color: var(--black);
+}
+
+.show-all a:hover {
+	border-bottom: 1px solid black
+}
+
+/*
+=====================
+  Responsive Design
+=====================
+*/
+
+@media screen and (max-width:768px) {
+	.user-details {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 15px;
+	}
+
+	/* 1. User profile picture */
+	.user-details .img-holder {
+		width: 60%;
+		height: auto;
+	}
+
+	.img-holder .level {
+		font-size: 18px;
+	}
+
+	/* 2. User information */
+	.user-information {
+		width: 100%;
+	}
+
+	.user-personal-data {
+		gap: 20px;
+	}
+
+	.name,
+	.email {
+		margin-bottom: 15px;
+	}
+
+	.username,
+	.phone {
+		margin-bottom: 10px;
+	}
+
+	.recipies {
+		margin-top: 20px;
+	}
+
+	.card-list {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+}

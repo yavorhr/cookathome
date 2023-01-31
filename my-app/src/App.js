@@ -20,11 +20,12 @@ function App() {
 
             {/* <Login /> */}
 
-            {/* <Profile /> */}
+            {/* <CatalogArticles /> */}
+
+            <Profile />
 
             {/* <Register/> */}
 
-            <CatalogArticles />
 
             {/* <CatalogRecipies /> */}
 
