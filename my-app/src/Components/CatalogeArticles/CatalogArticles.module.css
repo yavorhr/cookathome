@@ -1,22 +1,11 @@
-/*
-  Global CSS
-*/
-
-body {
-    font-family: "Roboto";
-    box-sizing: border-box;
-    background-image: linear-gradient(180deg, rgba(240, 249, 249, 0.8744631641719187) 10%, rgba(231, 247, 247, 0.986) 50%, rgba(240, 249, 249, 0.7147059507396709) 100%);
-    background-position: center center;
-    overflow: scroll;
-}
 
 /*
-===================
-  Main 3 Articles
-===================
+============================
+  Main 3 Articles Section
+============================
 */
 
-.articles {
+.main-articles {
     width: 90%;
     margin: 0 auto;
     margin-top: 30px;
@@ -126,9 +115,9 @@ body {
 }
 
 /*
-=================
-  Rest Articles
-=================
+========================
+  Rest Articles Section
+========================
 */
 
 .rest-articles-section {
@@ -137,7 +126,7 @@ body {
     margin-top: 30px;
 }
 
-.rest-articles {
+.rest-articles-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -146,7 +135,7 @@ body {
     padding-left: 0;
 }
 
-.rest-articles a {
+.rest-articles-list a {
     text-decoration: none;
     padding: 15px;
 }
@@ -169,11 +158,11 @@ body {
     height: 100%;
 }
 
-.card .card-info {
+.card .card__info {
     width: 60%;
 }
 
-.rest-articles .card {
+.rest-articles-list .card {
     border-bottom: 1px solid grey;
 }
 
@@ -181,7 +170,7 @@ body {
     height: 200px;
 } */
 
-.card-info h3 {
+.card__info h3 {
     margin-bottom: 5px;
 
     font-size: 20px;
@@ -189,7 +178,7 @@ body {
     color: #505152;
 }
 
-.card-info .date {
+.card__info .date {
     margin-bottom: 5px;
 
     font-size: 16px;
@@ -197,18 +186,17 @@ body {
     color: #5c5e61;
 }
 
-.card-info span {
+.card__info span {
     padding-left: 10px;
     margin-left: 10px;
     border-left: 1px solid grey;
 }
 
-.card-info .descr {
+.card__info .descr {
     width: 80%;
     font-size: 18px;
     color: #6e7174;
 }
-
 
 /*
 =====================
@@ -226,12 +214,10 @@ body {
         margin: 0 auto;
         text-align: center;
     }
-
 }
 
 @media screen and (max-width:760px) {
     .section-info .descr {
         width: 400px;
     }
-
 }
