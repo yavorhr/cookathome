@@ -27,9 +27,9 @@ function App() {
 
             {/* <Register/> */}
 
-            <CatalogRecipes/>
+            {/* <CatalogRecipes/> */}
 
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
         </div>
 
     );
