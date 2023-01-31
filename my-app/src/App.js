@@ -10,13 +10,14 @@ import CatalogRecipes from "./Components/CatalogRecipes/CatalogRecipes.js";
 import ArticleDetails from "./Components/ArticleDetails/ArticleDetails.js";
 import { Footer } from "./Components/common/Footer/Footer.js"
 import { Favorites } from './Components/Favorites/Favorites.js';
+import { ArticleCategories } from './Components/ArticleCategories/ArticleCategories.js';
 
 function App() {
     return (
         <div className="App">
             {/* <Navigation /> */}
 
-            <Favorites></Favorites>
+            {/* <Favorites></Favorites> */}
 
             {/* <ArticleDetails /> */}
 
@@ -33,6 +34,8 @@ function App() {
             {/* <CatalogRecipes/> */}
 
             {/* <Footer></Footer> */}
+
+            <ArticleCategories></ArticleCategories>
         </div>
 
     );

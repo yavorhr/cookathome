@@ -1,21 +1,24 @@
+
 /*
-=========================
-    Global CSS
-=========================
+=======================
+   Articles section
+=======================
 */
 
-body {
-    font-family: "Roboto";
-    box-sizing: border-box;
-    background-color: var(--body);
-    height: 100vh;
+/* Articles grid */
+.image-grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
-/*
-=========================
-   Articles section
-=========================
-*/
+.articles {
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
 
 .section-info {
     margin-bottom: 20px;
@@ -31,24 +34,6 @@ body {
     font-weight: bolder;
 }
 
-.articles {
-    max-width: 1400px;
-    margin: 0 auto;
-    margin-top: 30px;
-}
-
-/* 
-    Articles grid 
-*/
-
-.image-grid {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 20px;
-}
 
 .article-item .info {
     position: absolute;
@@ -59,10 +44,7 @@ body {
     z-index: 1;
 }
 
-/* 
-    Article Pseudo element 
-*/
-
+/* Article Pseudo element */
 .article-item {
     position: relative;
     overflow: hidden;
@@ -81,10 +63,7 @@ body {
     background: linear-gradient(180deg, rgba(219, 219, 100, 0) 11%, rgba(10, 10, 5, 0.9191877434567577) 85%);
 }
 
-/* 
-    Image hover effect
- */
-
+/* Image hover effect */
 .article-item img {
     height: 100%;
     position: relative;
@@ -96,10 +75,7 @@ body {
     transition-duration: 2s;
 }
 
-/* 
-    Article fonts
- */
-
+/* Article fonts */
 .info h3 {
     text-transform: uppercase;
     text-align: center;
