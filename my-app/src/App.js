@@ -16,6 +16,7 @@ import { EditArtice } from './Components/EditArticle/EditArticle.js';
 import { CreateRecipe } from './Components/CreateRecipe/CreateRecipe.js';
 import { EditRecipe } from './Components/EditRecipe/EditRecipe.js';
 import { RecipeDetails } from './Components/RecipeDetails/RecipeDetails.js';
+import { GroceryList } from './Components/GroceryList/GroceryList.js';
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
 
             {/* <HomePage></HomePage> */}
             {/* <Favorites></Favorites> */}
+            <GroceryList></GroceryList>
 
             {/* <Profile /> */}
             {/* <Register/> */}
@@ -32,7 +34,7 @@ function App() {
             {/* <CatalogRecipes/> */}
             {/* <CreateRecipe></CreateRecipe> */}
             {/* <EditRecipe></EditRecipe> */}
-            <RecipeDetails></RecipeDetails>
+            {/* <RecipeDetails></RecipeDetails> */}
 
             {/* <CatalogArticles /> */}
             {/* <ArticleCategories></ArticleCategories> */}

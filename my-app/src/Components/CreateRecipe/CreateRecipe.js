@@ -128,7 +128,7 @@ export const CreateRecipe = () => {
                             <input type="text" name="portions" />
                         </div>
                     </div>
-                    <button type="submit" form="form1" value="Submit">
+                    <button type="submit" form="form1" value="Submit" className={styles["create-recipe-submit-btn"]}>
                         Create
                     </button>
                 </form>

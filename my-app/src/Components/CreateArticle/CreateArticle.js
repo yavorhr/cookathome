@@ -52,7 +52,7 @@ export const CreateArticle = () => {
                         defaultValue={""}
                     />
                 </div>
-                <button type="submit" form="form1" value="Submit">
+                <button type="submit" form="form1" value="Submit" className={styles['create-article-btn']}>
                     Create
                 </button>
             </form>

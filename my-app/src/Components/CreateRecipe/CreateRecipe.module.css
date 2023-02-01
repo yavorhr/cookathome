@@ -164,7 +164,7 @@ form label {
 
 /* Form Button */
 
-button {
+.create-recipe-submit-btn {
     padding: 15px 0px;
     margin: 0 auto;
     margin-top: 30px;
@@ -180,7 +180,7 @@ button {
     text-transform: uppercase;
 }
 
-button:hover{
+.create-recipe-submit-btn:hover{
    background-color: var(--green);
    color: var(--white)
 }
