@@ -2,7 +2,7 @@ import styles from './EditRecipe.module.css';
 
 export const EditRecipe = () => {
     return (
-        <section className={styles["edit"]}>
+        <section className={styles["edit--recipe__section"]}>
             <form action="" className={`${styles["mrgn-auto"]} ${styles["flex-col"]} ${styles["edit-recipe-form"]}`}>
                 <h1>Edit recipe</h1>
                 <div className={`${styles["title"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>

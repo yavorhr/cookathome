@@ -1,11 +1,4 @@
 /*
-===================
-    Global CSS
-===================
-*/
-
-
-/*
 ====================
    Login Section
 ====================
@@ -24,9 +17,7 @@
     border-radius: 20px;
 }
 
-/* 
-    Login Title
-*/
+/* Login title */
 
 .login-section h1 {
     padding-bottom: 20px;
@@ -36,9 +27,7 @@
     letter-spacing: 1px;
 }
 
-/*
-    divs with input & label
-*/
+/* Div's with input & label */
 
 form .text-field {
     position: relative;
@@ -98,11 +87,9 @@ form .text-field {
     width: 100%;
 }
 
-/*
-    Form button
-*/
+/* Form submit button */
 
-form button {
+.submit--login-btn {
     width: 100%;
 
     padding: 8px 14px;
@@ -117,12 +104,13 @@ form button {
     cursor: pointer;
 }
 
-form button:hover {
+.submit--login-btn:hover {
     border-color: var(--blue-ocean);
     transition: .5s;
 }
 
-/* sign up div */
+/* Sign up div */
+
 .sign-up-link {
     margin: 30px 0;
 

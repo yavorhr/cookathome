@@ -27,8 +27,8 @@ function App() {
             {/* <Favorites></Favorites> */}
             {/* <GroceryList></GroceryList> */}
 
-            <Profile />
-            {/* <Register/> */}
+            {/* <Profile /> */}
+            <Register/>
             {/* <Login /> */}
 
             {/* <CatalogRecipes/> */}

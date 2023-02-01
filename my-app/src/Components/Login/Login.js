@@ -15,7 +15,7 @@ export const Login = () => {
                     <span></span>
                     <label forname="password">Password</label>
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit" className={styles["submit--login-btn"]}>Login</button>
                 <div className={styles["sign-up-link"]}>
                     <p>Not a member ?</p>
                     <a href="#">Sign up</a>

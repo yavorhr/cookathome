@@ -3,7 +3,7 @@ import styles from './CreateRecipe.module.css'
 export const CreateRecipe = () => {
     return (
         <>
-            <section className={styles["create"]}>
+            <section className={styles["create--recipe-section"]}>
                 <form action="" className={`${styles["mrgn-auto"]} ${styles["flex-col"]} ${styles["create-recipe-form"]}`}>
                     <h1>Create recipe</h1>
                     <div className={`${styles["title"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>

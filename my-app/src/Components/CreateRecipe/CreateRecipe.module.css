@@ -28,13 +28,13 @@
 ======================
 */
 
-.create {
+.create--recipe-section {
     width: 1200px;
     margin: 0 auto;
     margin-top: 30px;
 }
 
-h1 {
+.create--recipe-section h1 {
     padding: 20px 0;
 
     text-align: center;

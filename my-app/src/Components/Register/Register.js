@@ -4,7 +4,7 @@ export const Register = () => {
     return (
         <section className={styles["register-section"]}>
             <h1 className={styles["title"]}>Registration</h1>
-            <form action="">
+            <form action="" className={styles["register-form"]}>
                 <div className={styles["user-details"]}>
                     <div className={styles["txt-fields"]}>
                         <label forname="full-name">Full Name</label>
@@ -31,7 +31,7 @@ export const Register = () => {
                         <input type="text" name="re-pass" id="re-pass" placeholder="Confirm your password" />
                     </div>
                 </div>
-                <button type="submit">Register</button>
+                <button type="submit" className={styles["register-submit-btn"]}>Register</button>
             </form>
         </section>
     );

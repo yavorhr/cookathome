@@ -21,13 +21,13 @@
 ======================
 */
 
-.create {
-  width: 1000px;
-  margin: 0 auto;
-  margin-top: 30px;
+.create--article-section {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 30px;
 }
 
-h1 {
+.create--article-section h1 {
     padding-top: 20px;
 
     text-align: center;
@@ -160,8 +160,8 @@ h1 {
     padding: 15px 0px;
     margin-top: 30px;
     margin-bottom: 30px;
-    width: 40%!important;
-    margin: 0 auto!important;
+    width: 40% !important;
+    margin: 0 auto !important;
 
     border-radius: 10px;
     background-color: var(--background-clr);

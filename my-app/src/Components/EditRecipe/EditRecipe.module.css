@@ -27,13 +27,13 @@
 ===================
 */
 
-.edit {
+.edit--recipe__section {
     width: 1200px;
     margin: 0 auto;
     margin-top: 30px;
 }
 
-h1 {
+.edit--recipe__section h1 {
     padding: 20px 0;
 
     text-align: center;

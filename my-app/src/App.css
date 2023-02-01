@@ -34,6 +34,7 @@ body{
     --lightgreen: #9efcff;
     --user--login--btn--bckgrnd: #B54484;
     --form-elements-background-clr: rgba(224, 230, 230, 0.986);
+    --linear-blue-pink: linear-gradient(135deg, #71b7e6, #9b59b6);
     --box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     --box-shadow-grocery-list: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
     --transparent: transparent;

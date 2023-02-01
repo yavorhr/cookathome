@@ -1,13 +1,5 @@
 /*
 =========================
-    Global CSS
-=========================
-*/
-
-
-
-/*
-=========================
     Register section 
 =========================
 */
@@ -15,9 +7,8 @@
 .register-section {
     max-width: 700px;
     width: 100%;
-
     padding: 25px 30px;
-    margin: 30px;
+    margin: 50px auto;
     background-color: var(--white);
     border-radius: 5px;
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
@@ -39,10 +30,10 @@
 
     width: 140px;
     height: 3px;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    background: var(--linear-blue-pink)
 }
 
-.register-section form .user-details {
+.register-section .register-form .user-details {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -50,7 +41,7 @@
     margin: 20px 0 12px 0;
 }
 
-form .user-details .txt-fields {
+.register-form .user-details .txt-fields {
     width: calc(100% / 2 - 20px);
     margin-bottom: 15px;
 }
@@ -60,10 +51,10 @@ form .user-details .txt-fields {
     height: 45px;
     padding-left: 15px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--light-gray);
     border-bottom-width: 2px;
     outline: none;
-  
+
     font-size: 18px;
 
     transition: all 0.3s ease;
@@ -77,15 +68,15 @@ form .user-details .txt-fields {
     font-size: 18px;
 }
 
-form button {
+.register-submit-btn {
     width: 100%;
     height: 45px;
     margin: 35px 0;
     outline: none;
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    background: var(--linear-blue-pink);
     border-radius: 5px;
     border: none;
-    
+
     color: var(--white);
     font-size: 18px;
     font-weight: 500;
@@ -94,7 +85,7 @@ form button {
     cursor: pointer;
 }
 
-form button:hover {
+.register-submit-btn:hover {
     background: linear-gradient(-135deg, #71b7e6, #9b59b6);
 }
 
@@ -107,6 +98,4 @@ form button:hover {
         width: 90%;
         margin-bottom: 15px;
     }
-
-
 }

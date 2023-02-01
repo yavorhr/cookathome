@@ -3,7 +3,7 @@ import styles from './EditArticle.module.css';
 export const EditArtice = () => {
 
     return (
-        <section className={styles["edit"]}>
+        <section className={styles["edit--article-section"]}>
             <form action="" className={`${styles["mrgn-auto"]} ${styles["edit-article-form"]}`}>
                 <h1>Edit article</h1>
                 <div className={`${styles["title"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
