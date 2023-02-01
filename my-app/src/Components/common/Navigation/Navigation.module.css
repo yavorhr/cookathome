@@ -1,25 +1,11 @@
 /*
 =========================
-    Global CSS
-=========================
-*/
-
-
-
-body {
-	font-family: "Roboto";
-	box-sizing: border-box;
-	background-image: linear-gradient(180deg, rgba(240, 249, 249, 0.8744631641719187) 10%, rgba(231, 247, 247, 0.986) 50%, rgba(240, 249, 249, 0.7147059507396709) 100%);
-}
-
-/*
-=========================
        Navigation
 =========================
 */
 
 .navigation {
-	width: 100vw ;
+	width: 100vw;
 	height: 120px;
 
 	padding: 0px 50px;
@@ -46,9 +32,7 @@ body {
 	box-shadow: var(--box-shadow);
 }
 
-/*
-    Nav links <ul/> align items 
-*/
+/* Nav links <ul/> align items  */
 
 .navigation {
 	display: flex;
@@ -59,11 +43,7 @@ body {
 	position: relative;
 }
 
-
-
-/*
-    Button and links styling 
-*/
+/* Button and links styling  */
 
 .nav-link {
 	width: 200px;
@@ -72,7 +52,7 @@ body {
 	letter-spacing: 3px;
 }
 
-.dropdown button {
+.dropdown .all-recipies-btn {
 	font-size: 18px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -82,7 +62,6 @@ body {
 	transition: color .3s ease-in-out;
 }
 
-.search button,
 .all-recipies-btn {
 	padding: 10px 14px;
 	border: none;
@@ -95,19 +74,15 @@ body {
 	color: var(--black);
 }
 
-/*
-    Sign up & Register links
-*/
+/* Sign up & Register links */
 
 .sign-up-links {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
-
-
+	height: 90px;
 	padding: 10px 14px;
-	margin-right: 20px;
 	background-color: var(--user--login--btn--bckgrnd);
 	border-radius: 8px;
 }
@@ -118,7 +93,7 @@ body {
 	text-decoration: none;
 	text-transform: uppercase;
 	font-weight: bold;
-	color: white;
+	color: var(--white);
 
 	transition: color .2s ease-in;
 }
@@ -129,13 +104,10 @@ body {
 
 .user-shortcut-buttons {
 	display: flex;
-	align-items: center;
-	margin-right: 5px;
+	align-items: center
 }
 
-/*
-	User profile button, when user is logged in
-*/
+/* User profile button, when user is logged in */
 
 .user-profile-shortcut-btn {
 	width: 40px;
@@ -193,9 +165,7 @@ body {
 	pointer-events: auto;
 }
 
-/* 
-    Dropdown Grid links
-*/
+/* Dropdown Grid links */
 
 .information-grid {
 	display: grid !important;
@@ -261,9 +231,7 @@ body {
 	text-decoration: underline;
 }
 
-/* 
-    Favorites button
-*/
+/* Favorites button */
 
 .favorites__btn {
 	/* box model */
@@ -284,19 +252,22 @@ body {
 	color: var(--white);
 }
 
-/* 
-    Search button
-*/
+/*  Search button */
 
-.search button {
+.search__btn {
 	display: inline-block;
 	position: relative;
 
+	padding: 10px 40px;
 	height: 120px;
-	padding: 40px;
+	border: none;
+	border-radius: 5px;
+	background-color: transparent;
+
+	cursor: pointer;
 }
 
-.search button:before {
+.search__btn:before {
 	content: "";
 	position: absolute;
 	top: 0;
@@ -307,7 +278,7 @@ body {
 	background-color: var(--grey);
 }
 
-.search button:after {
+.search__btn:after {
 	content: "";
 	position: absolute;
 	top: 0;
@@ -316,6 +287,10 @@ body {
 	width: 1px;
 
 	background-color: var(--grey);
+}
+
+.search__btn:hover .search__icon {
+	color: var(--white);
 }
 
 .nav-item.search i {
@@ -327,9 +302,7 @@ body {
 	color: var(--black) !important;
 }
 
-/*
-    Hamburger
-*/
+/* Hamburger */
 
 .hamburger {
 	display: none;
@@ -354,18 +327,13 @@ body {
 
 @media screen and (max-width:768px) {
 
-/*
-    Hero section
- */
-
+	/* Hero section */
 	.hero {
 		flex-direction: column;
 		margin-top: 0px;
 	}
 
-	/* 
-    h2 
-*/
+	/* h2 */
 
 	.section-title {
 		width: 60% !important;
@@ -383,9 +351,7 @@ body {
 		display: block;
 	}
 
-/* 
-    Hamburger menu
-*/
+	/* Hamburger menu */
 
 	.hamburger.active .bar:nth-child(2) {
 		opacity: 0;
@@ -404,9 +370,7 @@ body {
 		left: 55px;
 	}
 
-	/* 
-    Navigation order 
-*/
+	/* Navigation order */
 	.navigation {
 		display: flex;
 		flex-direction: row;
@@ -437,9 +401,7 @@ body {
 		order: 3;
 	}
 
-	/* 
-    Recipies and Blog buttons 
-*/
+	/* Recipies and Blog buttons */
 
 	.wrapper-links {
 		display: none;
@@ -465,9 +427,8 @@ body {
 		transform: translateY(123px);
 	}
 
-	/* 
-    Register & Login links
-*/
+	/* Register & Login links */
+
 	.sign-up-links {
 		display: none;
 		position: absolute;
@@ -487,9 +448,7 @@ body {
 		transform: translateY(60px);
 	}
 
-	/* 
-	Grid
-*/
+	/* Grid */
 	.information-grid {
 		grid-template-columns: repeat(1, 1fr);
 		width: 100vw;
@@ -520,9 +479,8 @@ body {
 		color: var(--white) !important;
 	}
 
-	/* 
-	Search button 
-*/
+	/* Search button */
+
 	.search__btn {
 		padding-left: 20px;
 	}
@@ -532,7 +490,7 @@ body {
 		display: none;
 	}
 
-	.nav-item.search  {
+	.nav-item.search {
 		font-size: 30px;
 	}
 }

@@ -169,12 +169,11 @@ export const Navigation = () => {
             </article>
 
             <article className={styles["user-shortcut-buttons"]}>
-                <div className={`${styles["wrapper"]} ${styles["sign-up-links"]}`}>
+                <div className={`${styles["sign-up-links"]}`}>
                     <a href="">Login</a>
                     <span>/</span>
                     <a href="">Register</a>
                     <a href="" className={styles["logout-btn"]}>Logout</a>
-
                     <button
                         className={styles["user-profile-shortcut-btn"]}>
                         <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
