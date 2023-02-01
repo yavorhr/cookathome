@@ -4,20 +4,7 @@
 =========================
 */
 
-:root {
-	--grey: #A8ACAF;
-	--white: #ffffff;
-	--red: #FF0000;
-	--box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-	--black: black;
-	--brown: brown;
-	--body: #F0F9F9;
-	--orange: orange;
-	--green: #62A5A1;
-	--blue: #0a8ea6;
-	--lightgreen: #9efcff;
-	--user--login--btn--bckgrnd: #B54484;
-}
+
 
 body {
 	font-family: "Roboto";

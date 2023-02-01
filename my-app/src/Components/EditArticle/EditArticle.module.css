@@ -4,15 +4,7 @@
 =========================
 */
 
-:root {
-    --white: #ffffff;
-    --form-elements-background-clr: rgba(224, 230, 230, 0.986);
-    --green: rgb(115, 172, 162);
-    --black: rgba(0, 0, 0, .5);
-    --grey: grey;
-    --select-background-clr: #888f8f;
-    --form-pseudo-background-clr: rgba(156, 163, 163, 0.5);
-}
+
 
 .mrgn-auto {
     margin: 0 auto;

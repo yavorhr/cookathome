@@ -4,26 +4,13 @@
 =========================
 */
 
-:root {
-	--grey: #A8ACAF;
-	--white: #ffffff;
-	--red: #FF0000;
-	--box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-	--black: black;
-	--brown: brown;
-	--body: #F0F9F9;
-	--orange: orange;
-	--green: #62A5A1;
-	--blue: #0a8ea6;
-	--lightgreen: #9efcff;
-	--user--login--btn--bckgrnd: #B54484;
-}
 
-body {
+
+/* body {
 	font-family: "Roboto";
 	box-sizing: border-box;
 	background-image: linear-gradient(180deg, rgba(240, 249, 249, 0.8744631641719187) 10%, rgba(231, 247, 247, 0.986) 50%, rgba(240, 249, 249, 0.7147059507396709) 100%);
-}
+} */
 
 section{
 	height: 10vh;

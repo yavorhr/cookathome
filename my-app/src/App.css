@@ -10,3 +10,32 @@ body {
     background-image: linear-gradient(180deg, rgba(240, 249, 249, 0.8744631641719187) 10%, rgba(231, 247, 247, 0.986) 50%, rgba(240, 249, 249, 0.7147059507396709) 100%);
     /* overflow: hidden; */
 }
+
+/* All */
+:root {
+    --white: #ffffff;
+    --body: #F0F9F9;
+    --search--bckgrnd-clr: ##E2F3F3;
+    --seach__i--bckgrnd--clr: ghostwhite;
+    --background-clr: #f0e5db;
+    --search_input--backgrnd: lightgrey;
+    --grey: #A8ACAF;
+    --silver: #575e5e;
+    --select-background-clr: #888f8f;
+    --lightgray: lightslategray;
+    --form-pseudo-background-clr: rgba(156, 163, 163, 0.5);
+    --black: black;
+    --red: #FF0000;
+    --green: rgb(115, 172, 162);
+    --grass-green: #19A68C;
+    --orange: orange;
+    --brown: brown;
+    --blue: #0a8ea6;
+    --blue-ocean: #2691d9;
+    --lightgreen: #9efcff;
+    --user--login--btn--bckgrnd: #B54484;
+    --form-elements-background-clr: rgba(224, 230, 230, 0.986);
+    --box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --box-shadow-grocery-list: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+}
+

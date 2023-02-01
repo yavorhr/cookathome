@@ -4,14 +4,7 @@
 =========================
 */
 
-:root {
-    --white: #ffffff;
-    --black: black;
-    --grey: grey;
-    --green: #19A68C;
-    --body: #F0F9F9;
-    --box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-}
+
 
 /* body {
     font-family: "Roboto";
@@ -48,7 +41,7 @@
 
     padding: 30px 15px;
     border-radius: 5px;
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow-grocery-list);
     background-color: var(--white);
 }
 
@@ -69,7 +62,7 @@
 
 .new-task input:focus {
     outline: none;
-    border-color: var(--green);
+    border-color: var(--grass-green);
 }
 
 /* New task add button */

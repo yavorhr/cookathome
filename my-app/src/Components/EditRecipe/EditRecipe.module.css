@@ -4,23 +4,13 @@
 =========================
 */
 
-:root {
-    --white: #ffffff;
-    --background-clr: #f0e5db;
-    ;
-    --green: rgb(115, 172, 162);
-    --black: rgba(0, 0, 0, .5);
-    --silver: #575e5e;
-}
 
-body {
-    font-family: "Roboto";
-    box-sizing: border-box;
+/* body {
     background-image: url('../../../public/img/wood.jpg');
     background-position: center center;
     background-repeat: none;
     background-size: cover;
-}
+} */
 
 .mrgn-auto {
     margin: 0 auto;

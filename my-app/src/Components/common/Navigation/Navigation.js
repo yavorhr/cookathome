@@ -1,4 +1,5 @@
 import styles from './Navigation.module.css';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faUser, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
@@ -14,7 +15,6 @@ export const Navigation = () => {
                 </div>
 
             </article>
-
             <article className={styles["wrapper-links"]}>
                 <div className={`${styles["dropdown"]} ${styles["recipies-cat"]}`}>
                     <button className={styles['all-recipies-btn']}>Recipies</button>
