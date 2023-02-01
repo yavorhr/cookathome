@@ -1,6 +1,6 @@
 import styles from './Register.module.css'
 
-export default function Register() {
+export const Register = () => {
     return (
         <section className={styles["register-section"]}>
             <h1 className={styles["title"]}>Registration</h1>

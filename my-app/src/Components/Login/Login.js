@@ -1,6 +1,6 @@
 import styles from './Login.module.css'
 
-export default function Login() {
+export const Login = () => {
     return (
         <section className={styles["login-section"]}>
             <h1>Login</h1>

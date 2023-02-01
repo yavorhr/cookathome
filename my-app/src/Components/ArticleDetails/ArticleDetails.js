@@ -2,7 +2,7 @@ import styles from './ArticleDetails.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUtensils, faCamera, faPenToSquare, faTrashCan, faImages, faHeart, faFireBurner } from '@fortawesome/free-solid-svg-icons'
 
-export default function ArticleDetails() {
+export const ArticleDetails = () => {
     return (
         <>
             <section className={styles["header"]}>

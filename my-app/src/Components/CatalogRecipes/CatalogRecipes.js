@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 
-export default function CatalogRecipes() {
+export const CatalogRecipes = () => {
     return (
         <section>
             <article className={styles["search-bar"]}>

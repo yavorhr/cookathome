@@ -1,6 +1,6 @@
 import styles from './CatalogArticles.module.css';
 
-export default function CatalogArticles() {
+export const CatalogArticles = () => {
     return (
         <div>
             <section className={styles["main-articles"]}>
@@ -12,7 +12,7 @@ export default function CatalogArticles() {
                 <ul type="none" className={styles["image-grid"]}>
                     <li className={styles["article-item"]}>
                         <a href="">
-                        <img src="/img/dishes/muesli.jpg" alt="recipe details" />
+                            <img src="/img/dishes/muesli.jpg" alt="recipe details" />
                             <div className={styles["info"]}>
                                 <h3>Egg & Sausage</h3>
                                 <p>08 August <span>Admin</span></p>
@@ -30,8 +30,8 @@ export default function CatalogArticles() {
                     </li>
                     <li className={styles["article-item"]}>
                         <a href="">
-                        <img src="/img/dishes/muesli.jpg" alt="recipe details" />
-                        <div className={styles["info"]}>
+                            <img src="/img/dishes/muesli.jpg" alt="recipe details" />
+                            <div className={styles["info"]}>
                                 <h3>Home made pancakes</h3>
                                 <p>08 August <span>Admin</span></p>
                             </div>
@@ -58,7 +58,7 @@ export default function CatalogArticles() {
                     </li>
                     <li>
                         <a href="">
-                        <div className={styles["card"]}>
+                            <div className={styles["card"]}>
                                 <img src="/img/dishes//bananas.jpg" alt="" />
                                 <div className={styles["card__info"]}>
                                     <h3>Bananas are rich on calcium </h3>
@@ -72,7 +72,7 @@ export default function CatalogArticles() {
                     </li>
                     <li>
                         <a href="">
-                        <div className={styles["card"]}>
+                            <div className={styles["card"]}>
                                 <img src="/img/dishes//bananas.jpg" alt="" />
                                 <div className={styles["card__info"]}>
                                     <h3>Bananas are rich on calcium </h3>

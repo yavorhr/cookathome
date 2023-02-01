@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUtensils, faCamera, faHeart, faClock, faUmbrella } from '@fortawesome/free-solid-svg-icons'
 
 
-export default function Profile() {
+export const Profile = () => {
     return (
         <section className={styles["user-profile"]}>
             <article className={styles["user-details"]}>

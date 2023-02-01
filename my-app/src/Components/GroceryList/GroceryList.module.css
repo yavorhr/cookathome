@@ -13,7 +13,7 @@
     --box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
 }
 
-body {
+/* body {
     font-family: "Roboto";
     box-sizing: border-box;
     background-color: var(--body);
@@ -21,7 +21,7 @@ body {
     background-image: url('../../../public/img/veggies.jpg');
     background-position: center center;
     background-size: cover;
-}
+} */
 
 /*
 =========================

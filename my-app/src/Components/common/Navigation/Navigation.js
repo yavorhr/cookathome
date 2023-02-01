@@ -2,7 +2,7 @@ import styles from './Navigation.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faUser, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
-export default function Navigation() {
+export const Navigation = () => {
     return (
         <nav className={styles['navigation']}>
             <article className={`${styles['logo-fav-wrapper']}`}>

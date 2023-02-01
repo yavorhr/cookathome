@@ -1,6 +1,6 @@
 import styles from './HomePage.module.css';
 
-export default function HomePage() {
+export const HomePage = () => {
     return (
         <>
             <section className={styles["gallery"]}>
