@@ -61,9 +61,9 @@ export const Profile = () => {
                 </div>
             </article>
 
-            <article className={styles["recipies"]}>
+            <article className={styles["recipes"]}>
                 <div>
-                    <h2 className={styles["recipies-title"]}>Recently added</h2>
+                    <h2 className={styles["recipes-title"]}>Recently added</h2>
                     <ul className={styles["card-list"]} type="none">
                         <li>
                             <a href="#">
@@ -72,7 +72,7 @@ export const Profile = () => {
                                     <h3 className={styles["card-title"]}>Lasagna</h3>
                                     <p className={styles["card-descr"]}>Very delicious dish for the whole family...</p>
                                     <span>
-                                        <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>
+                                        <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>30
                                     </span>
                                 </div>
                             </a>
@@ -84,7 +84,8 @@ export const Profile = () => {
                                     <h3 className={styles["card-title"]}>Lasagna</h3>
                                     <p className={styles["card-descr"]}>Very delicious dish for the whole family...</p>
                                     <span>
-                                        <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>
+                                        <FontAwesomeIcon icon={faClock} className={styles["icon"]}>
+                                        </FontAwesomeIcon>30
                                     </span>
                                 </div>
                             </a>
@@ -96,7 +97,7 @@ export const Profile = () => {
                                     <h3 className={styles["card-title"]}>Lasagna</h3>
                                     <p className={styles["card-descr"]}>Very delicious dish for the whole family...</p>
                                     <span>
-                                        <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>
+                                        <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>30
                                     </span>
                                 </div>
                             </a>

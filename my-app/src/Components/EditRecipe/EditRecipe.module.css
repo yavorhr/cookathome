@@ -159,7 +159,7 @@ h1 {
 
 /* Form Button */
 
-button {
+.submit-edit-btn {
     padding: 15px 0px;
     margin: 0 auto;
     margin-top: 30px;
@@ -174,7 +174,7 @@ button {
     text-transform: uppercase;
 }
 
-button:hover {
+.submit-edit-btn:hover {
     background-color: var(--green);
     color: var(--white)
 }

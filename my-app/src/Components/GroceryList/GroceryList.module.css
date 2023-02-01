@@ -1,20 +1,10 @@
-/*
-=========================
-    Global CSS
-=========================
-*/
-
-
-
-/* body {
-    font-family: "Roboto";
-    box-sizing: border-box;
+.background {
     background-color: var(--body);
-    overflow: hidden;
     background-image: url('../../../public/img/veggies.jpg');
     background-position: center center;
     background-size: cover;
-} */
+    padding: 30px 0;
+}
 
 /*
 =========================
@@ -24,7 +14,6 @@
 
 .grocery-list {
     width: 500px;
-    height: 35%;
     max-width: 700px;
     min-width: 340px;
     margin: 0 auto;

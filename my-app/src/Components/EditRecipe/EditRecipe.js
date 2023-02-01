@@ -127,7 +127,7 @@ export const EditRecipe = () => {
                         <input type="text" name="portions" />
                     </div>
                 </div>
-                <button type="submit" form="form1" value="Submit">
+                <button type="submit" form="form1" value="Submit" className={styles["submit-edit-btn"]}>
                     Edit
                 </button>
             </form>

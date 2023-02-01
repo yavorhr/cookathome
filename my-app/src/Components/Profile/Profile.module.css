@@ -1,22 +1,4 @@
 /*
-=================
-    Global CSS
-==================
-*/
-
-
-
-.btn {
-	background-color: transparent;
-	border: none;
-	cursor: pointer;
-
-	color: black;
-
-	overflow: hidden;
-}
-
-/*
 =========================
    User profile section
 =========================
@@ -26,23 +8,14 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	position: absolute;
-
-	/* center section */
-	top: 70%;
-	right: 50%;
-	transform: translate(50%, -50%);
-
 	/* box model */
 	max-width: 1000px;
 	padding: 15px;
-	margin: 30px;
-	border: #A8ACAF;
 	border-radius: 20px;
 	border: none;
+	border: #A8ACAF;
 	-webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
 	box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-
 }
 
 /*
@@ -140,6 +113,14 @@ User Details Positioning :
 	background-color: #e4dede;
 }
 
+.user-icons .btn {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	color: black;
+	overflow: hidden;
+}
+
 .user-icons .wrapper .icon {
 	padding: 3px;
 	font-size: 20px;
@@ -156,12 +137,12 @@ User Details Positioning :
 }
 
 /*
-============
-		Recipies
-============
+==================
+  User's Recipes
+==================
 */
 
-.card-list {
+.recipes .card-list {
 	display: grid;
 	justify-content: center;
 	grid-template-columns: repeat(3, 200px);
@@ -186,20 +167,20 @@ User Details Positioning :
 
 .card-item:hover {
 	margin-bottom: 5px;
-	-webkit-box-shadow: 6px 9px 2px 0px #FF8333;
-	box-shadow: 6px 9px 2px 0px #FF8333;
+	-webkit-box-shadow: 6px 9px 2px 0px var(--orange);
+	box-shadow: 6px 9px 2px 0px var(--orange);
 	background-color: var(--white);
 
 	transform: translateY(-5px);
 }
 
-.recipies-title {
+.recipes-title {
 	margin-bottom: 10px;
 
 	text-align: center;
 	letter-spacing: 1px;
 	font-weight: lighter;
-	color: black;
+	color: var(--black);
 }
 
 .card-item .card-title {
@@ -228,6 +209,8 @@ User Details Positioning :
 }
 
 .card-item span {
+	display: flex;
+	align-items: center;
 	font-size: 14px;
 	color: var(--grey);
 }
@@ -244,7 +227,7 @@ User Details Positioning :
 }
 
 .show-all a:hover {
-	border-bottom: 1px solid black
+	border-bottom: 1px solid var(--black)
 }
 
 /*
@@ -298,5 +281,4 @@ User Details Positioning :
 	.card-list {
 		grid-template-columns: repeat(3, 1fr);
 	}
-
 }

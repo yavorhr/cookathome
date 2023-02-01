@@ -24,10 +24,10 @@ function App() {
             <Navigation />
 
             {/* <HomePage></HomePage> */}
-            <Favorites></Favorites>
+            {/* <Favorites></Favorites> */}
             {/* <GroceryList></GroceryList> */}
 
-            {/* <Profile /> */}
+            <Profile />
             {/* <Register/> */}
             {/* <Login /> */}
 

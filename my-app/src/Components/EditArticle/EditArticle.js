@@ -51,7 +51,7 @@ export const EditArtice = () => {
                         defaultValue={""}
                     />
                 </div>
-                <button type="submit" form="form1" value="Submit">
+                <button type="submit" form="form1" value="Submit" className={styles["edit-article-submit"]}>
                     Edit
                 </button>
             </form>
