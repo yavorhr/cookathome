@@ -15,6 +15,7 @@ import { CreateArticle } from './Components/CreateArticle/CreateArticle.js';
 import { EditArtice } from './Components/EditArticle/EditArticle.js';
 import { CreateRecipe } from './Components/CreateRecipe/CreateRecipe.js';
 import { EditRecipe } from './Components/EditRecipe/EditRecipe.js';
+import { RecipeDetails } from './Components/RecipeDetails/RecipeDetails.js';
 
 function App() {
     return (
@@ -30,7 +31,8 @@ function App() {
 
             {/* <CatalogRecipes/> */}
             {/* <CreateRecipe></CreateRecipe> */}
-            <EditRecipe></EditRecipe>
+            {/* <EditRecipe></EditRecipe> */}
+            <RecipeDetails></RecipeDetails>
 
             {/* <CatalogArticles /> */}
             {/* <ArticleCategories></ArticleCategories> */}

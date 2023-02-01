@@ -3,7 +3,7 @@ import styles from './EditRecipe.module.css';
 export const EditRecipe = () => {
     return (
         <section className={styles["edit"]}>
-                <form action="" className={`${styles["mrgn-auto"]} ${styles["flex-col"]}`}>
+            <form action="" className={`${styles["mrgn-auto"]} ${styles["flex-col"]}`}>
                 <h1>Edit recipe</h1>
                 <div className={`${styles["title"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                     <label htmlFor="title">Recipe title</label>
@@ -21,7 +21,7 @@ export const EditRecipe = () => {
                     />
                 </div>
                 <div className={styles["group--wrapper"]}>
-                <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
+                    <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
                         <label htmlFor="category">Category</label>
                         <select type="text" name="category">
                             <option value="---"> --- </option>
@@ -83,7 +83,7 @@ export const EditRecipe = () => {
                     />
                 </div>
                 <div className={styles["group--wrapper"]}>
-                <div className={`${styles["calories"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
+                    <div className={`${styles["calories"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
                         <label htmlFor="calories">Calories (in kcal)</label>
                         <input type="text" name="calories" />
                     </div>
@@ -97,7 +97,7 @@ export const EditRecipe = () => {
                     </div>
                 </div>
                 <div className={styles["group--wrapper"]}>
-                <div className={`${styles["level"]} ${styles["flex-col"]} ${styles["select-wrapper"]}  ${styles["after"]}`}>
+                    <div className={`${styles["level"]} ${styles["flex-col"]} ${styles["select-wrapper"]}  ${styles["after"]}`}>
                         <label htmlFor="level">Complexity</label>
                         <select type="text" name="level">
                             <option selected="disabled">---</option>
