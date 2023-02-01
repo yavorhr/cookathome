@@ -23,7 +23,7 @@ function App() {
         <div className="App">
             <Navigation />
 
-            {/* <HomePage></HomePage> */}
+            <HomePage></HomePage>
             {/* <Favorites></Favorites> */}
             {/* <GroceryList></GroceryList> */}
 

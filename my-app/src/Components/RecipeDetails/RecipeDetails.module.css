@@ -4,17 +4,7 @@
 ==================
 */
 
-.mrgn-auto {
-	margin: 0 auto;
-}
 
-section {
-	max-width: 1500px;
-	margin: 0 auto;
-	padding: 0 20px;
-
-	margin-bottom: 20px;
-}
 
 .btn {
 	background-color: transparent;

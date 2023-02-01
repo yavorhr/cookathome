@@ -28,10 +28,10 @@
 	align-items: center;
 	position: absolute;
 
-/* center section */
+	/* center section */
 	top: 70%;
 	right: 50%;
-	transform: translate(50%,-50%);
+	transform: translate(50%, -50%);
 
 	/* box model */
 	max-width: 1000px;
@@ -174,7 +174,7 @@ User Details Positioning :
 	text-decoration: none;
 }
 
-img {
+.card-item__img {
 	border-radius: 5px 5px 0 0;
 }
 

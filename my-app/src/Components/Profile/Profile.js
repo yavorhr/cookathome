@@ -68,7 +68,7 @@ export const Profile = () => {
                         <li>
                             <a href="#">
                                 <div className={styles["card-item"]}>
-                                    <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
+                                    <img className={styles["card-item__img"]} src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
                                     <h3 className={styles["card-title"]}>Lasagna</h3>
                                     <p className={styles["card-descr"]}>Very delicious dish for the whole family...</p>
                                     <span>
@@ -80,7 +80,7 @@ export const Profile = () => {
                         <li>
                             <a href="#">
                                 <div className={styles["card-item"]}>
-                                    <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
+                                    <img  className={styles["card-item__img"]} src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
                                     <h3 className={styles["card-title"]}>Lasagna</h3>
                                     <p className={styles["card-descr"]}>Very delicious dish for the whole family...</p>
                                     <span>
@@ -92,7 +92,7 @@ export const Profile = () => {
                         <li>
                             <a href="#">
                                 <div className={styles["card-item"]}>
-                                    <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
+                                    <img className={styles["card-item__img"]} src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
                                     <h3 className={styles["card-title"]}>Lasagna</h3>
                                     <p className={styles["card-descr"]}>Very delicious dish for the whole family...</p>
                                     <span>

@@ -1,43 +1,24 @@
-/*
-=========================
-    Global CSS
-=========================
-*/
-
-
-
-/* body {
-	font-family: "Roboto";
-	box-sizing: border-box;
-	background-image: linear-gradient(180deg, rgba(240, 249, 249, 0.8744631641719187) 10%, rgba(231, 247, 247, 0.986) 50%, rgba(240, 249, 249, 0.7147059507396709) 100%);
-} */
-
-section{
-	height: 10vh;
-}
-
-/*
-===============
-    Gallery 
-===============
-*/
-
 /* 
-	Grid display
+===================
+ Gallery Articles
+===================
 */
+
+/* Grid display */
+
 .gallery ul {
 	display: grid;
 	grid-template:
 		"first second third"
 		"fourth second fifth";
-		
-		grid-template-columns: repeat(3, 1fr);
-		gap: 20px;
 
-		justify-content: center;
-		align-items: center;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
 
-		padding: 0px;
+	justify-content: center;
+	align-items: center;
+
+	padding: 0px;
 }
 
 .gallery ul .article-item:nth-child(1) {
@@ -67,91 +48,95 @@ section{
 }
 
 .article-item__info {
-    position: absolute;
-    left: 50%;
-    bottom: 10px;
+	position: absolute;
+	left: 50%;
+	bottom: 10px;
 
-    transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
 
-    z-index: 1;
+	z-index: 1;
 }
 
 /* Pseudo color overlay */
+
 .article-item::after {
-    /* position */
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 70%;
-    bottom: 0;
-    left: 0;
-    /*box-model*/
-    background: linear-gradient(180deg, rgba(219, 219, 100, 0) 11%, rgba(10, 10, 5, 0.9191877434567577) 85%);
+	/* position */
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 70%;
+	bottom: 0;
+	left: 0;
+	/*box-model*/
+	background: linear-gradient(180deg, rgba(219, 219, 100, 0) 11%, rgba(10, 10, 5, 0.9191877434567577) 85%);
 }
 
 /* Image hover effect */
+
 .article-item {
-    height: 100%;
-    position: relative;
+	height: 100%;
+	position: relative;
 	border-radius: 10px;
-
-    transition: all .4s lienar;
-}
-
-.article-item:hover  {
-    transform: scale(1.03);
-    transition-duration: 1s;
-}
-
-/* Article fonts */
-.article-item__info h3 {
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: #fff;
-    z-index: 1;
-}
-
-.article-item__info p {
-    color: #fff;
-    text-align: center;
 }
 
 .article-item:hover {
-    -webkit-box-shadow: 5px 5px 17px 0px #000000;
-    box-shadow: 5px 5px 17px 0px #000000;
+	transform: scale(1.03);
+	transition-duration: 1s;
+}
+
+/* Article fonts */
+
+.article-item__info h3 {
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 18px;
+	margin-bottom: 15px;
+	color: var(--white);
+	z-index: 1;
+}
+
+.article-item__info p {
+	color: var(--white);
+	text-align: center;
+}
+
+.article-item:hover {
+	-webkit-box-shadow: 5px 5px 17px 0px #000000;
+	box-shadow: 5px 5px 17px 0px #000000;
 }
 
 .article-item__info span {
-    border-left: 1px solid #fff;
-    margin-left: 5px;
-    padding-left: 5px;
+	border-left: 1px solid var(--white);
+	margin-left: 5px;
+	padding-left: 5px;
 }
 
 /*
 =======================
-    Today's recipe
+    Hero section
 =======================
 */
 
 .hero {
 	display: flex;
+	height: 450px;
 }
+
+/* Todays Recipe */
 
 .today-recipe {
 	position: relative;
 	width: 50%;
 }
 
-.today-recipe__img-holder{
+.today-recipe__img-holder {
 	position: relative;
 }
 
 .today-recipe__img-holder img {
 	position: absolute;
 	object-fit: cover;
-	
+
 	top: 0;
 	left: 0;
 
@@ -162,7 +147,7 @@ section{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	
+
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -209,7 +194,7 @@ section{
 	text-align: center;
 	text-decoration: none;
 	font-size: 20px;
-	color: black;
+	color: var(--black);
 }
 
 .today-recipe a:hover {
@@ -229,7 +214,8 @@ section{
 .recipe-by-user ul {
 	display: flex;
 	flex-direction: column;
-	gap: 15px;;
+	gap: 15px;
+	;
 }
 
 .recipe-by-user article {
@@ -254,22 +240,22 @@ section{
 
 .recipe-by-user article a {
 	text-decoration: none;
-	color: black;
+	color: var(--black);
 }
 
 .recipe-by-user article a:hover {
 	text-decoration: underline;
-	color: orange;
+	color: var(--orange);
 }
 
 .recipe-by-user ul li {
-	border-bottom: 1px solid rgb(218, 213, 213);
+	border-bottom: 1px solid var(--light-gray);
 	width: 90%;
 	padding-bottom: 10px;
 }
 
 .recipe-by-user__info p {
-	color: grey;
+	color: var(--grey);
 	font-size: 16px;
 }
 
@@ -285,13 +271,13 @@ section{
 
 .latest-recipes nav a {
 	text-decoration: none;
-	color: black;
+	color: var(--black);
 	font-size: 20px;
 }
 
 .latest-recipes nav a:hover {
 	text-decoration: underline;
-	color: orange;
+	color: var(--orange);
 }
 
 .latest-recipes nav ul {
@@ -354,7 +340,7 @@ section{
 }
 
 .latest-recipes span {
-	background-color: orange;
+	background-color: var(--orange);
 	padding: 10px;
 	border-radius: 20px;
 
@@ -379,9 +365,9 @@ section{
 	text-decoration: none;
 }
 
-.recipe-card__info {
-	color: black;
-	background-color: transparent !important;
+.recipe-card__info h3 a {
+	color: var(--black);
+	font-weight: 100;
 }
 
 .recipe-card__info p {
@@ -390,12 +376,12 @@ section{
 }
 
 .recipe-card__info p a {
-	border-left: 1px solid grey;
+	border-left: 1px solid var(--grey);
 	padding-left: 10px;
-	color: black;
+	color: var(--black);
 }
 
 .recipe-card__info a:hover {
 	text-decoration: underline;
-	color: orange;
+	color: var(--orange)
 }

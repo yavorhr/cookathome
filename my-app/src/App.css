@@ -19,6 +19,7 @@ body {
     --seach__i--bckgrnd--clr: ghostwhite;
     --background-clr: #f0e5db;
     --search_input--backgrnd: lightgrey;
+    --light-gray: rgb(218, 213, 213);
     --grey: #A8ACAF;
     --silver: #575e5e;
     --select-background-clr: #888f8f;
@@ -37,5 +38,15 @@ body {
     --form-elements-background-clr: rgba(224, 230, 230, 0.986);
     --box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     --box-shadow-grocery-list: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    --transparent: transparent;
 }
 
+.mrgn-auto {
+    margin: 0 auto;
+}
+
+section {
+    margin: 100px auto;
+    max-width: 1500px;
+    min-width: 500px;
+}
