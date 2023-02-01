@@ -15,10 +15,8 @@ body {
 :root {
     --white: #ffffff;
     --body: #F0F9F9;
-    --search--bckgrnd-clr: ##E2F3F3;
-    --seach__i--bckgrnd--clr: ghostwhite;
+    --search--bckgrnd-clr: #9ed1d1;
     --background-clr: #f0e5db;
-    --search_input--backgrnd: lightgrey;
     --light-gray: rgb(218, 213, 213);
     --grey: #A8ACAF;
     --silver: #575e5e;

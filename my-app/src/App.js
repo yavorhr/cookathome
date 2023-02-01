@@ -23,8 +23,8 @@ function App() {
         <div className="App">
             <Navigation />
 
-            <HomePage></HomePage>
-            {/* <Favorites></Favorites> */}
+            {/* <HomePage></HomePage> */}
+            <Favorites></Favorites>
             {/* <GroceryList></GroceryList> */}
 
             {/* <Profile /> */}
@@ -43,7 +43,7 @@ function App() {
             {/* <CreateArticle></CreateArticle> */}
             {/* <EditArtice></EditArtice> */}
 
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
         </div>
 
     );

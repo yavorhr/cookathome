@@ -4,7 +4,7 @@ export const CreateRecipe = () => {
     return (
         <>
             <section className={styles["create"]}>
-                <form action="" className={`${styles["mrgn-auto"]} ${styles["flex-col"]}`}>
+                <form action="" className={`${styles["mrgn-auto"]} ${styles["flex-col"]} ${styles["create-recipe-form"]}`}>
                     <h1>Create recipe</h1>
                     <div className={`${styles["title"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="title">Recipe title</label>

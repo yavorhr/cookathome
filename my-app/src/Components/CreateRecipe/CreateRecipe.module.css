@@ -43,7 +43,7 @@ h1 {
 }
 
 /* Form positioning */
-form {
+.create-recipe-form {
     justify-content: center;
     gap: 20px;
     /* positioning */
@@ -53,16 +53,16 @@ form {
     background-color: transparent;
     border: 1px solid black;
     /*type*/
-    color:var(--white);
+    color: var(--white);
     /* misc */
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
 }
 
 /*  Select Dropdown & :: After Dropdown pseudo effect */
-form select,
-form input,
-form textarea {
+.create-recipe-form select,
+.create-recipe-form input,
+.create-recipe-form textarea {
     /* box model */
     padding: 10px 8px;
     border: none;
@@ -76,7 +76,7 @@ form textarea {
     appearance: none;
 }
 
-form::before {
+.create-recipe-form::before {
     /* positioning */
     content: '';
     position: absolute;
@@ -87,7 +87,7 @@ form::before {
     background-color: var(--black)
 }
 
-form select {
+.create-recipe-form select {
     cursor: pointer;
 }
 
@@ -122,7 +122,7 @@ form select {
     color: var(--green)
 }
 
-form label {
+.create-recipe-form label {
     margin-bottom: 5px;
     font-size: 20px;
     letter-spacing: 1px;
@@ -167,14 +167,14 @@ form label {
     background-color: var(--background-clr);
     outline: none;
 
-    font-size: 22px!important;
+    font-size: 22px !important;
     letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
-.create-recipe-submit-btn:hover{
-   background-color: var(--green);
-   color: var(--white)
+.create-recipe-submit-btn:hover {
+    background-color: var(--green);
+    color: var(--white)
 }
 
 /*
@@ -187,22 +187,22 @@ form label {
     .title {
         width: 80%;
     }
-    
+
     .descr {
         width: 70%;
     }
-    
+
     .ingredients,
     .steps {
         width: 70%;
-    } 
+    }
 
-    .group--wrapper{
+    .group--wrapper {
         flex-direction: column;
     }
 
     .group--wrapper .select-wrapper {
         width: 40%;
     }
-    
+
 }

@@ -37,7 +37,7 @@ h1 {
 
 /* Form and Form Before Effect */
 
-form {
+.create-article-form {
     /* display props */
     display: flex;
     flex-direction: column;
@@ -52,7 +52,7 @@ form {
     color: var(--white);
 }
 
-form::before {
+.create-article-form::before {
     /* positioning */
     content: '';
     position: absolute;
@@ -66,9 +66,9 @@ form::before {
 
 /* Select Dropdown & ::After Dropdown Effect */
 
-form select,
-form input,
-form textarea {
+.create-article-form select,
+.create-article-form input,
+.create-article-form textarea {
     /* box model */
     padding: 10px 8px;
     border-radius: 10px;
@@ -82,14 +82,14 @@ form textarea {
     appearance: none;
 }
 
-form select:focus,
-form input:focus,
-form textarea:focus {
+.create-article-form select:focus,
+.create-article-form input:focus,
+.create-article-form textarea:focus {
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
 }
 
-form select {
+.create-article-form select {
     cursor: pointer;
 }
 
@@ -130,7 +130,7 @@ form select {
     margin-top: 20px;
 }
 
-form label {
+.create-article-form label {
     margin-bottom: 5px;
 
     font-size: 24px;

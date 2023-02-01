@@ -5,7 +5,7 @@ export const CreateArticle = () => {
 
     return (
         <section className={styles["create"]}>
-            <form action="" className={styles["mrgn-auto"]}>
+            <form action="" className={`$styles["mrgn-auto"]} ${styles["create-article-form"]}`}>
                 <h1>Create article</h1>
                 <div className={`${styles["title"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                     <label htmlFor="title">Title</label>

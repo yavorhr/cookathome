@@ -1,19 +1,10 @@
 /*
-=========================
-       Global CSS
-=========================
-*/
-
-
-
-
-/*
 ======================
     Search bar box
 ======================
 */
 
-.search-bar {
+.favorites__search-bar {
     /* positioning */
     max-width: 1200px;
     margin: 0 auto;
@@ -24,20 +15,19 @@
     text-align: center;
 }
 
-.search-bar .title {
+.favorites__search-bar .title {
     margin: 15px 0;
 
     font-size: 40px;
     letter-spacing: 3px;
 }
 
-.search-bar form {
+.favorites__search-bar form {
     /* display */
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    /* positioning */
     /* box-model */
     padding: 30px;
     margin: 0 auto;
@@ -45,9 +35,8 @@
     align-items: center;
 }
 
-.search-bar input {
+.favorites__search-bar input {
     /* positioning */
-    background-color: transparent;
     padding: 15px 20px;
     flex: 1;
     border: 0;
@@ -55,7 +44,7 @@
     width: 30%;
     max-width: 500px;
     outline: none;
-    background-color: var(--search_input--backgrnd);
+    background-color: var(--light-gray);
     border-radius: 60px;
 }
 
@@ -64,7 +53,7 @@
     font-size: 20px;
 }
 
-.search-bar form button {
+.favorites__search-bar form button {
     position: relative;
 
     width: 10%;
@@ -72,34 +61,34 @@
     border-radius: 30px;
 }
 
-.search-bar form button .icon {
+.favorites__search-bar form button .icon {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     /* border-box */
-    background-color: var(--seach__i--bckgrnd--clr);
+    background-color: var(--white);
     padding: 10px;
+
     border-radius: 30px;
     /* type */
     font-size: 18px;
     color: var(--grey);
-
+    
     opacity: 0.7;
+    transform: translate(-50%, -50%);
 }
 
 /*
-======================
-  Favourite recipies
-======================
+==============================
+  Favourite recipies section
+==============================
 */
 
-.section-title {
-    /* positioning */
+.my-recipies__title {
+    /* border box */
     width: 250px;
     margin: 0 auto;
     margin-top: 30px;
-
     border-bottom: 3px solid var(--brown);
     /* type */
     font-size: 30px;
@@ -107,7 +96,7 @@
     letter-spacing: 3px;
 }
 
-.section-title:hover {
+.my-recipies__title:hover {
     border-bottom: 3px solid var(--orange);
 }
 
@@ -116,27 +105,25 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    /* border box */
     padding: 0px;
-    /* positioning */
     max-width: 1800px;
     margin: 0 auto;
     margin-top: 20px;
 }
 
-/* 
-   Card Item
-*/
+/* Card Item */
 
-.list-item {
+.card-list .list-item {
     border-radius: 10px;
 }
 
-.list-item a {
+.card-list .list-item a {
     display: flex;
     flex-direction: column;
 }
 
-.img-holder img {
+.card-list .list-item .img-holder img {
     height: 100%;
 
     width: max-content;
@@ -222,11 +209,11 @@
         Font sizes
     */
 
-    .search-bar .title {
+    .favorites__search-bar .title {
         font-size: 30px;
     }
 
-    .section-title {
+    .my-recipies__title {
         margin-top: 10px;
         /* type */
         font-size: 25px;

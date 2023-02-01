@@ -43,7 +43,7 @@ h1 {
 
 /* Form positioning */
 
-form {
+.edit-recipe-form {
     justify-content: center;
     gap: 25px;
     /* positioning */
@@ -86,7 +86,7 @@ form {
     width: 70%;
 }
 
-form label {
+.edit-recipe-form label {
     margin-bottom: 5px;
 
     font-size: 20px;
@@ -95,9 +95,9 @@ form label {
 
 /* Select Dropdown & :: After Dropdown effect */
 
-form select,
-form input,
-form textarea {
+.edit-recipe-form select,
+.edit-recipe-form input,
+.edit-recipe-form textarea {
     /* box model */
     padding: 10px 8px;
     border: none;
@@ -111,7 +111,7 @@ form textarea {
     appearance: none;
 }
 
-form::before {
+.edit-recipe-form::before {
     /* positioning */
     content: '';
     position: absolute;
@@ -122,7 +122,7 @@ form::before {
     z-index: -1;
 }
 
-form select {
+.edit-recipe-form select {
     cursor: pointer;
 }
 

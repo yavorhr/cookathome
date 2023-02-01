@@ -37,7 +37,7 @@ h1 {
 
 /* Form positioning and Form::Before effect */
 
-form {
+.edit-article-form {
     /* display props */
     display: flex;
     flex-direction: column;
@@ -52,22 +52,22 @@ form {
     color: var(--white);
 }
 
-form::before {
+.edit-article-form ::before {
     /* positioning */
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     /*box-model*/
-    background-color: var(--form-pseudo-background-clr) ;
+    background-color: var(--form-pseudo-background-clr);
 
     z-index: -1;
 }
 
 /* Select Dropdown & ::After Dropdown Effect  */
-form select,
-form input,
-form textarea {
+.edit-article-form select,
+.edit-article-form input,
+.edit-article-form textarea {
     /* box model */
     padding: 10px 8px;
     border: none;
@@ -81,14 +81,14 @@ form textarea {
     appearance: none;
 }
 
-form select:focus,
-form input:focus,
-form textarea:focus {
+.edit-article-form select:focus,
+.edit-article-form input:focus,
+.edit-article-form textarea:focus {
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
 }
 
-form select {
+.edit-article-form select {
     cursor: pointer;
 }
 
@@ -124,7 +124,7 @@ form select {
 }
 
 /* Form Inputs and Txt-areas positioning */
-form label {
+.edit-article-form label {
     margin-bottom: 5px;
 
     font-size: 24px;

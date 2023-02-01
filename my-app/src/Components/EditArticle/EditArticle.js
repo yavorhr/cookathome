@@ -4,7 +4,7 @@ export const EditArtice = () => {
 
     return (
         <section className={styles["edit"]}>
-             <form action="" className={styles["mrgn-auto"]}>
+            <form action="" className={`${styles["mrgn-auto"]} ${styles["edit-article-form"]}`}>
                 <h1>Edit article</h1>
                 <div className={`${styles["title"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                     <label htmlFor="title">Title</label>
