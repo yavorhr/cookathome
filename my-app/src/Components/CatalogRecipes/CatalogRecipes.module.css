@@ -1,4 +1,3 @@
-
 /*
 ================
   Search Bar
@@ -9,7 +8,7 @@
     /* positioning */
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #E2F3F3;
+    background-color: var(--search--bckgrnd-clr);
     /* box-model */
     padding: 20px;
     /* type */
@@ -26,13 +25,12 @@
 .search-bar form {
     /* display */
     display: flex;
+    align-items: center;
     gap: 20px;
     /* positioning */
     max-width: 500px;
     padding: 30px;
     margin: 0 auto;
-    /* type */
-    align-items: center;
 }
 
 .search-bar .descr {
@@ -45,26 +43,27 @@
 .search-bar input {
     /* positioning */
     background-color: transparent;
-    padding: 15px 20px;
     flex: 1;
-    border: 0;
-    width: 60%;
     /* border-box */
+    padding: 15px 20px;
+    width: 60%;
     outline: none;
-    background-color: lightgrey;
+    border: 0;
     border-radius: 60px;
+    background-color: var(--light-gray);
 }
 
 ::placeholder {
-    color: white;
+    color: var(--white);
     font-size: 20px;
 }
 
 .search-bar form button {
     position: relative;
+    /* border box */
     border: none;
-    border-radius: 30px;
     width: 30%;
+    border-radius: 30px;
 }
 
 .search-bar form button .icon {
@@ -73,12 +72,12 @@
     left: 50%;
     transform:translate(-50%,-50%);
     /* border-box */
-    background-color: ghostwhite;
-    padding: 10px;
+    background-color: var(--white);
+    padding: 20px;
     border-radius: 30px;
     /* type */
     font-size: 18px;
-    color: gray;
+    color: var(--grey);
 
     opacity: 0.7;
 }
@@ -94,7 +93,6 @@
     width: 20%;
     margin: 0 auto;
     margin-top: 30px;
-
     border-bottom: 3px solid var(--brown);
     /* type */
     font-size: 25px;
@@ -111,7 +109,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 30px;
-    /* positioning */
+    /* border box */
     max-width: 1800px;
     padding-left: 0px;
     margin: 0 auto;
@@ -124,22 +122,21 @@
 =============
 */
 
-.list-item {
+.card-list .list-item {
     border-radius: 10px;
 }
 
-.list-item a {
+.card-list .list-item a {
     display: flex;
     flex-direction: column;
 }
 
-.img-holder img {
+.list-item .img-holder img {
     height: 100%;
-
-    width: max-content;
-
     background-size: cover;
     background-position: center center;
+
+    width: max-content;
     border-radius: 5px 5px 0 0;
 }
 
@@ -156,12 +153,6 @@
     display: inline-block;
     padding-bottom: 10px;
     background-color: var(--white);
-}
-
-.title {
-    text-decoration: none;
-    text-align: center;
-    color: black;
 }
 
 .card-info .card-title {
@@ -196,9 +187,7 @@
 
 @media screen and (max-width:768px) {
 
-    /*
-    Grid display
-*/
+    /* Grid display */
 
     .card-list {
         /* display */
@@ -223,9 +212,7 @@
         border-bottom: 3px solid var(--orange);
     }
 
-    /*
-       Search Bar
-*/
+    /* Search Bar */
 
     .search-bar .title {
         margin: 20px 0;
@@ -250,11 +237,7 @@
     }
 
 
-    /* 
-=============
-  CARD ITEM 
-=============
-*/
+    /* Card Item */
 
     .card-info {
         padding-bottom: 5px;
@@ -279,10 +262,7 @@
         margin-left: 5px;
     }
 
-    .card-info span i {
+    .card-info span .icon {
         font-size: 15px;
     }
-
-
-
 }

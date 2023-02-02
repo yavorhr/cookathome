@@ -29,9 +29,9 @@ function App() {
 
             {/* <Profile /> */}
             {/* <Register/> */}
-            <Login />
+            {/* <Login /> */}
 
-            {/* <CatalogRecipes/> */}
+            <CatalogRecipes/>
             {/* <CreateRecipe></CreateRecipe> */}
             {/* <EditRecipe></EditRecipe> */}
             {/* <RecipeDetails></RecipeDetails> */}
