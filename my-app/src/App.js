@@ -28,8 +28,8 @@ function App() {
             {/* <GroceryList></GroceryList> */}
 
             {/* <Profile /> */}
-            <Register/>
-            {/* <Login /> */}
+            {/* <Register/> */}
+            <Login />
 
             {/* <CatalogRecipes/> */}
             {/* <CreateRecipe></CreateRecipe> */}
