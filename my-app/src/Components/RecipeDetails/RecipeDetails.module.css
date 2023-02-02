@@ -1,12 +1,4 @@
-/*
-==================
-    Global CSS 
-==================
-*/
-
-
-
-.btn {
+.user__icons .btn {
 	background-color: transparent;
 	border: none;
 
@@ -88,7 +80,7 @@
 	text-align: center;
 }
 
-.user__image{
+.user__image {
 	width: 100%;
 	border-radius: 50%;
 }
@@ -110,7 +102,6 @@
 	justify-content: flex-start;
 
 	padding: 10px;
-
 	width: 90%;
 	background-color: #e4dede;
 }
@@ -143,9 +134,7 @@
 	margin-top: 3px;
 }
 
-/*
-    Recipe icons and recipe image
-*/
+/* Recipe icons and recipe image */
 
 .article-img-icons {
 	width: 70%;
@@ -161,17 +150,16 @@
 	padding: 0px 50px;
 }
 
-.image-grid {
+.article-img-icons .image-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
+	gap: 16px;
+	grid-auto-rows: 250px;
 
 	margin-top: 10px;
-
-	grid-auto-rows: 250px;
-	gap: 16px;
 }
 
-.image-grid>img {
+.article-img-icons .image-grid>img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -217,7 +205,7 @@
 
 /* Recipe icons styling */
 
-.icons {
+.article-img-icons .icons {
 	gap: 14px;
 
 	padding: 5px 3px;
@@ -227,12 +215,12 @@
 	background-color: #e4dede;
 }
 
-.icons .wrapper .icon {
+.article-img-icons .icons .wrapper .icon {
 	padding: 3px;
 	font-size: 20px;
 }
 
-.icons .wrapper span {
+.article-img-icons .icons .wrapper span {
 	margin-top: 3px;
 }
 
@@ -280,7 +268,7 @@
 }
 
 .food-item .icon {
-	color: #fff;
+	color: var(--white);
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -288,11 +276,11 @@
 }
 
 .food-item .add {
-	background-color: #19A68C;
+	background-color: var(--grass-green);
 }
 
 .food-item .remove {
-	background-color: rgb(235, 48, 48);
+	background-color: var(--red);
 }
 
 /*
@@ -315,7 +303,7 @@
 
 /*
 =========================
-   Media Mobile Screen
+   Responsive design
 =========================
 */
 
@@ -376,7 +364,15 @@
 
 	/* Recipe time icons box */
 
-	.icons {
+	.article-img-icons {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		margin: 0;
+	}
+
+	.article-img-icons .icons {
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
@@ -385,14 +381,6 @@
 		width: 100%;
 		margin-top: 5px;
 		padding: 2px 2px;
-	}
-
-	.article-img-icons {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
-		margin: 0;
 	}
 
 	.wrapper {
@@ -411,11 +399,7 @@
 		margin-top: 0px;
 	}
 
-	/*
-=======================
-    Products Section 
-=======================
-*/
+	/* Products Section */
 
 	.products {
 		width: 70%;

@@ -1,4 +1,6 @@
+import '../../App.css';
 import styles from './RecipeDetails.module.css';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUtensils, faCamera, faFireBurner, faPenToSquare, faTrashCan, faCircleCheck, faHeart, faClock, faPlus, } from '@fortawesome/free-solid-svg-icons'
 
