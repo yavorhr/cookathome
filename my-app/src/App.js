@@ -34,9 +34,9 @@ function App() {
             {/* <CatalogRecipes/> */}
             {/* <CreateRecipe></CreateRecipe> */}
             {/* <EditRecipe></EditRecipe> */}
-            <RecipeDetails></RecipeDetails>
+            {/* <RecipeDetails></RecipeDetails> */}
 
-            {/* <CatalogArticles /> */}
+            <CatalogArticles />
             {/* <ArticleCategories></ArticleCategories> */}
 
             {/* <ArticleDetails /> */}
