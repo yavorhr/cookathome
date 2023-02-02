@@ -1,4 +1,3 @@
-
 /*
 =======================
    Articles section
@@ -6,13 +5,6 @@
 */
 
 /* Articles grid */
-.image-grid {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
 
 .articles {
     max-width: 1400px;
@@ -20,7 +12,15 @@
     margin-top: 30px;
 }
 
-.section-info {
+.articles .image-grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.articles .section-info {
     margin-bottom: 20px;
     padding: 0 20px;
 
@@ -29,7 +29,7 @@
     letter-spacing: 2px;
 }
 
-.title {
+.articles .section-info .title {
     font-size: 25px;
     font-weight: bolder;
 }
@@ -45,6 +45,7 @@
 }
 
 /* Article Pseudo element */
+
 .article-item {
     position: relative;
     overflow: hidden;
@@ -55,19 +56,19 @@
     /* position */
     content: '';
     position: absolute;
-    width: 100%;
-    height: 60%;
     bottom: 0;
     left: 0;
     /*box-model*/
+    width: 100%;
+    height: 60%;
     background: linear-gradient(180deg, rgba(219, 219, 100, 0) 11%, rgba(10, 10, 5, 0.9191877434567577) 85%);
 }
 
 /* Image hover effect */
+
 .article-item img {
     height: 100%;
     position: relative;
-    transition: all .4s lienar;
 }
 
 .article-item:hover img {
@@ -76,7 +77,8 @@
 }
 
 /* Article fonts */
-.info h3 {
+
+.article-item .info h3 {
     text-transform: uppercase;
     text-align: center;
     font-size: 18px;
@@ -86,16 +88,16 @@
     z-index: 1;
 }
 
-.info h3:hover{
+.article-item.info h3:hover {
     text-decoration: underline;
 }
 
-.info p {
+.article-item.info p {
     text-align: center;
     color: #fff;
 }
 
-.info span {
+.article-item.info span {
     padding-left: 5px;
     margin-left: 5px;
 
