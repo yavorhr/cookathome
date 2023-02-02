@@ -47,7 +47,7 @@ export const ArticleDetails = () => {
                         </div>
                     </div>
 
-                    <div className={styles["user-icons"]}>
+                    <div className={styles["user__icons"]}>
                         <div className={styles["wrapper"]}>
                             <button className={styles["btn"]}>
                                 <FontAwesomeIcon icon={faPenToSquare} className={styles["icon"]}></FontAwesomeIcon>
@@ -94,7 +94,7 @@ export const ArticleDetails = () => {
                 </article>
             </section>
 
-            <section className={styles["content"]}>
+            <section className={styles["article-content"]}>
                 <article>
                     <h3>Why to count proteins ?</h3>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi eum fugit assumenda eius dignissimos

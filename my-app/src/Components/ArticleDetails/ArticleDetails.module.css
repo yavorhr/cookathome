@@ -1,13 +1,11 @@
-
-
 .btn {
     background-color: transparent;
     border: none;
 
-    color: black;
-
     cursor: pointer;
     overflow: hidden;
+
+    color: black;
 }
 
 /*
@@ -52,9 +50,7 @@
     margin-bottom: 50px;
 }
 
-/*
-   User profile 
-*/
+/* User profile */
 
 .article__content {
     display: flex;
@@ -66,22 +62,20 @@
     gap: 7px;
 }
 
-/*
-    User profile stats
-*/
+/* User profile stats */
 
 .user-details {
+    /* display */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 7px;
-    /* positioning */
-    padding: 10px 12px;
     /* box model */
-    background-color: #cfd8d8;
+    padding: 10px 12px;
     width: 90%;
     height: auto;
+    background-color: var(--light-gray);
 
     text-align: center;
 }
@@ -104,43 +98,46 @@
     font-size: 16px;
 }
 
-/*
-    User profile icons
-*/
+/* User profile icons */
 
-.user-icons {
+.user__icons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
     padding: 10px;
     width: 90%;
 
-    background-color: #e4dede;
+    background-color: var(--light-gray);
 }
 
-.user-icons .wrapper .btn i {
+.user__icons .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user__icons .wrapper .btn .icon {
     font-size: 28px;
     padding: 5px;
     transition: 0.8s;
 }
 
-.user-icons .wrapper .btn .icon:hover {
+.user__icons .wrapper .btn .icon:hover {
     transform: translateY(-4px);
-    color: grey;
+    color: var(--grey);
 }
 
-.user-icons .wrapper .icon {
+.user__icons .wrapper .icon {
     font-size: 28px;
     padding: 5px;
 }
 
-.user-icons .wrapper span {
+.user__icons .wrapper span {
     margin-top: 3px;
 }
 
-/*
-    Article icons and article cover photo
-*/
+/* Article icons and article cover photo */
 
 .article-icons-bar {
     width: 70%;
@@ -155,47 +152,23 @@
     border-radius: 5px;
 }
 
-/*
-    Icons styling
-*/
+/* Article-icons-bar styling */
 
-.icons {
+.article-icons-bar .icons {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 
-
     width: 40%;
-
     margin-bottom: 5px;
     padding: 5px 3px;
-
-    background-color: #e4dede;
+    background-color: var(--light-gray);
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/*
-    Icons styling
-*/
-
-.icons .wrapper .btn i {
-    font-size: 15px;
+.article-icons-bar .icons .wrapper span,
+.article-icons-bar .icons .wrapper p {
+    font-size: 18px;
     padding: 3px;
-}
-
-.icons .wrapper i {
-    font-size: 20px;
-    padding: 3px;
-}
-
-.icons .wrapper span {
-    margin-top: 3px;
 }
 
 /*
@@ -204,7 +177,7 @@
 ==========================
 */
 
-.content{
+.article-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -213,7 +186,7 @@
     padding-left: 40px;
 }
 
-.content h3 {
+.article-content  h3 {
     font-size: 26px;
     font-weight: bold;
     letter-spacing: 3px;
@@ -234,9 +207,7 @@
         width: 100%;
     }
 
-    /*
-    Article icons and article cover photo
-*/
+    /* Article icons and article cover photo */
 
     .article--img--icons {
         width: 70%;
@@ -251,9 +222,7 @@
         border-radius: 5px;
     }
 
-    /*
-    Icons styling
-*/
+    /* Icons styling */
 
     .icons {
         display: flex;
@@ -266,37 +235,24 @@
         margin-top: 5px;
         padding: 2px 2px;
 
-        background-color: #e4dede;
+        background-color:var(--light-gray);
     }
 
-    .wrapper {
+    .article-icons-bar .wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
 
-    /*
-    Icons styling
-*/
-    .icons .wrapper .btn i {
+    /* Icons styling */
+    .article-icons-bar  .icons .wrapper span,
+    .article-icons-bar  .icons .wrapper p {
         font-size: 15px;
         padding: 3px;
     }
 
-    .icons .wrapper i {
-        font-size: 15px;
-        padding: 3px;
-    }
-
-    .icons .wrapper span {
-        margin-top: 3px;
-        font-size: 15px;
-    }
-
-    /*
-    User profile
-*/
+    /* User profile */
 
     .user-details {
         width: 100%;
@@ -310,12 +266,11 @@
         border-radius: 50%;
     }
 
-
     /*
     User profile
 */
 
-    .user--icons {
+    .user__icons {
         padding: 5px;
         margin-right: 10px;
         width: 100%;
@@ -323,18 +278,18 @@
         gap: 5px;
     }
 
-    .user--icons .wrapper .btn .icon {
+    .user__icons .wrapper .btn .icon {
         font-size: 15px;
         padding: 3px;
         transition: 0.8s;
     }
 
-    .user--icons .wrapper .icon {
+    .user__icons .wrapper .icon {
         font-size: 13px;
         padding: 3px;
     }
 
-    .user--icons .wrapper span {
+    .user__icons .wrapper span {
         margin-top: 3px;
     }
 }

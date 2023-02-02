@@ -40,9 +40,6 @@ body{
     --transparent: transparent;
 }
 
-.mrgn-auto {
-    margin: 0 auto;
-}
 
 section {
     margin: 100px auto;

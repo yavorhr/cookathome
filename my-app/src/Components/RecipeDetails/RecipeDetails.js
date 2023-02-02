@@ -38,15 +38,15 @@ export const RecipeDetails = () => {
                         </div>
                         <div className={`${styles["user__stats"]} ${styles["dspl-flex-row-center"]}`}>
                             <div className={styles["stats__wrapper"]}>
-                            <FontAwesomeIcon className={styles["icon"]} icon={faUtensils}></FontAwesomeIcon>
+                                <FontAwesomeIcon className={styles["icon"]} icon={faUtensils}></FontAwesomeIcon>
                                 <p>31</p>
                             </div>
                             <div className={styles["stats__wrapper"]}>
-                            <FontAwesomeIcon className={styles["icon"]} icon={faCamera}></FontAwesomeIcon>
+                                <FontAwesomeIcon className={styles["icon"]} icon={faCamera}></FontAwesomeIcon>
                                 <p>220</p>
                             </div>
                             <div className={styles["stats__wrapper"]}>
-                            <FontAwesomeIcon className={styles["icon"]} icon={faFireBurner}></FontAwesomeIcon>
+                                <FontAwesomeIcon className={styles["icon"]} icon={faFireBurner}></FontAwesomeIcon>
                                 <p>31</p>
                             </div>
                         </div>
@@ -56,29 +56,28 @@ export const RecipeDetails = () => {
                             <div className={styles["wrapper"]}>
                                 <button className={styles["btn"]}>
                                     <FontAwesomeIcon className={styles["icon"]} icon={faPenToSquare}></FontAwesomeIcon>
-                                    Edit
                                 </button>
+                                <span>Edit</span>
                             </div>
                             <div className={styles["wrapper"]}>
                                 <button className={styles["btn"]}>
                                     <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
-                                    Delete
                                 </button>
+                                <span>Delete</span>
                             </div>
                         </div>
                         <div className={styles["main-wrap"]}>
                             <div className={styles["wrapper"]}>
                                 <button className={styles["btn"]}>
                                     <FontAwesomeIcon className={styles["icon"]} icon={faHeart}></FontAwesomeIcon>
-                                    Favorites
                                 </button>
+                                <span>Favorites</span>
                             </div>
                             <div className={styles["wrapper"]}>
                                 <button className={styles["btn"]}>
-                                    <FontAwesomeIcon className={styles["icon"]} icon={faCircleCheck}></FontAwesomeIcon>
-
-                                    Cooked
+                                    <FontAwesomeIcon className={styles["icon"]} icon={faCircleCheck}></FontAwesomeIcon>    
                                 </button>
+                                <span>Favorites</span>
                             </div>
                         </div>
                     </div>
