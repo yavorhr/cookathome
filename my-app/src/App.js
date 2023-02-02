@@ -32,8 +32,8 @@ function App() {
             {/* <Login /> */}
 
             {/* <CatalogRecipes/> */}
-            <CreateRecipe></CreateRecipe>
-            {/* <EditRecipe></EditRecipe> */}
+            {/* <CreateRecipe></CreateRecipe> */}
+            <EditRecipe></EditRecipe>
             {/* <RecipeDetails></RecipeDetails> */}
 
             {/* <CatalogArticles /> */}

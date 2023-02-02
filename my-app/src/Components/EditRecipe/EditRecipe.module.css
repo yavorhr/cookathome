@@ -1,16 +1,10 @@
-/*
-=========================
-    Global CSS
-=========================
-*/
-
-
-/* body {
+.edit-recipe-background {
+    padding: 20px;
     background-image: url('../../../public/img/wood.jpg');
     background-position: center center;
     background-repeat: none;
     background-size: cover;
-} */
+}
 
 .mrgn-auto {
     margin: 0 auto;
@@ -60,7 +54,7 @@
 
 /* Form Inputs and Text-areas positioniong */
 
-.group--wrapper {
+.group-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -69,20 +63,17 @@
     padding: 20px;
 }
 
-.group--wrapper .select-wrapper {
+.group-wrapper .select-wrapper {
     width: 20%;
 }
 
-.title {
+.edit-recipe-background .title,
+.edit-recipe-background .descr {
     width: 50%;
 }
 
-.descr {
-    width: 50%;
-}
-
-.ingredients,
-.steps {
+.edit-recipe-background .ingredients,
+.edit-recipe-background .steps {
     width: 70%;
 }
 
@@ -164,6 +155,7 @@
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 30px;
+    width: 200px;
 
     border-radius: 10px;
     background-color: var(--background-clr);
@@ -176,7 +168,8 @@
 
 .submit-edit-btn:hover {
     background-color: var(--green);
-    color: var(--white)
+    color: var(--white);
+    cursor: pointer;
 }
 
 /*
@@ -190,21 +183,17 @@
         width: 80%;
     }
 
-    .descr {
+    .edit-recipe-background .ingredients,
+    .edit-recipe-background .steps,
+    .edit-recipe-background .descr {
         width: 70%;
     }
 
-    .ingredients,
-    .steps {
-        width: 70%;
-    }
-
-    .group--wrapper {
+    .group-wrapper {
         flex-direction: column;
     }
 
-    .group--wrapper .select-wrapper {
+    .group-wrapper .select-wrapper {
         width: 40%;
     }
-
 }
