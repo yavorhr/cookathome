@@ -39,8 +39,8 @@ function App() {
             {/* <CatalogArticles /> */}
             {/* <ArticleCategories></ArticleCategories> */}
 
-            <ArticleDetails />
-            {/* <CreateArticle></CreateArticle> */}
+            {/* <ArticleDetails /> */}
+            <CreateArticle></CreateArticle>
             {/* <EditArtice></EditArtice> */}
 
             <Footer></Footer>

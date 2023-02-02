@@ -5,7 +5,7 @@ export const CreateArticle = () => {
 
     return (
         <section className={styles["create--article-section"]}>
-            <form action="" className={`$styles["mrgn-auto"]} ${styles["create-article-form"]}`}>
+            <form action="" className={`${styles["mrgn-auto"]} ${styles["create-article-form"]}`}>
                 <h1>Create article</h1>
                 <div className={`${styles["title"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                     <label htmlFor="title">Title</label>
@@ -18,7 +18,7 @@ export const CreateArticle = () => {
                 <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                     <label htmlFor="category">Category</label>
                     <select type="text" name="category">
-                        <option defaultValue="---"></option>
+                        <option value="---"></option>
                         <option value="Proteins">Proteins</option>
                         <option value="Breakfast">Breakfast</option>
                         <option value="Workout">Workout</option>
@@ -38,7 +38,6 @@ export const CreateArticle = () => {
                         cols={30}
                         rows={5}
                         placeholder="Please enter short description"
-                        defaultValue={""}
                     />
                 </div>
                 <div className={`${styles["content"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
@@ -49,7 +48,6 @@ export const CreateArticle = () => {
                         cols={30}
                         rows={10}
                         placeholder="Please insert your text here"
-                        defaultValue={""}
                     />
                 </div>
                 <button type="submit" form="form1" value="Submit" className={styles['create-article-btn']}>
