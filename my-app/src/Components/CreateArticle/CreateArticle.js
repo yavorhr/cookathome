@@ -2,7 +2,6 @@ import styles from './CreateArticle.module.css'
 
 export const CreateArticle = () => {
 
-
     return (
         <section className={styles["create--article-section"]}>
             <form action="" className={`${styles["mrgn-auto"]} ${styles["create-article-form"]}`}>

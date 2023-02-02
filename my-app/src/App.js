@@ -40,8 +40,8 @@ function App() {
             {/* <ArticleCategories></ArticleCategories> */}
 
             {/* <ArticleDetails /> */}
-            <CreateArticle></CreateArticle>
-            {/* <EditArtice></EditArtice> */}
+            {/* <CreateArticle></CreateArticle> */}
+            <EditArtice></EditArtice>
 
             <Footer></Footer>
         </div>

@@ -37,7 +37,6 @@ export const EditArtice = () => {
                         cols={30}
                         rows={5}
                         placeholder="Please enter short description"
-                        defaultValue={""}
                     />
                 </div>
                 <div className={`${styles["content"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
@@ -48,7 +47,6 @@ export const EditArtice = () => {
                         cols={30}
                         rows={10}
                         placeholder="Please insert your text here"
-                        defaultValue={""}
                     />
                 </div>
                 <button type="submit" form="form1" value="Submit" className={styles["edit-article-submit"]}>

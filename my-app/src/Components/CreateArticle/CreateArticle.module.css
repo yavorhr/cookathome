@@ -29,12 +29,12 @@
 /* Form and Form Before Effect */
 
 .create-article-form {
+     /* positioning */
+     position: relative;
     /* display props */
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* positioning */
-    position: relative;
     /* box model */
     width: 90%;
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
@@ -147,7 +147,6 @@
     width: 40%;
     border-radius: 10px;
     background-color: var(--background-clr);
-    outline: none;
 
     font-size: 22px;
     letter-spacing: 1.5px;

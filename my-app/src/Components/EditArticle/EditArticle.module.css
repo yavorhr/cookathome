@@ -15,9 +15,8 @@
 */
 
 .edit--article-section {
-    width: 1200px;
-    margin: 0 auto;
-    margin-top: 30px;
+    width: 1000px;
+    margin: 50px auto;
 }
 
 .edit--article-section h1 {
@@ -31,12 +30,12 @@
 /* Form positioning and Form::Before effect */
 
 .edit-article-form {
+    /* positioning */
+    position: relative;
     /* display props */
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* positioning */
-    position: relative;
     /* box model */
     width: 90%;
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
@@ -45,7 +44,7 @@
     color: var(--white);
 }
 
-.edit-article-form ::before {
+.edit-article-form::before {
     /* positioning */
     content: '';
     position: absolute;
@@ -124,24 +123,16 @@
     letter-spacing: 1px;
 }
 
-.title {
-    width: 60%;
-    margin-top: 20px;
-}
 
-.image-url {
+.edit--article-section .descr,
+.edit--article-section .image-url,
+.edit--article-section .category {
     width: 60%;
 }
 
-.descr {
-    width: 60%;
-}
 
-.category {
-    width: 60%;
-}
-
-.content {
+.edit--article-section .content,
+.edit--article-section .title {
     width: 60%;
     margin-bottom: 20px;
 }
@@ -149,16 +140,13 @@
 /* Form Button */
 
 .edit-article-submit {
+    margin: 30px auto ;
     padding: 15px 0px;
-    margin: 0 auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-
+    width: 40%;
     border-radius: 10px;
     background-color: var(--background-clr);
-    outline: none;
-
-    font-size: 22px !important;
+    
+    font-size: 22px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
 }
