@@ -18,6 +18,7 @@ import { EditRecipe } from './Components/EditRecipe/EditRecipe.js';
 import { RecipeDetails } from './Components/RecipeDetails/RecipeDetails.js';
 import { GroceryList } from './Components/GroceryList/GroceryList.js';
 
+
 function App() {
     return (
         <div className="App">
@@ -36,12 +37,12 @@ function App() {
             {/* <EditRecipe></EditRecipe> */}
             {/* <RecipeDetails></RecipeDetails> */}
 
-            {/* <CatalogArticles /> */}
-            {/* <ArticleCategories></ArticleCategories> */}
+            {/* <CatalogArticles />
+            <ArticleCategories></ArticleCategories> */}
 
-            {/* <ArticleDetails /> */}
+            <ArticleDetails />
             {/* <CreateArticle></CreateArticle> */}
-            <EditArtice></EditArtice>
+            {/* <EditArtice></EditArtice> */}
 
             <Footer></Footer>
         </div>

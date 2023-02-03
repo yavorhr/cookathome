@@ -129,11 +129,12 @@
 	color: var(--black);
 }
 
+
 /* Dropdown CSS */
 
 .dropdown {
 	display: inline-block;
-	width: 200px;
+	width: 500px;
 }
 
 .dropdown-content {
@@ -164,6 +165,7 @@
 	transform: translateY(0);
 	pointer-events: auto;
 }
+
 
 /* Dropdown Grid links */
 
@@ -233,11 +235,12 @@
 
 /* Favorites button */
 
-.favorites__btn {
+.favorites__btn,
+.shopping-list__btn {
 	/* box model */
 	padding: 10px;
 	border: none;
-	background-color: transparent !important;
+	background-color: transparent;
 	cursor: pointer;
 }
 
@@ -250,6 +253,18 @@
 
 .favorites__btn:hover .fa-heart {
 	color: var(--white);
+}
+
+/* Favorites button */
+.fa-cart-shopping {
+	font-size: 30px;
+	color: var(--white);
+
+	transition: color .3s ease-in-out;
+}
+
+.shopping-list__btn:hover .fa-cart-shopping {
+	color: var(--user--login--btn--bckgrnd);
 }
 
 /*  Search button */
@@ -401,7 +416,7 @@
 		order: 3;
 	}
 
-	/* Recipies and Blog buttons */
+	/* Recipes and Blog buttons */
 
 	.wrapper-links {
 		display: none;

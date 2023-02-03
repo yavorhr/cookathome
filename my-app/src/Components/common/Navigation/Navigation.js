@@ -1,7 +1,7 @@
 import styles from './Navigation.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faUser, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faUser, faMagnifyingGlass, faCartShopping, } from '@fortawesome/free-solid-svg-icons'
 
 export const Navigation = () => {
     return (
@@ -13,30 +13,33 @@ export const Navigation = () => {
                         <FontAwesomeIcon icon={faHeart} className={styles["fa-heart"]}></FontAwesomeIcon>
                     </button>
                 </div>
-
+                <div className={`${styles['nav-item']} ${styles['shopping-list']}}`}>
+                    <button className={styles["shopping-list__btn"]}>
+                        <FontAwesomeIcon icon={faCartShopping} className={styles["fa-cart-shopping"]}></FontAwesomeIcon>
+                    </button>
+                </div>
             </article>
+
             <article className={styles["wrapper-links"]}>
-                <div className={`${styles["dropdown"]} ${styles["recipies-cat"]}`}>
-                    <button className={styles['all-recipies-btn']}>Recipies</button>
+                <div className={styles["dropdown"]}>
+                    <button className={styles['all-recipies-btn']}>Recipes</button>
                     <div className={`${styles["dropdown-content"]} ${styles["information-grid"]}`}>
                         <div className={styles["dropdown-heading"]}>
                             <span>Season</span>
                             <div className={styles["dropdown-links"]}>
-                                <a href="#" className={styles['nav-link']}>Breakfast</a>
-                                <a href="#" className={styles['nav-link']}>Lunch</a>
-                                <a href="#" className={styles['nav-link']}>Dinner</a>
-                                <a href="#" className={styles['nav-link']}>Dessert</a>
-                                <a className={`${styles['view-more']} ${styles['nav-link']}`} href="#">view more...</a>
+                                <a href="#" className={styles['nav-link']}>Spring</a>
+                                <a href="#" className={styles['nav-link']}>Summer</a>
+                                <a href="#" className={styles['nav-link']}>Autumn</a>
+                                <a href="#" className={styles['nav-link']}>Winter</a>
                             </div>
                         </div>
                         <div className={styles["dropdown-heading"]}>
-                            <span>During the day</span>
+                            <span>Time of the day</span>
                             <div className={styles["dropdown-links"]}>
                                 <a href="#" className={styles['nav-link']}>Breakfast</a>
                                 <a href="#" className={styles['nav-link']}>Lunch</a>
                                 <a href="#" className={styles['nav-link']}>Dinner</a>
-                                <a href="#" className={styles['nav-link']}>Dessert</a>
-                                <a className={`${styles['view-more']} ${styles['nav-link']}`} href="#">view more...</a>
+                                <a href="#" className={styles['nav-link']}>Snack</a>
                             </div>
                         </div>
                         <div className={styles["dropdown-heading"]}> <span>Main ingredients</span>
@@ -62,39 +65,27 @@ export const Navigation = () => {
                                 <a href="#" className={styles['nav-link']}>Breakfasts for quickers</a>
                                 <a href="#" className={styles['nav-link']}>Quick lunches</a>
                                 <a href="#" className={styles['nav-link']}>Easy dinners</a>
-                                <a href="#" className={styles['nav-link']}>Desserts for beginners</a>
+                                <a href="#" className={styles['nav-link']}>Desserts in 10 minutes</a>
                                 <a className={`${styles['view-more']} ${styles['nav-link']}`} href="#">view more...</a>
                             </div>
                         </div>
 
-                        <div className={styles["dropdown-heading"]}> <span>Quick & Easy</span>
+                        <div className={styles["dropdown-heading"]}> <span>From zero to hero</span>
                             <div className={styles["dropdown-links"]}>
-                                <a href="#" className={styles['nav-link']}>Breakfasts for quickers</a>
-                                <a href="#" className={styles['nav-link']}>Quick lunches</a>
-                                <a href="#" className={styles['nav-link']}>Easy dinners</a>
-                                <a href="#" className={styles['nav-link']}>Desserts for beginners</a>
-                                <a className={`${styles['view-more']} ${styles['nav-link']}`} href="#">view more...</a>
+                                <a href="#" className={styles['nav-link']}>Beginners</a>
+                                <a href="#" className={styles['nav-link']}>Intermidiates</a>
+                                <a href="#" className={styles['nav-link']}>Advanced</a>
+                                <a href="#" className={styles['nav-link']}>For Cheffs!</a>
                             </div>
                         </div>
-                        <div className={styles["dropdown-heading"]}> <span>Quick & Easy</span>
+                        <div className={styles["dropdown-heading"]}> <span>Count the calories</span>
                             <div className={styles["dropdown-links"]}>
-                                <a href="#" className={styles['nav-link']}>Breakfasts for quickers</a>
-                                <a href="#" className={styles['nav-link']}>Quick lunches</a>
-                                <a href="#" className={styles['nav-link']}>Easy dinners</a>
-                                <a href="#" className={styles['nav-link']}>Desserts for beginners</a>
-                                <a className={`${styles['view-more']} ${styles['nav-link']}`} href="#">view more...</a>
+                                <a href="#" className={styles['nav-link']}>Up to 200 kcal</a>
+                                <a href="#" className={styles['nav-link']}>Up to 500 kcal</a>
+                                <a href="#" className={styles['nav-link']}>Up to 800 kcal</a>
+                                <a href="#" className={styles['nav-link']}>More than 800 kcal</a>
                             </div>
                         </div>
-                        <div className={styles["dropdown-heading"]}> <span>Quick & Easy</span>
-                            <div className={styles["dropdown-links"]}>
-                                <a href="#" className={styles['nav-link']}>Breakfasts for quickers</a>
-                                <a href="#" className={styles['nav-link']}>Quick lunches</a>
-                                <a href="#" className={styles['nav-link']}>Easy dinners</a>
-                                <a href="#" className={styles['nav-link']}>Desserts for beginners</a>
-                                <a className={`${styles['view-more']} ${styles['nav-link']}`} href="#">view more...</a>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
@@ -179,6 +170,7 @@ export const Navigation = () => {
                         <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
                     </button>
                 </div>
+
             </article>
             <article className={`${styles["nav-item"]} ${styles["search"]}`}>
                 <button className={styles["search__btn"]}>
