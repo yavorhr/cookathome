@@ -413,6 +413,8 @@
 
     const { AuthorizationError: AuthorizationError$1 } = errors;
 
+
+
     const userService = new Service_1();
 
     userService.get('me', getSelf);
@@ -1325,10 +1327,6 @@
             "847ec027-f659-4086-8032-5173e2f9c93a": {
                 email: "john@abv.bg",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-            },
-            "847ec027-s359-4086-8032-5173e2f9c93a": {
-                email: "admin@abv.bg",
-                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
             }
         },
         sessions: {
@@ -1364,33 +1362,101 @@
                 "_createdOn": 1617194295474,
             }
         },
+
+        comments: {
+            "gafgdfsdafds": {
+                "recipeId": "c5-40e2-b231-77409e",
+                "comment": "comment"
+            }
+        },
+
+        favorites: {
+            "dksajdkasj21": {
+                "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "products": ["tomatoes", "vegitables"]
+            }
+        },
+
         recipes: {
-            "ff436770-76c5-40e2-s231-27401eda5b61": {
-                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "name": "Musaka",
+            "c5-40e2-b231-77409e": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "name": "Moussaka",
                 "details": {
                     "season": "winter",
                     "timeOfTheDay": "dinner",
                     "meat": "pork",
                     "kitchen": "bulgarian",
                     "level": "amateur",
-                    "calories": "300"
-                }, time: {
+                    "calories": "300",
+                }, "times": {
                     "prep-time": "30",
                     "cook-time": "20",
                     "total-time": "50"
-                }, products: {
-                    "tomato": "1 kg",
-                    "potatoes": "1 kg",
-                    "salt": "1 soup spoon"
-                }, portions: "4",
-                "imageUrl": "/images/CoverFire.png",
-                "cookingSteps": "Best action shooter game, easy controls, realistic 3D graphics and fun offline missions. Get your best shooting gun and take to action!",
-                "_createdOn": 1617194128618,
+                }, "products": [
+                    { "tomatoes": "2" },
+                    { "potatoes": "5 kilos" },
+                    { "meat": "1 kilo" }
+                ], "steps": [
+                    { "step1": "prep" },
+                    { "step2": "cook" },
+                    { "step3": "present" }
+                ],
+                "portions": "3",
+                "_createdOn": 1617194295474,
             },
-        },
-        comments: {
-
+            "kdjsakldjas9jd2av": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "name": "Tarator",
+                "details": {
+                    "season": "All season",
+                    "timeOfTheDay": "all day",
+                    "meat": "none",
+                    "kitchen": "Bulgarian",
+                    "level": "amateur",
+                    "calories": "100",
+                }, "times": {
+                    "prep-time": "30",
+                    "cook-time": "20",
+                    "total-time": "50"
+                }, "products": [
+                    { "yoghurt": "2 pieces" },
+                    { "cucumbers": "1 kilo" },
+                    { "salt": "по вкус" }
+                ], "steps": [
+                    { "step1": "prep" },
+                    { "step2": "cook" },
+                    { "step3": "present" }
+                ],
+                "portions": "1",
+                "_createdOn": 1617194295474,
+            },
+            "kdjsakldjas9jd2av": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "name": "Chicken with fries on oven",
+                "details": {
+                    "season": "All season",
+                    "timeOfTheDay": ["dinner", "lunch"],
+                    "meat": "chicken",
+                    "kitchen": "Bulgarian",
+                    "level": "mid",
+                    "calories": "400",
+                }, "times": {
+                    "prep-time": "30",
+                    "cook-time": "40",
+                    "total-time": "70"
+                }, "products": [
+                    { "chicken": "500 gr." },
+                    { "potatoes": "1 kilo" },
+                    { "salt": "по вкус" },
+                    { "salt": "по вкус" }
+                ], "steps": [
+                    { "step1": "prep" },
+                    { "step2": "cook" },
+                    { "step3": "present" }
+                ],
+                "portions": "1",
+                "_createdOn": 1617194295474,
+            }
         }
     };
     var rules$1 = {

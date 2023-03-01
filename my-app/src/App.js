@@ -24,7 +24,7 @@ function App() {
         <div className="App">
             <Navigation />
 
-            {/* <HomePage></HomePage> */}
+            <HomePage></HomePage>
             {/* <Favorites></Favorites> */}
             {/* <GroceryList></GroceryList> */}
 
@@ -32,7 +32,7 @@ function App() {
             {/* <Register/> */}
             {/* <Login /> */}
 
-            {/* <CatalogRecipes/> */}
+            <CatalogRecipes/>
             {/* <CreateRecipe></CreateRecipe> */}
             {/* <EditRecipe></EditRecipe> */}
             {/* <RecipeDetails></RecipeDetails> */}
@@ -40,7 +40,7 @@ function App() {
             {/* <CatalogArticles />
             <ArticleCategories></ArticleCategories> */}
 
-            <ArticleDetails />
+            {/* <ArticleDetails /> */}
             {/* <CreateArticle></CreateArticle> */}
             {/* <EditArtice></EditArtice> */}
 
