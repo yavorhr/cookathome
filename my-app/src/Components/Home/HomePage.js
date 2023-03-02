@@ -1,13 +1,22 @@
 import styles from './HomePage.module.css';
-import * as recipeService from '../service/recipeService.js';
 import { useState, useEffect } from 'react';
+
+import * as recipeService from '../service/recipeService.js';
+import * as articleService from '../service/articleService.js';
 
 export const HomePage = () => {
     const [recipes, setRecipes] = useState([]);
+    const [articles, setArticles] = useState([]);
+
 
     useEffect(() => {
         recipeService.getAll()
             .then(result => setRecipes(result))
+    }, []);
+
+    useEffect(() => {
+        articleService.getAll()
+            .then(result => setArticles(result))
     }, []);
 
     return (
