@@ -44,7 +44,9 @@ function App() {
             {/* <CreateArticle></CreateArticle> */}
             {/* <EditArtice></EditArtice> */}
 
-            <Footer></Footer>
+            <Footer>
+                
+            </Footer>
         </div>
 
     );

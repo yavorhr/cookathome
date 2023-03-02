@@ -1,5 +1,7 @@
 
+const baseUrl = 'http://localhost:3030/data/recipes'
+
 
 export const getAll = () => {
-    fetch()
+    return fetch(baseUrl).then(resp => resp.json())
 }

@@ -1,6 +1,15 @@
 import styles from './HomePage.module.css';
+import * as recipeService from '../service/recipeService.js';
+import { useState, useEffect } from 'react';
 
 export const HomePage = () => {
+    const [recipes, setRecipes] = useState([]);
+
+    useEffect(() => {
+        recipeService.getAll()
+            .then(result => setRecipes(result))
+    }, []);
+
     return (
         <>
             <section className={styles["gallery"]}>
