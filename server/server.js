@@ -1457,8 +1457,48 @@
                 "portions": "1",
                 "_createdOn": 1617194295474,
             }
-        }
-    };
+        },
+
+        articles: {
+            "dasfdsf3215": {
+                "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "imageUrl": "/img/dishes/eggsausage.jpg",
+                "title": "Egg & Sausage",
+                "createdOn": "08 August",
+                "author": "Peter"
+            },
+            "dasfdxdasgs215": {
+                "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "imageUrl": "/img/dishes/benedikt.jpg",
+                "title": "benedikt",
+                "createdOn": "15 January",
+                "author": "Peter"
+            },
+            "dasjhoiuygs001": {
+                "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "imageUrl": "/img/dishes/Best-Lasagna-550.jpg",
+                "title": "Lasagna",
+                "createdOn": "01 May",
+                "author": "Peter"
+            },
+            "dasjggdens005": {
+                "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "imageUrl": "/img/dishes/Best-Lasagna-550.jpg",
+                "title": "Pancakes",
+                "createdOn": "21 April",
+                "author": "Peter"
+            },
+            "dasjggfsgsk5832": {
+                "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "imageUrl": "/img/dishes/bananas.jpg",
+                "title": "Bananas",
+                "createdOn": "10 March",
+                "author": "Peter"
+            }
+        },
+
+    }
+
     var rules$1 = {
         users: {
             ".create": false,
