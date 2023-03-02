@@ -4,10 +4,11 @@ import { useState, useEffect } from 'react';
 import * as recipeService from '../service/recipeService.js';
 import * as articleService from '../service/articleService.js';
 
+import { GalleryArticles } from './GalleryArticles/GalleryArticles.js';
+
 export const HomePage = () => {
     const [recipes, setRecipes] = useState([]);
     const [articles, setArticles] = useState([]);
-
 
     useEffect(() => {
         recipeService.getAll()
@@ -19,57 +20,12 @@ export const HomePage = () => {
             .then(result => setArticles(result))
     }, []);
 
+    const sortedArticlesByDate =
+        articleService.sortByDate(articles);
+
     return (
         <>
-            <section className={styles["gallery"]}>
-                <ul type="none">
-                    <li className={styles["article-item"]}>
-                        <a href="">
-                            <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
-                            <div className={styles["article-item__info"]}>
-                                <h3>Egg & Sausage</h3>
-                                <p>08 August <span>Admin</span></p>
-                            </div>
-                        </a>
-                    </li>
-                    <li className={styles["article-item"]}>
-                        <a href="">
-                            <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
-                            <div className={styles["article-item__info"]}>
-                                <h3>Egg & Sausage</h3>
-                                <p>08 August <span>Admin</span></p>
-                            </div>
-                        </a>
-                    </li>
-                    <li className={styles["article-item"]}>
-                        <a href="">
-                            <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
-                            <div className={styles["article-item__info"]}>
-                                <h3>Egg & Sausage</h3>
-                                <p>08 August <span>Admin</span></p>
-                            </div>
-                        </a>
-                    </li>
-                    <li className={styles["article-item"]}>
-                        <a href="">
-                            <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
-                            <div className={styles["article-item__info"]}>
-                                <h3>Egg & Sausage</h3>
-                                <p>08 August <span>Admin</span></p>
-                            </div>
-                        </a>
-                    </li>
-                    <li className={styles["article-item"]}>
-                        <a href="">
-                            <img src="/img/dishes/eggsausage.jpg" alt="recipe details" />
-                            <div className={styles["article-item__info"]}>
-                                <h3>Egg & Sausage</h3>
-                                <p>08 August <span>Admin</span></p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </section>
+            <GalleryArticles articles={sortedArticlesByDate} />
 
             <section className={styles['hero']}>
                 <div className={styles["today-recipe"]}>
