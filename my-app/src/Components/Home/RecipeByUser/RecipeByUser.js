@@ -7,8 +7,6 @@ export const RecipeByUser = ({ recipes }) => {
 
     const sortedRecipes = recipeServer.sortRecipesByCreationDateDesc(recipes);
 
-    console.log(sortedRecipes);
-
     return (
         <div className={styles["recipe-by-user"]}>
             <ul type="none">

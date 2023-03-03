@@ -4,6 +4,7 @@ import { useFetch } from '../hooks/useFetch.js';
 import { GalleryArticles } from './GalleryArticles/GalleryArticles.js';
 import { TodayRecipe } from './TodayRecipe/TodayRecipe.js';
 import { RecipeByUser } from './RecipeByUser/RecipeByUser.js';
+import { Nav } from './RecentyAddedRecipes/Navigation/Nav.js';
 
 export const HomePage = () => {
     const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
@@ -14,43 +15,12 @@ export const HomePage = () => {
             <GalleryArticles articles={articles} />
 
             <section className={styles['hero']}>
-
                 <TodayRecipe recipes={recipes} />
-
-                <RecipeByUser recipes={recipes}/>
-
+                <RecipeByUser recipes={recipes} />
             </section>
 
             <section className={styles["latest-recipes"]}>
-                <nav>
-                    <ul type="none">
-                        <span>New recipes</span>
-                        <li>
-                            <a href="">All</a>
-                        </li>
-                        <li>
-                            <a href="">Salads</a>
-                        </li>
-                        <li>
-                            <a href="">Main</a>
-                        </li>
-                        <li>
-                            <a href="">Pre-dish</a>
-                        </li>
-
-                        <li>
-                            <a href="">Soups</a>
-                        </li>
-
-                        <li>
-                            <a href="">Fish</a>
-                        </li>
-
-                        <li>
-                            <a href="">Vegan</a>
-                        </li>
-                    </ul>
-                </nav>
+                <Nav/>
 
                 <ul className={styles["latest-recipes__grid"]} type="none">
                     <li className={styles["recipe-card"]}>
