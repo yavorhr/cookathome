@@ -10,6 +10,19 @@ export const getRandomRecipe = (recipes) => {
     return randomRecipe;
 }
 
-export const getRecipesByUser = () =>{
-    fetch('URL: /data/comments?where=gameId%3D%22{gameId}%22')
+export const sortRecipesByCreationDateDesc = (recipesArray) => {
+
+    let result = [];
+    result = [...recipesArray];
+
+    function compare(a, b) {
+        if (a.createdOn < b.createdOn) {
+            return -1;
+        }
+        if (a.createdOn > b.createdOn) {
+            return 1;
+        }
+        return 0;
+    }
+    return result.sort(compare).splice(0, 5);
 }

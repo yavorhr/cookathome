@@ -1,13 +1,19 @@
 import styles from './RecipeByUser.module.css';
 import { Recipe } from './Recipe/Recipe.js';
 
+import * as recipeServer from '../../service/recipeService.js'
+
 export const RecipeByUser = ({ recipes }) => {
+
+    const sortedRecipes = recipeServer.sortRecipesByCreationDateDesc(recipes);
+
+    console.log(sortedRecipes);
 
     return (
         <div className={styles["recipe-by-user"]}>
             <ul type="none">
 
-                {recipes.map(recipe => <Recipe key={recipe._id} recipe={recipe}></Recipe>)}
+                {sortedRecipes.map(recipe => <Recipe key={recipe._id} recipe={recipe}></Recipe>)}
 
             </ul>
         </div>
