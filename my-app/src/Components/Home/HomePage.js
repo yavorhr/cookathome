@@ -1,45 +1,18 @@
 import styles from './HomePage.module.css';
-import { useState, useEffect } from 'react';
-
-import * as recipeService from '../service/recipeService.js';
-import * as articleService from '../service/articleService.js';
+import { useFetch } from '../hooks/useFetch.js';
 
 import { GalleryArticles } from './GalleryArticles/GalleryArticles.js';
+import { TodayRecipe } from './TodayRecipe/TodayRecipe.js';
 
 export const HomePage = () => {
-    const [recipes, setRecipes] = useState([]);
-    const [articles, setArticles] = useState([]);
-
-    useEffect(() => {
-        recipeService.getAll()
-            .then(result => setRecipes(result))
-    }, []);
-
-    useEffect(() => {
-        articleService.getAll()
-            .then(result => setArticles(result))
-    }, []);
-
-    const sortedArticlesByDate =
-        articleService.sortByDate(articles);
+    const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
+    const [articles, setArticles] = useFetch("http://localhost:3030/data/articles", []);
 
     return (
         <>
-            <GalleryArticles articles={sortedArticlesByDate} />
-
+            <GalleryArticles articles={articles} />
             <section className={styles['hero']}>
-                <div className={styles["today-recipe"]}>
-                    <div className={styles["today-recipe__img-holder"]}>
-                        <img src="/img/dishes/eggsausage.jpg" alt="" />
-                    </div>
-                    <article>
-                        <p className={styles["today-recipe__title"]}>Vegeterian Dinner </p>
-                        <h2>Roasted Eggplant and Butternut Suqash</h2>
-                        <p className={styles["today-recipe__descr"]}>Dignissimos culpa aliquid ad nulla nemo, esse unde iusto beatae facilis
-                            quia, minima assumenda.</p>
-                        <a href="">Get the recipe</a>
-                    </article>
-                </div>
+                <TodayRecipe recipes={recipes} />
                 <div className={styles["recipe-by-user"]}>
                     <ul type="none">
                         <li>

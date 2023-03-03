@@ -1,13 +1,11 @@
 
 const baseUrl = 'http://localhost:3030/data/articles'
 
+export const sortByDate = (articlesArray) => {
 
-export const getAll = () => {
-    return fetch(baseUrl)
-        .then(resp => resp.json())
-}
+    let result = [];
+    result = [...articlesArray];
 
-export const sortByDate =  (articlesArray) => {
     function compare(a, b) {
         if (a.createdOn < b.createdOn) {
             return -1;
@@ -17,6 +15,5 @@ export const sortByDate =  (articlesArray) => {
         }
         return 0;
     }
-
-    return articlesArray.sort(compare).splice(0, 5);
+    return result.sort(compare).splice(0, 5);
 }

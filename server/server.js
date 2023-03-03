@@ -1403,24 +1403,26 @@
                 ],
                 "portions": "3",
                 "_createdOn": 1617194295474,
+                "imageUrl": "/img/dishes/pancakes.jpg"
             },
-            "kdjsakldjas9jd2av": {
+            "kdjsakldjasdasdsa9jd2av": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "name": "Tarator",
+                "name": "Chicken with fries on oven 2",
                 "details": {
                     "season": "All season",
-                    "timeOfTheDay": "all day",
-                    "meat": "none",
+                    "timeOfTheDay": ["dinner", "lunch"],
+                    "meat": "chicken",
                     "kitchen": "Bulgarian",
-                    "level": "amateur",
-                    "calories": "100",
+                    "level": "mid",
+                    "calories": "400",
                 }, "times": {
                     "prep-time": "30",
-                    "cook-time": "20",
-                    "total-time": "50"
+                    "cook-time": "40",
+                    "total-time": "70"
                 }, "products": [
-                    { "yoghurt": "2 pieces" },
-                    { "cucumbers": "1 kilo" },
+                    { "chicken": "500 gr." },
+                    { "potatoes": "1 kilo" },
+                    { "salt": "по вкус" },
                     { "salt": "по вкус" }
                 ], "steps": [
                     { "step1": "prep" },
@@ -1429,6 +1431,7 @@
                 ],
                 "portions": "1",
                 "_createdOn": 1617194295474,
+                "imageUrl": "/img/dishes/pancakes.jpg",
             },
             "kdjsakldjas9jd2av": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
@@ -1456,6 +1459,7 @@
                 ],
                 "portions": "1",
                 "_createdOn": 1617194295474,
+                "imageUrl": "/img/dishes/pancakes.jpg",
             }
         },
 

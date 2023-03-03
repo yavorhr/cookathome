@@ -32,7 +32,7 @@ function App() {
             {/* <Register/> */}
             {/* <Login /> */}
 
-            <CatalogRecipes/>
+            {/* <CatalogRecipes/> */}
             {/* <CreateRecipe></CreateRecipe> */}
             {/* <EditRecipe></EditRecipe> */}
             {/* <RecipeDetails></RecipeDetails> */}

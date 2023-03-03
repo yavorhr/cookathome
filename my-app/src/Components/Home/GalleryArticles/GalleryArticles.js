@@ -1,13 +1,17 @@
 import styles from './GalleryArticles.module.css'
+import * as articleService from '../../service/articleService.js'
 
 export const GalleryArticles = ({
-    articles }) => {
+    articles
+     }) => {
+
+    const sorted = articleService.sortByDate(articles);
 
     return (
         <section className={styles["gallery"]}>
             <ul type="none">
-                {
-                    articles.map(a =>
+                 {
+                    sorted.map(a =>
                         <li className={styles["article-item"]} key={a._id}>
                             <a href="">
                                 <img src={a.imageUrl} alt="recipe details" />
@@ -17,7 +21,7 @@ export const GalleryArticles = ({
                                 </div>
                             </a>
                         </li>)
-                }
+                } 
             </ul>
         </section>
     )

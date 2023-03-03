@@ -1,8 +1,11 @@
 
 const baseUrl = 'http://localhost:3030/data/recipes'
 
+export const getRandomRecipe = (recipes) => {
+    let randomRecipe = {};
+    const index = Math.floor(Math.random() * recipes.length);
 
-export const getAll = () => {
-    return fetch(baseUrl)
-        .then(resp => resp.json())
+    randomRecipe = { ...recipes[index] };
+
+    return randomRecipe;
 }
