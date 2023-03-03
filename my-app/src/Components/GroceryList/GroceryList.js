@@ -1,7 +1,6 @@
 import styles from './GroceryList.module.css';
 
 export const GroceryList = () => {
-
     return (
         <>
             <div className={styles["background"]}>

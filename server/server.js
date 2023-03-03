@@ -1382,7 +1382,7 @@
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "name": "Moussaka",
                 "details": {
-                    "season": "winter",
+                    "season": "Winter",
                     "timeOfTheDay": "dinner",
                     "meat": "pork",
                     "kitchen": "bulgarian",
@@ -1409,7 +1409,7 @@
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "name": "Chicken with fries on oven 2",
                 "details": {
-                    "season": "All season",
+                    "season": "Spring",
                     "timeOfTheDay": ["dinner", "lunch"],
                     "meat": "chicken",
                     "kitchen": "Bulgarian",
@@ -1437,7 +1437,7 @@
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "name": "Chicken with fries on oven",
                 "details": {
-                    "season": "All season",
+                    "season": "Summer",
                     "timeOfTheDay": ["dinner", "lunch"],
                     "meat": "chicken",
                     "kitchen": "Bulgarian",

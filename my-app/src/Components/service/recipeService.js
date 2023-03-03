@@ -26,3 +26,8 @@ export const sortRecipesByCreationDateDesc = (recipesArray) => {
     }
     return result.sort(compare).splice(0, 5);
 }
+
+export const findRecipesBySeason = (season) => {
+    const toUpperCase = season.charAt(0).toUpperCase() + season.slice(1);
+    console.log(toUpperCase);
+}

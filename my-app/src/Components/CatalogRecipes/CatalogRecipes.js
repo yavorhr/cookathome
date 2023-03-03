@@ -1,9 +1,24 @@
 import styles from './CatalogRecipes.module.css';
+
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-
+import * as recipeService from '../service/recipeService.js'
 
 export const CatalogRecipes = () => {
+    const [recipes, setRecipes] = useState([]);
+    const { seasonId } = useParams();
+  
+    console.log(seasonId);
+
+    useEffect(() => {
+       console.log( recipeService
+        .findRecipesBySeason(seasonId));
+          
+    }, []);
+
     return (
         <section>
             <article className={styles["search-bar"]}>

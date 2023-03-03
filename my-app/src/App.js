@@ -1,4 +1,5 @@
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
 
 import { Navigation } from "./Components/common/Navigation/Navigation.js";
 import { HomePage } from "./Components/Home/HomePage.js";
@@ -18,13 +19,22 @@ import { EditRecipe } from './Components/EditRecipe/EditRecipe.js';
 import { RecipeDetails } from './Components/RecipeDetails/RecipeDetails.js';
 import { GroceryList } from './Components/GroceryList/GroceryList.js';
 
-
 function App() {
     return (
         <div className="App">
             <Navigation />
 
-            <HomePage></HomePage>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="favorites" element={<Favorites />} />
+                <Route path="/groecery-list" element={<GroceryList />} />
+                <Route path="/users/login" element={<Login />} />
+                <Route path="/users/register" element={<Register />} />
+                <Route path="/users/profile" element={<Profile />} />
+                <Route path="/recipes/:seasonId" element={<CatalogRecipes />} />
+                <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
+            </Routes>
+
             {/* <Favorites></Favorites> */}
             {/* <GroceryList></GroceryList> */}
 
@@ -45,7 +55,7 @@ function App() {
             {/* <EditArtice></EditArtice> */}
 
             <Footer>
-                
+
             </Footer>
         </div>
 

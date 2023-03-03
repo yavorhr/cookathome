@@ -1,22 +1,25 @@
 import styles from './Navigation.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faUser, faMagnifyingGlass, faCartShopping, } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faUser, faMagnifyingGlass, faCartShopping, } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 export const Navigation = () => {
     return (
         <nav className={styles['navigation']}>
             <article className={`${styles['logo-fav-wrapper']}`}>
-                <a href=""><img className={styles['logo']} src="../img/logo.png" /></a>
+                <Link to="/">
+                    <img className={styles['logo']} src="../img/logo.png" />
+                </Link>
                 <div className={`${styles['nav-item']} ${styles['favourites']}}`}>
-                    <button className={styles["favorites__btn"]}>
+                    <Link className={styles["favorites__link"]} to="favorites">
                         <FontAwesomeIcon icon={faHeart} className={styles["fa-heart"]}></FontAwesomeIcon>
-                    </button>
+                    </Link>
                 </div>
                 <div className={`${styles['nav-item']} ${styles['shopping-list']}}`}>
-                    <button className={styles["shopping-list__btn"]}>
+                    <Link className={styles["shopping-list__link"]} to="groecery-list">
                         <FontAwesomeIcon icon={faCartShopping} className={styles["fa-cart-shopping"]}></FontAwesomeIcon>
-                    </button>
+                    </Link>
                 </div>
             </article>
 
@@ -27,10 +30,10 @@ export const Navigation = () => {
                         <div className={styles["dropdown-heading"]}>
                             <span>Season</span>
                             <div className={styles["dropdown-links"]}>
-                                <a href="#" className={styles['nav-link']}>Spring</a>
-                                <a href="#" className={styles['nav-link']}>Summer</a>
-                                <a href="#" className={styles['nav-link']}>Autumn</a>
-                                <a href="#" className={styles['nav-link']}>Winter</a>
+                                <Link to="/recipes/spring" className={styles['nav-link']}>Spring</Link>
+                                <Link to="/recipes/summer" className={styles['nav-link']}>Summer</Link>
+                                <Link to="/recipes/autumn" className={styles['nav-link']}>Autumn</Link>
+                                <Link to="/recipes/winter" className={styles['nav-link']}>Winter</Link>
                             </div>
                         </div>
                         <div className={styles["dropdown-heading"]}>
@@ -161,21 +164,21 @@ export const Navigation = () => {
 
             <article className={styles["user-shortcut-buttons"]}>
                 <div className={`${styles["sign-up-links"]}`}>
-                    <a href="">Login</a>
+                    <Link to="/users/login">Login</Link>
                     <span>/</span>
-                    <a href="">Register</a>
+                    <Link to="/users/register">Register</Link>
                     <a href="" className={styles["logout-btn"]}>Logout</a>
-                    <button
-                        className={styles["user-profile-shortcut-btn"]}>
+                    <Link to="/users/profile"
+                        className={styles["user-profile-shortcut-link"]}>
                         <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-                    </button>
+                    </Link>
                 </div>
 
             </article>
             <article className={`${styles["nav-item"]} ${styles["search"]}`}>
-                <button className={styles["search__btn"]}>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["search__icon"]} ></FontAwesomeIcon>
-                </button>
+                <Link className={styles["search__link"]}>
+                    <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["search__icon"]}></FontAwesomeIcon>
+                </Link>
             </article>
 
             <article className={styles["hamburger"]}>

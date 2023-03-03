@@ -1,9 +1,3 @@
-/*
-=========================
-       Navigation
-=========================
-*/
-
 .navigation {
 	width: 100vw;
 	height: 120px;
@@ -109,7 +103,8 @@
 
 /* User profile button, when user is logged in */
 
-.user-profile-shortcut-btn {
+.user-profile-shortcut-link {
+	display: inline-block;
 	width: 40px;
 	padding: 5px;
 	border: none;
@@ -235,8 +230,8 @@
 
 /* Favorites button */
 
-.favorites__btn,
-.shopping-list__btn {
+.favorites__link,
+.shopping-list__link {
 	/* box model */
 	padding: 10px;
 	border: none;
@@ -251,7 +246,7 @@
 	transition: color .3s ease-in-out;
 }
 
-.favorites__btn:hover .fa-heart {
+.favorites__link:hover .fa-heart {
 	color: var(--white);
 }
 
@@ -263,48 +258,33 @@
 	transition: color .3s ease-in-out;
 }
 
-.shopping-list__btn:hover .fa-cart-shopping {
+.shopping-list__link:hover .fa-cart-shopping {
 	color: var(--user--login--btn--bckgrnd);
 }
 
 /*  Search button */
 
-.search__btn {
+
+
+.search__link {
 	display: inline-block;
 	position: relative;
-
-	padding: 10px 40px;
 	height: 120px;
 	border: none;
 	border-radius: 5px;
 	background-color: transparent;
-
 	cursor: pointer;
 }
 
-.search__btn:before {
-	content: "";
+.search__icon {
 	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	width: 1px;
-
-	background-color: var(--grey);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 22px;
 }
 
-.search__btn:after {
-	content: "";
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	width: 1px;
-
-	background-color: var(--grey);
-}
-
-.search__btn:hover .search__icon {
+.search__link:hover .search__icon {
 	color: var(--white);
 }
 
@@ -496,12 +476,12 @@
 
 	/* Search button */
 
-	.search__btn {
+	.search__link {
 		padding-left: 20px;
 	}
 
-	.search__btn:before,
-	.search__btn:after {
+	.search__link:before,
+	.search__link:after {
 		display: none;
 	}
 
