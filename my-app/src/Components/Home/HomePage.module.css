@@ -66,89 +66,12 @@
 ============================
 */
 
-.recipe-by-user {
-	width: 40%;
-}
-
-.recipe-by-user ul {
-	display: flex;
-	flex-direction: column;
-	gap: 15px;
-	;
-}
-
-.recipe-by-user article {
-	font-size: 20px;
-}
-
-.recipe-by-user ul article {
-	display: flex;
-	gap: 20px;
-	align-items: flex-start;
-	justify-content: center;
-}
-
-.recipe-by-user article img {
-	width: 20%;
-	border-radius: 60%
-}
-
-.recipe-by-user article div {
-	width: 60%;
-}
-
-.recipe-by-user article a {
-	text-decoration: none;
-	color: var(--black);
-}
-
-.recipe-by-user article a:hover {
-	text-decoration: underline;
-	color: var(--orange);
-}
-
-.recipe-by-user ul li {
-	border-bottom: 1px solid var(--light-gray);
-	width: 90%;
-	padding-bottom: 10px;
-}
-
-.recipe-by-user__info p {
-	color: var(--grey);
-	font-size: 16px;
-}
 
 /* 
-==================
- Recently added
-==================
-*/
-
-/*
-	Navigation
-*/
-
-.latest-recipes nav a {
-	text-decoration: none;
-	color: var(--black);
-	font-size: 20px;
-}
-
-.latest-recipes nav a:hover {
-	text-decoration: underline;
-	color: var(--orange);
-}
-
-.latest-recipes nav ul {
-	display: flex;
-	gap: 20px;
-}
-
-/* 
-	Recipes grid
+	Latest recipes
  */
 
-.latest-recipes__grid {
+ .latest-recipes__grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-template:
@@ -243,4 +166,20 @@
 .recipe-card__info a:hover {
 	text-decoration: underline;
 	color: var(--orange)
+}
+
+.latest-recipes nav a {
+	text-decoration: none;
+	color: var(--black);
+	font-size: 20px;
+}
+
+.latest-recipes nav a:hover {
+	text-decoration: underline;
+	color: var(--orange);
+}
+
+.latest-recipes nav ul {
+	display: flex;
+	gap: 20px;
 }

@@ -9,3 +9,7 @@ export const getRandomRecipe = (recipes) => {
 
     return randomRecipe;
 }
+
+export const getRecipesByUser = () =>{
+    fetch('URL: /data/comments?where=gameId%3D%22{gameId}%22')
+}

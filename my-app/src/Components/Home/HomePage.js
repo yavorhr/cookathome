@@ -3,6 +3,7 @@ import { useFetch } from '../hooks/useFetch.js';
 
 import { GalleryArticles } from './GalleryArticles/GalleryArticles.js';
 import { TodayRecipe } from './TodayRecipe/TodayRecipe.js';
+import { RecipeByUser } from './RecipeByUser/RecipeByUser.js';
 
 export const HomePage = () => {
     const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
@@ -11,42 +12,13 @@ export const HomePage = () => {
     return (
         <>
             <GalleryArticles articles={articles} />
+
             <section className={styles['hero']}>
+
                 <TodayRecipe recipes={recipes} />
-                <div className={styles["recipe-by-user"]}>
-                    <ul type="none">
-                        <li>
-                            <article>
-                                <img src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
-                                </img>
-                                <div className={styles["recipe-by-user__info"]}>
-                                    <a href="">Albena</a> sgotvi <a href="">Retro sladkish</a>
-                                    <p>4 min ago</p>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article>
-                                <img src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
-                                </img>
-                                <div className={styles["recipe-by-user__info"]}>
-                                    <a href="">Albena</a> sgotvi <a href="">Retro sladkish</a>
-                                    <p>4 min ago</p>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article>
-                                <img src="https://images.healthshots.com/healthshots/en/uploads/2022/09/14175516/financially-independent-1600x900.jpg">
-                                </img>
-                                <div className={styles["recipe-by-user__info"]}>
-                                    <a href="">Albena</a> sgotvi <a href="">Retro sladkish</a>
-                                    <p>4 min ago</p>
-                                </div>
-                            </article>
-                        </li>
-                    </ul>
-                </div>
+
+                <RecipeByUser recipes={recipes}/>
+
             </section>
 
             <section className={styles["latest-recipes"]}>
