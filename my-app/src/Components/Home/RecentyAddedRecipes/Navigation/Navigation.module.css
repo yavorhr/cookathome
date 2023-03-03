@@ -13,3 +13,11 @@
 	display: flex;
 	gap: 20px;
 }
+
+.navigation span {
+	background-color: var(--orange);
+	padding: 10px;
+	border-radius: 20px;
+
+	font-size: 20px;
+}

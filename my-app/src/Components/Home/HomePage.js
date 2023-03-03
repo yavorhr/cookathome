@@ -4,7 +4,8 @@ import { useFetch } from '../hooks/useFetch.js';
 import { GalleryArticles } from './GalleryArticles/GalleryArticles.js';
 import { TodayRecipe } from './TodayRecipe/TodayRecipe.js';
 import { RecipeByUser } from './RecipeByUser/RecipeByUser.js';
-import { Nav } from './RecentyAddedRecipes/Navigation/Nav.js';
+import { Navigation } from './RecentyAddedRecipes/Navigation/Navigation.js';
+import { NewestRecipes } from './RecentyAddedRecipes/NewestRecipes/NewestRecipes.js';
 
 export const HomePage = () => {
     const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
@@ -20,60 +21,9 @@ export const HomePage = () => {
             </section>
 
             <section className={styles["latest-recipes"]}>
-                <Nav/>
+                <Navigation />
 
-                <ul className={styles["latest-recipes__grid"]} type="none">
-                    <li className={styles["recipe-card"]}>
-                        <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
-                        <div className={styles["recipe-card__info"]}>
-                            <h3> <a href="">Гризини</a> </h3>
-                            <p>29 Януари <a href="">Йорданка Т.</a> </p>
-                        </div>
-                    </li>
-                    <li className={styles["recipe-card"]}>
-                        <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
-                        <div className={styles["recipe-card__info"]}>
-                            <h3> <a href="">Гризини</a> </h3>
-                            <p>29 Януари <a href="">Йорданка Т.</a> </p>
-                        </div>
-                    </li>
-                    <li className={styles["recipe-card"]}>
-                        <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
-                        <div className={styles["recipe-card__info"]}>
-                            <h3> <a href="">Гризини</a> </h3>
-                            <p>29 Януари <a href="">Йорданка Т.</a> </p>
-                        </div>
-                    </li>
-                    <li className={styles["recipe-card"]}>
-                        <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
-                        <div className={styles["recipe-card__info"]}>
-                            <h3> <a href="">Гризини</a> </h3>
-                            <p>29 Януари <a href="">Йорданка Т.</a> </p>
-                        </div>
-                    </li>
-                    <li className={styles["recipe-card"]}>
-                        <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
-                        <div className={styles["recipe-card__info"]}>
-                            <h3> <a href="">Гризини</a> </h3>
-                            <p>29 Януари <a href="">Йорданка Т.</a> </p>
-                        </div>
-                    </li>
-                    <li className={styles["recipe-card"]}>
-                        <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
-                        <div className={styles["recipe-card__info"]}>
-                            <h3> <a href="">Гризини</a> </h3>
-                            <p>29 Януари <a href="">Йорданка Т.</a> </p>
-                        </div>
-                    </li>
-                    <li className={styles["recipe-card"]}>
-                        <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg" alt="" />
-                        <div className={styles["recipe-card__info"]}>
-                            <h3><a href="">Гризини</a>
-                            </h3>
-                            <p>29 Януари <a href="">Йорданка Т.</a> </p>
-                        </div>
-                    </li>
-                </ul>
+                <NewestRecipes recipes={recipes} />
             </section>
         </>
     )

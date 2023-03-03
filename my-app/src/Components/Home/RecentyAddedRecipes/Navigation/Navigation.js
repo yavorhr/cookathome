@@ -1,6 +1,6 @@
-import styles from './Nav.module.css'
+import styles from './Navigation.module.css'
 
-export const Nav = () => {
+export const Navigation = () => {
     return (
         <nav className={styles["navigation"]}>
             <ul type="none">
