@@ -5,19 +5,21 @@ import { useParams } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import * as recipeService from '../service/recipeService.js'
+import * as recipeService from '../../service/recipeService.js'
+
+import { CatalogItem } from './CatalogItem/CatalogItem.js';
 
 export const CatalogRecipes = () => {
     const [recipes, setRecipes] = useState([]);
-    const { seasonId } = useParams();
-  
-    console.log(seasonId);
+    // const { seasonId } = useParams();
 
-    useEffect(() => {
-       console.log( recipeService
-        .findRecipesBySeason(seasonId));
-          
-    }, []);
+    // console.log(seasonId);
+
+    // useEffect(() => {
+    //    console.log( recipeService
+    //     .findRecipesBySeason(seasonId));
+
+    // }, []);
 
     return (
         <section>
@@ -36,21 +38,7 @@ export const CatalogRecipes = () => {
             </article>
             <h2 className={styles["section-title"]}>Recently added</h2>
             <ul className={styles["card-list"]} type="none">
-                <li className={styles["list-item"]}>
-                    <a href="#">
-                        <div className={styles["img-holder"]}>
-                            <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                        </div>
-                        <div className={styles["card-info"]}>
-                            <h3 className={styles["card-title"]}>Lasagna</h3>
-                            <p className={styles["card-descr"]}>Very delicious dish for the whole family...</p>
-                            <span>
-                                <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>
-                                30 mins
-                            </span>
-                        </div>
-                    </a>
-                </li>
+
                 <li className={styles["list-item"]}>
                     <a href="#">
                         <div className={styles["img-holder"]}>

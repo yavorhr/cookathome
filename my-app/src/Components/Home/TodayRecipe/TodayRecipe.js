@@ -1,6 +1,6 @@
 import styles from './TodayRecipe.module.css';
 
-import * as recipeService from '../../service/recipeService.js';
+import * as recipeService from '../../../service/recipeService.js';
 
 export const TodayRecipe = ({
     recipes }) => {

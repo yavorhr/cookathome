@@ -1,7 +1,7 @@
 import styles from './RecipeByUser.module.css';
 import { Recipe } from './Recipe/Recipe.js';
 
-import * as recipeServer from '../../service/recipeService.js'
+import * as recipeServer from '../../../service/recipeService.js'
 
 export const RecipeByUser = ({ recipes }) => {
 
