@@ -1,6 +1,7 @@
 import './App.css';
 import { useFetch } from '../src/hooks/useFetch.js';
 import { Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Navigation } from "./Components/common/Navigation/Navigation.js";
 import { HomePage } from "./Components/Home/HomePage.js";
@@ -34,12 +35,11 @@ function App() {
                 <Route path="/users/login" element={<Login />} />
                 <Route path="/users/register" element={<Register />} />
                 <Route path="/users/profile" element={<Profile />} />
-                <Route path="/recipes/:seasonId" element={<CatalogRecipes />} />
+                {/* <Route path="/recipes/:seasonId" element={<CatalogRecipes />} /> */}
                 <Route path="favorites" element={<Favorites />} />
-                <Route path="/recipes/:recipeId" element={<RecipeDetails />} />
+                <Route path="/details/:recipeId" element={<RecipeDetails />} />
+                <Route path="/catalog-recipes/:season" element={<CatalogRecipes recipes={recipes} />} />
             </Routes>
-
-            <CatalogRecipes />
 
             {/* <CreateRecipe></CreateRecipe> */}
             {/* <EditRecipe></EditRecipe> */}
@@ -54,6 +54,8 @@ function App() {
 
             <Footer />
 
+
+            <Link to="/catalog-recipes/autumn">Autumn</Link>
 
         </div>
 

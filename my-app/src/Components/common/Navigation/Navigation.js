@@ -30,10 +30,10 @@ export const Navigation = () => {
                         <div className={styles["dropdown-heading"]}>
                             <span>Season</span>
                             <div className={styles["dropdown-links"]}>
-                                <Link to="/recipes/spring" className={styles['nav-link']}>Spring</Link>
-                                <Link to="/recipes/summer" className={styles['nav-link']}>Summer</Link>
-                                <Link to="/recipes/autumn" className={styles['nav-link']}>Autumn</Link>
-                                <Link to="/recipes/winter" className={styles['nav-link']}>Winter</Link>
+                                <Link to="/catalog-recipes/spring" className={styles['nav-link']}>Spring</Link>
+                                <Link to="/catalog-recipes/summer" className={styles['nav-link']}>Summer</Link>
+                                <Link to="/catalog-recipes/autumn" className={styles['nav-link']}>Autumn</Link>
+                                <Link to="/catalog-recipes/winter" className={styles['nav-link']}>Winter</Link>
                             </div>
                         </div>
                         <div className={styles["dropdown-heading"]}>

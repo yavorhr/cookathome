@@ -2,10 +2,14 @@ import styles from './CatalogItem.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons'
 
-export const CatalogItem = () => {
+import { Link } from 'react-router-dom';
+
+export const CatalogItem = ({ recipe }) => {
+
+
     return (
         <li className={styles["list-item"]}>
-            <a href="#">
+            <Link to={`/details/${recipe._id}`}>
                 <div className={styles["img-holder"]}>
                     <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
                 </div>
@@ -17,7 +21,7 @@ export const CatalogItem = () => {
                         30 mins
                     </span>
                 </div>
-            </a>
+            </Link>
         </li>
     );
 }

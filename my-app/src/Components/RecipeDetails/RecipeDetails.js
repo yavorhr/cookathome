@@ -1,16 +1,34 @@
-import '../../App.css';
 import styles from './RecipeDetails.module.css';
+import * as recipeService from '../../service/recipeService.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUtensils, faCamera, faFireBurner, faPenToSquare, faTrashCan, faCircleCheck, faHeart, faClock, faPlus, } from '@fortawesome/free-solid-svg-icons'
 
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+
 export const RecipeDetails = () => {
+    const [recipe, setRecipe] = useState({});
+
+    const { recipeId } = useParams();
+
+
+    useEffect(() => {
+        recipeService
+            .getById(recipeId)
+            .then(result =>
+                setRecipe(result));
+    }
+        , []);
+
+    console.log(recipe);
 
     return (
         <>
             <section className={styles["header"]}>
                 <article>
-                    <h1 className={styles["header__h1"]}>Pork steaks</h1>
+                    <h1 className={styles["header__h1"]}></h1>
                 </article>
                 <article>
                     <q className={styles["header__descr"]}>
@@ -75,7 +93,7 @@ export const RecipeDetails = () => {
                             </div>
                             <div className={styles["wrapper"]}>
                                 <button className={styles["btn"]}>
-                                    <FontAwesomeIcon className={styles["icon"]} icon={faCircleCheck}></FontAwesomeIcon>    
+                                    <FontAwesomeIcon className={styles["icon"]} icon={faCircleCheck}></FontAwesomeIcon>
                                 </button>
                                 <span>Favorites</span>
                             </div>

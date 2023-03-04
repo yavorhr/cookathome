@@ -31,3 +31,8 @@ export const findRecipesBySeason = (season) => {
     const toUpperCase = season.charAt(0).toUpperCase() + season.slice(1);
     return toUpperCase;
 }
+
+export const getById = (id) => {
+    return fetch(`${baseUrl}/${id}`)
+    .then(resp => resp.json());
+}
