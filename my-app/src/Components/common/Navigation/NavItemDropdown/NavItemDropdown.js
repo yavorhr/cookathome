@@ -1,7 +1,9 @@
 
 
+import styles from './NavItemDropdown.module.css';
+
 import { useState } from "react";
-import { DropdownMenu } from "./DropdownMenu.js";
+import { DropdownMenu } from "../DropdownMenu/DropdownMenu.js";
 
 export const NavItemDropdown = (props) => {
     const [open, setOpen] = useState(false);

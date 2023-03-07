@@ -3,13 +3,12 @@ import styles from './DropdownMenu.module.css';
 import React, { useState, useEffect, useRef } from 'react';
 
 import { CSSTransition } from 'react-transition-group';
-import { DropdownItem } from './DropdownItem.js';
+import { DropdownItem } from "../DropdownMenu/DropdownItem/DropdownItem.js";
 
 import { ReactComponent as CogIcon } from '../svg//cog.svg';
 import { ReactComponent as ChevronIcon } from '../svg/chevron.svg';
 import { ReactComponent as ArrowIcon } from '../svg/arrow.svg';
 import { ReactComponent as BoltIcon } from '../svg/bolt.svg';
-
 export const DropdownMenu = (props) => {
     const [activeMenu, setActiveMenu] = useState('main');
     const [menuHeight, setMenuHeight] = useState(null);
@@ -29,15 +28,15 @@ export const DropdownMenu = (props) => {
     }
 
     return (
-        <div className={styles['dropdown']} style={{ height: menuHeight }} ref={dropdownRef}>
+        <div className={styles["dropdown"]} style={{ height: menuHeight }} ref={dropdownRef}>
 
             <CSSTransition
                 in={activeMenu === 'main'}
-                timeout={500}
-                classNames={styles['menu-primary']}
+                timeout={100}
+                className={styles["menu-primary"]}
                 unmountOnExit
                 onEnter={calcHeight}>
-                <div className={styles['menu']}>
+                <div className={styles["menu"]}>
 
                     <DropdownItem
                         leftIcon={<CogIcon />}
@@ -70,12 +69,12 @@ export const DropdownMenu = (props) => {
 
             <CSSTransition
                 in={activeMenu === 'season'}
-                timeout={500}
-                classNames={styles["menu-secondary"]}
+                timeout={100}
+                className={styles["menu-secondary"]}
                 unmountOnExit
                 onEnter={calcHeight}>
 
-                <div className={styles['menu']}>
+                <div className={styles["menu"]}>
                     <DropdownItem
                         goToMenu="main"
                         leftIcon={<ArrowIcon />}
@@ -91,39 +90,39 @@ export const DropdownMenu = (props) => {
 
             <CSSTransition
                 in={activeMenu === 'timeOfTheDay'}
-                timeout={500}
-                classNames={styles['menu-secondary']}
+                timeout={100}
+                className={styles["menu-secondary"]}
                 unmountOnExit
                 onEnter={calcHeight}
             >
-                <div className={styles['menu']}>
-                    <DropdownItem goToMenu='main' leftIcon={<ArrowIcon />}
+               <div className={styles["menu"]}>
+                    <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}
                         setActiveMenu={setActiveMenuHandler}>
                         <h2>Back</h2>
                     </DropdownItem>
-                    <DropdownItem leftIcon='🦘'>Breakfst</DropdownItem>
-                    <DropdownItem leftIcon='🐸'>Lunch</DropdownItem>
-                    <DropdownItem leftIcon='🦋'>Snack</DropdownItem>
-                    <DropdownItem leftIcon='🦔'>Dinner</DropdownItem>
+                    <DropdownItem leftIcon="🦘">Breakfst</DropdownItem>
+                    <DropdownItem leftIcon="🐸">Lunch</DropdownItem>
+                    <DropdownItem leftIcon="🦋">Snack</DropdownItem>
+                    <DropdownItem leftIcon="🦔">Dinner</DropdownItem>
                 </div>
             </CSSTransition>
 
             <CSSTransition
                 in={activeMenu === 'calories'}
-                timeout={500}
-                classNames={styles['menu-secondary']}
+                timeout={100}
+                classNames={styles["menu-secondary"]}
                 unmountOnExit
                 onEnter={calcHeight}
             >
-                <div className={styles['menu']}>
-                    <DropdownItem goToMenu='main' leftIcon={<ArrowIcon />}
+               <div className={styles["menu"]}>
+                    <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}
                         setActiveMenu={setActiveMenuHandler}>
                         <h2>Back</h2>
                     </DropdownItem>
-                    <DropdownItem leftIcon='🦘'> Under 200 </DropdownItem>
-                    <DropdownItem leftIcon='🐸'>Up to 500</DropdownItem>
-                    <DropdownItem leftIcon='🦋'>Up to 700</DropdownItem>
-                    <DropdownItem leftIcon='🦔'>Up to 1000</DropdownItem>
+                    <DropdownItem leftIcon="🦘"> Under 200 </DropdownItem>
+                    <DropdownItem leftIcon="🐸">Up to 500</DropdownItem>
+                    <DropdownItem leftIcon="🦋">Up to 700</DropdownItem>
+                    <DropdownItem leftIcon="🦔">Up to 1000</DropdownItem>
                 </div>
             </CSSTransition>
 

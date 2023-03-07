@@ -1,8 +1,7 @@
-.search-comp svg {
+.search-comp {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 /* <li> */

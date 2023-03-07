@@ -6,9 +6,7 @@ import { ReactComponent as Favorites } from '../svg/favorites.svg';
 import { ReactComponent as Bag } from '../svg//bag.svg';
 import { ReactComponent as Profile } from '../svg//profile3.svg';
 import { ReactComponent as Recipes } from '../svg/ladle.svg';
-import { ReactComponent as Articles } from '../svg/svg/write.svg';
-
-import { ReactComponent as Articles } from '';
+import { ReactComponent as Articles } from '../svg/write.svg';
 
 import { SearchComponent } from "./Search/SearchComponent.js";
 import { NavItemDropdown } from "../NavItemDropdown/NavItemDropdown.js";
@@ -34,13 +32,13 @@ export const Navbar = () => {
                 <div className={styles["wrapper"]}>
                     <article className={styles["user-shortcut-buttons"]}>
                         <div className={styles["sign-up-links"]}>
-                            <Link to="/users/login">Login</Link>
+                            <Link className={styles["link-item"]} to="/users/login">Login</Link>
                             <span>/</span>
-                            <Link to="/users/register">Register</Link>
-                            <a href="" className="logout-btn">Logout</a>
+                            <Link className={styles["link-item"]} to="/users/register">Register</Link>
+                            <a href="" className={styles["logout-btn"]}>Logout</a>
                             <Link to="/users/profile"
                                 className={styles["user-profile-shortcut-link"]} >
-                                <Profile className={styles[`${"icon-button"} ${"profile"}`]} />
+                                <Profile /> 
                             </Link>
                         </div>
                     </article>

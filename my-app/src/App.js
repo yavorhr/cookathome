@@ -3,7 +3,6 @@ import { useFetch } from '../src/hooks/useFetch.js';
 import { Routes, Route } from 'react-router-dom';
 
 
-import { Navigation } from "./Components/common/Navigation/Navigation.js";
 import { HomePage } from "./Components/Home/HomePage.js";
 import { Login } from "./Components/Login/Login.js";
 import { Register } from "./Components/Register/Register.js";
@@ -20,7 +19,7 @@ import { EditRecipe } from './Components/EditRecipe/EditRecipe.js';
 import { RecipeDetails } from './Components/RecipeDetails/RecipeDetails.js';
 import { GroceryList } from './Components/GroceryList/GroceryList.js';
 import { Footer } from "./Components/common/Footer/Footer.js";
-
+import { Navbar } from './Components/common/Navigation/Navbar/Navbar.js';
 
 
 function App() {
@@ -31,7 +30,8 @@ function App() {
         <div className="App">
     
       
-        <Navigation></Navigation>
+        {/* <Navigation></Navigation> */}
+        <Navbar></Navbar>
 
             <Routes>
                 <Route path="/" element={<HomePage recipes={recipes} articles={articles} />} />

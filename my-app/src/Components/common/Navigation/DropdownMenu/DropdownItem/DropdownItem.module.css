@@ -5,59 +5,21 @@
     border-radius: var(--border-radius);
     transition: background var(--speed);
     padding: 0.5rem;
-}
-
-.menu-item .icon-button {
+  }
+  
+  .menu-item .icon-button {
     margin-right: 0.5rem;
-}
-
-
-.menu-item .icon-button:hover {
+  }
+  
+  
+  .menu-item .icon-button:hover {
     filter: none;
-}
-
-.menu-item:hover {
+  }
+  
+  .menu-item:hover {
     background-color: #525357;
-}
-
-/* Icon Button */
-.icon-button {
-    --button-size: calc(var(--nav-size) * 0.7);
-    width: var(--button-size);
-    height: var(--button-size);
-    background-color: #c4bebe;
-    border-radius: 50%;
-    padding: 5px;
-    margin: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: filter 300ms;
-}
-
-.icon-button:hover {
-    filter: brightness(1.4);
-}
-
-.icon-button svg {
-    fill: var(--text-color);
-    width: 30px;
-    height: 25px;
-}
-
-.menu-item .icon-button {
-    margin-right: 0.5rem;
-}
-
-
-.menu-item .icon-button:hover {
-    filter: none;
-}
-
-.menu-item:hover {
-    background-color: #525357;
-}
-
-.icon-right {
+  }
+  
+  .icon-right {
     margin-left: auto;
   }
