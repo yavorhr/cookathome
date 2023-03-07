@@ -1,7 +1,6 @@
 
 
 import { useState } from "react";
-
 import { DropdownMenu } from "./DropdownMenu.js";
 
 export const NavItemDropdown = (props) => {
@@ -11,9 +10,9 @@ export const NavItemDropdown = (props) => {
     const articlesData = [{ menu: 'rec', url: ['1', '2', '3', '4'] }]
 
     return (
-        <div className='nav-item-dropdown-wrapper'>
-            <li className="nav-item">
-                <a href="#" className="icon-button" onClick={() => setOpen(!open)} >
+        <div className={styles['nav-item-dropdown-wrapper']}>
+            <li className={styles['nav-item']}>
+                <a href="#" className={styles['icon-button']} onClick={() => setOpen(!open)} >
                     {props.icon}
                 </a>
                 {open && props.title === 'Recipes' && <DropdownMenu data={recipesData} />}
