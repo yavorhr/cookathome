@@ -1,12 +1,15 @@
 
 
-import styles from './NavItemDropdown.module.css';
-
+import styles from './Dropdown.module.css';
 import { useState } from "react";
-import { DropdownMenu } from "../DropdownMenu/DropdownMenu.js";
+import { DropdownMenu } from "../DropdownMenu/DropdownMenu.js"
 
-export const NavItemDropdown = (props) => {
+export const Dropdown = (props) => {
     const [open, setOpen] = useState(false);
+
+    const clickHandler = (s) => {
+        setOpen(false);
+    }
 
     const recipesData = [{ menu: 'season', url: ['recipes/summer', 'recipes/winter', 'recipes/autumn', 'recipes/spring'] }]
     const articlesData = [{ menu: 'rec', url: ['1', '2', '3', '4'] }]
@@ -17,8 +20,8 @@ export const NavItemDropdown = (props) => {
                 <a href="#" className={styles['icon-button']} onClick={() => setOpen(!open)} >
                     {props.icon}
                 </a>
-                {open && props.title === 'Recipes' && <DropdownMenu data={recipesData} />}
-                {open && props.title === 'Articles' && <DropdownMenu data={articlesData} />}
+                {open && props.title === 'Recipes' && <DropdownMenu data={recipesData} onClickHandler={clickHandler} />}
+                {open && props.title === 'Articles' && <DropdownMenu data={articlesData} onClickHandler={clickHandler} />}
             </li>
 
             {props.title && <span>{props.title}</span>}

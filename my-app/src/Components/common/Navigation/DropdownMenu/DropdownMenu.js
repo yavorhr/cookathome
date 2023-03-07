@@ -1,132 +1,75 @@
-
 import styles from './DropdownMenu.module.css';
-import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
-import { CSSTransition } from 'react-transition-group';
-import { DropdownItem } from "../DropdownMenu/DropdownItem/DropdownItem.js";
-
-import { ReactComponent as CogIcon } from '../svg//cog.svg';
-import { ReactComponent as ChevronIcon } from '../svg/chevron.svg';
-import { ReactComponent as ArrowIcon } from '../svg/arrow.svg';
-import { ReactComponent as BoltIcon } from '../svg/bolt.svg';
 export const DropdownMenu = (props) => {
-    const [activeMenu, setActiveMenu] = useState('main');
-    const [menuHeight, setMenuHeight] = useState(null);
-    const dropdownRef = useRef(null);
 
-    useEffect(() => {
-        setMenuHeight(dropdownRef.current?.firstChild.offsetHeight)
-    }, [])
-
-    function calcHeight(el) {
-        const height = el.offsetHeight;
-        setMenuHeight(height);
-    }
-
-    const setActiveMenuHandler = (menu) => {
-        setActiveMenu(menu);
-    }
 
     return (
-        <div className={styles["dropdown"]} style={{ height: menuHeight }} ref={dropdownRef}>
-
-            <CSSTransition
-                in={activeMenu === 'main'}
-                timeout={100}
-                className={styles["menu-primary"]}
-                unmountOnExit
-                onEnter={calcHeight}>
-                <div className={styles["menu"]}>
-
-                    <DropdownItem
-                        leftIcon={<CogIcon />}
-                        rightIcon={<ChevronIcon />}
-                        goToMenu="season"
-                        setActiveMenu={setActiveMenuHandler}
-                    >
-                        Season
-                    </DropdownItem>
-
-                    <DropdownItem
-                        leftIcon={<CogIcon />}
-                        rightIcon={<ChevronIcon />}
-                        goToMenu="calories"
-                        setActiveMenu={setActiveMenuHandler}
-                    >
-                        Calories
-                    </DropdownItem>
-
-                    <DropdownItem
-                        leftIcon="🦧"
-                        rightIcon={<ChevronIcon />}
-                        goToMenu="timeOfTheDay"
-                        setActiveMenu={setActiveMenuHandler}>
-                        Time
-                    </DropdownItem>
-
+        <div className={styles["dropdown"]} >
+            <div className={`${styles["dropdown-content"]} ${styles["information-grid"]}`}>
+                <div className={styles["dropdown-heading"]}>
+                    <span>Season</span>
+                    <div className={styles["dropdown-links"]}>
+                        <Link onClick={()=> props.onClickHandler(false)} to="/catalog-recipes/spring" className={styles['nav-link']}>Spring</Link>
+                        <Link to="/catalog-recipes/summer" className={styles['nav-link']}>Summer</Link>
+                        <Link to="/catalog-recipes/autumn" className={styles['nav-link']}>Autumn</Link>
+                        <Link to="/catalog-recipes/winter" className={styles['nav-link']}>Winter</Link>
+                    </div>
                 </div>
-            </CSSTransition>
-
-            <CSSTransition
-                in={activeMenu === 'season'}
-                timeout={100}
-                className={styles["menu-secondary"]}
-                unmountOnExit
-                onEnter={calcHeight}>
-
-                <div className={styles["menu"]}>
-                    <DropdownItem
-                        goToMenu="main"
-                        leftIcon={<ArrowIcon />}
-                        setActiveMenu={setActiveMenuHandler}>
-                        <h2>Back</h2>
-                    </DropdownItem>
-                    <DropdownItem url={props.data[0].url[0]} leftIcon={<BoltIcon />}>Spring</DropdownItem >
-                    <DropdownItem url={props.data[0].url[1]} leftIcon={<BoltIcon />}>Summer</DropdownItem>
-                    <DropdownItem url={props.data[0].url[2]} leftIcon={<BoltIcon />}>Autumn</DropdownItem>
-                    <DropdownItem url={props.data[0].url[3]} leftIcon={<BoltIcon />}>Winter</DropdownItem>
+                <div className={styles["dropdown-heading"]}>
+                    <span>Time of the day</span>
+                    <div className={styles["dropdown-links"]}>
+                        <a href="#" className={styles['nav-link']}>Breakfast</a>
+                        <a href="#" className={styles['nav-link']}>Lunch</a>
+                        <a href="#" className={styles['nav-link']}>Dinner</a>
+                        <a href="#" className={styles['nav-link']}>Snack</a>
+                    </div>
                 </div>
-            </CSSTransition>
-
-            <CSSTransition
-                in={activeMenu === 'timeOfTheDay'}
-                timeout={100}
-                className={styles["menu-secondary"]}
-                unmountOnExit
-                onEnter={calcHeight}
-            >
-               <div className={styles["menu"]}>
-                    <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}
-                        setActiveMenu={setActiveMenuHandler}>
-                        <h2>Back</h2>
-                    </DropdownItem>
-                    <DropdownItem leftIcon="🦘">Breakfst</DropdownItem>
-                    <DropdownItem leftIcon="🐸">Lunch</DropdownItem>
-                    <DropdownItem leftIcon="🦋">Snack</DropdownItem>
-                    <DropdownItem leftIcon="🦔">Dinner</DropdownItem>
+                <div className={styles["dropdown-heading"]}> <span>Main ingredients</span>
+                    <div className={styles["dropdown-links"]}>
+                        <a href="#" className={styles['nav-link']}>Pork</a>
+                        <a href="#" className={styles['nav-link']}>Chicken</a>
+                        <a href="#" className={styles['nav-link']}>Fish</a>
+                        <a href="#" className={styles['nav-link']}>Lamb</a>
+                        <a className={`${styles['view-more']} ${styles['nav-link']}`} href="#">view more...</a>
+                    </div>
                 </div>
-            </CSSTransition>
-
-            <CSSTransition
-                in={activeMenu === 'calories'}
-                timeout={100}
-                classNames={styles["menu-secondary"]}
-                unmountOnExit
-                onEnter={calcHeight}
-            >
-               <div className={styles["menu"]}>
-                    <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}
-                        setActiveMenu={setActiveMenuHandler}>
-                        <h2>Back</h2>
-                    </DropdownItem>
-                    <DropdownItem leftIcon="🦘"> Under 200 </DropdownItem>
-                    <DropdownItem leftIcon="🐸">Up to 500</DropdownItem>
-                    <DropdownItem leftIcon="🦋">Up to 700</DropdownItem>
-                    <DropdownItem leftIcon="🦔">Up to 1000</DropdownItem>
+                <div className={styles["dropdown-heading"]}> <span>Kitchen</span>
+                    <div className={styles["dropdown-links"]}>
+                        <a href="#" className={styles['nav-link']}>Bulgarian</a>
+                        <a href="#" className={styles['nav-link']}>Turkish</a>
+                        <a href="#" className={styles['nav-link']}>Serbian</a>
+                        <a href="#" className={styles['nav-link']}>Lamb</a>
+                        <a className={`${styles['view-more']} ${styles['nav-link']}`} href="#">view more...</a>
+                    </div>
                 </div>
-            </CSSTransition>
+                <div className={styles["dropdown-heading"]}> <span>Quick & Easy</span>
+                    <div className={styles["dropdown-links"]}>
+                        <a href="#" className={styles['nav-link']}>Breakfasts for quickers</a>
+                        <a href="#" className={styles['nav-link']}>Quick lunches</a>
+                        <a href="#" className={styles['nav-link']}>Easy dinners</a>
+                        <a href="#" className={styles['nav-link']}>Desserts in 10 minutes</a>
+                        <a className={`${styles['view-more']} ${styles['nav-link']}`} href="#">view more...</a>
+                    </div>
+                </div>
 
-
+                <div className={styles["dropdown-heading"]}> <span>From zero to hero</span>
+                    <div className={styles["dropdown-links"]}>
+                        <a href="#" className={styles['nav-link']}>Beginners</a>
+                        <a href="#" className={styles['nav-link']}>Intermidiates</a>
+                        <a href="#" className={styles['nav-link']}>Advanced</a>
+                        <a href="#" className={styles['nav-link']}>For Cheffs!</a>
+                    </div>
+                </div>
+                <div className={styles["dropdown-heading"]}> <span>Count the calories</span>
+                    <div className={styles["dropdown-links"]}>
+                        <a href="#" className={styles['nav-link']}>Up to 200 kcal</a>
+                        <a href="#" className={styles['nav-link']}>Up to 500 kcal</a>
+                        <a href="#" className={styles['nav-link']}>Up to 800 kcal</a>
+                        <a href="#" className={styles['nav-link']}>More than 800 kcal</a>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

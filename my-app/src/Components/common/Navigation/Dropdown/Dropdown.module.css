@@ -10,7 +10,7 @@
     color: white;
   }
   
-  /* <li> */
+ 
 .nav-item {
     width: calc(var(--nav-size) * 0.8);
     display: flex;

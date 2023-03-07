@@ -9,7 +9,7 @@ import { ReactComponent as Recipes } from '../svg/ladle.svg';
 import { ReactComponent as Articles } from '../svg/write.svg';
 
 import { SearchComponent } from "./Search/SearchComponent.js";
-import { NavItemDropdown } from "../NavItemDropdown/NavItemDropdown.js";
+import { Dropdown } from "../Dropdown/Dropdown.js";
 import { NavItem } from '../NavItem/NavItem.js'
 
 export const Navbar = () => {
@@ -25,8 +25,8 @@ export const Navbar = () => {
                 </div>
 
                 <div className={styles["wrapper-dropdown"]}>
-                    <NavItemDropdown icon={<Recipes />} title='Recipes' />
-                    <NavItemDropdown icon={<Articles />} title='Articles' />
+                    <Dropdown icon={<Recipes />} title='Recipes' />
+                    <Dropdown icon={<Articles />} title='Articles' />
                 </div>
 
                 <div className={styles["wrapper"]}>

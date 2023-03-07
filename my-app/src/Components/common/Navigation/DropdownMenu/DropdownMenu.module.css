@@ -1,8 +1,8 @@
 .dropdown {
     position: absolute;
     top: 58px;
-    width: 200px;
-    transform: translateX(35%);
+    width: 100%;
+    transform: translateX(20%);
     background-color: var(--bg);
     border: var(--border);
     border-radius: var(--border-radius);
@@ -11,42 +11,68 @@
     transition: height var(--speed) ease;
     z-index: 5;
   }
+  
+  
+.information-grid {
+	display: grid !important;
+	grid-template-columns: repeat(4, max-content);
+	align-items: flex-start;
+	justify-content: space-evenly;
+	width: 100vw;
+	gap: 40px;
+}
 
-  .menu {
-    width: 100%;
-  }
+.dropdown-heading span {
+	display: block;
 
-  /* CSSTransition classes  */
-.menu-primary-enter {
-    position: absolute;
-    transform: translateX(-110%);
-  }
-  
-  .menu-primary-enter-active {
-    transform: translateX(0%);
-    transition: all var(--speed) ease;
-  }
-  
-  .menu-primary-exit {
-    position: absolute;
-  }
-  
-  .menu-primary-exit-active {
-    transform: translateX(-110%);
-    transition: all var(--speed) ease;
-  }
-  
-  
-  .menu-secondary-enter {
-    transform: translateX(110%);
-  }
-  
-  .menu-secondary-enter-active {
-    transform: translateX(0%);
-    transition: all var(--speed) ease;
-  }
-  
-  .menu-secondary-exit-active {
-    transform: translateX(110%);
-    transition: all var(--speed) ease;
-  }
+	margin-bottom: 10px;
+
+	text-align: left;
+	text-transform: uppercase;
+	font-size: 21px;
+	letter-spacing: 2px;
+	color: var(--green);
+	font-weight: lighter;
+}
+
+.dropdown-links a {
+	display: block;
+	position: relative;
+	width: 250px;
+
+	padding: 3px;
+
+	font-size: 18px;
+	color: var(--black);
+	text-decoration: none;
+}
+
+.dropdown-links {
+	display: flex;
+	flex-direction: column;
+	gap: .25rem;
+
+	text-align: left;
+}
+
+.dropdown-links a:hover {
+	color: var(--green);
+}
+
+.view-more {
+	margin-top: 5px;
+
+	text-transform: uppercase;
+	font-size: 15px !important;
+	letter-spacing: 1px;
+	color: var(--green) !important;
+}
+
+.all-categories-link a {
+	text-decoration: none;
+	margin: 0 auto;
+}
+
+.all-categories-link a:hover {
+	text-decoration: underline;
+}
