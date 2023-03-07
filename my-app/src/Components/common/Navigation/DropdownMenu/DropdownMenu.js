@@ -1,4 +1,5 @@
 
+import styles from './DropdownMenu.module.css';
 import React, { useState, useEffect, useRef } from 'react';
 
 import { CSSTransition } from 'react-transition-group';
@@ -26,17 +27,17 @@ export const DropdownMenu = (props) => {
     const setActiveMenuHandler = (menu) => {
         setActiveMenu(menu);
     }
-    
+
     return (
-        <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
+        <div className={styles['dropdown']} style={{ height: menuHeight }} ref={dropdownRef}>
 
             <CSSTransition
                 in={activeMenu === 'main'}
                 timeout={500}
-                classNames="menu-primary"
+                classNames={styles['menu-primary']}
                 unmountOnExit
                 onEnter={calcHeight}>
-                <div className="menu">
+                <div className={styles['menu']}>
 
                     <DropdownItem
                         leftIcon={<CogIcon />}
@@ -70,18 +71,18 @@ export const DropdownMenu = (props) => {
             <CSSTransition
                 in={activeMenu === 'season'}
                 timeout={500}
-                classNames="menu-secondary"
+                classNames={styles["menu-secondary"]}
                 unmountOnExit
                 onEnter={calcHeight}>
 
-                <div className="menu">
+                <div className={styles['menu']}>
                     <DropdownItem
                         goToMenu="main"
                         leftIcon={<ArrowIcon />}
                         setActiveMenu={setActiveMenuHandler}>
                         <h2>Back</h2>
                     </DropdownItem>
-                    <DropdownItem  url={props.data[0].url[0]} leftIcon={<BoltIcon />}>Spring</DropdownItem >
+                    <DropdownItem url={props.data[0].url[0]} leftIcon={<BoltIcon />}>Spring</DropdownItem >
                     <DropdownItem url={props.data[0].url[1]} leftIcon={<BoltIcon />}>Summer</DropdownItem>
                     <DropdownItem url={props.data[0].url[2]} leftIcon={<BoltIcon />}>Autumn</DropdownItem>
                     <DropdownItem url={props.data[0].url[3]} leftIcon={<BoltIcon />}>Winter</DropdownItem>
@@ -91,38 +92,38 @@ export const DropdownMenu = (props) => {
             <CSSTransition
                 in={activeMenu === 'timeOfTheDay'}
                 timeout={500}
-                classNames="menu-secondary"
+                classNames={styles['menu-secondary']}
                 unmountOnExit
                 onEnter={calcHeight}
             >
-                <div className="menu">
-                    <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}
+                <div className={styles['menu']}>
+                    <DropdownItem goToMenu='main' leftIcon={<ArrowIcon />}
                         setActiveMenu={setActiveMenuHandler}>
                         <h2>Back</h2>
                     </DropdownItem>
-                    <DropdownItem leftIcon="🦘">Breakfst</DropdownItem>
-                    <DropdownItem leftIcon="🐸">Lunch</DropdownItem>
-                    <DropdownItem leftIcon="🦋">Snack</DropdownItem>
-                    <DropdownItem leftIcon="🦔">Dinner</DropdownItem>
+                    <DropdownItem leftIcon='🦘'>Breakfst</DropdownItem>
+                    <DropdownItem leftIcon='🐸'>Lunch</DropdownItem>
+                    <DropdownItem leftIcon='🦋'>Snack</DropdownItem>
+                    <DropdownItem leftIcon='🦔'>Dinner</DropdownItem>
                 </div>
             </CSSTransition>
 
             <CSSTransition
                 in={activeMenu === 'calories'}
                 timeout={500}
-                classNames="menu-secondary"
+                classNames={styles['menu-secondary']}
                 unmountOnExit
                 onEnter={calcHeight}
             >
-                <div className="menu">
-                    <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}
+                <div className={styles['menu']}>
+                    <DropdownItem goToMenu='main' leftIcon={<ArrowIcon />}
                         setActiveMenu={setActiveMenuHandler}>
                         <h2>Back</h2>
                     </DropdownItem>
-                    <DropdownItem leftIcon="🦘"> Under 200 </DropdownItem>
-                    <DropdownItem leftIcon="🐸">Up to 500</DropdownItem>
-                    <DropdownItem leftIcon="🦋">Up to 700</DropdownItem>
-                    <DropdownItem leftIcon="🦔">Up to 1000</DropdownItem>
+                    <DropdownItem leftIcon='🦘'> Under 200 </DropdownItem>
+                    <DropdownItem leftIcon='🐸'>Up to 500</DropdownItem>
+                    <DropdownItem leftIcon='🦋'>Up to 700</DropdownItem>
+                    <DropdownItem leftIcon='🦔'>Up to 1000</DropdownItem>
                 </div>
             </CSSTransition>
 
