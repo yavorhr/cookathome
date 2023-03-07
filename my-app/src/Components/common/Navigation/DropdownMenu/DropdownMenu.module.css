@@ -2,77 +2,80 @@
     position: absolute;
     top: 58px;
     width: 100%;
-    transform: translateX(20%);
-    background-color: var(--bg);
-    border: var(--border);
-    border-radius: var(--border-radius);
+    left: 0px;
+    background-color: var(--light-gray);
     padding: 1rem;
     overflow: hidden;
-    transition: height var(--speed) ease;
     z-index: 5;
-  }
-  
-  
+}
+
 .information-grid {
-	display: grid !important;
-	grid-template-columns: repeat(4, max-content);
-	align-items: flex-start;
-	justify-content: space-evenly;
-	width: 100vw;
-	gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100vw;
 }
 
 .dropdown-heading span {
-	display: block;
+    display: block;
 
-	margin-bottom: 10px;
+    margin-bottom: 5px;
 
-	text-align: left;
-	text-transform: uppercase;
-	font-size: 21px;
-	letter-spacing: 2px;
-	color: var(--green);
-	font-weight: lighter;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: var(--green);
+    font-weight: lighter;
 }
 
 .dropdown-links a {
-	display: block;
-	position: relative;
-	width: 250px;
-
-	padding: 3px;
-
-	font-size: 18px;
-	color: var(--black);
-	text-decoration: none;
+    display: block;
+    position: relative;
+    width: 200px;
+    font-size: 15px;
+    color: var(--black);
+    text-decoration: none;
 }
 
-.dropdown-links {
-	display: flex;
-	flex-direction: column;
-	gap: .25rem;
+.dropdown-links .view-more{
+    color: var(--green);
+    margin-bottom: 10px;
+    font-size: 14px;
+} 
 
-	text-align: left;
+.dropdown-links .view-more:hover{
+    color: var(--white);
+} 
+
+.dropdown-links {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
 }
 
 .dropdown-links a:hover {
-	color: var(--green);
-}
-
-.view-more {
-	margin-top: 5px;
-
-	text-transform: uppercase;
-	font-size: 15px !important;
-	letter-spacing: 1px;
-	color: var(--green) !important;
+    color: var(--green);
 }
 
 .all-categories-link a {
-	text-decoration: none;
-	margin: 0 auto;
+    text-decoration: none;
+    margin: 0 auto;
 }
 
 .all-categories-link a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
+}
+
+
+.view-more {
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: var(--green);
+}
+
+.view-more:hover{
+    color: white;
 }

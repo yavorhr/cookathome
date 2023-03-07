@@ -7,6 +7,23 @@ import { DropdownMenu } from "../DropdownMenu/DropdownMenu.js"
 export const Dropdown = (props) => {
     const [open, setOpen] = useState(false);
 
+    const data = [
+        {
+            season:
+                ['/catalog-recipes/spring',
+                    '/catalog-recipes/summer',
+                    '/catalog-recipes/autumn',
+                    '/catalog-recipes/winter']
+        }, {
+            'Meals of the day': ['/catalog-recipes/breakfast',
+                '/catalog-recipes/lunch',
+                '/catalog-recipes/dinner',
+                '/catalog-recipes/snack']
+        }]
+
+
+    console.log(data);
+
     const clickHandler = (s) => {
         setOpen(false);
     }
@@ -20,7 +37,7 @@ export const Dropdown = (props) => {
                 <a href="#" className={styles['icon-button']} onClick={() => setOpen(!open)} >
                     {props.icon}
                 </a>
-                {open && props.title === 'Recipes' && <DropdownMenu data={recipesData} onClickHandler={clickHandler} />}
+                {open && props.title === 'Recipes' && <DropdownMenu data={data} onClickHandler={clickHandler} />}
                 {open && props.title === 'Articles' && <DropdownMenu data={articlesData} onClickHandler={clickHandler} />}
             </li>
 
