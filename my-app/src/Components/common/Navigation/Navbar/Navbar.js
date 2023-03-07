@@ -1,4 +1,5 @@
 
+import styles from './Navbar.module.css';
 import { Link } from "react-router-dom";
 
 import { ReactComponent as Favorites } from '../svg/favorites.svg';
@@ -15,31 +16,31 @@ import { NavItem } from '../NavItem/NavItem.js'
 
 export const Navbar = () => {
     return (
-        <nav className="navbar">
-            <ul className="navbar-nav">
-                <div className="wrapper">
+        <nav className={styles["navbar"]}>
+            <ul className={styles["navbar-nav"]}>
+                <div className={styles["wrapper"]}>
                     <Link to="/">
-                        <img className='logo' src="../img/logo.png" />
+                        <img className={styles["logo"]} src="../img/logo.png" />
                     </Link>
-                    <NavItem icon={<Favorites />} className='favorites-link' />
+                    <NavItem icon={<Favorites />} />
                     <NavItem icon={<Bag />} />
                 </div>
 
-                <div className="wrapper-dropdown">
+                <div className={styles["wrapper-dropdown"]}>
                     <NavItemDropdown icon={<Recipes />} title='Recipes' />
                     <NavItemDropdown icon={<Articles />} title='Articles' />
                 </div>
 
-                <div className="wrapper">
-                    <article className="user-shortcut-buttons">
-                        <div className="sign-up-links">
+                <div className={styles["wrapper"]}>
+                    <article className={styles["user-shortcut-buttons"]}>
+                        <div className={styles["sign-up-links"]}>
                             <Link to="/users/login">Login</Link>
                             <span>/</span>
                             <Link to="/users/register">Register</Link>
                             <a href="" className="logout-btn">Logout</a>
                             <Link to="/users/profile"
-                                className="user-profile-shortcut-link" >
-                                <Profile className='icon-button profile' />
+                                className={styles["user-profile-shortcut-link"]} >
+                                <Profile className={styles[`${"icon-button"} ${"profile"}`]} />
                             </Link>
                         </div>
                     </article>

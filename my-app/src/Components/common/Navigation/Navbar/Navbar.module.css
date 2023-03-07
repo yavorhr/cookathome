@@ -1,0 +1,115 @@
+/* Top Navigation Bar */
+
+/* <nav> */
+.navbar {
+    height: var(--nav-size);
+    background-color: var(--grass-green);
+    padding: 0 1rem;
+    border-bottom: var(--border);
+}
+
+/* <ul> */
+.navbar-nav {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.wrapper {
+    display: flex;
+    gap: 7px;
+}
+
+.wrapper-dropdown {
+    display: flex;
+    gap: 15px;
+}
+
+/* Logo */
+
+.logo {
+    width: 80px;
+    height: auto;
+
+    border-radius: 70%;
+}
+
+.logo:hover {
+    box-shadow: white;
+}
+
+.sign-up-links a,
+.logout-btn {
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--white);
+
+    transition: color .2s ease-in;
+}
+
+.logout-btn {
+    background-color: var(--user--login--btn--bckgrnd);
+}
+
+.user-shortcut-buttons {
+    display: flex;
+    align-items: center
+}
+
+/* User profile button, when user is logged in */
+
+.user-profile-shortcut-link {
+    display: inline-block;
+    width: 40px;
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    font-size: 17px;
+}
+
+.sign-up-links span {
+    font-size: 18px;
+    color: var(--white);
+}
+
+.sign-up-links a:hover,
+.logout-btn:hover {
+    color: var(--black);
+}
+
+/* Icon Button */
+.icon-button {
+    --button-size: calc(var(--nav-size) * 0.7);
+    width: var(--button-size);
+    height: var(--button-size);
+    background-color: #c4bebe;
+    border-radius: 50%;
+    padding: 5px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 300ms;
+}
+
+.icon-button:hover {
+    filter: brightness(1.4);
+}
+
+.icon-button svg {
+    fill: var(--text-color);
+    width: 30px;
+    height: 25px;
+}
+
+/* Profile */
+
+.icon-button.profile {
+    height: 30px;
+    width: 30px;
+}
