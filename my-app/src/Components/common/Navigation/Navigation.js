@@ -175,6 +175,7 @@ export const Navigation = () => {
                 </div>
 
             </article>
+            
             <article className={`${styles["nav-item"]} ${styles["search"]}`}>
                 <Link className={styles["search__link"]}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["search__icon"]}></FontAwesomeIcon>

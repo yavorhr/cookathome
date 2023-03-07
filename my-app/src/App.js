@@ -1,7 +1,7 @@
 import './App.css';
 import { useFetch } from '../src/hooks/useFetch.js';
 import { Routes, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
 
 import { Navigation } from "./Components/common/Navigation/Navigation.js";
 import { HomePage } from "./Components/Home/HomePage.js";
@@ -19,7 +19,9 @@ import { CreateRecipe } from './Components/CreateRecipe/CreateRecipe.js';
 import { EditRecipe } from './Components/EditRecipe/EditRecipe.js';
 import { RecipeDetails } from './Components/RecipeDetails/RecipeDetails.js';
 import { GroceryList } from './Components/GroceryList/GroceryList.js';
-import { Footer } from "./Components/common/Footer/Footer.js"
+import { Footer } from "./Components/common/Footer/Footer.js";
+
+
 
 function App() {
     const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
@@ -27,7 +29,9 @@ function App() {
 
     return (
         <div className="App">
-            <Navigation />
+    
+      
+        <Navigation></Navigation>
 
             <Routes>
                 <Route path="/" element={<HomePage recipes={recipes} articles={articles} />} />
@@ -35,11 +39,12 @@ function App() {
                 <Route path="/users/login" element={<Login />} />
                 <Route path="/users/register" element={<Register />} />
                 <Route path="/users/profile" element={<Profile />} />
-                {/* <Route path="/recipes/:seasonId" element={<CatalogRecipes />} /> */}
+                <Route path="/recipes/:season" element={<CatalogRecipes recipes={recipes} />} />
                 <Route path="favorites" element={<Favorites />} />
                 <Route path="/details/:recipeId" element={<RecipeDetails />} />
                 <Route path="/catalog-recipes/:season" element={<CatalogRecipes recipes={recipes} />} />
             </Routes>
+
 
             {/* <CreateRecipe></CreateRecipe> */}
             {/* <EditRecipe></EditRecipe> */}
@@ -53,9 +58,6 @@ function App() {
             {/* <EditArtice></EditArtice> */}
 
             <Footer />
-
-
-            <Link to="/catalog-recipes/autumn">Autumn</Link>
 
         </div>
 

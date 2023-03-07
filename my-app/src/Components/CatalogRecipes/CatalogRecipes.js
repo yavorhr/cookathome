@@ -11,7 +11,6 @@ import { CatalogItem } from './CatalogItem/CatalogItem.js';
 export const CatalogRecipes = ({ recipes }) => {
 
     const { season } = useParams();
-    console.log(season);
 
     return (
         <section>
