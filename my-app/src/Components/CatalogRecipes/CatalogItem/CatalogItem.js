@@ -5,8 +5,6 @@ import { faClock } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 
 export const CatalogItem = ({ recipe }) => {
-
-
     return (
         <li className={styles["list-item"]}>
             <Link to={`/details/${recipe._id}`}>

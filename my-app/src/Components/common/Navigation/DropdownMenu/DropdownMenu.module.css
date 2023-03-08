@@ -17,48 +17,6 @@
     width: 100vw;
 }
 
-.dropdown-heading span {
-    display: block;
-
-    margin-bottom: 5px;
-
-    text-align: left;
-    text-transform: uppercase;
-    font-size: 16px;
-    letter-spacing: 2px;
-    color: var(--green);
-    font-weight: lighter;
-}
-
-.dropdown-links a {
-    display: block;
-    position: relative;
-    width: 200px;
-    font-size: 15px;
-    color: var(--black);
-    text-decoration: none;
-}
-
-.dropdown-links .view-more{
-    color: var(--green);
-    margin-bottom: 10px;
-    font-size: 14px;
-} 
-
-.dropdown-links .view-more:hover{
-    color: var(--white);
-} 
-
-.dropdown-links {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.dropdown-links a:hover {
-    color: var(--green);
-}
-
 .all-categories-link a {
     text-decoration: none;
     margin: 0 auto;
@@ -67,7 +25,6 @@
 .all-categories-link a:hover {
     text-decoration: underline;
 }
-
 
 .view-more {
     text-transform: uppercase;
