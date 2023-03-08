@@ -14,17 +14,8 @@ export const DropdownMenu = (props) => {
                             {
                                 d[Object.keys(d)]
                                     .map(string => {
-                                        let string2 = '';
-                                        if (string.includes('articles')) {
-                                            const capitalLetter = string.charAt(18).toUpperCase();
-                                            string2 = capitalLetter + string.slice(19);
-                                        } else {
-                                            const capitalLetter = string.charAt(17).toUpperCase();
-                                            string2 = capitalLetter + string.slice(18);
-                                        }
-
-                                        let string3 = string2.replaceAll('-', ' ');
-                                 
+                                        const string2 = stringManipulation(string);
+                                        const stringWithoutDashes = string2.replaceAll('-', ' ');
 
                                         return <Link
                                             key={string}
@@ -32,9 +23,8 @@ export const DropdownMenu = (props) => {
                                                 props.onClickHandler(false)}
                                             to={string}
                                             className={styles['nav-link']}>
-                                            {string3}
+                                            {stringWithoutDashes}
                                         </Link>
-
                                     })
                             }
                         </div>
@@ -43,4 +33,16 @@ export const DropdownMenu = (props) => {
             </div>
         </div>
     );
+}
+
+const stringManipulation = (string) => {
+    let string2 = '';
+    if (string.includes('articles')) {
+        const capitalLetter = string.charAt(18).toUpperCase();
+        string2 = capitalLetter + string.slice(19);
+    } else {
+        const capitalLetter = string.charAt(17).toUpperCase();
+        string2 = capitalLetter + string.slice(18);
+    }
+    return string2;
 }
