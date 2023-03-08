@@ -109,7 +109,7 @@ export const Navigation = () => {
                             <span>Workout related</span>
                             <div className={styles["dropdown-links"]}>
                                 <a href="#" className={styles['nav-link']}>What to eat before and after training</a>
-                                <a href="#" className={styles['nav-link']}>How much proteins ?</a>
+                                <a href="#" className={styles['nav-link']}>How much proteins a day ?</a>
                                 <a href="#" className={styles['nav-link']}>Gain weight the right way</a>
                                 <a href="#" className={styles['nav-link']}>Breakfasts for champions</a>
                                 <a className={`${styles['view-more']} ${styles['nav-link']}`} href="#">view more...</a>

@@ -34,5 +34,50 @@ export const findRecipesBySeason = (season) => {
 
 export const getById = (id) => {
     return fetch(`${baseUrl}/${id}`)
-    .then(resp => resp.json());
+        .then(resp => resp.json());
 }
+
+export const urlMappingDataRecipes = [
+    {
+        season:
+            ['/catalog-recipes/spring',
+                '/catalog-recipes/summer',
+                '/catalog-recipes/autumn',
+                '/catalog-recipes/winter']
+    }, {
+        'Meals of the day':
+            ['/catalog-recipes/breakfast',
+                '/catalog-recipes/lunch',
+                '/catalog-recipes/dinner',
+                '/catalog-recipes/snack']
+    }, {
+        'Meat recipes':
+            ['/catalog-recipes/pork',
+                '/catalog-recipes/chicken',
+                '/catalog-recipes/fish',
+                '/catalog-recipes/lamb']
+    }, {
+        'Kitchen':
+            ['/catalog-recipes/indian',
+                '/catalog-recipes/american',
+                '/catalog-recipes/european',
+                '/catalog-recipes/asian']
+    }, {
+        'Quick meals':
+            ['/catalog-recipes/proteins',
+                '/catalog-recipes/salads',
+                '/catalog-recipes/veggies',
+                '/catalog-recipes/desserts']
+    }, {
+        'From Zero to Hero':
+            ['/catalog-recipes/beginner',
+                '/catalog-recipes/intermediate',
+                '/catalog-recipes/advanced',
+                '/catalog-recipes/chefs']
+    }, {
+        'Calories count':
+            ['/catalog-recipes/up-to-200',
+                '/catalog-recipes/up-to-500',
+                '/catalog-recipes/up-to-800',
+                '/catalog-recipes/up-to-1000']
+    }]
