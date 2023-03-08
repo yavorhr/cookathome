@@ -20,8 +20,8 @@ export const Navbar = () => {
                     <Link to="/">
                         <img className={styles["logo"]} src="../img/logo.png" />
                     </Link>
-                    <NavItem icon={<Favorites />} />
-                    <NavItem icon={<Bag />} />
+                    <NavItem url='/favorites' icon={<Favorites /> } />
+                    <NavItem url='/groecery-list' icon={<Bag />} />
                 </div>
 
                 <div className={styles["wrapper-dropdown"]}>

@@ -6,7 +6,7 @@ export const NavItem = (props) => {
 
     return (
         <li className={styles["nav-item"]}>
-            <Link to="#" className={styles["icon-button"]}  >
+            <Link to={props.url} className={styles["icon-button"]}  >
                 {props.icon}
             </Link>
         </li>

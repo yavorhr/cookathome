@@ -2,8 +2,8 @@
 
 import styles from './Search.module.css';
 import { useState } from "react";
-
 import { ReactComponent as Search } from '../../svg/search.svg';
+
 
 export const SearchComponent = () => {
     const [clicked, setClicked] = useState(false);
