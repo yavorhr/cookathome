@@ -131,3 +131,14 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.profile-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    background-color: var(--grass-green);
+    transform: translateX(30%);
+    transition: height var(--speed) ease;
+    padding: 5px;
+}

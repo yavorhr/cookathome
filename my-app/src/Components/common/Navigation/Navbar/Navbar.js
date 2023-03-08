@@ -11,6 +11,7 @@ import { ReactComponent as Articles } from '../svg/write.svg';
 import { SearchComponent } from "./Search/SearchComponent.js";
 import { Dropdown } from "../Dropdown/Dropdown.js";
 import { NavItem } from '../NavItem/NavItem.js'
+import { ProfileDropdownMenu } from '../ProfileDropdownMenu/ProfileDropdownMenu.js';
 
 export const Navbar = () => {
     return (
@@ -20,7 +21,7 @@ export const Navbar = () => {
                     <Link to="/">
                         <img className={styles["logo"]} src="../img/logo.png" />
                     </Link>
-                    <NavItem url='/favorites' icon={<Favorites /> } />
+                    <NavItem url='/favorites' icon={<Favorites />} />
                     <NavItem url='/groecery-list' icon={<Bag />} />
                 </div>
 
@@ -35,11 +36,17 @@ export const Navbar = () => {
                             <Link className={styles["link-item"]} to="/users/login">Login</Link>
                             <span>/</span>
                             <Link className={styles["link-item"]} to="/users/register">Register</Link>
-                            <a href="" className={styles["logout-btn"]}>Logout</a>
-                            <Link to="/users/profile"
-                                className={styles["user-profile-shortcut-link"]} >
-                                <Profile /> 
-                            </Link>
+
+
+                            <ProfileDropdownMenu icon={<Profile />}>
+                                <div className={styles["profile-wrapper"]}>
+                                    <Link className={styles["link-item"]} to="/users/profile">Profile</Link>
+                                    <Link className={styles["link-item"]} to="/create/recipe">Create Recipe</Link>
+                                    <Link className={styles["link-item"]} to="/create/article">Create Article</Link>
+                                    <a href="" className={styles["logout-btn"]}>Logout</a>
+                                </div>
+                            </ProfileDropdownMenu>
+
                         </div>
                     </article>
                 </div>
