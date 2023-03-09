@@ -32,18 +32,18 @@ export const Navbar = () => {
                 </div>
 
                 <div className={styles["wrapper"]}>
-                    <article className={styles["user-shortcut-buttons"]}>
+                    <article className={styles["sign-wrapper"]}>
                         <div className={styles["sign-up-links"]}>
                             <Link className={styles["link-item"]} to="/users/login">Login</Link>
                             <span>/</span>
                             <Link className={styles["link-item"]} to="/users/register">Register</Link>
-                            <ProfileDropdown icon={<Profile />} className/>
+                        
+                            <ProfileDropdown icon={<Profile />}/>
                         </div>
                     </article>
                 </div>
 
                 <SearchComponent />
-
             </ul>
         </nav>
     );

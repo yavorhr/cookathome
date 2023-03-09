@@ -1,11 +1,11 @@
 
 
 import styles from './ProfileDropdown.module.css';
+
 import { useEffect, useState, useRef } from "react";
+import { Link } from 'react-router-dom';
 
 import { ReactComponent as Arrow } from '../svg/arrow.svg';
-
-import { Link } from 'react-router-dom';
 
 export const ProfileDropdown = (props) => {
     const [open, setOpen] = useState(false);
@@ -20,6 +20,7 @@ export const ProfileDropdown = (props) => {
         let handler = (e) => {
             if (!dropdownRef.current.contains(e.target)) {
                 setOpen(false);
+                setOpenBtn(false)
             }
         };
 
@@ -29,7 +30,6 @@ export const ProfileDropdown = (props) => {
             document.removeEventListener("mousedown", handler);
         }
     });
-
 
     let openHandler = () => {
         setOpen(false);

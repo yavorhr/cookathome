@@ -1,6 +1,6 @@
 /* <nav> */
 .navbar {
-    height: var(--nav-size);
+    height: 60px;
     background-color: var(--grass-green);
     padding: 0 1rem;
     border-bottom: var(--border);
@@ -11,9 +11,11 @@
     max-width: 100%;
     height: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
 }
 
+/* Navbar wrappers */
 .wrapper {
     display: flex;
     gap: 7px;
@@ -24,47 +26,30 @@
     gap: 15px;
 }
 
-.sign-up-links .link-item,
-.logout-btn {
-    font-size: 18px;
-    text-decoration: none;
- 
-    font-weight: bold;
-    color: var(--white);
-
-    transition: color .2s ease-in;
-}
-
-
-.user-shortcut-buttons {
+/* Sign section */
+.sign-wrapper {
     display: flex;
     align-items: center
 }
-
-/* User profile button, when user is logged in */
-
-.user-profile-shortcut-link {
-    display: inline-block;
-    width: 40px;
-    padding: 5px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-
-    font-size: 17px;
-}
-
-/* Sign up links */
 
 .sign-up-links {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    height: 35px;
+    height: 47px;
     padding: 8px 10px;
     background-color: var(--user--login--btn--bckgrnd);
     border-radius: 8px;
+}
+
+.sign-up-links .link-item {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--white);
+    text-decoration: none;
+
+    transition: color .2s ease-in;
 }
 
 .sign-up-links span {
@@ -72,47 +57,11 @@
     color: var(--white);
 }
 
-.sign-up-links a:hover,
-.logout-btn:hover {
+.sign-up-links a:hover {
     color: var(--black);
 }
 
-/* Icon Button */
-.icon-button,
-.user-profile-shortcut-link svg {
-    --button-size: calc(var(--nav-size) * 0.7);
-    width: var(--button-size);
-    height: var(--button-size);
-    background-color: #c4bebe;
-    border-radius: 50%;
-    padding: 5px;
-    margin: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: filter 300ms;
-}
-
-.icon-button:hover,
-.user-profile-shortcut-link svg:hover {
-    filter: brightness(1.4);
-}
-
-.icon-button svg {
-    fill: var(--text-color);
-    width: 30px;
-    height: 25px;
-}
-
-/* Profile */
-
-.user-profile-shortcut-link svg {
-    height: 30px;
-    width: 30px;
-}
-
 /* Logo */
-
 .logo {
     width: 80px;
     height: auto;
@@ -123,19 +72,3 @@
     box-shadow: white;
 }
 
-.navbar-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.profile-wrapper {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    background-color: var(--grass-green);
-    transform: translateX(30%);
-    transition: height var(--speed) ease;
-    padding: 5px;
-}

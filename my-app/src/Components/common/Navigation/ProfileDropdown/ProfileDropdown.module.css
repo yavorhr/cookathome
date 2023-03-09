@@ -132,3 +132,14 @@
 .profile-wrapper:hover{
   color: black;
 }
+
+.user-profile-button {
+  display: inline-block;
+  width: 40px;
+  padding: 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  font-size: 17px;
+}
