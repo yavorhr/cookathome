@@ -28,16 +28,13 @@
 .logout-btn {
     font-size: 18px;
     text-decoration: none;
-    text-transform: uppercase;
+ 
     font-weight: bold;
     color: var(--white);
 
     transition: color .2s ease-in;
 }
 
-.logout-btn {
-    background-color: var(--user--login--btn--bckgrnd);
-}
 
 .user-shortcut-buttons {
     display: flex;
