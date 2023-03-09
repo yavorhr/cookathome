@@ -22,11 +22,13 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 60px;
+  align-items: center;
+  gap: 5px;
+  top: 65px;
   background-color: var(--grass-green);
   border-radius: var(--border-radius);
   padding: 10px 20px;
-  width: 200x;
+  width: 130px;
   z-index: 5;
 }
 
@@ -43,7 +45,7 @@
 }
 
 .dropdown-create-btn.active {
-  transform: translateX(62%);
+  transform: translateX(100%);
 }
 
 .dropdown.inactive {
@@ -96,3 +98,4 @@
   color: var(--white);
   transition: color .2s ease-in;
 }
+

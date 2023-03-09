@@ -1381,10 +1381,57 @@
             "c5-40e2-b231-77409e": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "name": "Moussaka",
+                "description": "Moussaka is the best Dish in Bulgarian Kitchen! A must try!",
                 "details": {
                     "season": "Winter",
                     "timeOfTheDay": "dinner",
-                    "meat": "pork",
+                    "category": "meat",
+                    "kitchen": "bulgarian",
+                    "level": "amateur",
+                    "calories": "600",
+                }, "times": {
+                    "prep-time": "30",
+                    "cook-time": "20",
+                    "total-time": "50"
+                }, "products":
+                    "1 kilo tomatoes"
+                , "steps":
+                    "1 kilo tomatoes",
+                "portions": "3",
+                "_createdOn": 1617194295474,
+                "imageUrl": "/img/dishes/benedikt.jpg"
+            },
+            "kdjsakldjasdasdsa9jd2av": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "name": "Tarator",
+                "description": "Moussaka is the best Dish in Bulgarian Kitchen! A must try!",
+                "details": {
+                    "season": "Winter",
+                    "timeOfTheDay": "dinner",
+                    "category": "veggetarian",
+                    "kitchen": "bulgarian",
+                    "level": "amateur",
+                    "calories": "100",
+                }, "times": {
+                    "prep-time": "30",
+                    "cook-time": "20",
+                    "total-time": "50"
+                }, "products":
+                    "1 kilo tomatoes"
+                , "steps":
+                    "1 kilo tomatoes",
+                "portions": "3",
+                "_createdOn": 1617194295474,
+                "imageUrl": "/img/dishes/banans.jpg"
+            },
+            "kdjsakldjas9jd2av": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "name": "Moussaka",
+                "description": "Moussaka is the best Dish in Bulgarian Kitchen! A must try!",
+                "details": {
+                    "season": "Winter",
+                    "timeOfTheDay": "dinner",
+                    "category": "veggetarian",
                     "kitchen": "bulgarian",
                     "level": "amateur",
                     "calories": "300",
@@ -1392,75 +1439,14 @@
                     "prep-time": "30",
                     "cook-time": "20",
                     "total-time": "50"
-                }, "products": [
-                    { "tomatoes": "2" },
-                    { "potatoes": "5 kilos" },
-                    { "meat": "1 kilo" }
-                ], "steps": [
-                    { "step1": "prep" },
-                    { "step2": "cook" },
-                    { "step3": "present" }
-                ],
+                }, "products":
+                    "1 kilo tomatoes"
+                , "steps":
+                    "1 kilo tomatoes",
                 "portions": "3",
                 "_createdOn": 1617194295474,
                 "imageUrl": "/img/dishes/pancakes.jpg"
             },
-            "kdjsakldjasdasdsa9jd2av": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "name": "Chicken with fries on oven 2",
-                "details": {
-                    "season": "Spring",
-                    "timeOfTheDay": ["dinner", "lunch"],
-                    "meat": "chicken",
-                    "kitchen": "Bulgarian",
-                    "level": "mid",
-                    "calories": "400",
-                }, "times": {
-                    "prep-time": "30",
-                    "cook-time": "40",
-                    "total-time": "70"
-                }, "products": [
-                    { "chicken": "500 gr." },
-                    { "potatoes": "1 kilo" },
-                    { "salt": "по вкус" },
-                    { "salt": "по вкус" }
-                ], "steps": [
-                    { "step1": "prep" },
-                    { "step2": "cook" },
-                    { "step3": "present" }
-                ],
-                "portions": "1",
-                "_createdOn": 1617194295474,
-                "imageUrl": "/img/dishes/pancakes.jpg",
-            },
-            "kdjsakldjas9jd2av": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "name": "Chicken with fries on oven",
-                "details": {
-                    "season": "Summer",
-                    "timeOfTheDay": ["dinner", "lunch"],
-                    "meat": "chicken",
-                    "kitchen": "Bulgarian",
-                    "level": "mid",
-                    "calories": "400",
-                }, "times": {
-                    "prep-time": "30",
-                    "cook-time": "40",
-                    "total-time": "70"
-                }, "products": [
-                    { "chicken": "500 gr." },
-                    { "potatoes": "1 kilo" },
-                    { "salt": "по вкус" },
-                    { "salt": "по вкус" }
-                ], "steps": [
-                    { "step1": "prep" },
-                    { "step2": "cook" },
-                    { "step3": "present" }
-                ],
-                "portions": "1",
-                "_createdOn": 1617194295474,
-                "imageUrl": "/img/dishes/pancakes.jpg",
-            }
         },
 
         articles: {

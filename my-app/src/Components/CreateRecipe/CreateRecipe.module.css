@@ -139,7 +139,8 @@ Create Recipe Section
 
 
 .create--recipe-section .title,
-.create--recipe-section .descr {
+.create--recipe-section .descr,
+.create--recipe-section .imageUrl {
     width: 50%;
 }
 

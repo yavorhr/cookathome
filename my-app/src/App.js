@@ -28,10 +28,7 @@ function App() {
 
     return (
         <div className="App">
-    
-      
-        {/* <Navigation></Navigation> */}
-        <Navbar></Navbar>
+            <Navbar />
 
             <Routes>
                 <Route path="/" element={<HomePage recipes={recipes} articles={articles} />} />
@@ -43,6 +40,7 @@ function App() {
                 <Route path="favorites" element={<Favorites />} />
                 <Route path="/details/:recipeId" element={<RecipeDetails />} />
                 <Route path="/catalog-recipes/:season" element={<CatalogRecipes recipes={recipes} />} />
+                <Route path="/create/recipe" element={<CreateRecipe />} />
             </Routes>
 
 

@@ -5,7 +5,7 @@
   justify-content: center;
 }
 
-/* Icon Button */
+/* TODO:to reuse .icon button classes from global class */
 
 .icon-button {
   display: flex;
@@ -21,6 +21,16 @@
 
   background-color: var(--light-gray);
   transition: filter 300ms;
+}
+
+.icon-button:hover {
+  filter: brightness(1.4);
+}
+
+.icon-button svg {
+  fill: var(--white);
+  width: 30px;
+  height: 25px;
 }
 
 .icon-button:hover {

@@ -7,7 +7,7 @@ export const CreateRecipe = () => {
                     <form action="" className={`${styles["mrgn-auto"]} ${styles["flex-col"]} ${styles["create-recipe-form"]}`}>
                         <h1>Create recipe</h1>
                         <div className={`${styles["title"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
-                            <label htmlFor="title">Recipe title</label>
+                            <label htmlFor="title">Recipe name</label>
                             <input type="text" placeholder="Enter the title" name="title" />
                         </div>
                         <div className={`${styles["descr"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
@@ -20,23 +20,29 @@ export const CreateRecipe = () => {
                                 placeholder="Enter short description..."
                             />
                         </div>
+                        <div className={`${styles["imageUrl"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
+                            <label htmlFor="title">Recipe URL image</label>
+                            <input type="text" placeholder="Insert recipe url here..." name="title" />
+                        </div>
                         <div className={styles["group-wrapper"]}>
                             <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
                                 <label htmlFor="category">Category</label>
                                 <select type="text" name="category">
                                 <option value="---">---</option>
-                                    <option value="Pork meals">Pork meals</option>
-                                    <option value="Chicken meals">Pork meals</option>
-                                    <option value="Veggie meals">Veggie meals</option>
+                                    <option value="Veggetarian">Veggetarian</option>
+                                    <option value="Meat">Meat</option>
+                                    <option value="Fish">Fish</option>
+            
                                 </select>
                             </div>
                             <div className={`${styles["type"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
-                                <label htmlFor="type">Type</label>
+                                <label htmlFor="type">Time of the day</label>
                                 <select type="text" name="category">
                                 <option value="---">---</option>
-                                    <option value="Lamb soup">Lamb soup</option>
-                                    <option value="Baclava">Baclava</option>
-                                    <option value="Babek">Babek</option>
+                                    <option value="Brekfast">Brekfast</option>
+                                    <option value="Dinner">Dinner</option>
+                                    <option value="Snack">Snack</option>
+                                    <option value="Lunch">Lunch</option>
                                 </select>
                             </div>
                             <div className={`${styles["season"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
@@ -97,13 +103,13 @@ export const CreateRecipe = () => {
                         </div>
                         <div className={styles["group-wrapper"]}>
                             <div className={`${styles["level"]} ${styles["flex-col"]} ${styles["select-wrapper"]}  ${styles["after"]}`}>
-                                <label htmlFor="level">Complexity</label>
+                                <label htmlFor="level">Level</label>
                                 <select type="text" name="level">
                                     <option value="---">---</option>
-                                    <option value="Bulgarian">Easy</option>
-                                    <option value="German">Average</option>
-                                    <option value="English">Complex</option>
-                                    <option value="Serbian">Very complex</option>
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Advanced">Advanced</option>
+                                    <option value="Chef">Chef</option>
                                 </select>
                             </div>
                             <div className={`${styles["occasion"]} ${styles["flex-col"]} ${styles["select-wrapper"]}  ${styles["after"]}`}>

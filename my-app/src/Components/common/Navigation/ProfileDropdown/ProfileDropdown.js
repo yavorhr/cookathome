@@ -46,13 +46,15 @@ export const ProfileDropdown = (props) => {
                 <Link
                     className={styles["link-item"]}
                     to="/users/profile"
-                    onClick={openHandler}>Profile</Link>
+                    onClick={openHandler}>
+                    Profile
+                </Link>
 
                 <div
-
                     className={styles['profile-wrapper']}
                     onClick={() => setOpenBtn(!openBtn)}>
-                    <button className={styles["create-btn"]}
+                    <button
+                        className={styles["create-btn"]}
                         to="/users/create" >Create
                         {openBtn && <Arrow />}
                     </button>

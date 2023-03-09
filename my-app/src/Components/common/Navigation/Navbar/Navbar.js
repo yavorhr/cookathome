@@ -7,18 +7,17 @@ import { ReactComponent as Bag } from '../svg//bag.svg';
 import { ReactComponent as Profile } from '../svg//profile3.svg';
 import { ReactComponent as Recipes } from '../svg/ladle.svg';
 import { ReactComponent as Articles } from '../svg/write.svg';
+import { ReactComponent as Search } from '../svg/search.svg';
 
 import { Dropdown } from "../Dropdown/Dropdown.js";
 import { NavItem } from '../NavItem/NavItem.js'
 import { ProfileDropdown } from '../ProfileDropdown/ProfileDropdown.js';
-import { ReactComponent as Search } from '../svg/search.svg';
-
-
 
 export const Navbar = () => {
     return (
         <nav className={styles["navbar"]}>
             <ul className={styles["navbar-nav"]}>
+
                 <div className={styles["wrapper"]}>
                     <Link to="/">
                         <img className={styles["logo"]} src="../img/logo.png" />
@@ -38,12 +37,10 @@ export const Navbar = () => {
                             <Link className={styles["link-item"]} to="/users/login">Login</Link>
                             <span>/</span>
                             <Link className={styles["link-item"]} to="/users/register">Register</Link>
-                        
                             <ProfileDropdown icon={<Profile />}/>
                         </div>
                     </article>
                 </div>
-
               <NavItem icon={<Search/>} url='/search'/>
             </ul>
         </nav>
