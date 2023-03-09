@@ -1,14 +1,3 @@
-.user-profile-shortcut-link {
-  display: inline-block;
-  width: 40px;
-  padding: 5px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-
-  font-size: 17px;
-}
-
 .icon-button {
   --button-size: calc(var(--nav-size) * 0.7);
   width: var(--button-size);
@@ -27,25 +16,7 @@
   filter: brightness(1.4);
 }
 
-.profile {
-  height: 30px;
-  width: 30px;
-}
-
-
-.dropdown.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  transition: var(--speed) ease;
-}
-
-.dropdown.inactive {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-20px);
-  transition: var(--speed) ease;
-}
+/* dropdown menus */
 
 .dropdown {
   position: absolute;
@@ -59,63 +30,53 @@
   z-index: 5;
 }
 
-/* Dropdown Create btn */
-.dropdown-create-btn.active {
+.dropdown-create-btn {
+  top: 27px;
+  width: 140px;
+}
+
+.dropdown.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-  transform: translateX(44%);
+  transition: var(--speed) ease;
+}
+
+.dropdown-create-btn.active {
+  transform: translateX(62%);
+}
+
+.dropdown.inactive {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
   transition: var(--speed) ease;
 }
 
 .dropdown-create-btn.inactive {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-20px);
   transform: translateX(44%);
-
-  transition: var(--speed) ease;
-}
-
-.dropdown-create-btn {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  top: 28px;
-  background-color: var(--grass-green);
-  border-radius: var(--border-radius);
-  padding: 10px 20px;
-  width: 170px;
-  z-index: 5;
-}
-
-.create-btn {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  color: var(--white);
-  padding: 0px;
-  transition: color .2s ease-in;
 }
 
 .dropdown .link-item {
   transition: color .2s ease-in;
-
 }
 
-.create-btn:hover {
+/* Create button styling */
+
+.create-btn {
+  padding: 0px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+
+  transition: color .2s ease-in;
+}
+
+.create-btn:hover,
+.create-btn svg:hover {
   color: black;
 }
-
-.profile-wrapper svg {
-  width: 20px;
-  height: 20px;
-}
-
-.create-btn svg:hover {
-  color: black
-}
-
 
 .profile-wrapper {
   display: flex;
@@ -124,22 +85,14 @@
   gap: 5px;
 }
 
-.profile-wrapper svg{
-  color: white;
+.profile-wrapper svg {
+  position: relative;
+  top: 6px;
+  left: 5px;
+
+  width: 20px;
+  height: 20px;
+
+  color: var(--white);
   transition: color .2s ease-in;
-}
-
-.profile-wrapper:hover{
-  color: black;
-}
-
-.user-profile-button {
-  display: inline-block;
-  width: 40px;
-  padding: 5px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-
-  font-size: 17px;
 }

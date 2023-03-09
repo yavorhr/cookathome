@@ -37,12 +37,16 @@ export const Dropdown = (props) => {
                     {props.icon}
                 </Link>
 
-                {open && props.title === 'Recipes' && <DropdownMenu data={urlMappingDataRecipes} onClickHandler={clickHandler} />}
-                {open && props.title === 'Articles' && <DropdownMenu data={urlMappingDataArticles} onClickHandler={clickHandler} />}
-
+                {open && props.title === 'Recipes' &&
+                    <DropdownMenu
+                        data={urlMappingDataRecipes}
+                        onClickHandler={clickHandler} />}
+                {open && props.title === 'Articles' &&
+                    <DropdownMenu
+                        data={urlMappingDataArticles}
+                        onClickHandler={clickHandler} />}
             </li>
 
             {props.title && <span>{props.title}</span>}
-
         </div>);
 }

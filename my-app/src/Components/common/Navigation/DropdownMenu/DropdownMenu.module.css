@@ -3,8 +3,10 @@
     top: 58px;
     width: 100%;
     left: 0px;
-    background-color: var(--light-gray);
+
     padding: 1rem;
+    background-color: var(--light-gray);
+
     overflow: hidden;
     z-index: 5;
 }
@@ -14,25 +16,6 @@
     grid-template-columns: repeat(4, max-content);
     align-items: flex-start;
     justify-content: space-evenly;
+
     width: 100vw;
-}
-
-.all-categories-link a {
-    text-decoration: none;
-    margin: 0 auto;
-}
-
-.all-categories-link a:hover {
-    text-decoration: underline;
-}
-
-.view-more {
-    text-transform: uppercase;
-    font-size: 15px;
-    letter-spacing: 1px;
-    color: var(--green);
-}
-
-.view-more:hover{
-    color: white;
 }

@@ -4,7 +4,6 @@
     align-items: center;
 }
 
-/* <li> */
 .nav-item {
     width: calc(var(--nav-size) * 0.8);
     display: flex;
@@ -15,16 +14,18 @@
 
 /* Icon Button */
 .icon-button {
-    --button-size: calc(var(--nav-size) * 0.7);
-    width: var(--button-size);
-    height: var(--button-size);
-    background-color: #c4bebe;
-    border-radius: 50%;
-    padding: 5px;
-    margin: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    --button-size: calc(var(--nav-size) * 0.7);
+    width: var(--button-size);
+    height: var(--button-size);
+
+    padding: 5px;
+    background-color: var(--light-gray);
+    border-radius: 50%;
+    margin: 2px;
     transition: filter 300ms;
 }
 

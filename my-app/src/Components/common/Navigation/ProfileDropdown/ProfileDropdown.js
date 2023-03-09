@@ -1,11 +1,11 @@
 
 
 import styles from './ProfileDropdown.module.css';
-
 import { useEffect, useState, useRef } from "react";
-import { Link } from 'react-router-dom';
 
 import { ReactComponent as Arrow } from '../svg/arrow.svg';
+
+import { Link } from 'react-router-dom';
 
 export const ProfileDropdown = (props) => {
     const [open, setOpen] = useState(false);
@@ -20,7 +20,7 @@ export const ProfileDropdown = (props) => {
         let handler = (e) => {
             if (!dropdownRef.current.contains(e.target)) {
                 setOpen(false);
-                setOpenBtn(false)
+                setOpenBtn(false);
             }
         };
 
@@ -49,14 +49,16 @@ export const ProfileDropdown = (props) => {
                     onClick={openHandler}>Profile</Link>
 
                 <div
-                    onClick={() => setOpenBtn(!openBtn)}
-                    className={styles['profile-wrapper']}>
-                    <button className={styles["create-btn"]} to="/users/create" >Create
+
+                    className={styles['profile-wrapper']}
+                    onClick={() => setOpenBtn(!openBtn)}>
+                    <button className={styles["create-btn"]}
+                        to="/users/create" >Create
+                        {openBtn && <Arrow />}
                     </button>
-                    {openBtn && <Arrow />}
                 </div>
 
-                <div className={`${styles["dropdown-create-btn"]} ${styles[classNameBtn]}`}>
+                <div className={`${styles["dropdown"]} ${styles["dropdown-create-btn"]} ${styles[classNameBtn]}`}>
                     <Link
                         className={styles["link-item"]}
                         to="/create/recipe"
