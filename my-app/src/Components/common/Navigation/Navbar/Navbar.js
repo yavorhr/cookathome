@@ -8,10 +8,11 @@ import { ReactComponent as Profile } from '../svg//profile3.svg';
 import { ReactComponent as Recipes } from '../svg/ladle.svg';
 import { ReactComponent as Articles } from '../svg/write.svg';
 
-import { SearchComponent } from "./Search/SearchComponent.js";
 import { Dropdown } from "../Dropdown/Dropdown.js";
 import { NavItem } from '../NavItem/NavItem.js'
 import { ProfileDropdown } from '../ProfileDropdown/ProfileDropdown.js';
+import { ReactComponent as Search } from '../svg/search.svg';
+
 
 
 export const Navbar = () => {
@@ -43,7 +44,7 @@ export const Navbar = () => {
                     </article>
                 </div>
 
-                <SearchComponent />
+              <NavItem icon={<Search/>} url='/search'/>
             </ul>
         </nav>
     );
