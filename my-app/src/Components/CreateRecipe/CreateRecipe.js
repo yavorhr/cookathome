@@ -1,7 +1,10 @@
 import styles from './CreateRecipe.module.css'
 import { useState } from 'react';
 
-export const CreateRecipe = () => {
+export const CreateRecipe = ({
+    createRecipe
+}) => {
+    /* TODO: validation hook for errors, so it can be re-usable to edit page */
     const [checkSelect, setCheckSelect] = useState(false);
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
@@ -21,6 +24,7 @@ export const CreateRecipe = () => {
         occasion: '',
         portions: ''
     });
+
     const onChangeHandler = (e) => {
         setValues(state => ({
             ...state,
@@ -30,18 +34,20 @@ export const CreateRecipe = () => {
 
     /*TODO:// UX WAY TO POP UP ERRORS */
 
+
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
-        const data = Object.fromEntries(new FormData(e.target));
-        let checkMenu = Object.values(data).some(e => e == 'Please select' || e == '');
+        const recipe = Object.fromEntries(new FormData(e.target));
+        let invalidInputCheck = Object.values(recipe).some(e => e == 'Please select' || e == '');
 
-        if (checkMenu) {
-            setCheckSelect(checkMenu);
+        if (invalidInputCheck) {
+            setCheckSelect(invalidInputCheck);
             return
-        } else {
-            setCheckSelect(false);
         }
+        setCheckSelect(false);
+        createRecipe(recipe);
+
     }
 
     const minLengthCheck = (e, bound) => {

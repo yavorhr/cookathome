@@ -26,6 +26,10 @@ function App() {
     const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
     const [articles, setArticles] = useFetch("http://localhost:3030/data/articles", []);
 
+    const createRecipeHandler = () =>{
+
+    }
+
     return (
         <div className="App">
             <Navbar />
@@ -40,7 +44,7 @@ function App() {
                 <Route path="favorites" element={<Favorites />} />
                 <Route path="/details/:recipeId" element={<RecipeDetails />} />
                 <Route path="/catalog-recipes/:season" element={<CatalogRecipes recipes={recipes} />} />
-                <Route path="/create/recipe" element={<CreateRecipe />} />
+                <Route path="/create/recipe" element={<CreateRecipe createRecipe={createRecipeHandler}/>} />
             </Routes>
 
 

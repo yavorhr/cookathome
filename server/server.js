@@ -1382,18 +1382,17 @@
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "name": "Moussaka",
                 "description": "Moussaka is the best Dish in Bulgarian Kitchen! A must try!",
-                "details": {
-                    "season": "Winter",
-                    "timeOfTheDay": "dinner",
-                    "category": "meat",
-                    "kitchen": "bulgarian",
-                    "level": "amateur",
-                    "calories": "600",
-                }, "times": {
-                    "prep-time": "30",
-                    "cook-time": "20",
-                    "total-time": "50"
-                }, "products":
+                "season": "Winter",
+                "timeOfTheDay": "dinner",
+                "category": "meat",
+                "kitchen": "bulgarian",
+                "level": "amateur",
+                "calories": "600",
+
+                "prep-time": "30",
+                "cook-time": "20",
+                "total-time": "50",
+                "products":
                     "1 kilo tomatoes"
                 , "steps":
                     "1 kilo tomatoes",
@@ -1405,18 +1404,17 @@
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "name": "Tarator",
                 "description": "Moussaka is the best Dish in Bulgarian Kitchen! A must try!",
-                "details": {
-                    "season": "Winter",
-                    "timeOfTheDay": "dinner",
-                    "category": "veggetarian",
-                    "kitchen": "bulgarian",
-                    "level": "amateur",
-                    "calories": "100",
-                }, "times": {
-                    "prep-time": "30",
-                    "cook-time": "20",
-                    "total-time": "50"
-                }, "products":
+                "season": "Winter",
+                "timeOfTheDay": "dinner",
+                "category": "meat",
+                "kitchen": "bulgarian",
+                "level": "amateur",
+                "calories": "600",
+
+                "prep-time": "30",
+                "cook-time": "20",
+                "total-time": "50",
+                "products":
                     "1 kilo tomatoes"
                 , "steps":
                     "1 kilo tomatoes",
@@ -1428,18 +1426,17 @@
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "name": "Moussaka",
                 "description": "Moussaka is the best Dish in Bulgarian Kitchen! A must try!",
-                "details": {
-                    "season": "Winter",
-                    "timeOfTheDay": "dinner",
-                    "category": "veggetarian",
-                    "kitchen": "bulgarian",
-                    "level": "amateur",
-                    "calories": "300",
-                }, "times": {
-                    "prep-time": "30",
-                    "cook-time": "20",
-                    "total-time": "50"
-                }, "products":
+                "season": "Winter",
+                "timeOfTheDay": "dinner",
+                "category": "meat",
+                "kitchen": "bulgarian",
+                "level": "amateur",
+                "calories": "600",
+
+                "prep-time": "30",
+                "cook-time": "20",
+                "total-time": "50",
+                "products":
                     "1 kilo tomatoes"
                 , "steps":
                     "1 kilo tomatoes",
