@@ -1,10 +1,18 @@
-import styles from './CreateRecipe.module.css'
-import { useState } from 'react';
+import styles from './CreateRecipe.module.css';
 
-export const CreateRecipe = ({
-    createRecipe
-}) => {
+import { useState } from 'react';
+import { RecipeContext } from '../../context/RecipeContext.js';
+import { AuthContext } from '../../context/AuthContext.js';
+import { useContext } from 'react';
+
+import * as recipeService from '../../service/recipeService.js'
+
+
+export const CreateRecipe = ({ }) => {
+    const { user } = useContext(AuthContext);
+    const { createRecipeHandler } = useContext(RecipeContext);
     /* TODO: validation hook for errors, so it can be re-usable to edit page */
+
     const [checkSelect, setCheckSelect] = useState(false);
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
@@ -34,7 +42,6 @@ export const CreateRecipe = ({
 
     /*TODO:// UX WAY TO POP UP ERRORS */
 
-
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
@@ -45,9 +52,12 @@ export const CreateRecipe = ({
             setCheckSelect(invalidInputCheck);
             return
         }
-        setCheckSelect(false);
-        createRecipe(recipe);
 
+        setCheckSelect(false);
+
+        recipeService.createRecipe(recipe, user.accessToken)
+            .then(result =>
+                createRecipeHandler(result));
     }
 
     const minLengthCheck = (e, bound) => {

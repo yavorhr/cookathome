@@ -3,7 +3,9 @@ import './App.css';
 import { useFetch } from '../src/hooks/useFetch.js';
 import { useLocalStorage } from './hooks/userLocalStorage.js';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+
 import { AuthContext } from './context/AuthContext.js';
+import { RecipeContext } from './context/RecipeContext.js';
 import * as authService from './service/authService.js';
 
 import { HomePage } from "./Components/Home/HomePage.js";
@@ -23,6 +25,7 @@ import { RecipeDetails } from './Components/RecipeDetails/RecipeDetails.js';
 import { GroceryList } from './Components/GroceryList/GroceryList.js';
 import { Footer } from "./Components/common/Footer/Footer.js";
 import { Navbar } from './Components/common/Navigation/Navbar/Navbar.js';
+import { Recipe } from './Components/Home/RecipeByUser/Recipe/Recipe.js';
 
 function App() {
     const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
@@ -44,8 +47,12 @@ function App() {
         navigate('/')
     }
 
-    const createRecipeHandler = () => {
+    const createRecipeHandler = (newRecipe) => {
+        setRecipes(state =>
+            [...state,
+                newRecipe]);
 
+        navigate(`/details/${newRecipe._id}`)
     }
 
     return (
@@ -55,19 +62,23 @@ function App() {
                 userLogoutHandler
             }}>
                 <Navbar />
-
-                <Routes>
-                    <Route path="/" element={<HomePage recipes={recipes} articles={articles} />} />
-                    <Route path="/groecery-list" element={<GroceryList />} />
-                    <Route path="/users/login" element={<Login userLogin={userLoginHandler} />} />
-                    <Route path="/users/register" element={<Register />} />
-                    <Route path="/users/profile" element={<Profile />} />
-                    <Route path="/recipes/:season" element={<CatalogRecipes recipes={recipes} />} />
-                    <Route path="favorites" element={<Favorites />} />
-                    <Route path="/details/:recipeId" element={<RecipeDetails />} />
-                    <Route path="/catalog-recipes/:season" element={<CatalogRecipes recipes={recipes} />} />
-                    <Route path="/create/recipe" element={<CreateRecipe createRecipe={createRecipeHandler} />} />
-                </Routes>
+                <RecipeContext.Provider value=
+                    {{
+                        createRecipeHandler
+                    }}>
+                    <Routes>
+                        <Route path="/" element={<HomePage recipes={recipes} articles={articles} />} />
+                        <Route path="/users/login" element={<Login userLogin={userLoginHandler} />} />
+                        <Route path="/users/register" element={<Register />} />
+                        <Route path="/users/profile" element={<Profile />} />
+                        <Route path="favorites" element={<Favorites />} />
+                        <Route path="/groecery-list" element={<GroceryList />} />
+                        <Route path="/recipes/:season" element={<CatalogRecipes recipes={recipes} />} />
+                        <Route path="/details/:recipeId" element={<RecipeDetails />} />
+                        <Route path="/catalog-recipes/:season" element={<CatalogRecipes recipes={recipes} />} />
+                        <Route path="/create/recipe" element={<CreateRecipe />} />
+                    </Routes>
+                </RecipeContext.Provider>
             </AuthContext.Provider>
 
 
