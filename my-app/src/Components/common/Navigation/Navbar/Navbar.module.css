@@ -60,6 +60,20 @@
     color: var(--black);
 }
 
+.logout-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--white);
+    transition: color .2s ease-in;
+    cursor: pointer;
+}
+
+.logout-btn:hover{
+    color: var(--black);
+}
+
 /* Logo */
 .logo {
     width: 80px;
@@ -70,4 +84,3 @@
 .logo:hover {
     box-shadow: white;
 }
-

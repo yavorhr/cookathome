@@ -24,7 +24,6 @@ import { GroceryList } from './Components/GroceryList/GroceryList.js';
 import { Footer } from "./Components/common/Footer/Footer.js";
 import { Navbar } from './Components/common/Navigation/Navbar/Navbar.js';
 
-
 function App() {
     const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
     const [articles, setArticles] = useFetch("http://localhost:3030/data/articles", []);
