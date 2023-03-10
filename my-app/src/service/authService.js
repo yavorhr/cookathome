@@ -9,3 +9,13 @@ export const login = (userData) => {
     })
         .then(resp => resp.json())
 }
+
+export const logout = (accessToken) => {
+    return fetch(`${baseUrl}/logout`, {
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': accessToken
+        },
+
+    })
+}

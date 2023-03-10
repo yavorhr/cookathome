@@ -16,9 +16,9 @@ import { NavItem } from '../NavItem/NavItem.js'
 import { ProfileDropdown } from '../ProfileDropdown/ProfileDropdown.js';
 
 export const Navbar = () => {
-    const { auth } = useContext(AuthContext);
+    const { user, userLogoutHandler } = useContext(AuthContext);
 
-    const loggedIn = auth.email;
+    const loggedIn = user.email;
 
     return (
         <nav className={styles["navbar"]}>
@@ -32,7 +32,8 @@ export const Navbar = () => {
                         <>
                             <NavItem url='/favorites' icon={<Favorites />} />
                             <NavItem url='/groecery-list' icon={<Bag />} />
-                        </>}
+                        </>
+                    }
                 </div>
                 <div className={styles["wrapper-dropdown"]}>
                     <Dropdown icon={<Recipes />} title='Recipes' />
@@ -51,10 +52,10 @@ export const Navbar = () => {
                                 </>
                                 :
                                 <>
-                                    <Link className={styles["link-item"]} to="/users/logout">Logout</Link>
+                                    <button
+                                        className={styles["link-item"]} onClick={() => userLogoutHandler(user)}>Logout</button>
                                     <span>/</span>
                                     <ProfileDropdown icon={<Profile />} />
-
                                 </>
                             }
                         </div>

@@ -2,8 +2,9 @@ import './App.css';
 
 import { useFetch } from '../src/hooks/useFetch.js';
 import { useLocalStorage } from './hooks/userLocalStorage.js';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { AuthContext } from './context/AuthContext.js';
+import * as authService from './service/authService.js';
 
 import { HomePage } from "./Components/Home/HomePage.js";
 import { Login } from "./Components/Login/Login.js";
@@ -29,11 +30,19 @@ function App() {
     const [articles, setArticles] = useFetch("http://localhost:3030/data/articles", []);
     const [auth, setAuth] = useLocalStorage('auth', {});
 
-    
-
+    const navigate = useNavigate();
 
     const userLoginHandler = (userData) => {
         setAuth(userData);
+    }
+
+    const userLogoutHandler = (userData) => {
+        authService
+            .logout(userData.accessToken);
+
+        setAuth({})
+
+        navigate('/')
     }
 
     const createRecipeHandler = () => {
@@ -42,7 +51,10 @@ function App() {
 
     return (
         <div className="App">
-            <AuthContext.Provider value={{ auth }}>
+            <AuthContext.Provider value={{
+                user: auth,
+                userLogoutHandler
+            }}>
                 <Navbar />
 
                 <Routes>

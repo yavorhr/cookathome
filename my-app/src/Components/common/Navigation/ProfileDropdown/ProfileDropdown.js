@@ -6,14 +6,14 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../../context/AuthContext.js';
 
 import { ReactComponent as Arrow } from '../svg/arrow.svg';
-
 import { Link } from 'react-router-dom';
 
 export const ProfileDropdown = (props) => {
     const [open, setOpen] = useState(false);
     const [openBtn, setOpenBtn] = useState(false);
-    const { auth } = useContext(AuthContext);
-    const isLoggedIn = auth.email;
+
+    const { user } = useContext(AuthContext);
+    const isLoggedIn = user.email;
 
     let className = open ? 'active' : 'inactive';
     let classNameBtn = openBtn ? 'active' : 'inactive';
@@ -62,7 +62,6 @@ export const ProfileDropdown = (props) => {
                         {openBtn && <Arrow />}
                     </button>
                 </div>}
-
 
                 <div className={`${styles["dropdown"]} ${styles["dropdown-create-btn"]} ${styles[classNameBtn]}`}>
                     <Link
