@@ -1,7 +1,7 @@
 import './App.css';
 import { useFetch } from '../src/hooks/useFetch.js';
+import { useLocalStorage } from './hooks/userLocalStorage.js';
 import { Routes, Route } from 'react-router-dom';
-
 
 import { HomePage } from "./Components/Home/HomePage.js";
 import { Login } from "./Components/Login/Login.js";
@@ -25,9 +25,10 @@ import { Navbar } from './Components/common/Navigation/Navbar/Navbar.js';
 function App() {
     const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
     const [articles, setArticles] = useFetch("http://localhost:3030/data/articles", []);
+    const [auth, setAuth] = useLocalStorage('auth', {});
 
-    const userLoginHandler = () => {
-        console.log('s');
+    const userLoginHandler = (userData) => {
+        setAuth(userData);
     }
 
     const createRecipeHandler = () => {
