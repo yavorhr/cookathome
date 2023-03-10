@@ -172,6 +172,41 @@ Create Recipe Section
     color: var(--white)
 }
 
+.error {
+    color: red;
+    font-size: 18px;
+    margin: 0 auto;
+    margin-top: 5px;
+    border: 1px solid black;
+    background-color: white;
+    text-align: center;
+    padding: 3px;
+}
+
+.error.title,
+.error.imageUrl {
+    width: 70%;
+}
+
+.error.descr {
+    width: 80%;
+}
+
+.error.imageUrl {
+    width: 50%;
+}
+
+.error.products,
+.error.steps {
+    width: 55%;
+}
+
+.error.select-menu{
+    width: 30%;
+    margin-top: 10px;
+}
+
+
 /*
 ======================
   Responsive design

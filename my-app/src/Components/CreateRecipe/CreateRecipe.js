@@ -2,6 +2,7 @@ import styles from './CreateRecipe.module.css'
 import { useState } from 'react';
 
 export const CreateRecipe = () => {
+    const [checkSelect, setCheckSelect] = useState(false);
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
         title: '',
@@ -20,7 +21,6 @@ export const CreateRecipe = () => {
         occasion: '',
         portions: ''
     });
-
     const onChangeHandler = (e) => {
         setValues(state => ({
             ...state,
@@ -28,11 +28,44 @@ export const CreateRecipe = () => {
         }))
     }
 
+    /*TODO:// UX WAY TO POP UP ERRORS */
+
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
         const data = Object.fromEntries(new FormData(e.target));
-        console.log(data);
+        let checkMenu = Object.values(data).some(e => e == 'Please select' || e == '');
+
+        if (checkMenu) {
+            setCheckSelect(checkMenu);
+            return
+        } else {
+            setCheckSelect(false);
+        }
+    }
+
+    const minLengthCheck = (e, bound) => {
+        setErrors(state => ({
+            ...state,
+            [e.target.name]: values[e.target.name].length < bound
+        }))
+    }
+
+    const validImageUrl = (e) => {
+        const regex = new RegExp(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i);
+        const urlInput = e.target.value;
+
+        setErrors(state => ({
+            ...state,
+            [e.target.name]: !regex.test(urlInput)
+        }))
+    }
+
+    const isPositive = (e) => {
+        setErrors(state => ({
+            ...state,
+            [e.target.name]: values[e.target.name] < 0 || isNaN(values[e.target.name])
+        }))
     }
 
     return (
@@ -51,7 +84,10 @@ export const CreateRecipe = () => {
                             placeholder="Enter the title"
                             name="title"
                             value={values.title}
-                            onChange={onChangeHandler} />
+                            onChange={onChangeHandler}
+                            onBlur={(e) => minLengthCheck(e, 2)}
+                        />
+                        {errors.title && <p className={`${styles["error"]} ${styles["title"]}`}>Recipe name must be at least 2 characters!</p>}
                     </div>
                     <div className={`${styles["descr"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="descr">Description</label>
@@ -63,7 +99,9 @@ export const CreateRecipe = () => {
                             placeholder="Enter short description..."
                             value={values.descr}
                             onChange={onChangeHandler}
+                            onBlur={(e) => minLengthCheck(e, 5)}
                         />
+                        {errors.descr && <p className={`${styles["error"]} ${styles["descr"]}`}>Description name must be at least 5 characters!</p>}
                     </div>
                     <div className={`${styles["imageUrl"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="imageUrl">Recipe URL image</label>
@@ -72,7 +110,9 @@ export const CreateRecipe = () => {
                             placeholder="Insert recipe url here..."
                             name="imageUrl"
                             value={values.imageUrl}
-                            onChange={onChangeHandler} />
+                            onChange={onChangeHandler}
+                            onBlur={validImageUrl} />
+                        {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please insert valid image url!</p>}
                     </div>
                     <div className={styles["group-wrapper"]}>
                         <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
@@ -81,8 +121,9 @@ export const CreateRecipe = () => {
                                 type="text"
                                 name="category"
                                 value={values.category}
-                                onChange={onChangeHandler}>
-                                <option value="---">---</option>
+                                onChange={onChangeHandler}
+                            >
+                                <option value="Please select">Please select</option>
                                 <option value="Veggetarian">Veggetarian</option>
                                 <option value="Meat">Meat</option>
                                 <option value="Fish">Fish</option>
@@ -94,8 +135,9 @@ export const CreateRecipe = () => {
                                 type="text"
                                 name="type"
                                 value={values.type}
-                                onChange={onChangeHandler}>
-                                <option value="---">---</option>
+                                onChange={onChangeHandler}
+                            >
+                                <option defaultValue="Please select">Please select</option>
                                 <option value="Brekfast">Brekfast</option>
                                 <option value="Dinner">Dinner</option>
                                 <option value="Snack">Snack</option>
@@ -108,8 +150,9 @@ export const CreateRecipe = () => {
                                 type="text"
                                 name="season"
                                 value={values.season}
-                                onChange={onChangeHandler} >
-                                <option value="---">---</option>
+                                onChange={onChangeHandler}
+                            >
+                                <option value="Please select">Please select</option>
                                 <option value="Spring">Spring</option>
                                 <option value="Summer">Summer</option>
                                 <option value="Autumn">Autumn</option>
@@ -122,8 +165,9 @@ export const CreateRecipe = () => {
                                 type="text"
                                 name="kitchen"
                                 value={values.kitchen}
-                                onChange={onChangeHandler}>
-                                <option value="---">---</option>
+                                onChange={onChangeHandler}
+                            >
+                                <option value="Please select">Please select</option>
                                 <option value="Bulgarian">Bulgarian</option>
                                 <option value="German">German</option>
                                 <option value="English">English</option>
@@ -141,7 +185,9 @@ export const CreateRecipe = () => {
                             placeholder="Enter one product per row (ex. : Potatoes - 1 kg.)"
                             value={values.products}
                             onChange={onChangeHandler}
+                            onBlur={(e) => minLengthCheck(e, 10)}
                         />
+                        {errors.products && <p className={`${styles["error"]} ${styles["products"]}`}>Product's list must be at least 10 characters!</p>}
                     </div>
                     <div className={`${styles["steps"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="steps">Steps</label>
@@ -153,7 +199,9 @@ export const CreateRecipe = () => {
                             placeholder="Enter one step per row (ex. : 1. Boil the potatoes)"
                             value={values.steps}
                             onChange={onChangeHandler}
+                            onBlur={(e) => minLengthCheck(e, 1)}
                         />
+                        {errors.steps && <p className={`${styles["error"]} ${styles["steps"]}`}>Cooking steps must be at least 10 characters!</p>}
                     </div>
                     <div className={styles["group-wrapper"]}>
                         <div className={`${styles["calories"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
@@ -163,7 +211,9 @@ export const CreateRecipe = () => {
                                 name="calories"
                                 value={values.calories}
                                 onChange={onChangeHandler}
+                                onBlur={isPositive}
                             />
+                            {errors.calories && <p className={`${styles["error"]} ${styles["calories"]}`}>Please insert positive number!</p>}
                         </div>
                         <div className={`${styles["prep-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
                             <label htmlFor="prep-time">Prep time (min)</label>
@@ -172,11 +222,20 @@ export const CreateRecipe = () => {
                                 name="prep-time"
                                 value={values['prep-time']}
                                 onChange={onChangeHandler}
+                                onBlur={isPositive}
                             />
+                            {errors['prep-time'] && <p className={`${styles["error"]} ${styles["prep-time"]}`}>Please insert positive number!</p>}
                         </div>
                         <div className={`${styles["cook-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
                             <label htmlFor="cook-time">Cook time (min)</label>
-                            <input type="text" name="cook-time" />
+                            <input
+                                type="text"
+                                name="cook-time"
+                                value={values['cook-time']}
+                                onChange={onChangeHandler}
+                                onBlur={isPositive}
+                            />
+                            {errors['cook-time'] && <p className={`${styles["error"]} ${styles["cook-time"]}`}>Please insert positive number!</p>}
                         </div>
                     </div>
                     <div className={styles["group-wrapper"]}>
@@ -188,7 +247,7 @@ export const CreateRecipe = () => {
                                 value={values.level}
                                 onChange={onChangeHandler}
                             >
-                                <option value="---">---</option>
+                                <option value="Please select">Please select</option>
                                 <option value="Beginner">Beginner</option>
                                 <option value="Intermediate">Intermediate</option>
                                 <option value="Advanced">Advanced</option>
@@ -203,12 +262,13 @@ export const CreateRecipe = () => {
                                 value={values.occasion}
                                 onChange={onChangeHandler}
                             >
-                                <option value="---">---</option>
+                                <option value="Please select">Please select</option>
                                 <option value="Office">Office</option>
                                 <option value="On the road">On the road</option>
                                 <option value="School">School</option>
                                 <option value="Guests">Guests</option>
                                 <option value="Cheat">Cheat</option>
+                                <option value="No specific occasion">No specific occasion</option>
                             </select>
                         </div>
                         <div className={`${styles["portions"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
@@ -218,7 +278,9 @@ export const CreateRecipe = () => {
                                 name="portions"
                                 value={values.portions}
                                 onChange={onChangeHandler}
+                                onBlur={isPositive}
                             />
+                            {errors.portions && <p className={`${styles["error"]} ${styles["portions"]}`}>Please insert positive number!</p>}
                         </div>
                     </div>
                     <input type="submit"
@@ -226,6 +288,7 @@ export const CreateRecipe = () => {
                         className={styles["create-recipe-submit-btn"]}>
                     </input>
                 </form>
+                {checkSelect && <p className={`${styles["error"]} ${styles["select-menu"]}`}>You forgot to select a menu or you have blank input!</p>}
             </section>
         </div>
     );
