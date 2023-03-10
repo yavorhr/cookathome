@@ -2,6 +2,8 @@
 
 import styles from './ProfileDropdown.module.css';
 import { useEffect, useState, useRef } from "react";
+import { useContext } from 'react';
+import { AuthContext } from '../../../../context/AuthContext.js';
 
 import { ReactComponent as Arrow } from '../svg/arrow.svg';
 
@@ -10,6 +12,8 @@ import { Link } from 'react-router-dom';
 export const ProfileDropdown = (props) => {
     const [open, setOpen] = useState(false);
     const [openBtn, setOpenBtn] = useState(false);
+    const { auth } = useContext(AuthContext);
+    const isLoggedIn = auth.email;
 
     let className = open ? 'active' : 'inactive';
     let classNameBtn = openBtn ? 'active' : 'inactive';
@@ -49,8 +53,7 @@ export const ProfileDropdown = (props) => {
                     onClick={openHandler}>
                     Profile
                 </Link>
-
-                <div
+                {isLoggedIn && < div
                     className={styles['profile-wrapper']}
                     onClick={() => setOpenBtn(!openBtn)}>
                     <button
@@ -58,7 +61,8 @@ export const ProfileDropdown = (props) => {
                         to="/users/create" >Create
                         {openBtn && <Arrow />}
                     </button>
-                </div>
+                </div>}
+
 
                 <div className={`${styles["dropdown"]} ${styles["dropdown-create-btn"]} ${styles[classNameBtn]}`}>
                     <Link
@@ -70,8 +74,6 @@ export const ProfileDropdown = (props) => {
                         to="/create/recipe"
                         onClick={openHandler}>Create Article</Link>
                 </div>
-
-                <a href="" className={styles["logout-btn"]}>Logout</a>
             </div>
         </div>
     )
