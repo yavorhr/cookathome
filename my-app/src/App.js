@@ -21,7 +21,7 @@ import { CreateArticle } from './Components/CreateArticle/CreateArticle.js';
 import { EditArtice } from './Components/EditArticle/EditArticle.js';
 import { CreateRecipe } from './Components/CreateRecipe/CreateRecipe.js';
 import { EditRecipe } from './Components/EditRecipe/EditRecipe.js';
-import { RecipeDetails } from './Components/RecipeDetails/RecipeDetails.js';
+import { RecipeDetails } from './Components/DetailsRecipe/RecipeDetails.js';
 import { GroceryList } from './Components/GroceryList/GroceryList.js';
 import { Footer } from "./Components/common/Footer/Footer.js";
 import { Navbar } from './Components/common/Navigation/Navbar/Navbar.js';

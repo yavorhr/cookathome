@@ -7,12 +7,12 @@ import { faUtensils, faCamera, faFireBurner, faPenToSquare, faTrashCan, faCircle
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+/*TODO : To chane fab icons with svg icons */
 
 export const RecipeDetails = () => {
     const [recipe, setRecipe] = useState({});
 
     const { recipeId } = useParams();
-
 
     useEffect(() => {
         recipeService
@@ -32,10 +32,7 @@ export const RecipeDetails = () => {
                 </article>
                 <article>
                     <q className={styles["header__descr"]}>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum
-                        nesciunt deleniti error necessitatibus quis architecto aspernatur animi
-                        ea autem? Repudiandae, repellat alias asperiores quasi culpa officia
-                        neque animi veniam distinctio.
+                       {recipe.description}
                     </q>
                 </article>
             </section>
