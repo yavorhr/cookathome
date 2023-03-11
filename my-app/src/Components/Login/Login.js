@@ -2,10 +2,13 @@ import styles from './Login.module.css'
 
 import { Link, useNavigate } from 'react-router-dom';
 import * as authService from '../../service/authService.js'
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext.js';
 
 export const Login = ({
-    userLogin
 }) => {
+
+    const { userLogin } = useContext(AuthContext);
 
     const navigate = useNavigate();
 

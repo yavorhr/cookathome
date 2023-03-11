@@ -16,11 +16,11 @@ import { NavItem } from '../NavItem/NavItem.js'
 import { ProfileDropdown } from '../ProfileDropdown/ProfileDropdown.js';
 
 export const Navbar = () => {
-    const { user, userLogoutHandler } = useContext(AuthContext);
+    const { user, userLogout } = useContext(AuthContext);
 
     const loggedIn = user.email;
 
-    /*TODO: to set profile picture instead of the user profile icon*/ 
+    /*TODO: to set profile picture instead of the user profile icon*/
 
     return (
         <nav className={styles["navbar"]}>
@@ -55,7 +55,7 @@ export const Navbar = () => {
                                 :
                                 <>
                                     <button
-                                        className={styles["logout-btn"]} onClick={() => userLogoutHandler(user)}>Logout</button>
+                                        className={styles["logout-btn"]} onClick={() => userLogout(user)}>Logout</button>
                                     <span>/</span>
                                     <ProfileDropdown icon={<Profile />} />
                                 </>

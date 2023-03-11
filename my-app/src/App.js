@@ -34,17 +34,20 @@ function App() {
 
     const navigate = useNavigate();
 
-    const userLoginHandler = (userData) => {
+    const userLogin = (userData) => {
         setAuth(userData);
     }
 
-    const userLogoutHandler = (userData) => {
+    const userLogout = (userData) => {
         authService
             .logout(userData.accessToken);
 
         setAuth({})
-
         navigate('/')
+    }
+
+    const userRegister = () => {
+
     }
 
     const createRecipeHandler = (newRecipe) => {
@@ -59,7 +62,9 @@ function App() {
         <div className="App">
             <AuthContext.Provider value={{
                 user: auth,
-                userLogoutHandler
+                userLogout,
+                userLogin,
+                userRegister
             }}>
                 <Navbar />
                 <RecipeContext.Provider value=
@@ -68,7 +73,7 @@ function App() {
                     }}>
                     <Routes>
                         <Route path="/" element={<HomePage recipes={recipes} articles={articles} />} />
-                        <Route path="/users/login" element={<Login userLogin={userLoginHandler} />} />
+                        <Route path="/users/login" element={<Login />} />
                         <Route path="/users/register" element={<Register />} />
                         <Route path="/users/profile" element={<Profile />} />
                         <Route path="favorites" element={<Favorites />} />
