@@ -1,12 +1,17 @@
 import styles from './Register.module.css'
 
-/*TODO:add upload button for user image */
-/* TODO: validation hook for errors, so it can be re-usable to edit page */
-/*TODO:// UX WAY TO POP UP ERRORS */
-
 import { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext.js';
 
 export const Register = () => {
+
+    /*TODO:add upload button for user image */
+    /* TODO: validation hook for errors, so it can be re-usable to edit page */
+    /*TODO:// UX WAY TO POP UP ERRORS */
+    /*TODO:// To change style of the button when is locked */
+    /*TODO:// Add checked/error icon in input */
+
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
         'full-name': '',
@@ -18,6 +23,16 @@ export const Register = () => {
         'imageUrl': ''
     });
 
+    const check = Object.values(errors).some(e => Boolean(e));
+    const { userLogin } = useContext(AuthContext);
+
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+
+        const userData = Object.fromEntries(new FormData(e.target));
+        console.log(check);
+    }
+
     const onChangeHandler = (e) => {
         setValues(state => ({
             ...state,
@@ -25,14 +40,14 @@ export const Register = () => {
         }))
     }
 
-    const onSubmitHandler = (e) => {
-        e.preventDefault();
-
-        const userData = Object.fromEntries(new FormData(e.target));
-        console.log(userData);
-    }
-
     const minLengthCheck = (e, bound) => {
+
+        if (values[e.target.name].length < bound) {
+            e.target.className = styles['red-style'];
+        } else {
+            e.target.className = styles['green-style'];
+        }
+
         setErrors(state => ({
             ...state,
             [e.target.name]: values[e.target.name].length < bound
@@ -40,8 +55,15 @@ export const Register = () => {
     }
 
     const emailValidation = (e) => {
+
         const regex = new RegExp(/^[A-Za-z0-9+_.-]+@(.+)$/);
         const urlInput = e.target.value;
+
+        if (!regex.test(urlInput)) {
+            e.target.className = styles['red-style'];
+        } else {
+            e.target.className = styles['green-style'];
+        }
 
         setErrors(state => ({
             ...state,
@@ -52,6 +74,12 @@ export const Register = () => {
     const validImageUrl = (e) => {
         const regex = new RegExp(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i);
         const urlInput = e.target.value;
+
+        if (!regex.test(urlInput)) {
+            e.target.className = styles['red-style'];
+        } else {
+            e.target.className = styles['green-style'];
+        }
 
         setErrors(state => ({
             ...state,
@@ -76,7 +104,7 @@ export const Register = () => {
                             onChange={onChangeHandler}
                             value={values['full-name']}
                             onBlur={(e) => minLengthCheck(e, 4)} />
-                        {errors['full-name'] && <p className={`${styles["error"]} ${styles["full-name"]}`}>Names must be at least 4 characters long!</p>}
+                        {errors['full-name'] && <p className={`${styles["error"]} ${styles["full-name"]}`}>Must be at least 4 characters long!</p>}
                     </div>
                     <div className={styles["txt-fields"]}>
                         <label forname="username">Usnername</label>
@@ -89,7 +117,7 @@ export const Register = () => {
                             value={values.username}
                             onBlur={(e) => minLengthCheck(e, 3)}
                         />
-                        {errors.username && <p className={`${styles["error"]} ${styles["username"]}`}>Username must be at least 3 characters long!</p>}
+                        {errors.username && <p className={`${styles["error"]} ${styles["username"]}`}>Must be at least 3 characters long!</p>}
                     </div>
                     <div className={styles["txt-fields"]}>
                         <label forname="username">Email</label>
@@ -148,7 +176,8 @@ export const Register = () => {
                         {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please enter valid image url!</p>}
                     </div>
                 </div>
-                <button type="submit" className={styles["register-submit-btn"]}>Register</button>
+                <button type="submit" disabled={check} className={styles["register-submit-btn"]}>Register</button>
+                {check && <p className={`${styles["error"]} ${styles["button-error"]}`}>Please check your input!</p>}
             </form>
         </section>
     );

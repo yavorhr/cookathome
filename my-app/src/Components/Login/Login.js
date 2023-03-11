@@ -18,13 +18,13 @@ export const Login = ({
         const userData = Object.fromEntries(new FormData(e.target));
 
         /* TRY CATCH in ALL AJAX */
+        
         authService
             .login(userData)
             .then(result => {
                 userLogin(result);
                 navigate('/')
             })
-
     }
 
     return (
