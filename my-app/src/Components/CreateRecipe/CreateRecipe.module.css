@@ -173,14 +173,14 @@ Create Recipe Section
 }
 
 .error {
-    color: red;
-    font-size: 18px;
     margin: 0 auto;
+    background-color: var(--red);
+    padding: 6px;
     margin-top: 5px;
-    border: 1px solid black;
-    background-color: white;
+    border-radius: 5px;
+    color: var(--white);
+    
     text-align: center;
-    padding: 3px;
 }
 
 .error.title,
@@ -201,7 +201,7 @@ Create Recipe Section
     width: 55%;
 }
 
-.error.select-menu{
+.error.select-menu {
     width: 30%;
     margin-top: 10px;
 }

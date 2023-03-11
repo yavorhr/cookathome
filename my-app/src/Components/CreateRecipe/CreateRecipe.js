@@ -11,10 +11,10 @@ import * as recipeService from '../../service/recipeService.js'
 export const CreateRecipe = ({ }) => {
     const { user } = useContext(AuthContext);
     const { createRecipeHandler } = useContext(RecipeContext);
-    
+
     /* TODO: validation hook for errors, so it can be re-usable to edit page */
 
-    const [checkSelect, setCheckSelect] = useState(false);
+    const [invalidUserInput, setInvalidUserInput] = useState(false);
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
         title: '',
@@ -47,14 +47,16 @@ export const CreateRecipe = ({ }) => {
         e.preventDefault();
 
         const recipe = Object.fromEntries(new FormData(e.target));
-        let invalidInputCheck = Object.values(recipe).some(e => e == 'Please select' || e == '');
 
-        if (invalidInputCheck) {
-            setCheckSelect(invalidInputCheck);
+        let invalidUserInput = Object.values(errors).some(e => Boolean(e))
+        let selectMenuErrorOrBlankInput = Object.values(recipe).some(e => e == 'Please select' || e == '');
+
+        if (invalidUserInput || selectMenuErrorOrBlankInput) {
+            setInvalidUserInput(true);
             return
         }
 
-        setCheckSelect(false);
+        setInvalidUserInput(false);
 
         recipeService.createRecipe(recipe, user.accessToken)
             .then(result =>
@@ -300,12 +302,13 @@ export const CreateRecipe = ({ }) => {
                             {errors.portions && <p className={`${styles["error"]} ${styles["portions"]}`}>Please insert positive number!</p>}
                         </div>
                     </div>
-                    <input type="submit"
+                    <input
+                        type="submit"
                         value="Create"
                         className={styles["create-recipe-submit-btn"]}>
                     </input>
                 </form>
-                {checkSelect && <p className={`${styles["error"]} ${styles["select-menu"]}`}>You forgot to select a menu or you have blank input!</p>}
+                {invalidUserInput && <p className={`${styles["error"]} ${styles["select-menu"]}`}>You have to select all fields!</p>}
             </section>
         </div>
     );
