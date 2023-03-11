@@ -1,6 +1,7 @@
 import styles from './Register.module.css'
 
 export const Register = () => {
+
     return (
         <section className={styles["register-section"]}>
             <h1 className={styles["title"]}>Registration</h1>
@@ -29,6 +30,10 @@ export const Register = () => {
                     <div className={styles["txt-fields"]}>
                         <label forname="re-pass">Confirm Password</label>
                         <input type="text" name="re-pass" id="re-pass" placeholder="Confirm your password" />
+                    </div>
+                    <div className={styles["txt-fields"]}>
+                        <label forname="Image url">Image Url</label>
+                        <input className={styles["input"]} type="text" name="imageUrl" id="imageUrl" placeholder="Insert image url" />
                     </div>
                 </div>
                 <button type="submit" className={styles["register-submit-btn"]}>Register</button>
