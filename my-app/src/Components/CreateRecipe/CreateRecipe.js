@@ -11,6 +11,7 @@ import * as recipeService from '../../service/recipeService.js'
 export const CreateRecipe = ({ }) => {
     const { user } = useContext(AuthContext);
     const { createRecipeHandler } = useContext(RecipeContext);
+    
     /* TODO: validation hook for errors, so it can be re-usable to edit page */
 
     const [checkSelect, setCheckSelect] = useState(false);
