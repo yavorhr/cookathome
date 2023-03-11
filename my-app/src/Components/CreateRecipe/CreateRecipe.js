@@ -308,7 +308,7 @@ export const CreateRecipe = ({ }) => {
                         className={styles["create-recipe-submit-btn"]}>
                     </input>
                 </form>
-                {invalidUserInput && <p className={`${styles["error"]} ${styles["select-menu"]}`}>You have to select all fields!</p>}
+                {invalidUserInput && <p className={`${styles["error"]} ${styles["select-menu"]}`}>You have missing fields or incorrect input!</p>}
             </section>
         </div>
     );

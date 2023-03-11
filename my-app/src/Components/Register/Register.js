@@ -1,7 +1,7 @@
 import styles from './Register.module.css'
 
-import { useState } from 'react';
-import { useContext } from 'react';
+import * as authService from '../../service/authService.js';
+import { useState, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
 
 export const Register = () => {
@@ -27,7 +27,7 @@ export const Register = () => {
     const { userLogin } = useContext(AuthContext);
 
     let check = Object.values(errors).some(e => Boolean(e));
-    
+
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
@@ -41,7 +41,10 @@ export const Register = () => {
             return
         }
 
-        console.log('s');
+        authService.register(userData).
+            then(result => {
+                userLogin(result)
+            })
     }
 
     const onChangeHandler = (e) => {

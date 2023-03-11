@@ -19,3 +19,20 @@ export const logout = (accessToken) => {
 
     })
 }
+
+/* Eror handling unique email */ 
+
+export const register = (userData) => {
+    try {
+        return fetch(`${baseUrl}/register`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            }, body: JSON.stringify(userData)
+        }).then(resp => resp.json())
+    } catch (error) {
+        console.log(error);
+    }
+
+    
+}

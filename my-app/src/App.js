@@ -36,6 +36,7 @@ function App() {
 
     const userLogin = (userData) => {
         setAuth(userData);
+        navigate('/')
     }
 
     const userLogout = (userData) => {

@@ -1,6 +1,6 @@
 import styles from './Login.module.css'
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as authService from '../../service/authService.js'
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
@@ -9,8 +9,6 @@ export const Login = ({
 }) => {
 
     const { userLogin } = useContext(AuthContext);
-
-    const navigate = useNavigate();
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -23,7 +21,6 @@ export const Login = ({
             .login(userData)
             .then(result => {
                 userLogin(result);
-                navigate('/')
             })
     }
 

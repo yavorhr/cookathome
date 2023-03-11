@@ -126,17 +126,16 @@ Create Recipe Section
 
 .group-wrapper {
     display: flex;
+    height: 150px;
     align-items: center;
     justify-content: space-around;
     gap: 10px;
-
-    padding: 20px;
+    padding: 5px;
 }
 
 .group-wrapper .select-wrapper {
     width: 20%;
 }
-
 
 .create--recipe-section .title,
 .create--recipe-section .descr,
@@ -179,7 +178,7 @@ Create Recipe Section
     margin-top: 5px;
     border-radius: 5px;
     color: var(--white);
-    
+
     text-align: center;
 }
 

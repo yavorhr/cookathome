@@ -93,10 +93,12 @@
 /* errors styling */
 
 .error {
-    background-color: var(--red);
     padding: 6px;
+    margin: 0 auto;
     margin-top: 5px;
-    border-radius: 5px;    
+    background-color: var(--red);
+    border-radius: 5px;
+        
     color: var(--white);
     text-align: center;
 }
