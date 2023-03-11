@@ -11,29 +11,41 @@ export const Register = () => {
     /*TODO:// UX WAY TO POP UP ERRORS */
     /*TODO:// To change style of the button when is locked */
     /*TODO:// Add checked/error icon in input */
+    /*TODO:// More universal way to check for errors */
 
+    const [validateInput, setValidateInput] = useState(true);
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
         'full-name': '',
         'username': '',
         'email': '',
-        'phone-number': '',
         'password': '',
         'confirm-password': '',
         'imageUrl': ''
     });
 
-    const check = Object.values(errors).some(e => Boolean(e));
     const { userLogin } = useContext(AuthContext);
 
+    let check = Object.values(errors).some(e => Boolean(e));
+    
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
         const userData = Object.fromEntries(new FormData(e.target));
-        console.log(check);
+
+        const confirmedPassword = userData['confirm-password'];
+        const password = userData.password;
+
+        if (confirmedPassword != password || Object.values(userData).some(i => i == '')) {
+            setValidateInput(false);
+            return
+        }
+
+        console.log('s');
     }
 
     const onChangeHandler = (e) => {
+        setValidateInput(true);
         setValues(state => ({
             ...state,
             [e.target.name]: e.target.value
@@ -133,16 +145,6 @@ export const Register = () => {
                         {errors.email && <p className={`${styles["error"]} ${styles["email"]}`}>Please enter valid email!</p>}
                     </div>
                     <div className={styles["txt-fields"]}>
-                        <label forname="phone-number">Phone number / not obligatory</label>
-                        <input
-                            type="text"
-                            name="phone-number"
-                            id="phone-number"
-                            placeholder="Enter your number"
-                            onChange={onChangeHandler}
-                            value={values['phone-number']} />
-                    </div>
-                    <div className={styles["txt-fields"]}>
                         <label forname="password">Password</label>
                         <input
                             type="password"
@@ -177,7 +179,7 @@ export const Register = () => {
                     </div>
                 </div>
                 <button type="submit" disabled={check} className={styles["register-submit-btn"]}>Register</button>
-                {check && <p className={`${styles["error"]} ${styles["button-error"]}`}>Please check your input!</p>}
+                {!validateInput && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>You have invalid password or blank fields!</p>}
             </form>
         </section>
     );
