@@ -7,7 +7,7 @@ import * as recipeService from '../../service/recipeService.js'
 import { FoodItem } from './FoodItem/FoodItem.js';
 
 export const GroceryList = () => {
-    const [products, setProducts] = useState({});
+    const [products, setProducts] = useState([]);
 
     const { user } = useContext(AuthContext);
 
@@ -16,7 +16,7 @@ export const GroceryList = () => {
     useEffect(() => {
         recipeService
             .findProductsByUserid('847ec027-f659-4086-8032-5173e2f9c93a')
-            .then(result => setProducts((result[0])));
+            .then(result => setProducts((result)));
     }, [])
 
     return (
@@ -28,7 +28,7 @@ export const GroceryList = () => {
                         <button className={styles["add-task"]}>Add</button>
                     </div>
                     <ul className={styles["groceries"]}>
-                       
+                       {Object.values(products).map(p => console.log(p))}
                     </ul>
                 </section>
             </div>

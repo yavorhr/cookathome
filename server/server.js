@@ -1380,15 +1380,21 @@
         products: {
             "gafgdf321asdsdafds": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "fhjdashfj21": "Tomatoes 2 kg",
-                "fsda21sz": "Cucumbers 1 kg"
+                "product": "Tomatoes 2 kg",
+            }, "fdsfdx3213": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "product": "Cucumbers 1 kg"
+            },
+            "fdsfdxxczs23213": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "product": "Milk 1 l"
             }
         },
 
         favorites: {
             "dksajdkasj21": {
                 "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-             
+
             }
         },
 
