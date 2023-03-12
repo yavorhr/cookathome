@@ -8,9 +8,6 @@ import { FoodItem } from './FoodItem/FoodItem.js';
 
 export const GroceryList = () => {
     const [products, setProducts] = useState([]);
-
-    console.log(products);
-
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
@@ -28,7 +25,7 @@ export const GroceryList = () => {
             .then(result =>
                 setProducts(state =>
                     [...state,
-                    { ...result, isCompleted: false }])
+                     result ])
             );
         e.target.reset();
     }

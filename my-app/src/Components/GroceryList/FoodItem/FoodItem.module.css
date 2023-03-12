@@ -17,6 +17,7 @@
     cursor: pointer;
     width: 250px;
     font-size: 18px;
+    letter-spacing: 2px;
 }
 
 .food-item__task-btn {
@@ -36,4 +37,8 @@
 
 .food-item__task-btn:hover {
     filter: brightness(1.2)
+}
+
+.completed{
+    text-decoration: line-through;
 }
