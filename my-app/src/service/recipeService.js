@@ -99,11 +99,6 @@ export const createRecipe = (recipe, accessToken) => {
     }
 }
 
-// export const findProductsByUserid = (ownerId) => {
-//     return fetch(`${baseUrl}?where=ownerId%3D%22${ownerId}%22`)
-//     .then(result => result.json())
-// }
-
 export const findProductsByUserid = (ownerId) => {
     return fetch(`http://localhost:3030/data/products?where=_ownerId%3D%22${ownerId}%22`)
     .then(result => result.json())

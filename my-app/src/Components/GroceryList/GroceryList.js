@@ -2,7 +2,7 @@ import styles from './GroceryList.module.css';
 
 import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
-import * as recipeService from '../../service/recipeService.js'
+import * as productsService from '../../service/productsService.js'
 
 import { FoodItem } from './FoodItem/FoodItem.js';
 
@@ -11,10 +11,8 @@ export const GroceryList = () => {
 
     const { user } = useContext(AuthContext);
 
-    console.log(products);
-
     useEffect(() => {
-        recipeService
+        productsService
             .findProductsByUserid(user._id)
             .then(result => setProducts((result)));
     }, [])
