@@ -1,6 +1,6 @@
 /* <nav> */
 .navbar {
-    height: 60px;
+    height: 80px;
     background-color: var(--grass-green);
     padding: 0 1rem;
 }
@@ -36,47 +36,22 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    height: 47px;
+
+    height: 70px;
     padding: 8px 10px;
-    background-color: var(--user--login--btn--bckgrnd);
     border-radius: 8px;
-}
-
-.sign-up-links .link-item {
-    font-size: 18px;
-    font-weight: bold;
+    background-color: var(--user--login--btn--bckgrnd);
     color: var(--white);
-    text-decoration: none;
-
-    transition: color .2s ease-in;
-}
-
-.sign-up-links span {
-    font-size: 18px;
-    color: var(--white);
+    font-size: 20px;
 }
 
 .sign-up-links a:hover {
     color: var(--black);
 }
 
-.logout-btn {
-    background-color: transparent;
-    border: none;
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--white);
-    transition: color .2s ease-in;
-    cursor: pointer;
-}
-
-.logout-btn:hover{
-    color: var(--black);
-}
-
 /* Logo */
 .logo {
-    width: 80px;
+    width: 100px;
     height: auto;
     border-radius: 70%;
 }
@@ -85,8 +60,3 @@
     box-shadow: white;
 }
 
-.profile-img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}

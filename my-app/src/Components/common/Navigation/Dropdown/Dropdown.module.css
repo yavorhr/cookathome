@@ -4,6 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+  font-size: 18px;
 }
 
 .nav-item-dropdown-wrapper span {
@@ -22,12 +24,12 @@
   align-items: center;
   justify-content: center;
 
-  --button-size: calc(var(--nav-size) * 0.7);
+  --button-size: calc(var(--nav-size) * 1);
   width: var(--button-size);
   height: var(--button-size);
 
   background-color: var(--light-gray);
-  padding: 5px;
+  padding: 9px;
   margin: 2px;
   border-radius: 50%;
 
@@ -40,6 +42,6 @@
 
 .icon-button svg {
   fill: var(--text-color);
-  width: 30px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
 }

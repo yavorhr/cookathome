@@ -12,10 +12,10 @@
   align-items: center;
   justify-content: center;
 
-  --button-size: calc(var(--nav-size) * 0.7);
+  --button-size: calc(var(--nav-size) * 1);
   width: var(--button-size);
   height: var(--button-size);
-  padding: 5px;
+  padding: 8px;
   margin: 2px;
   border-radius: 50%;
 
@@ -29,16 +29,11 @@
 
 .icon-button svg {
   fill: var(--white);
-  width: 30px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
 }
 
 .icon-button:hover {
   filter: brightness(1.4);
 }
 
-.icon-button svg {
-  fill: var(--white);
-  width: 30px;
-  height: 25px;
-}

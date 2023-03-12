@@ -46,12 +46,14 @@ export const ProfileDropdown = (props) => {
 
     return (
         <div ref={dropdownRef}>
-            <button className={styles["icon-button"]} onClick={() => setOpen(!open)} >
-                <img src={user.imageUrl} alt="" className={styles["profile-img"]} />
+            <button className={styles["profile-button"]} onClick={() => setOpen(!open)} >
+                {isLoggedIn
+                    ? <img src={user.imageUrl} className={styles['user-profile-img']} ></img>
+                    : props.icon
+                }
             </button>
 
             <div className={`${styles["dropdown"]} ${styles[className]}`} >
-
                 {isLoggedIn ?
                     <>
                         <Link
@@ -70,9 +72,7 @@ export const ProfileDropdown = (props) => {
                             </button>
                         </div>
 
-                        <button
-                            className={styles["logout-btn"]} onClick={() => handleClick()}>Logout</button>
-
+                        <button className={styles["logout-btn"]} onClick={() => handleClick()}>Logout</button>
 
                         <div className={`${styles["dropdown"]} ${styles["dropdown-create-btn"]} ${styles[classNameBtn]}`}>
                             <Link

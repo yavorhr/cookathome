@@ -16,7 +16,7 @@ import { NavItem } from '../NavItem/NavItem.js'
 import { ProfileDropdown } from '../ProfileDropdown/ProfileDropdown.js';
 
 export const Navbar = () => {
-    const { user, userLogout } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     const loggedIn = user.email;
 
@@ -45,6 +45,7 @@ export const Navbar = () => {
                 <div className={styles["wrapper"]}>
                     <article className={styles["sign-wrapper"]}>
                         <div className={styles["sign-up-links"]}>
+                            {loggedIn && <p>Welcome, {user.email}</p>}
                             <ProfileDropdown icon={<Profile />} />
                         </div>
                     </article>

@@ -33,7 +33,10 @@ export const Dropdown = (props) => {
     return (
         <div className={styles['nav-item-dropdown-wrapper']} ref={dropdownRef}>
             <li className={styles['nav-item']}>
-                <Link to="#" className={styles['icon-button']} onClick={() => setOpen(!open)} >
+                <Link
+                    to="#"
+                    className={styles['icon-button']}
+                    onClick={() => setOpen(!open)} >
                     {props.icon}
                 </Link>
 
@@ -48,5 +51,6 @@ export const Dropdown = (props) => {
             </li>
 
             {props.title && <span>{props.title}</span>}
+
         </div>);
 }
