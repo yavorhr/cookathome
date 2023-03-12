@@ -17,16 +17,26 @@ export const GroceryList = () => {
             .then(result => setProducts((result)));
     }, [])
 
+    
+
     return (
         <>
             <div className={styles["background"]}>
                 <section className={styles["grocery-list"]}>
                     <div className={styles["new-task"]}>
-                        <input type="text" name="" id="" placeholder="Enter task" />
-                        <button className={styles["add-task"]}>Add</button>
+                        <form >
+                            <input type="text" name="" id="" placeholder="Enter task" />
+                            <button className={styles["add-task"]}>Add</button>
+                        </form>
                     </div>
                     <ul className={styles["groceries"]}>
-                        {products.map(p => <FoodItem id={p._id} product={p}></FoodItem>)}
+                        {products
+                            .map(p =>
+                                <FoodItem
+                                    id={p._id}
+                                    product={p}>
+                                </FoodItem>)
+                        }
                     </ul>
                 </section>
             </div>
