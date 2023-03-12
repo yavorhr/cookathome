@@ -1,6 +1,24 @@
 import styles from './GroceryList.module.css';
 
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext.js';
+import * as recipeService from '../../service/recipeService.js'
+
+import { useState, useEffect } from 'react';
+
 export const GroceryList = () => {
+    const [products, setProducts] = useState([]);
+
+    const { user } = useContext(AuthContext);
+    
+    console.log(products);
+
+    useEffect(() => {
+        recipeService
+            .findProductsByUserid('847ec027-f659-4086-8032-5173e2f9c93a')
+            .then(result => setProducts(result[0]));
+    }, [])
+
     return (
         <>
             <div className={styles["background"]}>

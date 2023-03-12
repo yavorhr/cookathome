@@ -1,10 +1,15 @@
 import styles from './Favorites.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faMagnifyingGlass, faClock } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faClock } from '@fortawesome/free-solid-svg-icons';
+
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext.js';
+import * as recipeService from '../../service/recipeService.js'
 
 export const Favorites = () => {
 
-
+    const { user } = useContext(AuthContext);
+    
     return (
         <>
             <section>
@@ -13,7 +18,7 @@ export const Favorites = () => {
                     <form action="">
                         <input type="text" placeholder="Type recipe title..." name="" />
                         <button type="submit">
-                          <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["icon"]}></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["icon"]}></FontAwesomeIcon>
                         </button>
                     </form>
                 </article>
@@ -32,7 +37,7 @@ export const Favorites = () => {
                                     Very delicious dish for the whole family...
                                 </p>
                                 <span>
-                                   <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
                                     30 mins
                                 </span>
                             </div>
@@ -49,7 +54,7 @@ export const Favorites = () => {
                                     Very delicious dish for the whole family...
                                 </p>
                                 <span>
-                                   <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
                                     30 mins
                                 </span>
                             </div>
@@ -66,7 +71,7 @@ export const Favorites = () => {
                                     Very delicious dish for the whole family...
                                 </p>
                                 <span>
-                                   <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
                                     30 mins
                                 </span>
                             </div>
@@ -83,7 +88,7 @@ export const Favorites = () => {
                                     Very delicious dish for the whole family...
                                 </p>
                                 <span>
-                                   <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
                                     30 mins
                                 </span>
                             </div>
@@ -100,7 +105,7 @@ export const Favorites = () => {
                                     Very delicious dish for the whole family...
                                 </p>
                                 <span>
-                                   <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
                                     30 mins
                                 </span>
                             </div>
@@ -117,7 +122,7 @@ export const Favorites = () => {
                                     Very delicious dish for the whole family...
                                 </p>
                                 <span>
-                                   <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
                                     30 mins
                                 </span>
                             </div>
@@ -134,7 +139,7 @@ export const Favorites = () => {
                                     Very delicious dish for the whole family...
                                 </p>
                                 <span>
-                                   <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
                                     30 mins
                                 </span>
                             </div>
@@ -151,7 +156,7 @@ export const Favorites = () => {
                                     Very delicious dish for the whole family...
                                 </p>
                                 <span>
-                                   <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
                                     30 mins
                                 </span>
                             </div>

@@ -1325,7 +1325,7 @@
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
                 imageUrl: 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Users/user_4_wruxoc.jpg',
                 phoneNumber: '+3598820333219',
-                'full-name': 'Peter Georgiev Ivanov'
+                'full-name': 'Peter Georgiev Ivanov',
             },
             "847ec027-f659-4086-8032-5173e2f9c93a": {
                 email: "john@abv.bg",
@@ -1371,8 +1371,16 @@
 
         comments: {
             "gafgdfsdafds": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "recipeId": "c5-40e2-b231-77409e",
                 "comment": "comment"
+            }
+        },
+
+        products: {
+            "gafgdf321asdsdafds": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "products": ["tomato", "cucumber"]
             }
         },
 
@@ -1394,7 +1402,6 @@
                 "kitchen": "bulgarian",
                 "level": "amateur",
                 "calories": "600",
-
                 "prep-time": "30",
                 "cook-time": "20",
                 "total-time": "50",
