@@ -1,12 +1,19 @@
 import styles from './FoodItem.module.css';
 
 export const FoodItem = ({
-    product
-}) =>{
+    product,
+    onToggle,
+    onDeleteProduct
+}) => {
     return (
-        <li className={styles["food-item"]}>
-        <p>{product.title}</p>
-        <button className={styles["food-item__task-btn"]} >X</button>
-    </li>
+        <li
+            className={styles["food-item"]}
+        >
+            <p  onClick={() => onToggle(product)}>{product.title}</p>
+            <button
+                className={styles["food-item__task-btn"]}
+                onClick={() => onDeleteProduct(product._id)}>X
+            </button>
+        </li>
     );
 }

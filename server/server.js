@@ -1381,13 +1381,16 @@
             "gafgdf321asdsdafds": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "title": "Tomatoes - 2kg",
+                "isCompleted" : false,
             }, "fdsfdx3213": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "title": "Cucumbers - 2kg"
+                "title": "Cucumbers - 2kg",
+                "isCompleted" : false
             },
             "fdsfdxxczs23213": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "title": "Milk - 2l"
+                "title": "Milk - 2l",
+                "isCompleted" : false
             }
         },
 

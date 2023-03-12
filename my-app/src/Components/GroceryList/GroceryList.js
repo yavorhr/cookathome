@@ -9,26 +9,47 @@ import { FoodItem } from './FoodItem/FoodItem.js';
 export const GroceryList = () => {
     const [products, setProducts] = useState([]);
 
+    console.log(products);
+
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
         productsService
             .findProductsByUserid(user._id)
             .then(result => setProducts((result)));
-    }, [])
+    }, []);
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
         const product = Object.fromEntries(new FormData(e.target));
 
         productsService
-            .addTask(product, user.accessToken)
+            .addProduct(product, user.accessToken)
             .then(result =>
                 setProducts(state =>
                     [...state,
-                        result])
+                    { ...result, isCompleted: false }])
             );
         e.target.reset();
+    }
+
+    const deleteProductHandler = (productId) => {
+        productsService
+            .deleteProduct(productId, user.accessToken)
+            .then(result =>
+                setProducts(state =>
+                    state.filter(p => p._id != productId)))
+    }
+
+    const onToggleHandler = (product) => {
+        const isCompleted = !product.isCompleted;
+        const updatedProduct = { ...product, isCompleted: isCompleted }
+
+        productsService
+            .updateProduct(product._id, updatedProduct, user.accessToken)
+            .then(result => {
+                setProducts(state => state.map(p => p._id == product._id ? result : p))
+            })
     }
 
     return (
@@ -40,7 +61,7 @@ export const GroceryList = () => {
                             <input
                                 type="text"
                                 name="title"
-                                id="task"
+                                id="title"
                                 placeholder="Enter task" />
                             <button className={styles["add-task"]}>Add</button>
                         </form>
@@ -50,7 +71,9 @@ export const GroceryList = () => {
                             .map(p =>
                                 <FoodItem
                                     key={p._id}
-                                    product={p}>
+                                    product={p}
+                                    onDeleteProduct={deleteProductHandler}
+                                    onToggle={onToggleHandler} >
                                 </FoodItem>)
                         }
                     </ul>

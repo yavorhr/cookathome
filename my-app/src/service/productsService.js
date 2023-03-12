@@ -5,8 +5,7 @@ export const findProductsByUserid = (ownerId) => {
         .then(result => result.json())
 }
 
-
-export const addTask = (task, accessToken) => {
+export const addProduct = (newProduct, accessToken) => {
     try {
         return fetch(`${baseUrl}`, {
             method: 'POST',
@@ -14,10 +13,30 @@ export const addTask = (task, accessToken) => {
                 'Content-type': 'application-json',
                 'X-Authorization': accessToken
             },
-            body: JSON.stringify(task)
+            body: JSON.stringify(newProduct)
         })
             .then(resp => resp.json());
     } catch (error) {
         console.log(error);
     }
+}
+
+export const deleteProduct = (productId, accessToken) => {
+    return fetch(`${baseUrl}/${productId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application-json',
+            'X-Authorization': accessToken
+        }
+    }).then(result => result.json());
+}
+
+export const updateProduct = (productId, updatedProduct, accessToken) => {
+    return fetch(`${baseUrl}/${productId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application-json',
+            'X-Authorization': accessToken
+        },body: JSON.stringify(updatedProduct)
+    }).then(result => result.json());
 }
