@@ -1380,14 +1380,15 @@
         products: {
             "gafgdf321asdsdafds": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "products": ["tomato", "cucumber"]
+                "fhjdashfj21": "Tomatoes 2 kg",
+                "fsda21sz": "Cucumbers 1 kg"
             }
         },
 
         favorites: {
             "dksajdkasj21": {
                 "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "products": ["tomatoes", "vegitables"]
+             
             }
         },
 
