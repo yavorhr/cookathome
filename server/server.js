@@ -1380,14 +1380,14 @@
         products: {
             "gafgdf321asdsdafds": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "product": "Tomatoes 2 kg",
+                "name": "Tomatoes - 2kg",
             }, "fdsfdx3213": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "product": "Cucumbers 1 kg"
+                "name": "Cucumbers - 2kg"
             },
             "fdsfdxxczs23213": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "product": "Milk 1 l"
+                "name": "Milk - 2l"
             }
         },
 

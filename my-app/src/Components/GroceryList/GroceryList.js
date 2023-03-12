@@ -1,6 +1,6 @@
 import styles from './GroceryList.module.css';
 
-import { useState, useEffect,useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
 import * as recipeService from '../../service/recipeService.js'
 
@@ -15,7 +15,7 @@ export const GroceryList = () => {
 
     useEffect(() => {
         recipeService
-            .findProductsByUserid('847ec027-f659-4086-8032-5173e2f9c93a')
+            .findProductsByUserid(user._id)
             .then(result => setProducts((result)));
     }, [])
 
@@ -28,7 +28,7 @@ export const GroceryList = () => {
                         <button className={styles["add-task"]}>Add</button>
                     </div>
                     <ul className={styles["groceries"]}>
-                       {Object.values(products).map(p => console.log(p))}
+                        {products.map(p => <FoodItem id={p._id} product={p}></FoodItem>)}
                     </ul>
                 </section>
             </div>

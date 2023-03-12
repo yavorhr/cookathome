@@ -1,9 +1,11 @@
 import styles from './FoodItem.module.css';
 
-export const FoodItem = () =>{
+export const FoodItem = ({
+    product
+}) =>{
     return (
         <li className={styles["food-item"]}>
-        <p>Tomatoes</p>
+        <p>{product.name}</p>
         <button className={styles["food-item__task-btn"]} >X</button>
     </li>
     );
