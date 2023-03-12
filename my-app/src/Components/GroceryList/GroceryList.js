@@ -17,15 +17,31 @@ export const GroceryList = () => {
             .then(result => setProducts((result)));
     }, [])
 
-    
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        const product = Object.fromEntries(new FormData(e.target));
+
+        productsService
+            .addTask(product, user.accessToken)
+            .then(result =>
+                setProducts(state =>
+                    [...state,
+                        result])
+            );
+        e.target.reset();
+    }
 
     return (
         <>
             <div className={styles["background"]}>
                 <section className={styles["grocery-list"]}>
                     <div className={styles["new-task"]}>
-                        <form >
-                            <input type="text" name="" id="" placeholder="Enter task" />
+                        <form onSubmit={onSubmitHandler}>
+                            <input
+                                type="text"
+                                name="title"
+                                id="task"
+                                placeholder="Enter task" />
                             <button className={styles["add-task"]}>Add</button>
                         </form>
                     </div>
@@ -33,7 +49,7 @@ export const GroceryList = () => {
                         {products
                             .map(p =>
                                 <FoodItem
-                                    id={p._id}
+                                    key={p._id}
                                     product={p}>
                                 </FoodItem>)
                         }

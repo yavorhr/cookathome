@@ -31,6 +31,7 @@ function App() {
     const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
     const [articles, setArticles] = useFetch("http://localhost:3030/data/articles", []);
     const [auth, setAuth] = useLocalStorage('auth', {});
+    
 
     const navigate = useNavigate();
 
