@@ -45,21 +45,7 @@ export const Navbar = () => {
                 <div className={styles["wrapper"]}>
                     <article className={styles["sign-wrapper"]}>
                         <div className={styles["sign-up-links"]}>
-                            {!loggedIn
-                                ?
-                                <>
-                                    <Link className={styles["link-item"]} to="/users/login">Login</Link>
-                                    <span>/</span>
-                                    <Link className={styles["link-item"]} to="/users/register">Register</Link>
-                                </>
-                                :
-                                <>
-                                    <button
-                                        className={styles["logout-btn"]} onClick={() => userLogout(user)}>Logout</button>
-                                    <span>/</span>
-                                    <ProfileDropdown icon={<Profile />} />
-                                </>
-                            }
+                            <ProfileDropdown icon={<Profile />} />
                         </div>
                     </article>
                 </div>

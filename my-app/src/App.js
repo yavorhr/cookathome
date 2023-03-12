@@ -47,10 +47,6 @@ function App() {
         navigate('/')
     }
 
-    const userRegister = () => {
-
-    }
-
     const createRecipeHandler = (newRecipe) => {
         setRecipes(state =>
             [...state,
@@ -65,7 +61,6 @@ function App() {
                 user: auth,
                 userLogout,
                 userLogin,
-                userRegister
             }}>
                 <Navbar />
                 <RecipeContext.Provider value=

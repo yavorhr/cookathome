@@ -12,7 +12,7 @@ export const ProfileDropdown = (props) => {
     const [open, setOpen] = useState(false);
     const [openBtn, setOpenBtn] = useState(false);
 
-    const { user } = useContext(AuthContext);
+    const { user, userLogout } = useContext(AuthContext);
     const isLoggedIn = user.email;
 
     let className = open ? 'active' : 'inactive';
@@ -39,41 +39,61 @@ export const ProfileDropdown = (props) => {
         setOpen(false);
     }
 
+    const handleClick = () => {
+        userLogout(user);
+        openHandler()
+    }
+
     return (
         <div ref={dropdownRef}>
             <button className={styles["icon-button"]} onClick={() => setOpen(!open)} >
-                {props.icon}
+                <img src={user.imageUrl} alt="" className={styles["profile-img"]} />
             </button>
 
             <div className={`${styles["dropdown"]} ${styles[className]}`} >
 
-                <Link
-                    className={styles["link-item"]}
-                    to="/users/profile"
-                    onClick={openHandler}>
-                    Profile
-                </Link>
-                {isLoggedIn && < div
-                    className={styles['profile-wrapper']}
-                    onClick={() => setOpenBtn(!openBtn)}>
-                    <button
-                        className={styles["create-btn"]}
-                        to="/users/create" >Create
-                        {openBtn && <Arrow />}
-                    </button>
-                </div>}
+                {isLoggedIn ?
+                    <>
+                        <Link
+                            className={styles["link-item"]}
+                            to="/users/profile"
+                            onClick={openHandler}>
+                            Profile
+                        </Link>
+                        < div
+                            className={styles['profile-wrapper']}
+                            onClick={() => setOpenBtn(!openBtn)}>
+                            <button
+                                className={styles["create-btn"]}
+                                to="/users/create" >Create
+                                {openBtn && <Arrow />}
+                            </button>
+                        </div>
 
-                <div className={`${styles["dropdown"]} ${styles["dropdown-create-btn"]} ${styles[classNameBtn]}`}>
-                    <Link
-                        className={styles["link-item"]}
-                        to="/create/recipe"
-                        onClick={openHandler}>Create Recipe</Link>
-                    <Link
-                        className={styles["link-item"]}
-                        to="/create/recipe"
-                        onClick={openHandler}>Create Article</Link>
-                </div>
+                        <button
+                            className={styles["logout-btn"]} onClick={() => handleClick()}>Logout</button>
+
+
+                        <div className={`${styles["dropdown"]} ${styles["dropdown-create-btn"]} ${styles[classNameBtn]}`}>
+                            <Link
+                                className={styles["link-item"]}
+                                to="/create/recipe"
+                                onClick={openHandler}>Create Recipe</Link>
+                            <Link
+                                className={styles["link-item"]}
+                                to="/create/recipe"
+                                onClick={openHandler}>Create Article</Link>
+                        </div>
+                    </>
+
+                    :
+                    <>
+                        <Link className={styles["link-item"]} to="/users/login">Login</Link>
+                        <Link className={styles["link-item"]} to="/users/register">Register</Link></>
+                }
             </div>
         </div>
     )
+
 }
+
