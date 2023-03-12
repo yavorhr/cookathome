@@ -160,7 +160,7 @@ export const Register = () => {
                     <div className={styles["txt-fields"]}>
                         <label forname="confirm-password">Confirm Password</label>
                         <input
-                            type="text"
+                            type="password"
                             name="confirm-password"
                             id="confirm-password"
                             placeholder="Confirm your password"

@@ -32,7 +32,7 @@ export const RecipeDetails = () => {
                 </article>
                 <article>
                     <q className={styles["header__descr"]}>
-                       {recipe.description}
+                        {recipe.description}
                     </q>
                 </article>
             </section>
@@ -101,34 +101,34 @@ export const RecipeDetails = () => {
                     <div className={`${styles["icons"]} ${styles["dspl-flex-row-center"]}`}>
                         <div className={`${styles["wrapper"]} ${styles["dspl-flex-col-center"]}`}>
                             <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                            <span>Prep time:</span>
+                            <span>Prep time: {recipe['prep-time']} min</span>
                             <p />
                         </div>
                         <div className={`${styles["wrapper"]} ${styles["dspl-flex-col-center"]}`}>
                             <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                            <span>Cook time:</span>
+                            <span>Cook time: {recipe['cook-time']} min </span>
                             <p />
                         </div>
                         <div className={`${styles["wrapper"]} ${styles["dspl-flex-col-center"]}`}>
                             <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                            <span>Total time:</span>
+                            <span>Total time: {Number(recipe['prep-time']) + Number(recipe['cook-time'])} min </span>
                             <p />
                         </div>
                         <div className={`${styles["wrapper"]} ${styles["dspl-flex-col-center"]}`}>
                             <FontAwesomeIcon icon={faUtensils}></FontAwesomeIcon>
-                            <span>Portions:</span>
+                            <span>Portions: {recipe.portions} </span>
                             <p />
                         </div>
                     </div>
                     <div className={styles["image-grid"]}>
                         <img
                             className={`${styles["image-grid-col-2"]} ${styles["image-grid-row-2"]}`}
-                            src="/img/details/pork (1).jpg"
+                            src={recipe.imageUrl}
                             alt="recipe details"
                         />
-                        <img src="/img/details/pork (2).jpg" alt="recipe details" />
-                        <img src="/img/details/pork (3).jpg" alt="recipe details" />
-                        <img src="/img/details/pork (4).jpg" alt="recipe details" />
+                        <img src="" alt="recipe details" />
+                        <img src="" alt="recipe details" />
+                        <img src="" alt="recipe details" />
                         <div className={`${styles["add-image-container"]} ${styles["mrgn-auto"]} ${styles["dspl-flex-col-center"]}`}>
                             <label htmlFor="images">+ Add images</label>
                             <br />
@@ -141,42 +141,49 @@ export const RecipeDetails = () => {
             <section>
                 <ul className={`${styles["products"]} ${styles["mrgn-auto"]}`}>
                     <h2 className={styles["title"]}>Products</h2>
-
                     <li className={styles["food-item"]}>
                         <p>Tomatoes</p>
-                        <button className={styles["remove"]}>
-                            <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
-                        </button>
-                        <button className={styles["add"]}>
-                            <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
-                        </button>
+                        <div className={styles['btn-wrapper']}>
+                            <button className={styles["remove"]}>
+                                <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
+                            </button>
+                            <button className={styles["add"]}>
+                                <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
+                            </button>
+                        </div>
                     </li>
                     <li className={styles["food-item"]}>
                         <p>Tomatoes</p>
-                        <button className={styles["remove"]}>
-                            <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
-                        </button>
-                        <button className={styles["add"]}>
-                            <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
-                        </button>
+                        <div className={styles['btn-wrapper']}>
+                            <button className={styles["remove"]}>
+                                <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
+                            </button>
+                            <button className={styles["add"]}>
+                                <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
+                            </button>
+                        </div>
                     </li>
                     <li className={styles["food-item"]}>
                         <p>Tomatoes</p>
-                        <button className={styles["remove"]}>
-                            <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
-                        </button>
-                        <button className={styles["add"]}>
-                            <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
-                        </button>
+                        <div className={styles['btn-wrapper']}>
+                            <button className={styles["remove"]}>
+                                <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
+                            </button>
+                            <button className={styles["add"]}>
+                                <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
+                            </button>
+                        </div>
                     </li>
                     <li className={styles["food-item"]}>
                         <p>Tomatoes</p>
-                        <button className={styles["remove"]}>
-                            <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
-                        </button>
-                        <button className={styles["add"]}>
-                            <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
-                        </button>
+                        <div className={styles['btn-wrapper']}>
+                            <button className={styles["remove"]}>
+                                <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
+                            </button>
+                            <button className={styles["add"]}>
+                                <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
+                            </button>
+                        </div>
                     </li>
                 </ul>
             </section>
