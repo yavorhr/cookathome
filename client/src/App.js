@@ -32,7 +32,6 @@ function App() {
     const [articles, setArticles] = useFetch("http://localhost:3030/data/articles", []);
     const [auth, setAuth] = useLocalStorage('auth', {});
     
-
     const navigate = useNavigate();
 
     const userLogin = (userData) => {

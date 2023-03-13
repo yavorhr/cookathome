@@ -144,9 +144,6 @@ export const RecipeDetails = () => {
                     <li className={styles["food-item"]}>
                         <p>Tomatoes</p>
                         <div className={styles['btn-wrapper']}>
-                            <button className={styles["remove"]}>
-                                <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
-                            </button>
                             <button className={styles["add"]}>
                                 <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
                             </button>
