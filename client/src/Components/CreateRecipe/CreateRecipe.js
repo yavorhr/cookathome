@@ -58,7 +58,12 @@ export const CreateRecipe = ({ }) => {
 
         setInvalidUserInput(false);
 
-        console.log(recipe);
+        const products = stringToArray(recipe.products);
+        const steps = stringToArray(recipe.products);
+
+        recipe.products = products;
+        recipe.steps = steps;
+    
 
         recipeService.createRecipe(recipe, user.accessToken)
             .then(result =>
@@ -314,4 +319,9 @@ export const CreateRecipe = ({ }) => {
             </section>
         </div>
     );
+}
+
+const stringToArray = (string) => {
+    let result = string.split(/\r?\n/);
+    return result;
 }

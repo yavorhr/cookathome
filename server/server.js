@@ -1415,12 +1415,16 @@
                 "prep-time": "30",
                 "cook-time": "20",
                 "total-time": "50",
-                "products":[
+                "products": [
                     "1 kilo tomatoes",
                     "1 kilo tomatoes",
                     "1 kilo tomatoes",
                 ]
-                , "steps": "Crab cakes are a dish I conveniently forget about. It could be because I live further inland than I’d prefer, where you’d never find them on a restaurant menu. More likely, however, it’s because fresh crab meat is exorbitantly expensive if I wanted to make them at home. While I could settle for canned crab, it’s truthfully not good. That leaves me with the little tubs sold in the seafood department of my local market for almost $50 a pound."
+                , "steps": [
+                    "Fist step",
+                    "Second step",
+                    "Third step",
+                ]
                 ,
                 "portions": "3",
                 "_createdOn": 1617194295474,
@@ -1436,18 +1440,19 @@
                 "kitchen": "bulgarian",
                 "level": "amateur",
                 "calories": "600",
-
                 "prep-time": "30",
                 "cook-time": "20",
                 "total-time": "50",
-                "products":[
-                    "1 kilo tomatoes",
-                    "1 kilo tomatoes",
-                    "1 kilo tomatoes",
+                "products": [
+                    "2 kilo potatoes",
+                    "2 kilo potatoes",
+                    "2 kilo potatoes",
                 ]
-                , "steps":
-                    "The only thing better than a good recipe? When something’s so easy you don’t even need one—like with these tuna patties. Welcome to It’s That Simple, a column where we talk you through the dishes and drinks we can make with our eyes closed. \n\nCrab cakes are a dish I conveniently forget about. It could be because I live further inland than I’d prefer, where you’d never find them on a restaurant menu. More likely, however, it’s because fresh crab meat is exorbitantly expensive if I wanted to make them at h…n\nBut a few months ago, I was visiting my in-laws in Florida and enjoyed a crab cake so packed with sweet meat, I longed for it even before I took my last bite. Back home, I was reinvigorated and eager to replicate them, but the cost once again deterred me and I left empty-handed. Instead, I turned to something I already had stacked in my pantry. Canned tuna can become a star in just 15 minutes, and without the hefty price tag. Call them tuna cakes or frugal crab cakes, if you will—I call them delicious."
-                ,
+                , "steps": [
+                    "Fourth step",
+                    "Fifth step",
+                    "Sixth step",
+                ],
                 "portions": "3",
                 "_createdOn": 1617194295474,
                 "imageUrl": "/img/dishes/banans.jpg"
@@ -1466,13 +1471,16 @@
                 "prep-time": "30",
                 "cook-time": "20",
                 "total-time": "50",
-                "products":[
-                    "1 kilo tomatoes",
-                    "1 kilo tomatoes",
-                    "1 kilo tomatoes",
+                "products": [
+                    "3 kilo cucumbers",
+                    "3 kilo cucumbers",
+                    "3 kilo cucumbers",
                 ]
-                , "steps":
-                    "1 kilo tomatoes",
+                , "steps": [
+                    "Seventh step",
+                    "Eight step",
+                    "Ninth step",
+                ],
                 "portions": "3",
                 "_createdOn": 1617194295474,
                 "imageUrl": "/img/dishes/pancakes.jpg"
