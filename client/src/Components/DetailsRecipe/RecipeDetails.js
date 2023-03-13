@@ -1,5 +1,6 @@
 import styles from './RecipeDetails.module.css';
 import * as recipeService from '../../service/recipeService.js';
+import * as productService from '../../service/productsService.js'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUtensils, faCamera, faFireBurner, faPenToSquare, faTrashCan, faCircleCheck, faHeart, faClock, faPlus, } from '@fortawesome/free-solid-svg-icons'
@@ -7,12 +8,17 @@ import { faUtensils, faCamera, faFireBurner, faPenToSquare, faTrashCan, faCircle
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext.js';
+
 /*TODO : To chane fab icons with svg icons */
 
 export const RecipeDetails = () => {
     const [recipe, setRecipe] = useState({});
+    const [isAlertVisible, setIsAlertVisible] = useState(false);
 
     const { recipeId } = useParams();
+    const { user } = useContext(AuthContext);
 
     useEffect(() => {
         recipeService
@@ -22,7 +28,27 @@ export const RecipeDetails = () => {
     }
         , []);
 
-    console.log(recipe);
+    const addProductAndCallAlert = (e) => {
+        handleButtonClick();
+        addProductHandler(e)
+    }
+
+    const handleButtonClick = () => {
+        setIsAlertVisible(true);
+
+        setTimeout(() => {
+
+            setIsAlertVisible(false);
+        }, 3000);
+    }
+
+    const addProductHandler = (e) => {
+        const product = e.target.parentNode.parentNode.parentNode.querySelector('p');
+        const productText = product.textContent;
+
+        productService
+            .addProduct({ title: productText }, user.accessToken);
+    }
 
     return (
         <>
@@ -36,7 +62,6 @@ export const RecipeDetails = () => {
                     </q>
                 </article>
             </section>
-
             <section className={styles["hero"]}>
                 <article className={`${styles["content"]} ${styles["dspl-flex-col-center"]}`}>
                     <div className={`${styles["user__details"]} ${styles["dspl-flex-col-center"]}`}>
@@ -138,12 +163,34 @@ export const RecipeDetails = () => {
                     </div>
                 </article>
             </section>
-            <section>
+            <section className={styles["products-section"]}>
                 <ul className={`${styles["products"]} ${styles["mrgn-auto"]}`}>
+                    {isAlertVisible &&
+                        <div className={styles['alert-container']}>
+                            <div className={styles['alert-inner']}>Added to shopping list!</div>
+                        </div>}
                     <h2 className={styles["title"]}>Products</h2>
                     <li className={styles["food-item"]}>
                         <p>Tomatoes</p>
                         <div className={styles['btn-wrapper']}>
+                            <button className={styles["add"]} onClick={(e) => addProductAndCallAlert(e)}>
+                                <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
+                            </button>
+                        </div>
+                    </li>
+                    <li className={styles["food-item"]} onClick={(e) => addProductAndCallAlert(e)}>
+                        <p>sss</p>
+                        <div className={styles['btn-wrapper']}>
+
+                            <button className={styles["add"]}>
+                                <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
+                            </button>
+                        </div>
+                    </li>
+                    <li className={styles["food-item"]} onClick={(e) => addProductAndCallAlert(e)}>
+                        <p>Tomatoes</p>
+                        <div className={styles['btn-wrapper']}>
+
                             <button className={styles["add"]}>
                                 <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
                             </button>
@@ -152,9 +199,7 @@ export const RecipeDetails = () => {
                     <li className={styles["food-item"]}>
                         <p>Tomatoes</p>
                         <div className={styles['btn-wrapper']}>
-                            <button className={styles["remove"]}>
-                                <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
-                            </button>
+
                             <button className={styles["add"]}>
                                 <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
                             </button>
@@ -163,9 +208,7 @@ export const RecipeDetails = () => {
                     <li className={styles["food-item"]}>
                         <p>Tomatoes</p>
                         <div className={styles['btn-wrapper']}>
-                            <button className={styles["remove"]}>
-                                <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
-                            </button>
+
                             <button className={styles["add"]}>
                                 <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
                             </button>
@@ -174,14 +217,13 @@ export const RecipeDetails = () => {
                     <li className={styles["food-item"]}>
                         <p>Tomatoes</p>
                         <div className={styles['btn-wrapper']}>
-                            <button className={styles["remove"]}>
-                                <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
-                            </button>
+
                             <button className={styles["add"]}>
                                 <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
                             </button>
                         </div>
                     </li>
+
                 </ul>
             </section>
             <section>
@@ -204,6 +246,9 @@ export const RecipeDetails = () => {
                     </p>
                 </div>
             </section>
+
+
+
         </>
 
     );
