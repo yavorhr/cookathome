@@ -1,4 +1,5 @@
 import styles from './RecipeDetails.module.css';
+import {unique}
 import * as recipeService from '../../service/recipeService.js';
 import * as productService from '../../service/productsService.js'
 
@@ -21,6 +22,8 @@ export const RecipeDetails = () => {
 
     const { recipeId } = useParams();
     const { user } = useContext(AuthContext);
+
+    const id = uniqe
 
     useEffect(() => {
         recipeService
