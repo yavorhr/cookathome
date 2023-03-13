@@ -11,6 +11,8 @@ import { useState, useEffect } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
 
+import { ProductItem } from './ProductItem/ProductItem.js';
+
 /*TODO : To chane fab icons with svg icons */
 
 export const RecipeDetails = () => {
@@ -170,86 +172,21 @@ export const RecipeDetails = () => {
                             <div className={styles['alert-inner']}>Added to shopping list!</div>
                         </div>}
                     <h2 className={styles["title"]}>Products</h2>
-                    <li className={styles["food-item"]}>
-                        <p>Tomatoes</p>
-                        <div className={styles['btn-wrapper']}>
-                            <button className={styles["add"]} onClick={(e) => addProductAndCallAlert(e)}>
-                                <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
-                            </button>
-                        </div>
-                    </li>
-                    <li className={styles["food-item"]} onClick={(e) => addProductAndCallAlert(e)}>
-                        <p>sss</p>
-                        <div className={styles['btn-wrapper']}>
 
-                            <button className={styles["add"]}>
-                                <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
-                            </button>
-                        </div>
-                    </li>
-                    <li className={styles["food-item"]} onClick={(e) => addProductAndCallAlert(e)}>
-                        <p>Tomatoes</p>
-                        <div className={styles['btn-wrapper']}>
-
-                            <button className={styles["add"]}>
-                                <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
-                            </button>
-                        </div>
-                    </li>
-                    <li className={styles["food-item"]}>
-                        <p>Tomatoes</p>
-                        <div className={styles['btn-wrapper']}>
-
-                            <button className={styles["add"]}>
-                                <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
-                            </button>
-                        </div>
-                    </li>
-                    <li className={styles["food-item"]}>
-                        <p>Tomatoes</p>
-                        <div className={styles['btn-wrapper']}>
-
-                            <button className={styles["add"]}>
-                                <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
-                            </button>
-                        </div>
-                    </li>
-                    <li className={styles["food-item"]}>
-                        <p>Tomatoes</p>
-                        <div className={styles['btn-wrapper']}>
-
-                            <button className={styles["add"]}>
-                                <FontAwesomeIcon className={styles["icon"]} icon={faPlus}></FontAwesomeIcon>
-                            </button>
-                        </div>
-                    </li>
-
+                    {(recipe.products && recipe.products.map(r => <p key={r.title}>r.title</p>))}
                 </ul>
             </section>
             <section>
                 <div className={styles["cooking-process"]}>
                     <h2 className={styles["title"]}>How to cook</h2>
                     <p>
-                        Place the fish on a cutting board and cut into 2-inch pieces. Set aside.
-                        In a large pot, bring 2 quarts of water to a boil. Add the soba noodles
-                        and cook for 2 to 3 minutes, or until tender but still a little firm.
-                        Drain in a colander and rinse under cold running water to remove the
-                        surface starch. Set the same pot you used to cook the noodles over high
-                        heat and add chicken stock and 1 cup water. Bring the liquid to a boil..
-                        Add the edamame and fish to the pot and cover with a lid. Cook at a
-                        gentle simmer (small bubbles around the edges) for 3 to 5 minutes, or
-                        until the fish is just cooked through and is opaque in the center. Exact
-                        cooking time will depend upon the thickness of the fish pieces.. With a
-                        slotted spoon, remove the fish from the broth and divide it among the
-                        bowls, placing it on top of the noodles. Ladle the soup over the bowls
-                        of noodles and top each with chopped chives.
+                        {
+                            recipe.steps
+                        }
                     </p>
                 </div>
             </section>
-
-
-
         </>
-
     );
 }
+

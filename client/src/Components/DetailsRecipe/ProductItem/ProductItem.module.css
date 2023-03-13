@@ -1,0 +1,48 @@
+
+.food-item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	height: 50px;
+	width: 100%;
+
+	padding: 5px 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 0px;
+	border-bottom: 2px solid #d1d3d4;
+	background-color: var(--white);
+}
+
+.food-item p {
+	font-size: 22px;
+	letter-spacing: 1px;
+	cursor: pointer;
+}
+
+.food-item {
+	width: 70%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.btn-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: 130px;
+}
+
+.btn-wrapper button {
+	cursor: pointer;
+	color: var(--white);
+	padding: 4px 8px;
+	width: 40px;
+}
+
+.food-item .btn-wrapper .add {
+	background-color: var(--grass-green);
+}

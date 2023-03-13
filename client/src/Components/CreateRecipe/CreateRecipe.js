@@ -58,6 +58,8 @@ export const CreateRecipe = ({ }) => {
 
         setInvalidUserInput(false);
 
+        console.log(recipe);
+
         recipeService.createRecipe(recipe, user.accessToken)
             .then(result =>
                 createRecipeHandler(result));
