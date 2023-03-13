@@ -1,5 +1,5 @@
 import styles from './RecipeDetails.module.css';
-import {unique}
+import uuid from 'react-uuid';
 import * as recipeService from '../../service/recipeService.js';
 import * as productService from '../../service/productsService.js'
 
@@ -23,8 +23,6 @@ export const RecipeDetails = () => {
     const { recipeId } = useParams();
     const { user } = useContext(AuthContext);
 
-    const id = uniqe
-
     useEffect(() => {
         recipeService
             .getById(recipeId)
@@ -33,9 +31,9 @@ export const RecipeDetails = () => {
     }
         , []);
 
-    const addProductAndCallAlert = (e) => {
+    const addProductAndCallAlert = (product) => {
         handleButtonClick();
-        addProductHandler(e)
+        addProductHandler(product)
     }
 
     const handleButtonClick = () => {
@@ -47,12 +45,11 @@ export const RecipeDetails = () => {
         }, 3000);
     }
 
-    const addProductHandler = (e) => {
-        const product = e.target.parentNode.parentNode.parentNode.querySelector('p');
-        const productText = product.textContent;
-
+    const addProductHandler = (product) => {
+      
+        console.log(product);
         productService
-            .addProduct({ title: productText }, user.accessToken);
+            .addProduct({ title: product, isiCompleted : false }, user.accessToken);
     }
 
     return (
@@ -168,6 +165,7 @@ export const RecipeDetails = () => {
                     </div>
                 </article>
             </section>
+
             <section className={styles["products-section"]}>
                 <ul className={`${styles["products"]} ${styles["mrgn-auto"]}`}>
                     {isAlertVisible &&
@@ -176,9 +174,19 @@ export const RecipeDetails = () => {
                         </div>}
                     <h2 className={styles["title"]}>Products</h2>
 
-                    {(recipe.products && recipe.products.map(r => <p key={r.title}>r.title</p>))}
+                    {(recipe.products &&
+                        recipe.products.map(p =>
+                            <ProductItem
+                                key={uuid()}
+                                product={p}
+                                icon={faPlus}
+                                addProduct ={addProductAndCallAlert}
+                            />
+                        ))
+                    }
                 </ul>
             </section>
+
             <section>
                 <div className={styles["cooking-process"]}>
                     <h2 className={styles["title"]}>How to cook</h2>
