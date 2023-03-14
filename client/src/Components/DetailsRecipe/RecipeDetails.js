@@ -1,14 +1,14 @@
 import styles from './RecipeDetails.module.css';
 import uuid from 'react-uuid';
+
 import * as recipeService from '../../service/recipeService.js';
 import * as productService from '../../service/productsService.js'
-
+import * as favoriteService from '../../service/favoriteService.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUtensils, faCamera, faFireBurner, faPenToSquare, faTrashCan, faCircleCheck, faHeart, faClock, faPlus, } from '@fortawesome/free-solid-svg-icons'
 
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
 
@@ -19,9 +19,12 @@ import { ProductItem } from './ProductItem/ProductItem.js';
 export const RecipeDetails = () => {
     const [recipe, setRecipe] = useState({});
     const [isAlertVisible, setIsAlertVisible] = useState(false);
+    const [savedToFavorites, setSavedToFavorites] = useState(false);
 
     const { recipeId } = useParams();
     const { user } = useContext(AuthContext);
+
+    const accessToken = user.accessToken;
 
     useEffect(() => {
         recipeService
@@ -30,6 +33,21 @@ export const RecipeDetails = () => {
                 setRecipe(result));
     }
         , []);
+
+    let className = "";
+    if (savedToFavorites) {
+        className = "saved-favorites"
+    } else {
+        className = "";
+    }
+
+    const addToFavorites = (recipeId, accessToken) => {
+        favoriteService
+            .addToFavorites(recipeId, accessToken)
+            .then(result =>
+                setSavedToFavorites(true)
+            );
+    }
 
     const addProductAndCallAlert = (product) => {
         handleButtonClick();
@@ -46,10 +64,9 @@ export const RecipeDetails = () => {
     }
 
     const addProductHandler = (product) => {
-      
         console.log(product);
         productService
-            .addProduct({ title: product, isiCompleted : false }, user.accessToken);
+            .addProduct({ title: product, isiCompleted: false }, user.accessToken);
     }
 
     return (
@@ -110,14 +127,11 @@ export const RecipeDetails = () => {
                         </div>
                         <div className={styles["main-wrap"]}>
                             <div className={styles["wrapper"]}>
-                                <button className={styles["btn"]}>
+                                <button
+                                    className={`${styles["btn"]} ${styles[className]}`}
+                                    onClick={() => addToFavorites(recipeId, accessToken)}
+                                    disabled={savedToFavorites}>
                                     <FontAwesomeIcon className={styles["icon"]} icon={faHeart}></FontAwesomeIcon>
-                                </button>
-                                <span>Favorites</span>
-                            </div>
-                            <div className={styles["wrapper"]}>
-                                <button className={styles["btn"]}>
-                                    <FontAwesomeIcon className={styles["icon"]} icon={faCircleCheck}></FontAwesomeIcon>
                                 </button>
                                 <span>Favorites</span>
                             </div>
@@ -180,7 +194,7 @@ export const RecipeDetails = () => {
                                 key={uuid()}
                                 product={p}
                                 icon={faPlus}
-                                addProduct ={addProductAndCallAlert}
+                                addProduct={addProductAndCallAlert}
                             />
                         ))
                     }

@@ -1519,7 +1519,8 @@
         favorites: {
             "dasffxfcxddsf3215": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "favorites-list": ["kdjsakldjas9jd2av", "kdjsakldjasdasdsa9jd2av"]
+                "recipeId": "kdjsakldjas9jd2av",
+                "_createdOn": "1678798341095",
             }
         },
 
