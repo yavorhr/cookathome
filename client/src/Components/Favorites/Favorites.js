@@ -19,8 +19,6 @@ export const Favorites = () => {
                 setRecipes(result));
     }, [])
 
-    console.log(recipes);
-
     return (
         <>
             <section>

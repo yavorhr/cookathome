@@ -5,7 +5,7 @@ import * as recipeService from '../../service/recipeService.js';
 import * as productService from '../../service/productsService.js'
 import * as favoriteService from '../../service/favoriteService.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUtensils, faCamera, faFireBurner, faPenToSquare, faTrashCan, faCircleCheck, faHeart, faClock, faPlus, } from '@fortawesome/free-solid-svg-icons'
+import { faUtensils, faCamera, faFireBurner, faPenToSquare, faTrashCan, faHeart, faClock, faPlus, } from '@fortawesome/free-solid-svg-icons'
 
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -27,13 +27,32 @@ export const RecipeDetails = () => {
     const accessToken = user.accessToken;
 
     useEffect(() => {
-        recipeService
-            .getById(recipeId)
-            .then(result =>
-                setRecipe(result));
-    }
-        , []);
 
+        const getRecipeById =
+            recipeService
+                .getById(recipeId);
+
+        const checkFavoriteRecipesByUserId =
+            favoriteService.findRecipesByUserId(user._id);
+
+        Promise
+            .all([getRecipeById, checkFavoriteRecipesByUserId])
+            .then(data => {
+                setRecipe(data[0]);
+
+                // Check if User has already add to favarites
+                const allFavoriteRecipes = data[1];
+
+                allFavoriteRecipes.length > 0
+                    && allFavoriteRecipes
+                        .some(recipe =>
+                            recipe.data.recipeId == recipeId)
+                    && setSavedToFavorites(true)
+
+            })
+    }, [])
+
+    // Add style if user already added the current recipe to favorites
     let className = "";
     if (savedToFavorites) {
         className = "saved-favorites"
@@ -41,7 +60,7 @@ export const RecipeDetails = () => {
         className = "";
     }
 
-    const addToFavorites = (recipe, accessToken) => {
+    const addToFavorites = async (recipe, accessToken) => {
         favoriteService
             .addToFavorites(
                 {
