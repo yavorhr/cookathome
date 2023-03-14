@@ -1394,13 +1394,6 @@
             }
         },
 
-        favorites: {
-            "dksajdkasj21": {
-                "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-
-            }
-        },
-
         recipes: {
             "c5-40e2-b231-77409e": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
@@ -1467,7 +1460,6 @@
                 "kitchen": "bulgarian",
                 "level": "amateur",
                 "calories": "600",
-
                 "prep-time": "30",
                 "cook-time": "20",
                 "total-time": "50",
@@ -1489,39 +1481,45 @@
 
         articles: {
             "dasfdsf3215": {
-                "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "imageUrl": "/img/dishes/eggsausage.jpg",
                 "title": "Egg & Sausage",
                 "createdOn": "08 August",
                 "author": "Peter"
             },
             "dasfdxdasgs215": {
-                "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "imageUrl": "/img/dishes/benedikt.jpg",
                 "title": "benedikt",
                 "createdOn": "15 January",
                 "author": "Peter"
             },
             "dasjhoiuygs001": {
-                "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "imageUrl": "/img/dishes/Best-Lasagna-550.jpg",
                 "title": "Lasagna",
                 "createdOn": "01 May",
                 "author": "Peter"
             },
             "dasjggdens005": {
-                "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "imageUrl": "/img/dishes/Best-Lasagna-550.jpg",
                 "title": "Pancakes",
                 "createdOn": "21 April",
                 "author": "Peter"
             },
             "dasjggfsgsk5832": {
-                "ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "imageUrl": "/img/dishes/bananas.jpg",
                 "title": "Bananas",
                 "createdOn": "10 March",
                 "author": "Peter"
+            }
+        },
+        favorites: {
+            "dasffxfcxddsf3215": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "favorites-list": ["kdjsakldjas9jd2av", "kdjsakldjasdasdsa9jd2av"]
             }
         },
 

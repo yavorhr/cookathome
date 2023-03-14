@@ -60,10 +60,9 @@ export const CreateRecipe = ({ }) => {
 
         const products = stringToArray(recipe.products);
         const steps = stringToArray(recipe.products);
-
+        
         recipe.products = products;
         recipe.steps = steps;
-    
 
         recipeService.createRecipe(recipe, user.accessToken)
             .then(result =>
