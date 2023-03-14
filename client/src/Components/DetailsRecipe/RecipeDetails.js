@@ -41,9 +41,17 @@ export const RecipeDetails = () => {
         className = "";
     }
 
-    const addToFavorites = (recipeId, accessToken) => {
+    const addToFavorites = (recipe, accessToken) => {
         favoriteService
-            .addToFavorites(recipeId, accessToken)
+            .addToFavorites(
+                {
+                    recipeId: recipe._id,
+                    name: recipe.name,
+                    description: recipe.description,
+                    imageUrl: recipe.imageUrl,
+                    'cook-time': recipe['cook-time']
+                    ,
+                }, accessToken)
             .then(result =>
                 setSavedToFavorites(true)
             );
@@ -129,7 +137,7 @@ export const RecipeDetails = () => {
                             <div className={styles["wrapper"]}>
                                 <button
                                     className={`${styles["btn"]} ${styles[className]}`}
-                                    onClick={() => addToFavorites(recipeId, accessToken)}
+                                    onClick={() => addToFavorites(recipe, accessToken)}
                                     disabled={savedToFavorites}>
                                     <FontAwesomeIcon className={styles["icon"]} icon={faHeart}></FontAwesomeIcon>
                                 </button>

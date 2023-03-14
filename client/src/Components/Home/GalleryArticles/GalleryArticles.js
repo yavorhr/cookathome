@@ -7,8 +7,6 @@ export const GalleryArticles = ({
 
     const sorted = articleService.sortByDate(articles);
 
-    console.log(sorted);
-
     return (
         <section className={styles["gallery"]}>
             <ul type="none">

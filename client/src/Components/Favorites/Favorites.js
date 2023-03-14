@@ -1,15 +1,26 @@
 import styles from './Favorites.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faClock } from '@fortawesome/free-solid-svg-icons';
-
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
-import * as recipeService from '../../service/recipeService.js'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass, faClock, faV } from '@fortawesome/free-solid-svg-icons';
+
+import * as favoritesService from '../../service/favoriteService.js';
+import { FavoritesItem } from './FavoritesItem/FavoritesItem.js';
 
 export const Favorites = () => {
-
+    const [recipes, setRecipes] = useState([]);
     const { user } = useContext(AuthContext);
-    
+
+    useEffect(() => {
+        favoritesService
+            .findRecipesByUserId(user._id)
+            .then(result =>
+                setRecipes(result));
+    }, [])
+
+    console.log(recipes);
+
     return (
         <>
             <section>
@@ -26,142 +37,14 @@ export const Favorites = () => {
             <section className={styles["my-recipies"]}>
                 <h2 className={styles["my-recipies__title"]}>My recipies</h2>
                 <ul className={styles["card-list"]} type="none">
-                    <li className={styles["list-item"]}>
-                        <a href="#">
-                            <div className={styles["img-holder"]}>
-                                <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                            </div>
-                            <div className={styles["card-info"]}>
-                                <h3 className={styles["card-title"]}>Lasagna</h3>
-                                <p className={styles["card-descr"]}>
-                                    Very delicious dish for the whole family...
-                                </p>
-                                <span>
-                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                                    30 mins
-                                </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li className={styles["list-item"]}>
-                        <a href="#">
-                            <div className={styles["img-holder"]}>
-                                <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                            </div>
-                            <div className={styles["card-info"]}>
-                                <h3 className={styles["card-title"]}>Lasagna</h3>
-                                <p className={styles["card-descr"]}>
-                                    Very delicious dish for the whole family...
-                                </p>
-                                <span>
-                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                                    30 mins
-                                </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li className={styles["list-item"]}>
-                        <a href="#">
-                            <div className={styles["img-holder"]}>
-                                <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                            </div>
-                            <div className={styles["card-info"]}>
-                                <h3 className={styles["card-title"]}>Lasagna</h3>
-                                <p className={styles["card-descr"]}>
-                                    Very delicious dish for the whole family...
-                                </p>
-                                <span>
-                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                                    30 mins
-                                </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li className={styles["list-item"]}>
-                        <a href="#">
-                            <div className={styles["img-holder"]}>
-                                <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                            </div>
-                            <div className={styles["card-info"]}>
-                                <h3 className={styles["card-title"]}>Lasagna</h3>
-                                <p className={styles["card-descr"]}>
-                                    Very delicious dish for the whole family...
-                                </p>
-                                <span>
-                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                                    30 mins
-                                </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li className={styles["list-item"]}>
-                        <a href="#">
-                            <div className={styles["img-holder"]}>
-                                <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                            </div>
-                            <div className={styles["card-info"]}>
-                                <h3 className={styles["card-title"]}>Lasagna</h3>
-                                <p className={styles["card-descr"]}>
-                                    Very delicious dish for the whole family...
-                                </p>
-                                <span>
-                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                                    30 mins
-                                </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li className={styles["list-item"]}>
-                        <a href="#">
-                            <div className={styles["img-holder"]}>
-                                <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                            </div>
-                            <div className={styles["card-info"]}>
-                                <h3 className={styles["card-title"]}>Lasagna</h3>
-                                <p className={styles["card-descr"]}>
-                                    Very delicious dish for the whole family...
-                                </p>
-                                <span>
-                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                                    30 mins
-                                </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li className={styles["list-item"]}>
-                        <a href="#">
-                            <div className={styles["img-holder"]}>
-                                <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                            </div>
-                            <div className={styles["card-info"]}>
-                                <h3 className={styles["card-title"]}>Lasagna</h3>
-                                <p className={styles["card-descr"]}>
-                                    Very delicious dish for the whole family...
-                                </p>
-                                <span>
-                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                                    30 mins
-                                </span>
-                            </div>
-                        </a>
-                    </li>
-                    <li className={styles["list-item"]}>
-                        <a href="#">
-                            <div className={styles["img-holder"]}>
-                                <img src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                            </div>
-                            <div className={styles["card-info"]}>
-                                <h3 className={styles["card-title"]}>Lasagna</h3>
-                                <p className={styles["card-descr"]}>
-                                    Very delicious dish for the whole family...
-                                </p>
-                                <span>
-                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                                    30 mins
-                                </span>
-                            </div>
-                        </a>
-                    </li>
+                    {recipes.length > 0 &&
+                        recipes.map(r =>
+                            <FavoritesItem
+                                key={r._id}
+                                favIcon={faV}
+                                clockIcon={faClock}
+                                recipe={r} />)
+                    }
                 </ul>
             </section>
         </>
