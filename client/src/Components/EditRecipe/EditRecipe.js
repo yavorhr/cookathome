@@ -1,14 +1,34 @@
 import styles from './EditRecipe.module.css';
 
+import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import * as recipeService from "../../service/recipeService.js"
+
 export const EditRecipe = () => {
+    const [recipe, setRecipe] = useState({});
+    const { recipeId } = useParams();
+
+    useEffect(() => {
+        recipeService
+            .getById(recipeId)
+            .then(result => setRecipe(result));
+    }, []);
+
+    console.log(recipe);
+
+    console.log(recipeId);
     return (
         <div className={styles["edit-recipe-background"]}>
-         <section className={styles["edit--recipe__section"]}>
+            <section className={styles["edit--recipe__section"]}>
                 <form action="" className={`${styles["mrgn-auto"]} ${styles["flex-col"]} ${styles["edit-recipe-form"]}`}>
                     <h1>Edit recipe</h1>
                     <div className={`${styles["title"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="title">Recipe title</label>
-                        <input type="text" placeholder="Enter the title" name="title" />
+                        <input
+                            type="text"
+                            placeholder="Enter the title"
+                            name="title"
+                            defaultValue={recipe.title} />
                     </div>
                     <div className={`${styles["descr"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="descr">Description</label>
@@ -18,13 +38,19 @@ export const EditRecipe = () => {
                             cols={10}
                             rows={10}
                             placeholder="Enter short description..."
+                            defaultValue={recipe.description}
                         />
                     </div>
                     <div className={styles["group-wrapper"]}>
                         <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
                             <label htmlFor="category">Category</label>
-                            <select type="text" name="category">
-                                <option value="---"> --- </option>
+                            <select
+                                type="text"
+                                name="category">
+                                <option
+                                    defaultValue={recipe.category}>
+                                    {recipe.category}
+                                </option>
                                 <option value="Pork meals">Pork meals</option>
                                 <option value="Chicken meals">Pork meals</option>
                                 <option value="Veggie meals">Veggie meals</option>
@@ -32,8 +58,11 @@ export const EditRecipe = () => {
                         </div>
                         <div className={`${styles["type"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
                             <label htmlFor="type">Type</label>
-                            <select type="text" name="category">
-                                <option value="---"> --- </option>
+                            <select type="text" name="type">
+                                <option
+                                    defaultValue={recipe.type}>
+                                    {recipe.type}
+                                </option>
                                 <option value="Lamb soup">Lamb soup</option>
                                 <option value="Baclava">Baclava</option>
                                 <option value="Babek">Babek</option>
@@ -42,7 +71,10 @@ export const EditRecipe = () => {
                         <div className={`${styles["season"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
                             <label htmlFor="season">Season</label>
                             <select type="text" name="season">
-                                <option value="---"> --- </option>
+                                <option
+                                    defaultValue={recipe.season}>
+                                    {recipe.season}
+                                </option>
                                 <option value="Spring">Spring</option>
                                 <option value="Summer">Summer</option>
                                 <option value="Autumn">Autumn</option>
@@ -52,7 +84,10 @@ export const EditRecipe = () => {
                         <div className={`${styles["traditional"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
                             <label htmlFor="traditional">Kitchen</label>
                             <select type="text" name="traditional">
-                                <option value="---"> --- </option>
+                                <option
+                                    defaultValue={recipe.kitchen}>
+                                    {recipe.kitchen}
+                                </option>
                                 <option value="Bulgarian">Bulgarian</option>
                                 <option value="German">German</option>
                                 <option value="English">English</option>
@@ -61,13 +96,14 @@ export const EditRecipe = () => {
                         </div>
                     </div>
                     <div className={`${styles["ingredients"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
-                        <label htmlFor="ingredients">Ingredients</label>
+                        <label htmlFor="ingredients">Products</label>
                         <textarea
                             name="ingredients"
                             id=""
                             cols={30}
                             rows={10}
                             placeholder="Enter one product per row (ex. : Potatoes - 1 kg.)"
+                            defaultValue={recipe.products}
                         />
                     </div>
                     <div className={`${styles["steps"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
@@ -78,27 +114,40 @@ export const EditRecipe = () => {
                             cols={30}
                             rows={10}
                             placeholder="Enter one step per row (ex. : 1. Boil the potatoes)"
+                            defaultValue={recipe.steps}
                         />
                     </div>
                     <div className={styles["group-wrapper"]}>
                         <div className={`${styles["calories"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
                             <label htmlFor="calories">Calories (in kcal)</label>
-                            <input type="text" name="calories" />
+                            <input
+                                type="text"
+                                name="calories"
+                                defaultValue={recipe.calories} />
                         </div>
                         <div className={`${styles["prep-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
                             <label htmlFor="prep-time">Prep time (min)</label>
-                            <input type="text" name="prep-time" />
+                            <input
+                                type="text"
+                                name="prep-time"
+                                defaultValue={recipe["prep-time"]} />
                         </div>
                         <div className={`${styles["cook-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
                             <label htmlFor="cook-time">Cook time (min)</label>
-                            <input type="text" name="cook-time" />
+                            <input
+                                type="text"
+                                name="cook-time"
+                                defaultValue={recipe["cook-time"]} />
                         </div>
                     </div>
                     <div className={styles["group-wrapper"]}>
                         <div className={`${styles["level"]} ${styles["flex-col"]} ${styles["select-wrapper"]}  ${styles["after"]}`}>
                             <label htmlFor="level">Complexity</label>
                             <select type="text" name="level">
-                                <option value="---">---</option>
+                                <option
+                                    defaultValue={recipe.level}>
+                                    {recipe.level}
+                                </option>
                                 <option value="Bulgarian">Easy</option>
                                 <option value="German">Average</option>
                                 <option value="English">Complex</option>
@@ -108,7 +157,10 @@ export const EditRecipe = () => {
                         <div className={`${styles["occasion"]} ${styles["flex-col"]} ${styles["select-wrapper"]}  ${styles["after"]}`}>
                             <label htmlFor="occasion">Good for</label>
                             <select type="text" name="occasion">
-                                <option value="---">---</option>
+                                <option
+                                    defaultValue={recipe.occasion}>
+                                    {recipe.occasion}
+                                </option>
                                 <option value="">Breakfast</option>
                                 <option value="">Lunch</option>
                                 <option value="">Dinner</option>
@@ -122,7 +174,11 @@ export const EditRecipe = () => {
                         </div>
                         <div className={`${styles["portions"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
                             <label htmlFor="portions">Portions</label>
-                            <input type="text" name="portions" />
+                            <input
+                                type="text"
+                                name="portions"
+                                defaultValue={recipe.portions}
+                            />
                         </div>
                     </div>
                     <button type="submit" form="form1" value="Submit" className={styles["submit-edit-btn"]}>

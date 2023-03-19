@@ -31,7 +31,7 @@ function App() {
     const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
     const [articles, setArticles] = useFetch("http://localhost:3030/data/articles", []);
     const [auth, setAuth] = useLocalStorage('auth', {});
-    
+
     const navigate = useNavigate();
 
     const userLogin = (userData) => {
@@ -55,6 +55,10 @@ function App() {
         navigate(`/details/${newRecipe._id}`)
     }
 
+    const onRecipeEdit = (recipeId, recipeData) => {
+        console.log(recipeId);
+    }
+
     return (
         <div className="App">
             <AuthContext.Provider value={{
@@ -65,17 +69,19 @@ function App() {
                 <Navbar />
                 <RecipeContext.Provider value=
                     {{
-                        createRecipeHandler
+                        createRecipeHandler,
+                        onRecipeEdit
                     }}>
                     <Routes>
                         <Route path="/" element={<HomePage recipes={recipes} articles={articles} />} />
                         <Route path="/users/login" element={<Login />} />
                         <Route path="/users/register" element={<Register />} />
                         <Route path="/users/profile" element={<Profile />} />
-                        <Route path="favorites" element={<Favorites />} />
+                        <Route path="/favorites" element={<Favorites />} />
                         <Route path="/groecery-list" element={<GroceryList />} />
                         <Route path="/recipes/:season" element={<CatalogRecipes recipes={recipes} />} />
                         <Route path="/details/:recipeId" element={<RecipeDetails />} />
+                        <Route path="/edit/:recipeId" element={<EditRecipe />} />
                         <Route path="/catalog-recipes/:season" element={<CatalogRecipes recipes={recipes} />} />
                         <Route path="/create/recipe" element={<CreateRecipe />} />
                     </Routes>
@@ -83,13 +89,8 @@ function App() {
             </AuthContext.Provider>
 
 
-            {/* <CreateRecipe></CreateRecipe> */}
-            {/* <EditRecipe></EditRecipe> */}
-            {/* <RecipeDetails></RecipeDetails> */}
-
             {/* <CatalogArticles />
             <ArticleCategories></ArticleCategories> */}
-
             {/* <ArticleDetails /> */}
             {/* <CreateArticle></CreateArticle> */}
             {/* <EditArtice></EditArtice> */}

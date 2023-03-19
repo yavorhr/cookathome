@@ -7,10 +7,12 @@ import * as favoriteService from '../../service/favoriteService.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUtensils, faCamera, faFireBurner, faPenToSquare, faTrashCan, faHeart, faClock, faPlus, } from '@fortawesome/free-solid-svg-icons'
 
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
+import { RecipeContext } from '../../context/RecipeContext.js';
 
 import { ProductItem } from './ProductItem/ProductItem.js';
 
@@ -21,9 +23,12 @@ export const RecipeDetails = () => {
     const [savedToFavorites, setSavedToFavorites] = useState(false);
 
     const { recipeId } = useParams();
-    const { user } = useContext(AuthContext);
-    const isOwner = user._id == recipe._ownerId;
+    const navigate = useNavigate();
 
+    const { user } = useContext(AuthContext);
+    const { onRecipeEdit } = useContext(RecipeContext);
+
+    const isOwner = user._id == recipe._ownerId;
     const accessToken = user.accessToken;
 
     useEffect(() => {
@@ -97,9 +102,8 @@ export const RecipeDetails = () => {
     }
 
     const deleteRecipeHandler = (id) => {
-        console.log(id);
-        // recipeService.deleteRecipeByid(id, accessToken);
-
+        recipeService.deleteRecipeByid(id, accessToken);
+        navigate('/');
     }
 
     return (
@@ -148,9 +152,9 @@ export const RecipeDetails = () => {
                             isOwner &&
                             <div className={styles["main-wrap"]}>
                                 <div className={styles["wrapper"]}>
-                                    <button className={styles["btn"]}>
+                                    <Link to={`/edit/${recipe._id}`} className={styles["btn"]}>
                                         <FontAwesomeIcon className={styles["icon"]} icon={faPenToSquare}></FontAwesomeIcon>
-                                    </button>
+                                    </Link>
                                     <span>Edit</span>
                                 </div>
                                 <div className={styles["wrapper"]}>
