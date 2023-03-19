@@ -13,7 +13,6 @@ export const CreateRecipe = ({ }) => {
     const { createRecipeHandler } = useContext(RecipeContext);
 
     /* TODO: validation hook for errors, so it can be re-usable to edit page */
-
     const [invalidUserInput, setInvalidUserInput] = useState(false);
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
