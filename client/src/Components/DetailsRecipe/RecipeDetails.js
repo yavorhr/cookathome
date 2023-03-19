@@ -22,6 +22,8 @@ export const RecipeDetails = () => {
 
     const { recipeId } = useParams();
     const { user } = useContext(AuthContext);
+    const isOwner = user._id == recipe._ownerId;
+
     const accessToken = user.accessToken;
 
     useEffect(() => {
@@ -95,7 +97,8 @@ export const RecipeDetails = () => {
     }
 
     const deleteRecipeHandler = (id) => {
-        recipeService.deleteRecipeByid(id, accessToken);
+        console.log(id);
+        // recipeService.deleteRecipeByid(id, accessToken);
 
     }
 
@@ -141,33 +144,38 @@ export const RecipeDetails = () => {
                         </div>
                     </div>
                     <div className={styles["user__icons"]}>
-                        <div className={styles["main-wrap"]}>
-                            <div className={styles["wrapper"]}>
-                                <button className={styles["btn"]}>
-                                    <FontAwesomeIcon className={styles["icon"]} icon={faPenToSquare}></FontAwesomeIcon>
-                                </button>
-                                <span>Edit</span>
+                        {
+                            isOwner &&
+                            <div className={styles["main-wrap"]}>
+                                <div className={styles["wrapper"]}>
+                                    <button className={styles["btn"]}>
+                                        <FontAwesomeIcon className={styles["icon"]} icon={faPenToSquare}></FontAwesomeIcon>
+                                    </button>
+                                    <span>Edit</span>
+                                </div>
+                                <div className={styles["wrapper"]}>
+                                    <button
+                                        className={styles["btn"]}
+                                        onClick={() => deleteRecipeHandler(recipeId)}>
+                                        <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
+                                    </button>
+                                    <span>Delete</span>
+                                </div>
                             </div>
-                            <div className={styles["wrapper"]}>
-                                <button
-                                    className={styles["btn"]}
-                                    onClick={() => deleteRecipeHandler(recipeId)}>
-                                    <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
-                                </button>
-                                <span>Delete</span>
-                            </div>
-                        </div>
-                        <div className={styles["main-wrap"]}>
-                            <div className={styles["wrapper"]}>
-                                <button
-                                    className={`${styles["btn"]} ${styles[className]}`}
-                                    onClick={() => addToFavorites(recipe, accessToken)}
-                                    disabled={savedToFavorites}>
-                                    <FontAwesomeIcon className={styles["icon"]} icon={faHeart}></FontAwesomeIcon>
-                                </button>
-                                <span>Favorites</span>
-                            </div>
-                        </div>
+                        }
+
+                        {!isOwner &&
+                            <div className={styles["main-wrap"]}>
+                                <div className={styles["wrapper"]}>
+                                    <button
+                                        className={`${styles["btn"]} ${styles[className]}`}
+                                        onClick={() => addToFavorites(recipe, accessToken)}
+                                        disabled={savedToFavorites}>
+                                        <FontAwesomeIcon className={styles["icon"]} icon={faHeart}></FontAwesomeIcon>
+                                    </button>
+                                    <span>Favorites</span>
+                                </div>
+                            </div>}
                     </div>
                 </article>
                 <article className={`${styles["article-img-icons"]} ${styles["mrgn-auto"]}`}>

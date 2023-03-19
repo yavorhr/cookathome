@@ -98,9 +98,6 @@
 
 
 .user__icons {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-
 	padding: 10px;
 	width: 90%;
 
@@ -112,6 +109,13 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+
+.user__icons .main-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
 }
 
 .user__icons .wrapper .btn .icon {
@@ -443,8 +447,8 @@
 	-moz-box-shadow: 1px 2px 10px -3px rgb(0 0 0 / 70%);
 }
 
+
 /* Favorites */
-.saved-favorites svg{
+.saved-favorites svg {
 	color: red;
 }
-
