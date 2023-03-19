@@ -10,7 +10,7 @@ export const HomePage = ({
     articles,
     recipes }) => {
 
-
+    
     return (
         <>
             <GalleryArticles articles={articles} />

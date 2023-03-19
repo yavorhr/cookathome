@@ -31,7 +31,7 @@ export const CreateRecipe = ({ }) => {
         'cook-time': '',
         level: '',
         occasion: '',
-        portions: ''
+        portions: '',
     });
 
     const onChangeHandler = (e) => {
@@ -60,7 +60,7 @@ export const CreateRecipe = ({ }) => {
 
         const products = stringToArray(recipe.products);
         const steps = stringToArray(recipe.products);
-        
+
         recipe.products = products;
         recipe.steps = steps;
 

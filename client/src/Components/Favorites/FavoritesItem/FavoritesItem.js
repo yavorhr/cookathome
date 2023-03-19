@@ -4,26 +4,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from "react-router-dom";
 
 export const FavoritesItem = ({
-    favIcon,
     clockIcon,
-    recipe
+    recipe,
+    onRemoveRecipe
 }) => {
 
 
     return (
         <li className={styles["list-item"]}>
-            <Link to={`/details/${recipe.data.recipeId}`}>
+            <button
+                onClick={() => onRemoveRecipe(recipe._id)}>Remove
+            </button>
+            <Link to={`/details/${recipe.recipeId}`}>
                 <div className={styles["img-holder"]}>
-                    <img src={recipe.data.imageUrl} alt="" />
+                    <img src={recipe.imageUrl} alt="" />
                 </div>
                 <div className={styles["card-info"]}>
-                    <h3 className={styles["card-title"]}>{recipe.data.name}</h3>
+                    <h3 className={styles["card-title"]}>{recipe.name}</h3>
                     <p className={styles["card-descr"]}>
-                        {recipe.data.description}
+                        {recipe.description}
                     </p>
                     <span>
                         <FontAwesomeIcon icon={clockIcon}></FontAwesomeIcon>
-                        {recipe.data['cook-time']} min
+                        {recipe['cook-time']} min
                     </span>
                 </div>
             </Link>

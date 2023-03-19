@@ -15,7 +15,6 @@ import { AuthContext } from '../../context/AuthContext.js';
 import { ProductItem } from './ProductItem/ProductItem.js';
 
 /*TODO : To chane fab icons with svg icons */
-
 export const RecipeDetails = () => {
     const [recipe, setRecipe] = useState({});
     const [isAlertVisible, setIsAlertVisible] = useState(false);
@@ -23,7 +22,6 @@ export const RecipeDetails = () => {
 
     const { recipeId } = useParams();
     const { user } = useContext(AuthContext);
-
     const accessToken = user.accessToken;
 
     useEffect(() => {
@@ -32,6 +30,7 @@ export const RecipeDetails = () => {
             recipeService
                 .getById(recipeId);
 
+        // Check if User has already add to favarites
         const checkFavoriteRecipesByUserId =
             favoriteService.findRecipesByUserId(user._id);
 
@@ -40,13 +39,12 @@ export const RecipeDetails = () => {
             .then(data => {
                 setRecipe(data[0]);
 
-                // Check if User has already add to favarites
                 const allFavoriteRecipes = data[1];
 
                 allFavoriteRecipes.length > 0
                     && allFavoriteRecipes
                         .some(recipe =>
-                            recipe.data.recipeId == recipeId)
+                            recipe.recipeId == recipeId)
                     && setSavedToFavorites(true)
 
             })
@@ -60,7 +58,8 @@ export const RecipeDetails = () => {
         className = "";
     }
 
-    const addToFavorites = async (recipe, accessToken) => {
+    const addToFavorites = (recipe, accessToken) => {
+        console.log(recipe);
         favoriteService
             .addToFavorites(
                 {
@@ -68,8 +67,7 @@ export const RecipeDetails = () => {
                     name: recipe.name,
                     description: recipe.description,
                     imageUrl: recipe.imageUrl,
-                    'cook-time': recipe['cook-time']
-                    ,
+                    'cook-time': recipe['cook-time'],
                 }, accessToken)
             .then(result =>
                 setSavedToFavorites(true)
@@ -94,6 +92,11 @@ export const RecipeDetails = () => {
         console.log(product);
         productService
             .addProduct({ title: product, isiCompleted: false }, user.accessToken);
+    }
+
+    const deleteRecipeHandler = (id) => {
+        recipeService.deleteRecipeByid(id, accessToken);
+
     }
 
     return (
@@ -146,7 +149,9 @@ export const RecipeDetails = () => {
                                 <span>Edit</span>
                             </div>
                             <div className={styles["wrapper"]}>
-                                <button className={styles["btn"]}>
+                                <button
+                                    className={styles["btn"]}
+                                    onClick={() => deleteRecipeHandler(recipeId)}>
                                     <FontAwesomeIcon className={styles["icon"]} icon={faTrashCan}></FontAwesomeIcon>
                                 </button>
                                 <span>Delete</span>

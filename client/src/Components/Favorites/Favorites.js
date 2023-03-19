@@ -1,6 +1,8 @@
 import styles from './Favorites.module.css'
-import { useContext, useState, useEffect } from 'react';
+
 import { AuthContext } from '../../context/AuthContext.js';
+import { useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faClock, faV } from '@fortawesome/free-solid-svg-icons';
@@ -12,12 +14,22 @@ export const Favorites = () => {
     const [recipes, setRecipes] = useState([]);
     const { user } = useContext(AuthContext);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         favoritesService
             .findRecipesByUserId(user._id)
             .then(result =>
                 setRecipes(result));
-    }, [])
+    }, []);
+
+    console.log(recipes);
+    const removeFromFavoritesById = (recipeId) => {
+        favoritesService
+            .removeRecipe(recipeId, user.accessToken)
+            .then(result =>
+                setRecipes(state => state.filter(r => r._id != recipeId)));
+    }
 
     return (
         <>
@@ -39,13 +51,13 @@ export const Favorites = () => {
                         recipes.map(r =>
                             <FavoritesItem
                                 key={r._id}
-                                favIcon={faV}
                                 clockIcon={faClock}
-                                recipe={r} />)
+                                recipe={r}
+                                onRemoveRecipe={removeFromFavoritesById} />)
                     }
                 </ul>
             </section>
         </>
-
     );
+
 }
