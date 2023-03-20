@@ -6,10 +6,9 @@ import * as recipeService from "../../service/recipeService.js"
 
 export const EditRecipe = () => {
     const [recipe, setRecipe] = useState({});
-    const { recipeId } = useParams();
-
     const [invalidUserInput, setInvalidUserInput] = useState(false);
     const [errors, setErrors] = useState({});
+    const { recipeId } = useParams();
     const [values, setValues] = useState({
         title: '',
         descr: '',
@@ -18,7 +17,7 @@ export const EditRecipe = () => {
         type: '',
         season: '',
         kitchen: '',
-        products: '',
+        ingredients: '',
         steps: '',
         calories: '',
         'prep-time': '',
@@ -52,6 +51,7 @@ export const EditRecipe = () => {
             ...state,
             [e.target.name]: values[e.target.name].length < bound
         }))
+        console.log(errors);
     }
 
     const validImageUrl = (e) => {
@@ -183,7 +183,7 @@ export const EditRecipe = () => {
                         <label htmlFor="ingredients">Products</label>
                         <textarea
                             name="ingredients"
-                            id=""
+                            id="ingredients"
                             cols={30}
                             rows={10}
                             placeholder="Enter one product per row (ex. : Potatoes - 1 kg.)"
@@ -191,46 +191,57 @@ export const EditRecipe = () => {
                             onChange={onChangeHandler}
                             onBlur={(e) => minLengthCheck(e, 10)}
                         />
+                        {errors.ingredients &&
+                            <p className={`${styles["error"]} ${styles["products"]}`}>Product's list must be at least 10 characters!</p>}
                     </div>
                     <div className={`${styles["steps"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="steps">Steps</label>
                         <textarea
                             name="steps"
-                            id=""
+                            id="steps"
                             cols={30}
                             rows={10}
                             placeholder="Enter one step per row (ex. : 1. Boil the potatoes)"
                             defaultValue={recipe.steps}
                             onChange={onChangeHandler}
-                            onBlur={(e) => minLengthCheck(e, 1)}
+                            onBlur={(e) => minLengthCheck(e, 10)}
                         />
+                        {errors.steps &&
+                            <p className={`${styles["error"]} ${styles["steps"]}`}>Cooking steps must be at least 10 characters!</p>}
                     </div>
                     <div className={styles["group-wrapper"]}>
-                        <div className={`${styles["calories"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
+                    <div className={`${styles["calories"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
                             <label htmlFor="calories">Calories (in kcal)</label>
                             <input
                                 type="text"
                                 name="calories"
-                                defaultValue={recipe.calories}
-                                onBlur={isPositive} />
+                                value={values.calories}
+                                onChange={onChangeHandler}
+                                onBlur={isPositive}
+                            />
+                            {errors.calories && <p className={`${styles["error"]} ${styles["calories"]}`}>Please insert positive number!</p>}
                         </div>
                         <div className={`${styles["prep-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
                             <label htmlFor="prep-time">Prep time (min)</label>
                             <input
                                 type="text"
                                 name="prep-time"
-                                defaultValue={recipe["prep-time"]}
+                                value={values['prep-time']}
                                 onChange={onChangeHandler}
-                                onBlur={isPositive} />
+                                onBlur={isPositive}
+                            />
+                            {errors['prep-time'] && <p className={`${styles["error"]} ${styles["prep-time"]}`}>Please insert positive number!</p>}
                         </div>
                         <div className={`${styles["cook-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
                             <label htmlFor="cook-time">Cook time (min)</label>
                             <input
                                 type="text"
                                 name="cook-time"
-                                defaultValue={recipe["cook-time"]}
+                                value={values['cook-time']}
                                 onChange={onChangeHandler}
-                                onBlur={isPositive} />
+                                onBlur={isPositive}
+                            />
+                            {errors['cook-time'] && <p className={`${styles["error"]} ${styles["cook-time"]}`}>Please insert positive number!</p>}
                         </div>
                     </div>
                     <div className={styles["group-wrapper"]}>
