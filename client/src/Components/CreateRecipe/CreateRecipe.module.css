@@ -171,6 +171,8 @@ Create Recipe Section
     color: var(--white)
 }
 
+/* Errors styling */
+
 .error {
     margin: 0 auto;
     background-color: var(--red);
