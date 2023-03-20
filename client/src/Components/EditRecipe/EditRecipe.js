@@ -47,6 +47,30 @@ export const EditRecipe = () => {
         }))
     }
 
+    const minLengthCheck = (e, bound) => {
+        setErrors(state => ({
+            ...state,
+            [e.target.name]: values[e.target.name].length < bound
+        }))
+    }
+
+    const validImageUrl = (e) => {
+        const regex = new RegExp(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i);
+        const urlInput = e.target.value;
+
+        setErrors(state => ({
+            ...state,
+            [e.target.name]: !regex.test(urlInput)
+        }))
+    }
+
+    const isPositive = (e) => {
+        setErrors(state => ({
+            ...state,
+            [e.target.name]: values[e.target.name] < 0 || isNaN(values[e.target.name])
+        }))
+    }
+
     return (
         <div className={styles["edit-recipe-background"]}>
             <section className={styles["edit--recipe__section"]}>
@@ -61,7 +85,10 @@ export const EditRecipe = () => {
                             placeholder="Enter the title"
                             name="title"
                             defaultValue={recipe.title}
-                            onChange={onChangeHandler} />
+                            onChange={onChangeHandler}
+                            onBlur={(e) => minLengthCheck(e, 2)}
+                        />
+                        {errors.title && <p className={`${styles["error"]} ${styles["title"]}`}>Recipe name must be at least 2 characters!</p>}
                     </div>
                     <div className={`${styles["descr"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="descr">Description</label>
@@ -72,7 +99,21 @@ export const EditRecipe = () => {
                             rows={10}
                             placeholder="Enter short description..."
                             defaultValue={recipe.descr}
-                            onChange={onChangeHandler} />
+                            onChange={onChangeHandler}
+                            onBlur={(e) => minLengthCheck(e, 5)}
+                        />
+                        {errors.descr && <p className={`${styles["error"]} ${styles["descr"]}`}>Description name must be at least 5 characters!</p>}
+                    </div>
+                    <div className={`${styles["imageUrl"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
+                        <label htmlFor="imageUrl">Recipe URL image</label>
+                        <input
+                            type="text"
+                            placeholder="Insert recipe url here..."
+                            name="imageUrl"
+                            value={values.imageUrl}
+                            onChange={onChangeHandler}
+                            onBlur={validImageUrl} />
+                        {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please insert valid image url!</p>}
                     </div>
                     <div className={styles["group-wrapper"]}>
                         <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
@@ -148,6 +189,7 @@ export const EditRecipe = () => {
                             placeholder="Enter one product per row (ex. : Potatoes - 1 kg.)"
                             defaultValue={recipe.products}
                             onChange={onChangeHandler}
+                            onBlur={(e) => minLengthCheck(e, 10)}
                         />
                     </div>
                     <div className={`${styles["steps"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
@@ -160,6 +202,7 @@ export const EditRecipe = () => {
                             placeholder="Enter one step per row (ex. : 1. Boil the potatoes)"
                             defaultValue={recipe.steps}
                             onChange={onChangeHandler}
+                            onBlur={(e) => minLengthCheck(e, 1)}
                         />
                     </div>
                     <div className={styles["group-wrapper"]}>
@@ -168,7 +211,8 @@ export const EditRecipe = () => {
                             <input
                                 type="text"
                                 name="calories"
-                                defaultValue={recipe.calories} />
+                                defaultValue={recipe.calories}
+                                onBlur={isPositive} />
                         </div>
                         <div className={`${styles["prep-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
                             <label htmlFor="prep-time">Prep time (min)</label>
@@ -176,7 +220,8 @@ export const EditRecipe = () => {
                                 type="text"
                                 name="prep-time"
                                 defaultValue={recipe["prep-time"]}
-                                onChange={onChangeHandler} />
+                                onChange={onChangeHandler}
+                                onBlur={isPositive} />
                         </div>
                         <div className={`${styles["cook-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
                             <label htmlFor="cook-time">Cook time (min)</label>
@@ -184,7 +229,8 @@ export const EditRecipe = () => {
                                 type="text"
                                 name="cook-time"
                                 defaultValue={recipe["cook-time"]}
-                                onChange={onChangeHandler} />
+                                onChange={onChangeHandler}
+                                onBlur={isPositive} />
                         </div>
                     </div>
                     <div className={styles["group-wrapper"]}>
@@ -232,6 +278,7 @@ export const EditRecipe = () => {
                                 name="portions"
                                 defaultValue={recipe.portions}
                                 onChange={onChangeHandler}
+                                onBlur={isPositive}
                             />
                         </div>
                     </div>
