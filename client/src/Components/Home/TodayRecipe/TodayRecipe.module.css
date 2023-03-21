@@ -5,17 +5,10 @@
 	width: 50%;
 }
 
-.today-recipe__img-holder {
-	position: relative;
-}
-
-.today-recipe__img-holder img {
-	position: absolute;
-	object-fit: cover;
-
-	top: 0;
-	left: 0;
-
+.today-recipe img {
+	height: 450px;
+	width: 800px;
+	
 	z-index: -1;
 }
 

@@ -11,9 +11,7 @@ export const TodayRecipe = ({
 
     return (
         <div className={styles["today-recipe"]}>
-            <div className={styles["today-recipe__img-holder"]}>
-                <img src={recipe.imageUrl} alt="" />
-            </div>
+            <img src={recipe.imageUrl} alt="" />
             <article>
                 <p className={styles["today-recipe__title"]}>Vegeterian Dinner </p>
                 <h2>{recipe.name}</h2>
