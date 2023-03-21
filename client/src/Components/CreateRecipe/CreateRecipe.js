@@ -47,8 +47,8 @@ export const CreateRecipe = ({ }) => {
 
         const recipe = Object.fromEntries(new FormData(e.target));
 
-        let invalidUserInput = Object.values(errors).some(e => Boolean(e))
-        let selectMenuErrorOrBlankInput = Object.values(recipe).some(e => e == 'Please select' || e == '');
+        const invalidUserInput = Object.values(errors).some(e => Boolean(e))
+        const selectMenuErrorOrBlankInput = Object.values(recipe).some(e => e == 'Please select' || e == '');
 
         if (invalidUserInput || selectMenuErrorOrBlankInput) {
             setInvalidUserInput(true);

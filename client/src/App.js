@@ -55,8 +55,9 @@ function App() {
         navigate(`/details/${newRecipe._id}`)
     }
 
-    const onRecipeEdit = (recipeId, recipeData) => {
-        console.log(recipeId);
+    const onRecipeEdit = (recipeId, updatedRecipe) => {
+        setRecipes(state => state.map(r => r._id === recipeId ? updatedRecipe : r));
+        navigate(`/details/${recipeId}`)
     }
 
     return (

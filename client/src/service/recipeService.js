@@ -113,3 +113,13 @@ export const deleteRecipeByid = (recipeId, accessToken) => {
         }
     }).then(result => result.json());
 }
+
+export const updateRecipe = (recipeId, updatedRecipe, accessToken) => {
+    return fetch(`${baseUrl}/${recipeId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application-json',
+            'X-Authorization': accessToken
+        },body: JSON.stringify(updatedRecipe)
+    }).then(result => result.json());
+}

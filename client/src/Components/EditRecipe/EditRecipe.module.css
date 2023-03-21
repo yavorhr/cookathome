@@ -172,6 +172,9 @@
     cursor: pointer;
 }
 
+
+/* Error invalid user input */
+
 .error {
     margin: 0 auto;
     background-color: var(--red);

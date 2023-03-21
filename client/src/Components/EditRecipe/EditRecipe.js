@@ -1,14 +1,22 @@
 import styles from './EditRecipe.module.css';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
+
 import * as recipeService from "../../service/recipeService.js"
+import { RecipeContext } from '../../context/RecipeContext.js';
+import { AuthContext } from '../../context/AuthContext.js';
 
 export const EditRecipe = () => {
     const [recipe, setRecipe] = useState({});
     const [invalidUserInput, setInvalidUserInput] = useState(false);
     const [errors, setErrors] = useState({});
+
     const { recipeId } = useParams();
+    const { onRecipeEdit } = useContext(RecipeContext);
+    const { user } = useContext(AuthContext);
+    const accessToken = user.accessToken;
+
     const [values, setValues] = useState({
         title: '',
         descr: '',
@@ -36,6 +44,18 @@ export const EditRecipe = () => {
     const onEditSubmitHandler = (e) => {
         e.preventDefault();
 
+        const updatedRecipe = Object.fromEntries(new FormData(e.target));
+        const invalidUserInput = Object.values(errors).some(e => Boolean(e))
+
+        if (invalidUserInput) {
+            setInvalidUserInput(true);
+            return
+        }
+
+        setInvalidUserInput(false);
+
+        recipeService.updateRecipe(recipeId, updatedRecipe, accessToken)
+            .then(result => onRecipeEdit(recipeId, result));
 
     }
 
@@ -210,12 +230,12 @@ export const EditRecipe = () => {
                             <p className={`${styles["error"]} ${styles["steps"]}`}>Cooking steps must be at least 10 characters!</p>}
                     </div>
                     <div className={styles["group-wrapper"]}>
-                    <div className={`${styles["calories"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
+                        <div className={`${styles["calories"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
                             <label htmlFor="calories">Calories (in kcal)</label>
                             <input
                                 type="text"
                                 name="calories"
-                                value={values.calories}
+                                defaultValue={recipe.calories}
                                 onChange={onChangeHandler}
                                 onBlur={isPositive}
                             />
@@ -226,7 +246,7 @@ export const EditRecipe = () => {
                             <input
                                 type="text"
                                 name="prep-time"
-                                value={values['prep-time']}
+                                defaultValue={recipe["prep-time"]}
                                 onChange={onChangeHandler}
                                 onBlur={isPositive}
                             />
@@ -237,7 +257,7 @@ export const EditRecipe = () => {
                             <input
                                 type="text"
                                 name="cook-time"
-                                value={values['cook-time']}
+                                defaultValue={recipe["cook-time"]}
                                 onChange={onChangeHandler}
                                 onBlur={isPositive}
                             />
