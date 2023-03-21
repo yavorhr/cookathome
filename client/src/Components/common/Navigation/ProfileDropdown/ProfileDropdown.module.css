@@ -35,7 +35,7 @@
 }
 
 .dropdown-create-btn.active {
-  transform: translateX(90%);
+  transform: translateX(70%);
 }
 
 .dropdown-create-btn.inactive {

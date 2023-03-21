@@ -34,7 +34,6 @@ export const Profile = () => {
                 <div className={styles["img-holder"]}>
                     <img src={user.imageUrl}
                         alt="" />
-                    <p className="level">Level : <span>Chef</span></p>
                 </div>
                 <div className={styles["user-information"]}>
                     <div className={styles["user-personal-data"]}>
