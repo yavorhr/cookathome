@@ -106,6 +106,8 @@ export const RecipeDetails = () => {
         navigate('/');
     }
 
+    console.log(recipe);
+
     return (
         <>
             <section className={styles["header"]}>
@@ -114,7 +116,7 @@ export const RecipeDetails = () => {
                 </article>
                 <article>
                     <q className={styles["header__descr"]}>
-                        {recipe.description}
+                        {recipe.descr}
                     </q>
                 </article>
             </section>
