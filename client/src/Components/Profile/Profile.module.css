@@ -8,6 +8,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	gap: 30px;
 	/* box model */
 	max-width: 1000px;
 	padding: 15px;
@@ -30,6 +31,7 @@ User Details Positioning :
 	align-items: center;
 	justify-content: flex-start;
 	gap: 15px;
+
 }
 
 /* 1. User profile picture */
@@ -60,9 +62,8 @@ User Details Positioning :
 .user-information {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	gap: 10px;
-
+	align-items: start;
+	
 	width: 40%;
 }
 
@@ -80,9 +81,9 @@ User Details Positioning :
 
 .user-personal-data {
 	display: flex;
-	align-items: flex-start;
-	justify-content: space-evenly;
-	gap: 30px;
+	flex-direction: column;
+	align-items: start;
+	gap: 10px;
 }
 
 .name,
