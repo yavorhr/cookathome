@@ -1,15 +1,20 @@
 import styles from './Profile.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUtensils, faCamera, faHeart, faClock, faUmbrella } from '@fortawesome/free-solid-svg-icons'
-
+import { faUtensils, faCamera, faHeart, faClock, faUmbrella } from '@fortawesome/free-solid-svg-icons';
+import { AuthContext } from '../../context/AuthContext.js';
+import { useContext, useState } from 'react';
 
 export const Profile = () => {
+    const [currentUser, setCurrentUser] = useState({});
+
+    const { user } = useContext(AuthContext);
+    console.log(user);
     return (
         <section className={styles["user-profile"]}>
             <article className={styles["user-details"]}>
                 <div className={styles["img-holder"]}>
-                    <img src="https://ted-conferences-speaker-photos-production.s3.amazonaws.com/yoa4pm3vyerco6hqbhjxly3bf41d"
+                    <img src={user.imageUrl}
                         alt="" />
                     <p className="level">Level : <span>Chef</span></p>
                 </div>
@@ -18,7 +23,7 @@ export const Profile = () => {
                         <div className={styles["wrapper"]}>
                             <div className={styles["name"]}>
                                 <label>full name</label>
-                                <p>Ivan Ivanov</p>
+                                <p>{user["full-name"]}</p>
                             </div>
                             <div className={styles["username"]}>
                                 <label>username</label>
@@ -28,7 +33,7 @@ export const Profile = () => {
                         <div>
                             <div className={styles["email"]}>
                                 <label>email</label>
-                                <p>ivanivano@abv.bg</p>
+                                <p>{user.email}</p>
                             </div>
                             <div className={styles["phone"]}>
                                 <label>phone</label>
@@ -80,7 +85,7 @@ export const Profile = () => {
                         <li>
                             <a href="#">
                                 <div className={styles["card-item"]}>
-                                    <img  className={styles["card-item__img"]} src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
+                                    <img className={styles["card-item__img"]} src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
                                     <h3 className={styles["card-title"]}>Lasagna</h3>
                                     <p className={styles["card-descr"]}>Very delicious dish for the whole family...</p>
                                     <span>
