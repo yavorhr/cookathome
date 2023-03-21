@@ -24,21 +24,13 @@ export const Profile = () => {
                             <div className={styles["name"]}>
                                 <label>full name</label>
                                 <p>{user["full-name"]}</p>
-                            </div>
-                            <div className={styles["username"]}>
-                                <label>username</label>
-                                <p>Ivanko</p>
-                            </div>
+                            </div>                       
                         </div>
                         <div>
                             <div className={styles["email"]}>
                                 <label>email</label>
                                 <p>{user.email}</p>
-                            </div>
-                            <div className={styles["phone"]}>
-                                <label>phone</label>
-                                <p>0888333222</p>
-                            </div>
+                            </div>              
                         </div>
                     </div>
 
