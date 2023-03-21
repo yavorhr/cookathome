@@ -1,0 +1,79 @@
+.card-list a {
+	text-decoration: none;
+}
+
+.card-item__img {
+	border-radius: 5px 5px 0 0;
+}
+
+.card-item {
+
+	transition: 0.8s;
+	margin-bottom: 10px;
+	background-color: var(--white);
+}
+
+.card-item:hover {
+	margin-bottom: 5px;
+	-webkit-box-shadow: 6px 9px 2px 0px var(--orange);
+	box-shadow: 6px 9px 2px 0px var(--orange);
+	background-color: var(--white);
+
+	transform: translateY(-5px);
+}
+
+.recipes-title {
+	margin-bottom: 0 auto;
+
+	text-align: center;
+	letter-spacing: 1px;
+	font-weight: lighter;
+	color: var(--red);
+}
+
+.card-item .card-title {
+	color: var(--black);
+	font-size: 18px;
+	margin: 10px 0;
+	letter-spacing: 3px;
+	text-align: center;
+}
+
+.card-item .card-descr {
+	margin-bottom: 5px;
+	padding: 0px 10px;
+
+	font-size: 15px;
+	text-align: left;
+	font-style: italic;
+	color: var(--grey);
+}
+
+.card-item span .icon {
+	margin: 15px 5px;
+
+	font-size: 15px;
+	color: var(--grey);
+}
+
+.card-item span {
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	color: var(--grey);
+}
+
+/* Show all button */
+
+.show-all {
+	font-size: 18px;
+	text-align: end;
+}
+
+.show-all a {
+	color: var(--black);
+}
+
+.show-all a:hover {
+	border-bottom: 1px solid var(--black)
+}

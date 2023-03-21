@@ -1,15 +1,33 @@
 import styles from './Profile.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUtensils, faCamera, faHeart, faClock, faUmbrella } from '@fortawesome/free-solid-svg-icons';
+import { faUtensils, faCamera, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { AuthContext } from '../../context/AuthContext.js';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+
+import * as recipeService from "../../service/recipeService.js"
+import * as favoriteService from "../../service/favoriteService.js"
+
+import { CardItem } from './CardItem/CardItem.js';
 
 export const Profile = () => {
-    const [currentUser, setCurrentUser] = useState({});
-
+    const [recipes, setRecipes] = useState([]);
+    const [favorites, setFavorites] = useState([]);
     const { user } = useContext(AuthContext);
-    console.log(user);
+
+    useEffect(() => {
+        recipeService
+            .findRecipesByUserId(user._id)
+            .then(result =>
+                setRecipes(result));
+
+        favoriteService
+            .findRecipesByUserId(user._id)
+            .then(result =>
+                setFavorites(result));
+
+    }, [])
+
     return (
         <section className={styles["user-profile"]}>
             <article className={styles["user-details"]}>
@@ -24,13 +42,13 @@ export const Profile = () => {
                             <div className={styles["name"]}>
                                 <label>full name</label>
                                 <p>{user["full-name"]}</p>
-                            </div>                       
+                            </div>
                         </div>
                         <div>
                             <div className={styles["email"]}>
                                 <label>email</label>
                                 <p>{user.email}</p>
-                            </div>              
+                            </div>
                         </div>
                     </div>
 
@@ -39,14 +57,21 @@ export const Profile = () => {
                             <button className={styles["btn"]}>
                                 <FontAwesomeIcon icon={faUtensils} className={styles["icon"]}></FontAwesomeIcon>
                             </button>
-                            <p>Cooked: <span>31</span></p>
+                            <p>Cooked: <span>
+                                {recipes.length == 0
+                                    ? '0'
+                                    : recipes.length} </span></p>
                         </div>
 
                         <div className={styles["wrapper"]}>
                             <button className={styles["btn"]}>
                                 <FontAwesomeIcon icon={faHeart} className={styles["icon"]}></FontAwesomeIcon>
                             </button>
-                            <p>Favorites: <span>31</span></p>
+                            <p>Favorites: <span>
+                                {favorites.length == 0
+                                    ? '0'
+                                    : favorites.length}
+                            </span></p>
                         </div>
                         <div className={styles["wrapper"]}>
                             <button className={styles["btn"]}>
@@ -60,46 +85,16 @@ export const Profile = () => {
 
             <article className={styles["recipes"]}>
                 <div>
-                    <h2 className={styles["recipes-title"]}>Recently added</h2>
-                    <ul className={styles["card-list"]} type="none">
-                        <li>
-                            <a href="#">
-                                <div className={styles["card-item"]}>
-                                    <img className={styles["card-item__img"]} src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                                    <h3 className={styles["card-title"]}>Lasagna</h3>
-                                    <p className={styles["card-descr"]}>Very delicious dish for the whole family...</p>
-                                    <span>
-                                        <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>30
-                                    </span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div className={styles["card-item"]}>
-                                    <img className={styles["card-item__img"]} src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                                    <h3 className={styles["card-title"]}>Lasagna</h3>
-                                    <p className={styles["card-descr"]}>Very delicious dish for the whole family...</p>
-                                    <span>
-                                        <FontAwesomeIcon icon={faClock} className={styles["icon"]}>
-                                        </FontAwesomeIcon>30
-                                    </span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div className={styles["card-item"]}>
-                                    <img className={styles["card-item__img"]} src="/img/dishes/Best-Lasagna-550.jpg" alt="" />
-                                    <h3 className={styles["card-title"]}>Lasagna</h3>
-                                    <p className={styles["card-descr"]}>Very delicious dish for the whole family...</p>
-                                    <span>
-                                        <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>30
-                                    </span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
+                    {recipes.length > 0
+                        ?
+                        <>
+                            <h2 className={styles["recipes-title"]}>Recently added</h2>
+                            <ul className={styles["card-list"]} type="none">
+                                {recipes.map(r => <CardItem recipe={r} key={r._id} />)}
+                            </ul>
+                        </>
+                        : <h2 className={styles["recipes-title"]} >You have no recipes yet</h2>
+                    }
                 </div>
             </article>
         </section>
