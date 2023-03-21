@@ -17,7 +17,7 @@
     border-radius: 5px 5px 0 0;
 }
 
-a:hover {
+.list-item a:hover {
     border: 1px solid var(--orange);
     border-radius: 10px;
 }
