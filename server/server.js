@@ -1563,15 +1563,7 @@
         },
 
         favorites: {
-            "kdjsakldjas9jd2av": {
-                "_createdOn": "1678798341095",
-                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "recipeId": "kdjsakldjas9jd2av",
-                "name": "Moussaka",
-                "description": "Moussaka is the best Dish in Bulgarian Kitchen! A must try!",
-                "cook-time": "30",
-                "imageUrl": "/img/dishes/pancakes.jpg",
-            },
+  
 
         },
 

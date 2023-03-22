@@ -116,7 +116,7 @@ export const RecipeDetails = () => {
                 </article>
                 <article>
                     <q className={styles["header__descr"]}>
-                        {recipe.descr}
+                        {recipe.description}
                     </q>
                 </article>
             </section>
@@ -132,7 +132,7 @@ export const RecipeDetails = () => {
                         </div>
                         <div>
                             <p>{recipe.user && recipe.user["full-name"]}</p>
-                
+
                         </div>
                         <div className={`${styles["user__stats"]} ${styles["dspl-flex-row-center"]}`}>
                             <div className={styles["stats__wrapper"]}>
@@ -234,7 +234,7 @@ export const RecipeDetails = () => {
                         </div>}
                     <h2 className={styles["title"]}>Products</h2>
 
-                    {(recipe.products &&
+                    {recipe.products &&
                         recipe.products.map(p =>
                             <ProductItem
                                 key={uuid()}
@@ -242,7 +242,7 @@ export const RecipeDetails = () => {
                                 icon={faPlus}
                                 addProduct={addProductAndCallAlert}
                             />
-                        ))
+                        )
                     }
                 </ul>
             </section>
@@ -250,11 +250,18 @@ export const RecipeDetails = () => {
             <section>
                 <div className={styles["cooking-process"]}>
                     <h2 className={styles["title"]}>How to cook</h2>
-                    <p>
-                        {
-                            recipe.steps
-                        }
-                    </p>
+
+                    {
+                        recipe.steps &&
+                        <ul className={styles["steps-list"]}>
+                            {recipe.steps.map(r =>
+                                <li
+                                 className={styles["cooking-step"]}
+                                 key={uuid()}>{r}
+                                 </li>)}
+                        </ul>
+                    }
+
                 </div>
             </section>
         </>

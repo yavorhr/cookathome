@@ -8,6 +8,7 @@ export const TodayRecipe = ({
     recipes }) => {
 
     const recipe = recipeService.getRandomRecipe(recipes);
+    console.log(recipe);
 
     return (
         <div className={styles["today-recipe"]}>

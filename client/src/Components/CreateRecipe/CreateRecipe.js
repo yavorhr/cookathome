@@ -62,10 +62,11 @@ export const CreateRecipe = ({ }) => {
 
         recipe.products = products;
         recipe.steps = steps;
+        recipe.user = {imageUrl : user.imageUrl, "full-name": user["full-name"]}
 
         recipeService.createRecipe(recipe, user.accessToken)
             .then(result =>
-                createRecipeHandler({ ...result, userImageUrl: user.imageUrl , userFullname: user["full-name"]}));
+                createRecipeHandler(result));
     }
 
     const minLengthCheck = (e, bound) => {
@@ -116,8 +117,8 @@ export const CreateRecipe = ({ }) => {
                     <div className={`${styles["descr"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="descr">Description</label>
                         <textarea
-                            name="descr"
-                            id=""
+                            name="description"
+                            id="description"
                             cols={10}
                             rows={10}
                             placeholder="Enter short description..."
