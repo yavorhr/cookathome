@@ -33,9 +33,9 @@
 
 .card-item .card-title {
 	color: var(--black);
-	font-size: 18px;
-	margin: 10px 0;
-	letter-spacing: 3px;
+	font-size: 15px;
+	padding: 5px;
+	letter-spacing: 1px;
 	text-align: center;
 }
 
