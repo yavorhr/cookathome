@@ -104,6 +104,11 @@ export const findRecipesByUserId = (ownerId) => {
         .then(result => result.json())
 }
 
+export const findRecipesBySeasonType = (season) => {
+    return fetch(`${baseUrl}?where=season%3D%22${season}%22`)
+        .then(result => result.json())
+}
+
 export const deleteRecipeByid = (recipeId, accessToken) => {
     return fetch(`${baseUrl}/${recipeId}`, {
         method: 'DELETE',

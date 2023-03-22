@@ -2,15 +2,18 @@ import styles from './CatalogRecipes.module.css';
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import * as recipeService from "../../service/recipeService.js";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 import { CatalogItem } from './CatalogItem/CatalogItem.js';
 
 export const CatalogRecipes = ({ recipes }) => {
 
     const { season } = useParams();
+
+    recipeService.findRecipesBySeasonType("summer").then(result => console.log(result))
 
     return (
         <section>
