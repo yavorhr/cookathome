@@ -65,7 +65,7 @@ export const CreateRecipe = ({ }) => {
 
         recipeService.createRecipe(recipe, user.accessToken)
             .then(result =>
-                createRecipeHandler(result));
+                createRecipeHandler({ ...result, userImageUrl: user.imageUrl , userFullname: user["full-name"]}));
     }
 
     const minLengthCheck = (e, bound) => {

@@ -1322,14 +1322,12 @@
                 email: "peter@abv.bg",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
                 imageUrl: 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Users/user_4_wruxoc.jpg',
-                phoneNumber: '+3598820333219',
                 'full-name': 'Peter Georgiev Ivanov',
             },
             "847ec027-f659-4086-8032-5173e2f9c93a": {
                 email: "john@abv.bg",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
                 imageUrl: 'https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg',
-                phoneNumber: '+3598820777219',
                 'full-name': 'John Genadiev Aleksiev'
             }
         },
@@ -1368,85 +1366,163 @@
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "name": "Moussaka",
                 "description": "Moussaka is the best Dish in Bulgarian Kitchen! A must try!",
-                "season": "Winter",
-                "timeOfTheDay": "dinner",
+                "season": "All",
+                "timeOfTheDay": "lunch",
                 "category": "meat",
                 "kitchen": "bulgarian",
                 "level": "amateur",
                 "calories": "600",
-                "prep-time": "30",
-                "cook-time": "20",
-                "total-time": "50",
+                "prep-time": "20",
+                "cook-time": "50",
                 "products": [
-                    "1 kilo tomatoes",
-                    "1 kilo tomatoes",
-                    "1 kilo tomatoes",
+                    "Mincede meat - 500 gr",
+                    "Potatoes - 1.5 kg",
+                    "Onions - 100 gr",
+                    "Carrots - 50 gr.",
+                    "Red peppers - 70 gr",
+                    "Tomatoes - cubes from can, 3 tbsp",
+                    "Fresh parsley - 4,5 stalks",
+                    "Oil - 40 ml",
+                    "Red pepper - 2 tbsp",
+                    "Black pepper",
+                    "Salt"
                 ]
                 , "steps": [
-                    "Fist step",
-                    "Second step",
-                    "Third step",
+                    "First chop the onion, pepper and carrot. Fry them with the oil and minced meat in a pan. Stir constantly so that the minced meat is well broken up and becomes crumbly. Season with red, black pepper and salt.",
+                    "Cut the peeled potatoes into cubes and put them in a medium-sized pan. Pour the minced meat. Stir well and pour in enough hot water to cover the potatoes.",
+                    "Cook in a hot oven at 200 degrees until the potatoes are soft. Add the tomatoes and chopped parsley. Cook for another 10 min.",
+                    "Make the topping by beating the eggs well with the milk and flour. Add a pinch of salt and pour evenly over the moussaka.",
+                    "Bake in the middle of the oven on the upper rack only until the moussaka topping is cooked.",
+                    "Serve with a spoonful or two of yogurt."
                 ]
                 ,
-                "portions": "3",
+                "portions": "6",
                 "_createdOn": 1617194295474,
-                "imageUrl": "/img/dishes/benedikt.jpg",
+                "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1679419931/Cook%20at%20home/dishes/Moussaka_grgzth.jpg",
+                "user": {
+                    "full-name": "John Genadiev Aleksiev",
+                    "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg"
+                }
             },
             "kdjsakldjasdasdsa9jd2av": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "name": "Tarator",
-                "description": "Moussaka is the best Dish in Bulgarian Kitchen! A must try!",
-                "season": "Winter",
-                "timeOfTheDay": "dinner",
-                "category": "meat",
+                "description": "Tarator is cold soup, great for the hot summer days!",
+                "season": "Summer",
+                "timeOfTheDay": "all",
+                "category": "veggeterian",
                 "kitchen": "bulgarian",
                 "level": "amateur",
-                "calories": "600",
-                "prep-time": "30",
-                "cook-time": "20",
-                "total-time": "50",
+                "calories": "200",
+                "prep-time": "10",
+                "cook-time": "5",
                 "products": [
-                    "2 kilo potatoes",
-                    "2 kilo potatoes",
-                    "2 kilo potatoes",
+                    "Cuccumber - 1 piece",
+                    "Fennel - 1/2 stalk",
+                    "Walnut - 100 gr",
+                    "Water - 300 ml",
+                    "Yoghurt - 400 gr",
+                    "Garlic - 3 cloves ",
+                    "Oil - 2 tbsp",
+
                 ]
                 , "steps": [
-                    "Fourth step",
-                    "Fifth step",
-                    "Sixth step",
-                ],
-                "portions": "3",
+                    "The first step of the tarator recipe is to prepare the cucumbers. Wash the cucumber and peel it. If you managed to get hold of fresh cucumbers produced by a grandmother in the village, there is no need to peel them. You cut it into very small pieces/cubes. Many housewives grate the cucumber to save time. This softens the cucumber more and the tarator becomes like porridge. But in case you are really thirsty and can't wait long, you can also use this method.",
+                    "Pour the cucumber into a large bowl and add to it the finely chopped fennel (you can also use dry fennel), the ground walnuts and the garlic, which you have crushed or chopped very finely. However, unlike the French, many Bulgarians do not like garlic, so you can not add the garlic to the tarator, but leave it in a separate saucer, so everyone will be happy: garlic lovers will add it later, and the opponents will not frown.",
+                    "After adding the garlic, walnuts and dill, add the oil/olive oil and mix well. Then beat one bucket of milk with one bucket of cold water, add to the cucumber mixture and mix again. The tarator is now ready.",
+                ]
+                ,
+                "portions": "1",
                 "_createdOn": 1617194295474,
-                "imageUrl": "/img/dishes/banans.jpg",
+                "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1679420831/Cook%20at%20home/dishes/Tarator_jla2ds.jpg",
+                "user": {
+                    "full-name": "John Genadiev Aleksiev",
+                    "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg"
+                }
             },
-            "kdjsakldjas9jd2av": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "name": "Moussaka",
-                "description": "Moussaka is the best Dish in Bulgarian Kitchen! A must try!",
-                "season": "Winter",
-                "timeOfTheDay": "dinner",
-                "category": "meat",
+            "azxjs213kzsdsa9jd2av": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "name": "The best spaghetti bolognese",
+                "description": "Our best ever spaghetti bolognese is super easy and a true Italian classic with a meaty, chilli sauce.",
+                "season": "Summer",
+                "timeOfTheDay": "all",
+                "category": "veggeterian",
                 "kitchen": "bulgarian",
                 "level": "amateur",
-                "calories": "600",
-                "prep-time": "30",
-                "cook-time": "20",
-                "total-time": "50",
+                "calories": "624",
+                "prep-time": "10",
+                "cook-time": "5",
                 "products": [
-                    "3 kilo cucumbers",
-                    "3 kilo cucumbers",
-                    "3 kilo cucumbers",
+                    "Cuccumber - 1 piece",
+                    "Fennel - 1/2 stalk",
+                    "Walnut - 100 gr",
+                    "Water - 300 ml",
+                    "Yoghurt - 400 gr",
+                    "Garlic - 3 cloves ",
+                    "Oil - 2 tbsp",
                 ]
                 , "steps": [
-                    "Seventh step",
-                    "Eight step",
-                    "Ninth step",
-                ],
-                "portions": "3",
+                    "The first step of the tarator recipe is to prepare the cucumbers. Wash the cucumber and peel it. If you managed to get hold of fresh cucumbers produced by a grandmother in the village, there is no need to peel them. You cut it into very small pieces/cubes. Many housewives grate the cucumber to save time. This softens the cucumber more and the tarator becomes like porridge. But in case you are really thirsty and can't wait long, you can also use this method.",
+                    "Pour the cucumber into a large bowl and add to it the finely chopped fennel (you can also use dry fennel), the ground walnuts and the garlic, which you have crushed or chopped very finely. However, unlike the French, many Bulgarians do not like garlic, so you can not add the garlic to the tarator, but leave it in a separate saucer, so everyone will be happy: garlic lovers will add it later, and the opponents will not frown.",
+                    "After adding the garlic, walnuts and dill, add the oil/olive oil and mix well. Then beat one bucket of milk with one bucket of cold water, add to the cucumber mixture and mix again. The tarator is now ready.",
+                ]
+                ,
+                "portions": "1",
                 "_createdOn": 1617194295474,
-                "imageUrl": "/img/dishes/pancakes.jpg",
+                "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1679505438/Cook%20at%20home/dishes/Spaghetti_bolognese_rvfixq.jpg",
+                "user": {
+                    "full-name": "Peter Georgiev Ivanov",
+                    "imageUrl": 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Ushers/user_4_wruxoc.jpg',
+                }
+            }, "azxjhgk45kzsdszzz9jd2av": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "name": "Greek Lemon Chicken and Potatoes",
+                "description": "Greek chicken and potatoes is a classic. I don't have the energy or courage to cater for a living but, if I did, this lemony dish would be one of my go-to entrees, and not just for big, fat weddings. It's a proven crowd-pleaser, simple to make, and easy on the wallet.",
+                "season": "all",
+                "timeOfTheDay": "all",
+                "category": "chicken",
+                "kitchen": "greek",
+                "level": "advanced",
+                "calories": "1139",
+                "prep-time": "10",
+                "cook-time": "50",
+                "products": [
+                    "4 pounds skin-on, bone-in chicken thighs",
+                    "3 russet potatoes, peeled and quartered",
+                    "½ cup fresh lemon juice",
+                    "½ cup olive oil",
+                    "6 cloves garlic, minced",
+                    "1 tbsp dried oregano",
+                    "1 tbsp kosher salt",
+                    "1 teaspoon dried rosemary",
+                    "1 teaspoon freshly ground black pepper",
+                    "1 pinch cayenne pepper",
+                    "1 cup chicken broth, divided",
+                    "1 teaspoon chopped fresh oregano, or to taste"
+                ]
+                , "steps": [
+                    "Preheat the oven to 425 degrees F (220 degrees C). Lightly oil a large roasting pan.",
+                    "Place chicken and potatoes in a large bowl. Add lemon juice, olive oil, garlic, dried oregano, salt, rosemary, black pepper, and cayenne. Toss until chicken and potatoes are evenly coated.",
+                    "Place chicken pieces skin-side up in the prepared pan. Tuck potato pieces around chicken. Drizzle with 2/3 cup chicken broth. Spoon any remaining marinade from the bowl over chicken and potatoes.",
+                    "Bake in the preheated oven for 20 minutes. Toss chicken and potatoes, then place chicken skin-side up again.",
+                    "Continue baking until chicken is browned and cooked through, about 25 minutes more; an instant-read thermometer inserted near the bone should register 165 degrees F (74 degrees C).",
+                    "Transfer chicken to a serving platter and keep warm; leave potatoes in the pan.",
+                    "Turn on the broiler, or set oven to highest heat. Toss potatoes again to coat in pan juices. Place the pan under the broiler and broil until potatoes are crisped, about 3 minutes.",
+                    "Transfer potatoes to the platter with chicken. ",
+                    "Place the roasting pan on the stovetop over medium heat. Add the remaining 1/3 cup chicken broth and scrape up browned bits from the bottom of the pan. Strain pan juices over chicken and potatoes. Sprinkle with fresh oregano."
+                ]
+                ,
+                "portions": "4",
+                "_createdOn": 1617194295474,
+                "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1679420831/Cook%20at%20home/dishes/Tarator_jla2ds.jpg",
+                "user": {
+                    "full-name": "Peter Georgiev Ivanov",
+                    "imageUrl": 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Ushers/user_4_wruxoc.jpg',
+                }
             },
         },
+
+
 
         articles: {
             "dasfdsf3215": {

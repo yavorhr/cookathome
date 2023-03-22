@@ -15,7 +15,7 @@ export const CardItem = ({
                     <h3 className={styles["card-title"]}>{recipe.title}</h3>
                     <p className={styles["card-descr"]}>{recipe.descr}</p>
                     <span>
-                        <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>{recipe["cook-time"]}
+                        <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>{recipe["cook-time"]} min
                     </span>
                 </div>
             </Link>
