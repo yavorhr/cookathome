@@ -126,13 +126,13 @@ export const RecipeDetails = () => {
                         <div className={styles["img-holder"]}>
                             <img
                                 className={styles["user__image"]}
-                                src="https://ted-conferences-speaker-photos-production.s3.amazonaws.com/yoa4pm3vyerco6hqbhjxly3bf41d"
+                                src={recipe.user && recipe.user.imageUrl}
                                 alt=""
                             />
                         </div>
                         <div>
-                            <p>Ivan Ivanov</p>
-                            <p>Beginner</p>
+                            <p>{recipe.user && recipe.user["full-name"]}</p>
+                
                         </div>
                         <div className={`${styles["user__stats"]} ${styles["dspl-flex-row-center"]}`}>
                             <div className={styles["stats__wrapper"]}>

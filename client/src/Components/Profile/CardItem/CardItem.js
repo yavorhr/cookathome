@@ -6,7 +6,6 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 export const CardItem = ({
     recipe }) => {
-        console.log(recipe);
     return (
         <li>
             <Link to={`/details/${recipe._id}`}>

@@ -1472,7 +1472,7 @@
                 "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1679505438/Cook%20at%20home/dishes/Spaghetti_bolognese_rvfixq.jpg",
                 "user": {
                     "full-name": "Peter Georgiev Ivanov",
-                    "imageUrl": 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Ushers/user_4_wruxoc.jpg',
+                    "imageUrl": 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Users/user_4_wruxoc.jpg',
                 }
             }, "azxjhgk45kzsdszzz9jd2av": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
@@ -1517,7 +1517,7 @@
                 "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1679420831/Cook%20at%20home/dishes/Tarator_jla2ds.jpg",
                 "user": {
                     "full-name": "Peter Georgiev Ivanov",
-                    "imageUrl": 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Ushers/user_4_wruxoc.jpg',
+                    "imageUrl": 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Users/user_4_wruxoc.jpg',
                 }
             },
         },
