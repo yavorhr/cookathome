@@ -4,16 +4,16 @@ const baseUrl = 'http://localhost:3030/data/recipes'
 export const urlMappingDataRecipes = [
     {
         season:
-            ['/catalog-recipes/spring',
-                '/catalog-recipes/summer',
-                '/catalog-recipes/autumn',
-                '/catalog-recipes/winter']
+            ['/recipes/season/spring',
+                '/recipes/season/summer',
+                '/recipes/season/autumn',
+                '/recipes/season/winter']
     }, {
         'Meals of the day':
-            ['/catalog-recipes/breakfast',
-                '/catalog-recipes/lunch',
-                '/catalog-recipes/dinner',
-                '/catalog-recipes/snack']
+            ['/recipes/timeOfTheDay/breakfast',
+                '/recipes/timeOfTheDay/lunch',
+                '/recipes/timeOfTheDay/dinner',
+                '/recipes/timeOfTheDay/snack']
     }, {
         'Meat recipes':
             ['/catalog-recipes/pork',
@@ -104,8 +104,8 @@ export const findRecipesByUserId = (ownerId) => {
         .then(result => result.json())
 }
 
-export const findRecipesBySeasonType = (season) => {
-    return fetch(`${baseUrl}?where=season%3D%22${season}%22`)
+export const getRecipesByCategoryAndType = (category, type) => {
+    return fetch(`${baseUrl}?where=${category}%3D%22${type}%22`)
         .then(result => result.json())
 }
 
@@ -125,6 +125,6 @@ export const updateRecipe = (recipeId, updatedRecipe, accessToken) => {
         headers: {
             'Content-type': 'application-json',
             'X-Authorization': accessToken
-        },body: JSON.stringify(updatedRecipe)
+        }, body: JSON.stringify(updatedRecipe)
     }).then(result => result.json());
 }

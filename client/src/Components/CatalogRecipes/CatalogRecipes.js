@@ -6,14 +6,15 @@ import * as recipeService from "../../service/recipeService.js";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-
-import { CatalogItem } from './CatalogItem/CatalogItem.js';
+import { CardItem } from '../Profile/CardItem/CardItem.js';
 
 export const CatalogRecipes = ({ recipes }) => {
 
-    const { season } = useParams();
+    const { category,type } = useParams();
+    console.log(category);
+    console.log(type);
 
-    recipeService.findRecipesBySeasonType("summer").then(result => console.log(result))
+    recipeService.getRecipesByCategoryAndType(category,type).then(result => console.log(result))
 
     return (
         <section>
@@ -34,7 +35,7 @@ export const CatalogRecipes = ({ recipes }) => {
             <ul className={styles["card-list"]} type="none">
 
                 {recipes.map(r =>
-                    <CatalogItem key={r._id} recipe={r} />)}
+                    <CardItem key={r._id} recipe={r} />)}
 
             </ul>
         </section>

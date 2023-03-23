@@ -12,16 +12,13 @@ export const DropdownHeading = ({
                 {
                     obj[Object.keys(obj)]
                         .map(string => {
-                            const newString = stringManipulation(string);
-                            const stringWithoutDashes = newString.replaceAll('-', ' ');
+                            const recipeTitle = recipeTitleManipulation(string, '/', 3);
 
                             return <Link
                                 key={string}
-                                onClick={() =>
-                                    onClickHandler(false)}
+                                onClick={() => onClickHandler(false)}
                                 to={string}
-                                className={styles['nav-link']}>
-                                {stringWithoutDashes}
+                                className={styles['nav-link']}> {recipeTitle}
                             </Link>
                         })
                 }
@@ -30,14 +27,12 @@ export const DropdownHeading = ({
     );
 }
 
-const stringManipulation = (string) => {
-    let string2 = '';
-    if (string.includes('articles')) {
-        const capitalLetter = string.charAt(18).toUpperCase();
-        string2 = capitalLetter + string.slice(19);
-    } else {
-        const capitalLetter = string.charAt(17).toUpperCase();
-        string2 = capitalLetter + string.slice(18);
-    }
-    return string2;
+function recipeTitleManipulation(string, subString, index) {
+    const startIndex = string.split(subString, index).join(subString).length;
+    const newString = string.slice(startIndex + 1);
+
+    const stringWithoutDashes = newString.replaceAll('-', ' ');
+    const capitalizedString = stringWithoutDashes.charAt(0).toUpperCase() + stringWithoutDashes.slice(1);
+
+    return capitalizedString;
 }

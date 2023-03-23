@@ -83,7 +83,7 @@ function App() {
                         <Route path="/recipes/:season" element={<CatalogRecipes recipes={recipes} />} />
                         <Route path="/details/:recipeId" element={<RecipeDetails />} />
                         <Route path="/edit/:recipeId" element={<EditRecipe />} />
-                        <Route path="/catalog-recipes/:season" element={<CatalogRecipes recipes={recipes} />} />
+                        <Route path="/recipes/:category/:type" element={<CatalogRecipes recipes={recipes} />} />
                         <Route path="/create/recipe" element={<CreateRecipe />} />
                     </Routes>
                 </RecipeContext.Provider>
