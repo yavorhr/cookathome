@@ -10,10 +10,10 @@ export const urlMappingDataRecipes = [
                 '/recipes/season/winter']
     }, {
         'Meals of the day':
-            ['/recipes/timeOfTheDay/breakfast',
-                '/recipes/timeOfTheDay/lunch',
-                '/recipes/timeOfTheDay/dinner',
-                '/recipes/timeOfTheDay/snack']
+            ['/recipes/time-of-the-day/breakfast',
+                '/recipes/time-of-the-day/lunch',
+                '/recipes/time-of-the-day/dinner',
+                '/recipes/time-of-the-day/snack']
     }, {
         'Meat recipes':
             ['/catalog-recipes/pork',
