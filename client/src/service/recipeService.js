@@ -16,16 +16,18 @@ export const urlMappingDataRecipes = [
                 '/recipes/time-of-the-day/snack']
     }, {
         'Meat recipes':
-            ['/recipes/category/pork',
-                '/recipes/category/chicken',
-                '/recipes/category/fish',
-                '/recipes/category/lamb']
+            ['/recipes/advanced-category/pork',
+                '/recipes/advanced-category/chicken',
+                '/recipes/advanced-category/fish',
+                '/recipes/advanced-category/lamb']
     }, {
         'Kitchen':
-            ['/recipes/indian',
-                '/recipes/category/pork',
-                '/catalog-recipes/european',
-                '/catalog-recipes/asian']
+            ['/recipes/kitchen/indian',
+                '/recipes/kitchen/chinese',
+                '/recipes/kitchen/japanese',
+                '/recipes/kitchen/bulgarian',
+                '/recipes/kitchen/greek',
+            ]
     }, {
         'Quick meals':
             ['/catalog-recipes/proteins',
@@ -34,10 +36,10 @@ export const urlMappingDataRecipes = [
                 '/catalog-recipes/desserts']
     }, {
         'From Zero to Hero':
-            ['/catalog-recipes/beginner',
-                '/catalog-recipes/intermediate',
-                '/catalog-recipes/advanced',
-                '/catalog-recipes/chefs']
+            ['/recipes/level/beginner',
+                '/recipes/level/intermediate',
+                '/recipes/level/advanced',
+                '/recipes/level/chef',]
     }, {
         'Calories count':
             ['/catalog-recipes/up-to-200',
@@ -46,13 +48,13 @@ export const urlMappingDataRecipes = [
                 '/catalog-recipes/up-to-1000']
     }]
 
-export const mealsCategories = 
-    {
-        "Fish": ["Tuna", "Salmon", "Catfish", "Cod", "Bass", "Trout"],
-        "Meat": ["Pork", "Lamb", "Duck", "Goat", "Beef", "Chicken", "Turkey"],
-        "Veggetarian": ["Fruits", "Vegetables", "Beans", "Nuts", "Seeds", "Pasta","Rice",  "Bread", "Yoghurt", "Soup"]
-    }
-;
+export const mealsCategories =
+{
+    "Fish": ["Tuna", "Salmon", "Catfish", "Cod", "Bass", "Trout"],
+    "Meat": ["Pork", "Lamb", "Duck", "Goat", "Beef", "Chicken", "Turkey"],
+    "Veggetarian": ["Fruits", "Vegetables", "Beans", "Nuts", "Seeds", "Pasta", "Rice", "Bread", "Yoghurt", "Soup"]
+}
+    ;
 
 export const getRandomRecipe = (recipes) => {
     let randomRecipe = {};
