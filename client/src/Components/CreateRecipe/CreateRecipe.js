@@ -1,16 +1,17 @@
 import styles from './CreateRecipe.module.css';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { RecipeContext } from '../../context/RecipeContext.js';
 import { AuthContext } from '../../context/AuthContext.js';
 import { useContext } from 'react';
 
-import * as recipeService from '../../service/recipeService.js'
-
+import * as recipeService from '../../service/recipeService.js';
+import uuid from 'react-uuid';
 
 export const CreateRecipe = ({ }) => {
     const { user } = useContext(AuthContext);
     const { createRecipeHandler } = useContext(RecipeContext);
+    const currentRef = useRef();
 
     /* TODO: validation hook for errors, so it can be re-usable to edit page */
     const [invalidUserInput, setInvalidUserInput] = useState(false);
@@ -31,6 +32,7 @@ export const CreateRecipe = ({ }) => {
         level: '',
         occasion: '',
         portions: '',
+        'meal-category': ''
     });
 
     const onChangeHandler = (e) => {
@@ -62,7 +64,7 @@ export const CreateRecipe = ({ }) => {
 
         recipe.products = products;
         recipe.steps = steps;
-        recipe.user = {imageUrl : user.imageUrl, "full-name": user["full-name"]}
+        recipe.user = { imageUrl: user.imageUrl, "full-name": user["full-name"] }
 
         recipeService.createRecipe(recipe, user.accessToken)
             .then(result =>
@@ -139,6 +141,7 @@ export const CreateRecipe = ({ }) => {
                             onBlur={validImageUrl} />
                         {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please insert valid image url!</p>}
                     </div>
+
                     <div className={styles["group-wrapper"]}>
                         <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
                             <label htmlFor="category">Category</label>
@@ -147,6 +150,7 @@ export const CreateRecipe = ({ }) => {
                                 name="category"
                                 value={values.category}
                                 onChange={onChangeHandler}
+                                ref={currentRef}
                             >
                                 <option value="Please select">Please select</option>
                                 <option value="Veggetarian">Veggetarian</option>
@@ -154,6 +158,25 @@ export const CreateRecipe = ({ }) => {
                                 <option value="Fish">Fish</option>
                             </select>
                         </div>
+
+                        <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
+                            <label htmlFor="category">Meal Category</label>
+                            <select
+                                type="text"
+                                name="meal-category"
+                                value={values["meal-category"]}
+                                onChange={onChangeHandler}
+                            >
+                                <option value="Please select">Please select</option>
+                                {values.category && currentRef.current.value != "Please select" && recipeService.mealsCategories[currentRef.current.value]
+                                    .map(cat =>
+                                        <option key={uuid()} value={cat}>{cat}</option>
+                                    )}
+                            </select>
+                        </div>
+
+
+
                         <div className={`${styles["type"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
                             <label htmlFor="type">Time of the day</label>
                             <select

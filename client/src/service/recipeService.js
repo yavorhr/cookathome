@@ -22,7 +22,7 @@ export const urlMappingDataRecipes = [
                 '/recipes/category/lamb']
     }, {
         'Kitchen':
-            ['/catalog-recipes/indian',
+            ['/recipes/indian',
                 '/recipes/category/pork',
                 '/catalog-recipes/european',
                 '/catalog-recipes/asian']
@@ -46,6 +46,13 @@ export const urlMappingDataRecipes = [
                 '/catalog-recipes/up-to-1000']
     }]
 
+export const mealsCategories = 
+    {
+        "Fish": ["Sharan", "Shtuka"],
+        "Meat": ["Pork", "Lamb"],
+        "Veggetarian": ["Potatoes", "Patladjan"]
+    }
+;
 
 export const getRandomRecipe = (recipes) => {
     let randomRecipe = {};

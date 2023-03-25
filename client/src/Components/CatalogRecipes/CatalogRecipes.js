@@ -21,6 +21,7 @@ export const CatalogRecipes = ({ }) => {
 
     return (
         <section>
+            
             <Search/>
 
             <article>
