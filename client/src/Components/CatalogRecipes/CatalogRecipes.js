@@ -33,15 +33,19 @@ export const CatalogRecipes = ({ }) => {
                     </button>
                 </form>
             </article>
-            <h2 className={styles["section-title"]}>Recently added</h2>
-            <ul className={styles["card-list"]} type="none">
 
-                {recipes.length == 0
-                    ? <h1>NO recipe</h1>
-                    : recipes.map(r =>
-                        <CardItem key={r._id} recipe={r} />)}
-
-            </ul>
-        </section>
+            <article>
+                {recipes.length > 0
+                    ?
+                    <>
+                        <h2 className={styles["section-title"]}>Recently added</h2>
+                        <ul className={styles["card-list"]} type="none">
+                            {recipes.map(r => <CardItem recipe={r} key={r._id} />)}
+                        </ul>
+                    </>
+                    : <h2 className={styles["recipes-title"]} >You have no recipes yet</h2>
+                }
+            </article>
+        </section >
     );
 }

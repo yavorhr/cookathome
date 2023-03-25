@@ -7,7 +7,6 @@
 }
 
 .card-item {
-
 	transition: 0.8s;
 	margin-bottom: 10px;
 	background-color: var(--white);
@@ -19,7 +18,7 @@
 	box-shadow: 6px 9px 2px 0px var(--orange);
 	background-color: var(--white);
 
-	transform: translateY(-5px);
+	transform: translateY(-8px);
 }
 
 .recipes-title {
