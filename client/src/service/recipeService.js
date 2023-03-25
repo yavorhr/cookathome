@@ -48,9 +48,9 @@ export const urlMappingDataRecipes = [
 
 export const mealsCategories = 
     {
-        "Fish": ["Sharan", "Shtuka"],
-        "Meat": ["Pork", "Lamb"],
-        "Veggetarian": ["Potatoes", "Patladjan"]
+        "Fish": ["Tuna", "Salmon", "Catfish", "Cod", "Bass", "Trout"],
+        "Meat": ["Pork", "Lamb", "Duck", "Goat", "Beef", "Chicken", "Turkey"],
+        "Veggetarian": ["Fruits", "Vegetables", "Beans", "Nuts", "Seeds", "Pasta","Rice",  "Bread", "Yoghurt", "Soup"]
     }
 ;
 

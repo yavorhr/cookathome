@@ -1369,6 +1369,7 @@
                 "season": "all",
                 "time-of-the-day": "lunch",
                 "category": "meat",
+                "advanced-category": "pork",
                 "kitchen": "bulgarian",
                 "level": "amateur",
                 "calories": "600",
@@ -1411,6 +1412,7 @@
                 "season": "summer",
                 "time-of-the-day": "all",
                 "category": "veggeterian",
+                "advanced-category": "soup",
                 "kitchen": "bulgarian",
                 "level": "amateur",
                 "calories": "200",
@@ -1447,6 +1449,7 @@
                 "season": "summer",
                 "time-of-the-day": "all",
                 "category": "veggeterian",
+                "advanced-category": "pasta",
                 "kitchen": "bulgarian",
                 "level": "amateur",
                 "calories": "624",
@@ -1480,7 +1483,8 @@
                 "description": "Greek chicken and potatoes is a classic. I don't have the energy or courage to cater for a living but, if I did, this lemony dish would be one of my go-to entrees, and not just for big, fat weddings. It's a proven crowd-pleaser, simple to make, and easy on the wallet.",
                 "season": "all",
                 "time-of-the-day": "all",
-                "category": "chicken",
+                "category": "meat",
+                "advanced-category": "chicken",
                 "kitchen": "greek",
                 "level": "advanced",
                 "calories": "1139",
@@ -1521,7 +1525,6 @@
                 }
             },
         },
-
 
 
         articles: {

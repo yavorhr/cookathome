@@ -18,7 +18,7 @@ export const CreateRecipe = ({ }) => {
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
         title: '',
-        descr: '',
+        description: '',
         imageUrl: '',
         category: '',
         type: '',
