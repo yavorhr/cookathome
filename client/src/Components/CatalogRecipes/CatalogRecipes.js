@@ -24,15 +24,13 @@ export const CatalogRecipes = ({ }) => {
             <Search/>
 
             <article>
-                {recipes.length > 0
-                    ?
+                {recipes.length > 0 && 
                     <>
                         <h2 className={styles["section-title"]}>Recently added</h2>
                         <ul className={styles["card-list"]} type="none">
                             {recipes.map(r => <CardItem recipe={r} key={r._id} />)}
                         </ul>
                     </>
-                    : <h2 className={styles["recipes-title"]} >You have no recipes yet</h2>
                 }
             </article>
         </section >
