@@ -8,13 +8,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { CardItem } from '../Profile/CardItem/CardItem.js';
 
-export const CatalogRecipes = ({ recipes }) => {
+export const CatalogRecipes = ({ }) => {
+    const [recipes, setRecipes] = useState([]);
+    const { category, type } = useParams();
 
-    const { category,type } = useParams();
-    console.log(category);
-    console.log(type);
-
-    recipeService.getRecipesByCategoryAndType(category,type).then(result => console.log(result))
+    useEffect(() => {
+        recipeService
+            .getRecipesByCategoryAndType(category, type)
+            .then(result => setRecipes(result))
+    }, [category, type]);
 
     return (
         <section>
@@ -34,8 +36,10 @@ export const CatalogRecipes = ({ recipes }) => {
             <h2 className={styles["section-title"]}>Recently added</h2>
             <ul className={styles["card-list"]} type="none">
 
-                {recipes.map(r =>
-                    <CardItem key={r._id} recipe={r} />)}
+                {recipes.length == 0
+                    ? <h1>NO recipe</h1>
+                    : recipes.map(r =>
+                        <CardItem key={r._id} recipe={r} />)}
 
             </ul>
         </section>

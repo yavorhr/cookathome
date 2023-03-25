@@ -16,14 +16,14 @@ export const urlMappingDataRecipes = [
                 '/recipes/time-of-the-day/snack']
     }, {
         'Meat recipes':
-            ['/catalog-recipes/pork',
-                '/catalog-recipes/chicken',
-                '/catalog-recipes/fish',
-                '/catalog-recipes/lamb']
+            ['/recipes/category/pork',
+                '/recipes/category/chicken',
+                '/recipes/category/fish',
+                '/recipes/category/lamb']
     }, {
         'Kitchen':
             ['/catalog-recipes/indian',
-                '/catalog-recipes/american',
+                '/recipes/category/pork',
                 '/catalog-recipes/european',
                 '/catalog-recipes/asian']
     }, {
