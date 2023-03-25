@@ -4,9 +4,10 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import * as recipeService from "../../service/recipeService.js";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+
+
 import { CardItem } from '../Profile/CardItem/CardItem.js';
+import { Search } from '../Search/Search.js';
 
 export const CatalogRecipes = ({ }) => {
     const [recipes, setRecipes] = useState([]);
@@ -20,19 +21,7 @@ export const CatalogRecipes = ({ }) => {
 
     return (
         <section>
-            <article className={styles["search-bar"]}>
-                <h1 className={styles["title"]}>What are you looking for ?</h1>
-                <p className={styles["descr"]}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos ad debitis tempore, incidunt
-                    eveniet
-                    voluptas at modi consequatur libero dolorem, mollitia delectus, voluptate laudantium sapiente explicabo
-                    aut distinctio? Quos, sunt.</p>
-                <form action="">
-                    <input type="text" placeholder="Search your recipe..." name="" />
-                    <button type="submit">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["icon"]}></FontAwesomeIcon>
-                    </button>
-                </form>
-            </article>
+            <Search/>
 
             <article>
                 {recipes.length > 0
