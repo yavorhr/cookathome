@@ -174,9 +174,8 @@ export const CreateRecipe = ({ }) => {
                                     )}
                             </select>
                         </div>
-
-
-
+                        </div>
+                        <div className={styles["group-wrapper"]}>
                         <div className={`${styles["type"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
                             <label htmlFor="type">Time of the day</label>
                             <select
@@ -222,7 +221,14 @@ export const CreateRecipe = ({ }) => {
                                 <option value="Serbian">Serbian</option>
                             </select>
                         </div>
-                    </div>
+
+
+                        </div>
+
+
+
+                   
+                
                     <div className={`${styles["ingredients"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="products">Ingredients</label>
                         <textarea
