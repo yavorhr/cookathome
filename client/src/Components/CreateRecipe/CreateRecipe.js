@@ -363,15 +363,15 @@ const stringToArray = (string) => {
 const caloriesCategory = (cal) => {
     let caloriesStr = "";
     if (cal <= 200) {
-        caloriesStr = "up-to-200"
+        caloriesStr = "up-to-200-kcal"
     } else if (cal <= 500) {
-        caloriesStr = "up-to-500"
+        caloriesStr = "up-to-500-kcal"
     }
     else if (cal <= 800) {
-        caloriesStr = "up-to-800"
+        caloriesStr = "up-to-800-kcal"
     }
     else {
-        caloriesStr = "more-than-800"
+        caloriesStr = "more-than-800-kcal"
     }
     return caloriesStr;
 }
@@ -379,15 +379,15 @@ const caloriesCategory = (cal) => {
 const cookingTimeCategory = (min) => {
     let timeStr = "";
     if (min <= 30) {
-        timeStr = "up-to-30"
+        timeStr = "up-to-30-min"
     } else if (min <= 60) {
-        timeStr = "up-to-60"
+        timeStr = "up-to-60-min"
     }
     else if (min <= 90) {
-        timeStr = "up-to-90"
+        timeStr = "up-to-90-min"
     }
     else {
-        timeStr = "more-than-90"
+        timeStr = "more-than-90-min"
     }
     return timeStr;
 }

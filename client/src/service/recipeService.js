@@ -9,13 +9,20 @@ export const urlMappingDataRecipes = [
                 '/recipes/season/autumn',
                 '/recipes/season/winter']
     }, {
-        'Meals of the day':
+        'Time of the day':
             ['/recipes/time-of-the-day/breakfast',
                 '/recipes/time-of-the-day/lunch',
                 '/recipes/time-of-the-day/dinner',
                 '/recipes/time-of-the-day/snack']
-    }, {
-        'Meat recipes':
+    },
+
+    {
+        'Way of eating':
+            ['/recipes/category/meat',
+                '/recipes/category/veggeterian']
+    },
+    {
+        'Meat Proteins':
             ['/recipes/advanced-category/pork',
                 '/recipes/advanced-category/chicken',
                 '/recipes/advanced-category/fish',
@@ -29,23 +36,25 @@ export const urlMappingDataRecipes = [
                 '/recipes/kitchen/greek',
             ]
     }, {
-        'Quick meals':
-            ['/recipes/cat-by-time/up-to-30',
-                '/recipes/cat-by-time/up-to-60',
-                '/recipes/cat-by-time/up-to-90',
-                '/recipes/cat-by-time/more-than-90']
+        'By time':
+            ['/recipes/cat-by-time/up-to-30-min',
+                '/recipes/cat-by-time/up-to-60-min',
+                '/recipes/cat-by-time/up-to-90-min',
+                '/recipes/cat-by-time/more-than-90-min']
     }, {
         'From Zero to Hero':
             ['/recipes/level/beginner',
                 '/recipes/level/intermediate',
                 '/recipes/level/advanced',
                 '/recipes/level/chef',]
-    }, {
-        'Calories count':
-            ['/recipes/cat-by-calories/up-to-200',
-                '/recipes/cat-by-calories/up-to-500',
-                '/recipes/cat-by-calories/up-to-800',
-                '/recipes/cat-by-calories/more-than-800']
+    }
+    ,
+    {
+        'By calories':
+            ['/recipes/cat-by-calories/up-to-200-kcal',
+                '/recipes/cat-by-calories/up-to-500-kcal',
+                '/recipes/cat-by-calories/up-to-800-kcal',
+                '/recipes/cat-by-calories/more-than-800-kcal']
     }]
 
 export const mealsCategories =
@@ -54,7 +63,7 @@ export const mealsCategories =
     "Meat": ["Pork", "Lamb", "Duck", "Goat", "Beef", "Chicken", "Turkey"],
     "Veggetarian": ["Fruits", "Vegetables", "Beans", "Nuts", "Seeds", "Pasta", "Rice", "Bread", "Yoghurt", "Soup"]
 }
-    ;
+
 
 export const getRandomRecipe = (recipes) => {
     let randomRecipe = {};
