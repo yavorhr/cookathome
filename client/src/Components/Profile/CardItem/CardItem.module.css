@@ -1,9 +1,19 @@
-.card-list a {
-	text-decoration: none;
+.image-holder {
+	position: relative;
+	width: 200px;
+	height: 100px;
 }
 
 .card-item__img {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
 	border-radius: 5px 5px 0 0;
+	object-fit: cover;
 }
 
 .card-item {
@@ -19,6 +29,10 @@
 	background-color: var(--white);
 
 	transform: translateY(-8px);
+}
+
+.card-list a {
+	text-decoration: none;
 }
 
 .recipes-title {

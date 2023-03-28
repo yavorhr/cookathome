@@ -3,7 +3,7 @@ import styles from "./CardItem.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
 
-/*TODO:To check all css for repaeting styles*/ 
+/*TODO:To check all css for repaeting styles*/
 
 export const CardItem = ({
     recipe }) => {
@@ -11,7 +11,9 @@ export const CardItem = ({
         <li>
             <Link to={`/details/${recipe._id}`}>
                 <div className={styles["card-item"]}>
-                    <img className={styles["card-item__img"]} src={recipe.imageUrl} alt="" />
+                    <div className={styles["image-holder"]}>
+                        <img className={styles["card-item__img"]} src={recipe.imageUrl} alt="recipe-image" />
+                    </div>
                     <p className={styles["card-title"]}>{recipe.name}</p>
                     <span>
                         <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>{recipe["cook-time"]} min
