@@ -48,7 +48,7 @@ export const CreateRecipe = ({ }) => {
         e.preventDefault();
 
         const recipe = Object.fromEntries(new FormData(e.target));
-
+    
         const invalidUserInput = Object.values(errors).some(e => Boolean(e))
         const selectMenuErrorOrBlankInput = Object.values(recipe).some(e => e == 'Please select' || e == '');
 
@@ -61,10 +61,16 @@ export const CreateRecipe = ({ }) => {
 
         const products = stringToArray(recipe.products);
         const steps = stringToArray(recipe.products);
+        const cookingTimeStr = cookingTimeCategory(Number(recipe["cook-time"] + Number(recipe["prep-time"])))
+        const caloriesStr = caloriesCategory(Number(recipe.calories));
 
         recipe.products = products;
         recipe.steps = steps;
         recipe.user = { imageUrl: user.imageUrl, "full-name": user["full-name"] }
+        recipe["cat-by-time"] =  cookingTimeStr;
+        recipe["cat-by-calories"] = caloriesStr;
+
+        console.log(recipe);
 
         recipeService.createRecipe(recipe, user.accessToken)
             .then(result =>
@@ -174,8 +180,8 @@ export const CreateRecipe = ({ }) => {
                                     )}
                             </select>
                         </div>
-                        </div>
-                        <div className={styles["group-wrapper"]}>
+                    </div>
+                    <div className={styles["group-wrapper"]}>
                         <div className={`${styles["type"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
                             <label htmlFor="type">Time of the day</label>
                             <select
@@ -223,12 +229,12 @@ export const CreateRecipe = ({ }) => {
                         </div>
 
 
-                        </div>
+                    </div>
 
 
 
-                   
-                
+
+
                     <div className={`${styles["ingredients"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="products">Ingredients</label>
                         <textarea
@@ -352,4 +358,36 @@ export const CreateRecipe = ({ }) => {
 const stringToArray = (string) => {
     let result = string.split(/\r?\n/);
     return result;
+}
+
+const caloriesCategory = (cal) => {
+    let caloriesStr = "";
+    if (cal <= 200) {
+        caloriesStr = "up to 200"
+    } else if (cal <= 500) {
+        caloriesStr = "up to 500"
+    }
+    else if (cal <= 800) {
+        caloriesStr = "up to 800"
+    }
+    else {
+        caloriesStr = "more than 800"
+    }
+    return caloriesStr;
+}
+
+const cookingTimeCategory = (min) => {
+    let timeStr = "";
+    if (min <= 30) {
+        timeStr = "up to 30"
+    } else if (min <= 60) {
+        timeStr = "up to 60"
+    }
+    else if (min <= 90) {
+        timeStr = "up to 90"
+    }
+    else {
+        timeStr = "more than 90"
+    }
+    return timeStr;
 }

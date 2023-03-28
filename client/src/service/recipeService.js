@@ -45,7 +45,7 @@ export const urlMappingDataRecipes = [
             ['/catalog-recipes/up-to-200',
                 '/catalog-recipes/up-to-500',
                 '/catalog-recipes/up-to-800',
-                '/catalog-recipes/up-to-1000']
+                '/catalog-recipes/more']
     }]
 
 export const mealsCategories =

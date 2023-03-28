@@ -1369,6 +1369,8 @@
                 "season": "all",
                 "time-of-the-day": "lunch",
                 "category": "meat",
+                "cat-by-calories": "up to 600",
+                "cat-by-time": "up to 90",
                 "advanced-category": "pork",
                 "kitchen": "bulgarian",
                 "level": "beginner",
@@ -1418,6 +1420,8 @@
                 "calories": "200",
                 "prep-time": "10",
                 "cook-time": "5",
+                "cat-by-calories": "up to 200",
+                "cat-by-time": "up to 30",
                 "products": [
                     "Cuccumber - 1 piece",
                     "Fennel - 1/2 stalk",
@@ -1454,7 +1458,9 @@
                 "level": "intermediate",
                 "calories": "624",
                 "prep-time": "10",
-                "cook-time": "5",
+                "cook-time": "40",
+                "cat-by-calories": "up to 800",
+                "cat-by-time": "up to 60",
                 "products": [
                     "Cuccumber - 1 piece",
                     "Fennel - 1/2 stalk",
@@ -1488,6 +1494,8 @@
                 "kitchen": "greek",
                 "level": "advanced",
                 "calories": "1139",
+                "cat-by-calories": "more than 800",
+                "cat-by-time": "up to 60",
                 "prep-time": "10",
                 "cook-time": "50",
                 "products": [
