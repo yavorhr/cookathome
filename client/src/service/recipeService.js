@@ -30,10 +30,10 @@ export const urlMappingDataRecipes = [
             ]
     }, {
         'Quick meals':
-            ['/catalog-recipes/proteins',
-                '/catalog-recipes/salads',
-                '/catalog-recipes/veggies',
-                '/catalog-recipes/desserts']
+            ['/recipes/cat-by-time/up-to-30',
+                '/recipes/cat-by-time/up-to-60',
+                '/recipes/cat-by-time/up-to-90',
+                '/recipes/cat-by-time/more-than-90']
     }, {
         'From Zero to Hero':
             ['/recipes/level/beginner',
@@ -42,10 +42,10 @@ export const urlMappingDataRecipes = [
                 '/recipes/level/chef',]
     }, {
         'Calories count':
-            ['/catalog-recipes/up-to-200',
-                '/catalog-recipes/up-to-500',
-                '/catalog-recipes/up-to-800',
-                '/catalog-recipes/more']
+            ['/recipes/cat-by-calories/up-to-200',
+                '/recipes/cat-by-calories/up-to-500',
+                '/recipes/cat-by-calories/up-to-800',
+                '/recipes/cat-by-calories/more-than-800']
     }]
 
 export const mealsCategories =
