@@ -137,7 +137,7 @@ Create Recipe Section
     width: 20%;
 }
 
-.create--recipe-section .title,
+.create--recipe-section .name,
 .create--recipe-section .descr,
 .create--recipe-section .imageUrl {
     width: 50%;
@@ -184,7 +184,7 @@ Create Recipe Section
     text-align: center;
 }
 
-.error.title,
+.error.name,
 .error.imageUrl {
     width: 70%;
 }
@@ -215,7 +215,7 @@ Create Recipe Section
 */
 
 @media screen and (max-width:768px) {
-    .create--recipe-section .title {
+    .create--recipe-section .name {
         width: 80%;
     }
 

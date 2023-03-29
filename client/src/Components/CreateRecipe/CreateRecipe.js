@@ -17,7 +17,7 @@ export const CreateRecipe = ({ }) => {
     const [invalidUserInput, setInvalidUserInput] = useState(false);
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
-        title: '',
+        name: '',
         description: '',
         imageUrl: '',
         category: '',
@@ -111,17 +111,17 @@ export const CreateRecipe = ({ }) => {
                     onSubmit={onSubmitHandler}
                 >
                     <h1>Create recipe</h1>
-                    <div className={`${styles["title"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
-                        <label htmlFor="title">Recipe name</label>
+                    <div className={`${styles["name"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
+                        <label htmlFor="name">Recipe name</label>
                         <input
                             type="text"
-                            placeholder="Enter the title"
-                            name="title"
-                            value={values.title}
+                            placeholder="Enter the name"
+                            name="name"
+                            value={values.name}
                             onChange={onChangeHandler}
                             onBlur={(e) => minLengthCheck(e, 2)}
                         />
-                        {errors.title && <p className={`${styles["error"]} ${styles["title"]}`}>Recipe name must be at least 2 characters!</p>}
+                        {errors.name && <p className={`${styles["error"]} ${styles["name"]}`}>Recipe name must be at least 2 characters!</p>}
                     </div>
                     <div className={`${styles["descr"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="descr">Description</label>

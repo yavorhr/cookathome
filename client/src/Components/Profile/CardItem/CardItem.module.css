@@ -17,9 +17,11 @@
 }
 
 .card-item {
+	position: relative;
 	transition: 0.8s;
 	margin-bottom: 10px;
 	background-color: var(--white);
+	height: 200px;
 }
 
 .card-item:hover {
@@ -33,6 +35,12 @@
 
 .card-list a {
 	text-decoration: none;
+}
+
+.card-item span{
+	position: absolute;
+	bottom: 0px;
+	left: 0;
 }
 
 .recipes-title {

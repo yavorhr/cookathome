@@ -45,7 +45,7 @@ export const RecipeDetails = () => {
             .all([getRecipeById, checkFavoriteRecipesByUserId])
             .then(data => {
 
-                
+
                 setRecipe(data[0]);
 
                 const allFavoriteRecipes = data[1];
@@ -257,9 +257,9 @@ export const RecipeDetails = () => {
                         <ul className={styles["steps-list"]}>
                             {recipe.steps.map(r =>
                                 <li
-                                 className={styles["cooking-step"]}
-                                 key={uuid()}>{r}
-                                 </li>)}
+                                    className={styles["cooking-step"]}
+                                    key={uuid()}>{r}
+                                </li>)}
                         </ul>
                     }
 
