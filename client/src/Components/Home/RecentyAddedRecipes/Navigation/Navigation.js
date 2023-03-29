@@ -1,4 +1,6 @@
-import styles from './Navigation.module.css'
+import styles from './Navigation.module.css';
+
+import { Link } from 'react-router-dom';
 
 export const Navigation = () => {
     return (
@@ -6,28 +8,28 @@ export const Navigation = () => {
             <ul type="none">
                 <span>New recipes</span>
                 <li>
-                    <a href="">All</a>
+                    <Link to="">All</Link>
                 </li>
                 <li>
-                    <a href="">Salads</a>
+                    <Link to="">Salads</Link>
                 </li>
                 <li>
-                    <a href="">Main</a>
+                    <Link to="">Main</Link>
                 </li>
                 <li>
-                    <a href="">Pre-dish</a>
-                </li>
-
-                <li>
-                    <a href="">Soups</a>
+                    <Link to="">Pre-dish</Link>
                 </li>
 
                 <li>
-                    <a href="">Fish</a>
+                    <Link to="">Soups</Link>
                 </li>
 
                 <li>
-                    <a href="">Vegan</a>
+                    <Link to="">Fish</Link>
+                </li>
+
+                <li>
+                    <Link to="">Vegan</Link>
                 </li>
             </ul>
         </nav>);

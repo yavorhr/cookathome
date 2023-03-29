@@ -44,6 +44,8 @@ export const RecipeDetails = () => {
         Promise
             .all([getRecipeById, checkFavoriteRecipesByUserId])
             .then(data => {
+
+                
                 setRecipe(data[0]);
 
                 const allFavoriteRecipes = data[1];
@@ -105,18 +107,18 @@ export const RecipeDetails = () => {
         navigate('/');
     }
 
-    console.log(recipe);
 
     return (
         <>
             <section className={styles["header"]}>
                 <article>
-                    <h1 className={styles["header__h1"]}></h1>
+                    <h1 className={styles["header__h1"]}>{recipe.name}</h1>
                 </article>
                 <article>
                     <q className={styles["header__descr"]}>
                         {recipe.description}
                     </q>
+                    <p className={styles["creation-date"]}>Created on: {new Date(recipe._createdOn).toLocaleDateString()} </p>
                 </article>
             </section>
             <section className={styles["hero"]}>

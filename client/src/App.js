@@ -39,6 +39,8 @@ function App() {
         navigate('/')
     }
 
+    console.log(recipes);
+
     const userLogout = (userData) => {
         authService
             .logout(userData.accessToken);

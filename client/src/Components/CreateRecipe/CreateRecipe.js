@@ -48,7 +48,7 @@ export const CreateRecipe = ({ }) => {
         e.preventDefault();
 
         const recipe = Object.fromEntries(new FormData(e.target));
-    
+
         const invalidUserInput = Object.values(errors).some(e => Boolean(e))
         const selectMenuErrorOrBlankInput = Object.values(recipe).some(e => e == 'Please select' || e == '');
 
@@ -67,14 +67,15 @@ export const CreateRecipe = ({ }) => {
         recipe.products = products;
         recipe.steps = steps;
         recipe.user = { imageUrl: user.imageUrl, "full-name": user["full-name"] }
-        recipe["cat-by-time"] =  cookingTimeStr;
+        recipe["cat-by-time"] = cookingTimeStr;
         recipe["cat-by-calories"] = caloriesStr;
 
         console.log(recipe);
 
         recipeService.createRecipe(recipe, user.accessToken)
             .then(result =>
-                createRecipeHandler(result));
+                createRecipeHandler(result)
+            )
     }
 
     const minLengthCheck = (e, bound) => {
@@ -227,13 +228,7 @@ export const CreateRecipe = ({ }) => {
                                 <option value="Serbian">Serbian</option>
                             </select>
                         </div>
-
-
                     </div>
-
-
-
-
 
                     <div className={`${styles["ingredients"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="products">Ingredients</label>

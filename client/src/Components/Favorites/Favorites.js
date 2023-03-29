@@ -44,7 +44,8 @@ export const Favorites = () => {
                     </form>
                 </article>
             </section>
-            <section className={styles["my-recipies"]}>
+
+            {recipes.length > 0 && <section className={styles["my-recipies"]}>
                 <h2 className={styles["my-recipies__title"]}>My recipies</h2>
                 <ul className={styles["card-list"]} type="none">
                     {recipes.length > 0 &&
@@ -56,7 +57,9 @@ export const Favorites = () => {
                                 onRemoveRecipe={removeFromFavoritesById} />)
                     }
                 </ul>
-            </section>
+            </section>}
+
+            {recipes.length == 0 && <h2 className={styles["title"]} >You have no favorite recipes yet</h2>}
         </>
     );
 

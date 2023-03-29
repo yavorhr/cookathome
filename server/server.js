@@ -898,6 +898,7 @@
             }
 
             record._createdOn = Date.now();
+            
             targetCollection.set(id, record);
             return Object.assign(deepCopy(record), { _id: id });
         }
