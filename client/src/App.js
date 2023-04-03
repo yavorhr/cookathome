@@ -72,7 +72,8 @@ function App() {
                 <RecipeContext.Provider value=
                     {{
                         createRecipeHandler,
-                        onRecipeEdit
+                        onRecipeEdit,
+                        recipes
                     }}>
                     <Routes>
                         <Route path="/" element={<HomePage recipes={recipes} articles={articles} />} />

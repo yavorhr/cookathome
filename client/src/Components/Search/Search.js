@@ -1,24 +1,33 @@
 import styles from './Search.module.css';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useContext } from 'react';
+import { RecipeContext } from '../../context/RecipeContext.js';
+
+import { CardItem } from '../Profile/CardItem/CardItem.js';
 
 export const Search = () => {
+    const { recipes } = useContext(RecipeContext);
     const [searchValue, setSearchValue] = useState('');
 
-    const onSearchSubmit = (e) => {
-        e.preventDefault();
-
-        const { search } = Object.fromEntries(new FormData(e.target));
-        console.log(search);
-    }
+    const [filteredRecipes, setFilteredRecipes] = useState([]);
 
     const onChange = (e) => {
         setSearchValue(e.target.value)
     }
 
-    
+    const onSearchSubmit = (e) => {
+        e.preventDefault();
+
+        const { search } = Object.fromEntries(new FormData(e.target));
+
+        setFilteredRecipes(recipes.filter(r => r.name.toLowerCase().includes(search.toLowerCase())));
+        setSearchValue('');
+    }
+
     return (
         <article className={styles["search-bar"]}>
             <h1 className={styles["title"]}>What are you looking for ?</h1>
@@ -33,5 +42,15 @@ export const Search = () => {
                     <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["icon"]}></FontAwesomeIcon>
                 </button>
             </form>
+
+            {
+                filteredRecipes &&
+                <ul className={styles["list-recipes"]}>
+                    {filteredRecipes.map(r => <CardItem key={r._id} recipe={r}></CardItem>)}
+                </ul>
+            }
+
         </article>);
+
 }
+

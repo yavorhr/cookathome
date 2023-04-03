@@ -64,7 +64,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform:translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     /* border-box */
     background-color: var(--white);
     padding: 20px;
@@ -74,4 +74,12 @@
     color: var(--grey);
 
     opacity: 0.7;
+}
+
+
+.list-recipes {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    
 }
