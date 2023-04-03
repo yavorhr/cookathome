@@ -29,19 +29,21 @@ export const Search = () => {
     }
 
     return (
-        <article className={styles["search-bar"]}>
-            <h1 className={styles["title"]}>What are you looking for ?</h1>
-            <p className={styles["descr"]}>Please enter the desired recipe or part of it, and we will find all relevant suggestions for you</p>
-            <form action="" onSubmit={onSearchSubmit}>
-                <input type="text"
-                    placeholder="Search here..."
-                    name="search"
-                    value={searchValue}
-                    onChange={onChange} />
-                <button type="submit">
-                    <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["icon"]}></FontAwesomeIcon>
-                </button>
-            </form>
+        <>
+            <article className={styles["search-bar"]}>
+                <h1 className={styles["title"]}>What are you looking for ?</h1>
+                <p className={styles["descr"]}>Please enter the desired recipe or part of it, and we will find all relevant suggestions for you</p>
+                <form action="" onSubmit={onSearchSubmit}>
+                    <input type="text"
+                        placeholder="Search here..."
+                        name="search"
+                        value={searchValue}
+                        onChange={onChange} />
+                    <button type="submit">
+                        <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["icon"]}></FontAwesomeIcon>
+                    </button>
+                </form>
+            </article>
 
             {
                 filteredRecipes &&
@@ -49,8 +51,11 @@ export const Search = () => {
                     {filteredRecipes.map(r => <CardItem key={r._id} recipe={r}></CardItem>)}
                 </ul>
             }
+        </>
 
-        </article>);
+    );
+
+
 
 }
 

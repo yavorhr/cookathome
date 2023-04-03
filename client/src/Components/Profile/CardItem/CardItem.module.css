@@ -1,6 +1,14 @@
+.card-item {
+	position: relative;
+	transition: 0.8s;
+	margin-bottom: 10px;
+	background-color: var(--white);
+	width: 220px;
+	height: 200px;
+}
+
 .image-holder {
 	position: relative;
-	width: 200px;
 	height: 100px;
 }
 
@@ -16,13 +24,7 @@
 	object-fit: cover;
 }
 
-.card-item {
-	position: relative;
-	transition: 0.8s;
-	margin-bottom: 10px;
-	background-color: var(--white);
-	height: 200px;
-}
+
 
 .card-item:hover {
 	margin-bottom: 5px;
