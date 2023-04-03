@@ -124,18 +124,19 @@ export const CreateRecipe = ({ }) => {
                         {errors.name && <p className={`${styles["error"]} ${styles["name"]}`}>Recipe name must be at least 2 characters!</p>}
                     </div>
                     <div className={`${styles["descr"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
-                        <label htmlFor="descr">Description</label>
+                        <label htmlFor="description">Description</label>
                         <textarea
                             name="description"
                             id="description"
                             cols={10}
-                            rows={10}
-                            placeholder="Enter short description..."
-                            value={values.descr}
+                            rows={3}
+                            maxLength={100}
+                            placeholder="Enter description up to max 100 characters..."
+                            value={values.description}
                             onChange={onChangeHandler}
                             onBlur={(e) => minLengthCheck(e, 5)}
                         />
-                        {errors.descr && <p className={`${styles["error"]} ${styles["descr"]}`}>Description name must be at least 5 characters!</p>}
+                        {errors.description && <p className={`${styles["error"]} ${styles["descr"]}`}>Description name must be between 5 and 100 characters!</p>}
                     </div>
                     <div className={`${styles["imageUrl"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="imageUrl">Recipe URL image</label>

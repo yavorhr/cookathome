@@ -4,7 +4,7 @@
 	margin-bottom: 10px;
 	background-color: var(--white);
 	width: 220px;
-	height: 200px;
+	height: 300px;
 }
 
 .image-holder {
@@ -23,8 +23,6 @@
 	border-radius: 5px 5px 0 0;
 	object-fit: cover;
 }
-
-
 
 .card-item:hover {
 	margin-bottom: 5px;

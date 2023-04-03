@@ -98,6 +98,7 @@
     font-size: 25px;
     text-align: center;
     letter-spacing: 3px;
+    text-transform: capitalize;
 }
 
 .section-title:hover {
@@ -119,7 +120,6 @@
   Card Item 
 =============
 */
-
 
 .card-list .list-item {
     border-radius: 10px;
@@ -166,7 +166,6 @@
     color: var(--grey);
     padding: 0px 10px;
     text-align: left;
-    font-style: italic;
 }
 
 .card-info span {
