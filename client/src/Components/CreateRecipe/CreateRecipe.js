@@ -1,12 +1,12 @@
 import styles from './CreateRecipe.module.css';
 
+import uuid from 'react-uuid';
+import * as recipeService from '../../service/recipeService.js';
+
 import { useState, useRef } from 'react';
+import { useContext } from 'react';
 import { RecipeContext } from '../../context/RecipeContext.js';
 import { AuthContext } from '../../context/AuthContext.js';
-import { useContext } from 'react';
-
-import * as recipeService from '../../service/recipeService.js';
-import uuid from 'react-uuid';
 
 export const CreateRecipe = ({ }) => {
     const { user } = useContext(AuthContext);

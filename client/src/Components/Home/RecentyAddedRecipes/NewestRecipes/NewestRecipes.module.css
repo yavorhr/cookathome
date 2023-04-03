@@ -1,14 +1,13 @@
 
 .latest-recipes__grid {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
 	grid-template:
 		"first-rec first-rec "
 		"sec-rec third-rec"
 		"fourth-rec fifth-rec"
 		"sixth-rec seventh-rec";
 
-	justify-content: center;
+	justify-content: start;
 	align-items: center;
 	gap: 20px;
 
@@ -44,18 +43,24 @@
 	grid-area: seventh-rec;
 }
 
-.recipe-card {
-	display: flex;
+.img-holder {
+	position: relative;
 	gap: 20px;
+	height: 100px;
+	width: 200px;
 	text-decoration: none;
 }
 
 .recipe-card img {
-	width: 30%;
-}
+	position: absolute;
+	top: 0;
+	left: 0;
 
-.recipe-card div {
-	width: 40%;
+	width: 100%;
+	height: 100%;
+
+	border-radius: 5px 5px 0 0;
+	object-fit: cover;
 }
 
 .recipe-card a {
@@ -70,6 +75,7 @@
 .recipe-card__info p {
 	display: flex;
 	gap: 20px;
+	margin-top: 20px;
 }
 
 .recipe-card__info p a {
@@ -83,3 +89,7 @@
 	color: var(--orange)
 }
 
+.recipe-card{
+	display: flex;
+	gap: 15px;
+}

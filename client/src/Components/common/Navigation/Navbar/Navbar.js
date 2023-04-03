@@ -50,7 +50,7 @@ export const Navbar = () => {
                         </div>
                     </article>
                 </div>
-                <NavItem icon={<Search />} url='/search' />
+                <NavItem icon={<Search />} url='/recipes/search' />
             </ul>
         </nav>
     );

@@ -26,6 +26,7 @@ import { GroceryList } from './Components/GroceryList/GroceryList.js';
 import { Footer } from "./Components/common/Footer/Footer.js";
 import { Navbar } from './Components/common/Navigation/Navbar/Navbar.js';
 import { Recipe } from './Components/Home/RecipeByUser/Recipe/Recipe.js';
+import { Search } from './Components/Search/Search.js';
 
 function App() {
     const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
@@ -38,8 +39,6 @@ function App() {
         setAuth(userData);
         navigate('/')
     }
-
-    console.log(recipes);
 
     const userLogout = (userData) => {
         authService
@@ -87,6 +86,7 @@ function App() {
                         <Route path="/edit/:recipeId" element={<EditRecipe />} />
                         <Route path="/recipes/:category/:type" element={<CatalogRecipes recipes={recipes} />} />
                         <Route path="/create/recipe" element={<CreateRecipe />} />
+                        <Route path="/recipes/search" element={<Search/>} />
                     </Routes>
                 </RecipeContext.Provider>
             </AuthContext.Provider>

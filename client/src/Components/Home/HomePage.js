@@ -21,8 +21,6 @@ export const HomePage = ({
             </section>
 
             <section className={styles["latest-recipes"]}>
-                <Navigation />
-
                 <NewestRecipes recipes={recipes} />
             </section>
         </>
