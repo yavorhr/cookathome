@@ -58,9 +58,12 @@
     border: none;
     width: 30%;
     border-radius: 30px;
+    
+    background-color: transparent;
+    cursor: pointer;
 }
 
-.search-bar form button .icon {
+.search-bar button .icon {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -74,6 +77,11 @@
     color: var(--grey);
 
     opacity: 0.7;
+}
+
+.search-bar .icon:hover {
+    background-color: var(--light-gray);
+    color: var(--white);
 }
 
 /* Filtered recipes */
