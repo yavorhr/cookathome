@@ -120,7 +120,7 @@ export const RecipeDetails = () => {
                     <q className={styles["header__descr"]}>
                         {recipe.description}
                     </q>
-                    <p className={styles["creation-date"]}>Created on: {formatDate(recipe._createdOn)} </p>
+                    <p className={styles["creation-date"]}>Created on: {recipeService.formatDate(recipe._createdOn)} </p>
                 </article>
             </section>
             <section className={styles["hero"]}>
@@ -269,9 +269,5 @@ export const RecipeDetails = () => {
             </section>
         </>
     );
-
 }
 
-const formatDate = (date) => {
-    return new Date(date).toLocaleDateString()
-}

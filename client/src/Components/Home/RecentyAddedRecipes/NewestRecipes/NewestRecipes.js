@@ -21,11 +21,9 @@ export const NewestRecipes = ({ }) => {
         recipeService
             .findRecipesByCategory(category)
             .then(result => {
-                setRecipes(result)
-            }
-
-
-            )
+                const sortByCreationDate = recipeService.sortRecipesByCreationDateDesc(result);
+                setRecipes(sortByCreationDate)
+            });
     }, [category])
 
     return (
@@ -44,7 +42,7 @@ export const NewestRecipes = ({ }) => {
                             <h3>
                                 <Link to={`/details/${r._id}`}>{r.name}</Link>
                             </h3>
-                            <p>{new Date(r._createdOn).toLocaleDateString()}<span href="">{r.user["full-name"]}</span> </p>
+                            <p>{recipeService.formatDate(r._createdOn)}<span href="">{r.user["full-name"]}</span> </p>
                         </div>
                     </li>
                 )}
@@ -52,8 +50,4 @@ export const NewestRecipes = ({ }) => {
         </>
 
     );
-}
-
-const formatDate = (date) => {
-    return new Date(date).toLocaleDateString()
 }

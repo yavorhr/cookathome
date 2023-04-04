@@ -80,10 +80,10 @@ export const sortRecipesByCreationDateDesc = (recipesArray) => {
     result = [...recipesArray];
 
     function compare(a, b) {
-        if (a.createdOn < b.createdOn) {
+        if (formatDate(a.createdOn) < formatDate(b.createdOn)) {
             return -1;
         }
-        if (a.createdOn > b.createdOn) {
+        if (formatDate(a.createdOn) > formatDate(b.createdOn)) {
             return 1;
         }
         return 0;
@@ -150,4 +150,9 @@ export const updateRecipe = (recipeId, updatedRecipe, accessToken) => {
             'X-Authorization': accessToken
         }, body: JSON.stringify(updatedRecipe)
     }).then(result => result.json());
+}
+
+
+export const formatDate = (date) => {
+    return new Date(date).toLocaleDateString()
 }
