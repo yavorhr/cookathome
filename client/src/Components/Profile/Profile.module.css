@@ -149,10 +149,16 @@ User Details Positioning :
 /* Grid recipes */
 
 .recipes .card-list {
+	width: 70%;
+	margin: 0 auto;
 	display: grid;
 	grid-template-columns: repeat(3, 200px);
-	gap: 10px;
+	gap: 50px;
+	justify-items: center;
 }
+
+
+.recipes {}
 
 /*
 =====================

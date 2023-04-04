@@ -130,7 +130,7 @@ export const CreateRecipe = ({ }) => {
                             id="description"
                             cols={10}
                             rows={3}
-                            maxLength={100}
+                            maxLength={30}
                             placeholder="Enter description up to max 100 characters..."
                             value={values.description}
                             onChange={onChangeHandler}

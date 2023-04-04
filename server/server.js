@@ -1502,7 +1502,7 @@
             }, "azxjhgk45kzsdszzz9jd2av": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "name": "Greek Lemon Chicken and Potatoes",
-                "description": "Greek chicken and potatoes is a classic. I don't have the energy or courage to cater for a living but, if I did, this lemony dish would be one of my go-to entrees, and not just for big, fat weddings. It's a proven crowd-pleaser, simple to make, and easy on the wallet.",
+                "description": "Greek chicken and potatoes is a classic!",
                 "season": "all",
                 "time-of-the-day": "all",
                 "category": "meat",
