@@ -16,6 +16,7 @@ export const CardItem = ({
                         <img className={styles["card-item__img"]} src={recipe.imageUrl} alt="recipe-image" />
                     </div>
                     <p className={styles["card-title"]}>{recipe.name}</p>
+                    <p className={styles["card-author"]}>{recipe.user["full-name"]}</p>
                     <p className={styles["card-descr"]}>{recipe.description}</p>
                     <span>
                         <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>{recipe["cook-time"]} min

@@ -4,7 +4,7 @@
 	margin-bottom: 10px;
 	background-color: var(--white);
 	width: 220px;
-	height: 300px;
+	height: 330px;
 }
 
 .image-holder {
@@ -68,6 +68,14 @@
 	text-align: left;
 	font-style: italic;
 	color: var(--grey);
+}
+
+.card-item .card-author {
+	margin-bottom: 5px;
+
+	font-size: 15px;
+	text-align: center;
+	color: var(--bg-accent);
 }
 
 .card-item span .icon {
