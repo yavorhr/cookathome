@@ -2,34 +2,39 @@ import styles from './Navigation.module.css';
 
 import { Link } from 'react-router-dom';
 
-export const Navigation = () => {
+export const Navigation = ({
+    category }) => {
+
     return (
         <nav className={styles["navigation"]}>
-            <ul type="none">
+            <ul type="none" onClick={(e) => category(e)}>
                 <span>New recipes</span>
                 <li>
-                    <Link to="">All</Link>
+                    Tuna
                 </li>
                 <li>
-                    <Link to="">Salads</Link>
+                    Pork
                 </li>
                 <li>
-                    <Link to="">Main</Link>
+                    Beef
                 </li>
                 <li>
-                    <Link to="">Pre-dish</Link>
+                    Chicken
                 </li>
-
                 <li>
-                    <Link to="">Soups</Link>
+                    Lamb
                 </li>
-
                 <li>
-                    <Link to="">Fish</Link>
+                    Pasta
                 </li>
-
                 <li>
-                    <Link to="">Vegan</Link>
+                    Fruits
+                </li>
+                <li>
+                    Vegetables
+                </li>
+                <li>
+                    Rice
                 </li>
             </ul>
         </nav>);

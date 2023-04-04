@@ -12,6 +12,7 @@
 	gap: 20px;
 
 	padding: 0px;
+	margin-top: 20px;;
 }
 
 .latest-recipes__grid .recipe-card:nth-child(1) {

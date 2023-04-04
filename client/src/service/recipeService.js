@@ -122,6 +122,11 @@ export const findRecipesByUserId = (ownerId) => {
         .then(result => result.json())
 }
 
+export const findRecipesByCategory = (category) => {
+    return fetch(`${baseUrl}?where=advanced-category%3D%22${category}%22`)
+        .then(result => result.json())
+}
+
 export const getRecipesByCategoryAndType = (category, type) => {
     return fetch(`${baseUrl}?where=${category}%3D%22${type}%22`)
         .then(result => result.json())
