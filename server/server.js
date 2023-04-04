@@ -898,7 +898,7 @@
             }
 
             record._createdOn = Date.now();
-            
+
             targetCollection.set(id, record);
             return Object.assign(deepCopy(record), { _id: id });
         }
@@ -1408,6 +1408,47 @@
                     "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg"
                 }
             },
+            "zz-4e32xxcv0e2-b231cxz-7409e": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "name": "Classic Meatballs",
+                "description": "This homemade meatball recipe is a Betty classic, and for great reason!",
+                "season": "all",
+                "time-of-the-day": "lunch",
+                "category": "meat",
+                "cat-by-calories": "up-to-600-kcal",
+                "cat-by-time": "up-to-60-min",
+                "advanced-category": "pork",
+                "kitchen": "italian",
+                "level": "beginner",
+                "calories": "280",
+                "prep-time": "15",
+                "cook-time": "25",
+                "products": [
+                    "1 lb lean (at least 80%) ground beef",
+                    "1/2 cup Progresso™ Italian-style bread crumbs",
+                    "1/4 cup milk",
+                    "1/2 teaspoon salt",
+                    "1/2 teaspoon Worcestershire sauce",
+                    "1/4 teaspoon pepper",
+                    "1 small onion, finely chopped (1/4 cup) ",
+                    "1 egg ",
+                ]
+                , "steps": [
+                    "Heat oven to 400°F. Line 13x9-inch pan with foil; spray with cooking spray.",
+                    "In large bowl, mix all ingredients. Shape mixture into 24 (1 1/2-inch) meatballs. Place 1 inch apart in pan.",
+                    "Bake uncovered 18 to 22 minutes or until temperature reaches 160°F and no longer pink in center.",
+                    "For evenly-sized meatballs that will cook in the same amount of time, pat the meat mixture into a 6x4-inch square. Cut into 24 squares. Roll each square into a ball.",
+                    "Mix things up by substituting 1 pound lean ground turkey or chicken for the ground beef. (If using ground chicken, decrease milk to 2 tablespoons.) Bake until no longer pink in center and thermometer inserted in center reads 165°F.",
+                ]
+                ,
+                "portions": "4",
+                "_createdOn": 1680629234920,
+                "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1680629144/Cook%20at%20home/dishes/Meatballs_ea3tas.jpg",
+                "user": {
+                    "full-name": "John Genadiev Aleksiev",
+                    "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg"
+                }
+            },
             "kdjsakldjasdasdsa9jd2av": {
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "name": "Tarator",
@@ -1590,7 +1631,7 @@
         },
 
         favorites: {
-  
+
 
         },
 

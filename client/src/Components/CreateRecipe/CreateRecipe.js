@@ -70,8 +70,6 @@ export const CreateRecipe = ({ }) => {
         recipe["cat-by-time"] = cookingTimeStr;
         recipe["cat-by-calories"] = caloriesStr;
 
-        console.log(recipe);
-
         recipeService.createRecipe(recipe, user.accessToken)
             .then(result =>
                 createRecipeHandler(result)

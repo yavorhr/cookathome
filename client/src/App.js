@@ -61,6 +61,8 @@ function App() {
         navigate(`/details/${recipeId}`)
     }
 
+    console.log(recipes);
+
     return (
         <div className="App">
             <AuthContext.Provider value={{
