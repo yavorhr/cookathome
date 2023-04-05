@@ -21,6 +21,7 @@ export const logout = (accessToken) => {
 }
 
 /* Eror handling when unique email */
+
 export const register = (userData) => {
     return fetch(`${baseUrl}/register`, {
         method: 'POST',

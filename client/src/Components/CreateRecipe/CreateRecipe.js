@@ -16,6 +16,7 @@ export const CreateRecipe = ({ }) => {
     /* TODO: validation hook for errors, so it can be re-usable to edit page */
     const [invalidUserInput, setInvalidUserInput] = useState(false);
     const [errors, setErrors] = useState({});
+    const [images, setImages] = useState({ url: "", public_id: "" });
     const [values, setValues] = useState({
         name: '',
         description: '',
@@ -35,6 +36,7 @@ export const CreateRecipe = ({ }) => {
         'meal-category': ''
     });
 
+    console.log(images);
     const onChangeHandler = (e) => {
         setValues(state => ({
             ...state,
@@ -100,6 +102,19 @@ export const CreateRecipe = ({ }) => {
         }))
     }
 
+    const submitImage = () => {
+        const data = new FormData();
+        images.map(i => data.append("file", i))
+        // data.append("file", images[0]);
+        data.append("upload_preset", "hristoy");
+        data.append("folder", "Cook at home")
+
+        fetch("https://api.cloudinary.com/v1_1/yavorhr/image/upload", {
+            method: "POST",
+            body: data
+        }).then(resp => resp.json()).then(result => console.log(result))
+    }
+
     return (
         <div className={styles["create-recipe-background"]}>
             <section className={styles["create--recipe-section"]}>
@@ -146,6 +161,11 @@ export const CreateRecipe = ({ }) => {
                             onChange={onChangeHandler}
                             onBlur={validImageUrl} />
                         {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please insert valid image url!</p>}
+                    </div>
+
+                    <div>
+                        <input type="file"  onChange={(e) => setImages(e.target.files)} />
+                        <button onClick={submitImage}>upload</button>
                     </div>
 
                     <div className={styles["group-wrapper"]}>

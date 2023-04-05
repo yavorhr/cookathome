@@ -4,9 +4,11 @@ import { Navigation } from '../Navigation/Navigation.js';
 import { useEffect, useState } from 'react';
 import * as recipeService from '../../../../service/recipeService.js'
 
-export const NewestRecipes = ({ }) => {
-    const [recipes, setRecipes] = useState([]);
-    const [category, setCategory] = useState('');
+
+
+export const NewestRecipes = ({ recipes }) => {
+    const [category, setCategory] = useState("All");
+    const [recipess, setRecipes] = useState([]);
 
     const recipeCategory = (e) => {
         if (e.target.textContent.startsWith("New")) {
@@ -15,14 +17,12 @@ export const NewestRecipes = ({ }) => {
         setCategory(e.target.textContent.toLowerCase());
     }
 
-    recipes.map(r => console.log(r))
-
     useEffect(() => {
         recipeService
             .findRecipesByCategory(category)
             .then(result => {
                 const sortByCreationDate = recipeService.sortRecipesByCreationDateDesc(result);
-                setRecipes(sortByCreationDate)
+                setRecipes(sortByCreationDate);
             });
     }, [category])
 
@@ -30,9 +30,8 @@ export const NewestRecipes = ({ }) => {
         <>
             <Navigation category={recipeCategory} />
 
-
             <ul className={styles["latest-recipes__grid"]} type="none">
-                {recipes && recipes.map(r =>
+                {recipess && recipess.map(r =>
 
                     <li className={styles["recipe-card"]} key={r._id}>
                         <div className={styles["img-holder"]}>
