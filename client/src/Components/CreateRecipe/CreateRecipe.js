@@ -178,7 +178,7 @@ export const CreateRecipe = ({ }) => {
                                 onBlur={(e) => uploadImagesCheck(e.target.files.length, 4)} />
                             <button disabled={errors.imageUrl} onClick={submitImage} type="submit">upload</button>
                         </div>
-                        {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please insert valid image url!</p>}
+                        {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please add up to 4 images</p>}
 
                         {/* <div className={`${styles["imageUrl"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                             <label htmlFor="imageUrl">Recipe URL image</label>
