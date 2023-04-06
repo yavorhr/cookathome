@@ -2,6 +2,13 @@ import styles from './CreateRecipe.module.css';
 
 import uuid from 'react-uuid';
 import * as recipeService from '../../service/recipeService.js';
+import * as cloudinary from '../../service/cloudinary.js';
+
+// cloudinary.config({
+//     cloud_name: process.env.REACT_APP_CLOUD_NAME,
+//     api_key: process.env.REACT_APP_API_KEY,
+//     api_secret: process.env.REACT_APP_API_SECRET
+//   });
 
 import { useState, useRef } from 'react';
 import { useContext } from 'react';
@@ -16,7 +23,8 @@ export const CreateRecipe = ({ }) => {
     /* TODO: validation hook for errors, so it can be re-usable to edit page */
     const [invalidUserInput, setInvalidUserInput] = useState(false);
     const [errors, setErrors] = useState({});
-    const [images, setImages] = useState({ url: "", public_id: "" });
+    const [images, setImages] = useState([]);
+    const [links, setLinks] = useState([]);
     const [values, setValues] = useState({
         name: '',
         description: '',
@@ -102,21 +110,32 @@ export const CreateRecipe = ({ }) => {
         }))
     }
 
-    const submitImage = () => {
-        const data = new FormData();
-        images.map(i => data.append("file", i))
-        // data.append("file", images[0]);
-        data.append("upload_preset", "hristoy");
-        data.append("folder", "Cook at home")
+    console.log(images);
 
-        fetch("https://api.cloudinary.com/v1_1/yavorhr/image/upload", {
-            method: "POST",
-            body: data
-        }).then(resp => resp.json()).then(result => console.log(result))
+    const submitImage = async (e) => {
+        e.preventDefault();
+        try {
+            let arr = [];
+            for (let i = 0; i < images.length; i++) {
+                const data = await cloudinary.uploadCloudinary(images[i])
+                arr.push(data);
+            }
+            setLinks(arr);
+        } catch (err) {
+            console.log(err);
+        }
     }
 
+
     return (
-        <div className={styles["create-recipe-background"]}>
+
+        <>
+          <form onSubmit={submitImage}>
+                        <input type="file" multiple="multiple" onChange={(e) => setImages(e.target.files)} />
+                        <button type="submit">upload</button>
+                    </form>
+        
+                    <div className={styles["create-recipe-background"]}>
             <section className={styles["create--recipe-section"]}>
                 <form
                     action=""
@@ -161,11 +180,6 @@ export const CreateRecipe = ({ }) => {
                             onChange={onChangeHandler}
                             onBlur={validImageUrl} />
                         {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please insert valid image url!</p>}
-                    </div>
-
-                    <div>
-                        <input type="file"  onChange={(e) => setImages(e.target.files)} />
-                        <button onClick={submitImage}>upload</button>
                     </div>
 
                     <div className={styles["group-wrapper"]}>
@@ -366,6 +380,10 @@ export const CreateRecipe = ({ }) => {
                 {invalidUserInput && <p className={`${styles["error"]} ${styles["select-menu"]}`}>You have missing fields or incorrect input!</p>}
             </section>
         </div>
+        
+        
+        </>
+        
     );
 }
 
