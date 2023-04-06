@@ -90,6 +90,7 @@ Create Recipe Section
 ::placeholder {
     font-size: 20px;
     letter-spacing: 1px;
+    color: var(--light-grey) !important;
 }
 
 .select-wrapper {
@@ -121,7 +122,9 @@ Create Recipe Section
 .create-recipe-form label {
     margin-bottom: 5px;
     font-size: 20px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .group-wrapper {
@@ -138,14 +141,33 @@ Create Recipe Section
 }
 
 .create--recipe-section .name,
-.create--recipe-section .descr,
-.create--recipe-section .imageUrl {
+.create--recipe-section .descr {
     width: 50%;
 }
 
 .create--recipe-section .ingredients,
 .create--recipe-section .steps {
     width: 70%;
+}
+
+.create--recipe-section .imageUrl {
+    display: flex;
+    gap: 5px;
+}
+
+.create--recipe-section .imageUrl button {
+    width: 50%;
+    margin: 0 auto;
+    text-transform: capitalize;
+    font-size: 18px;
+    cursor: pointer;
+
+    padding: 5px;
+    border-radius: 10px;
+    background-color: var(--background-clr);
+    /*type*/
+    color: var(--silver);
+    font-size: 20px;
 }
 
 /* Form Button */

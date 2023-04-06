@@ -4,12 +4,6 @@ import uuid from 'react-uuid';
 import * as recipeService from '../../service/recipeService.js';
 import * as cloudinary from '../../service/cloudinary.js';
 
-// cloudinary.config({
-//     cloud_name: process.env.REACT_APP_CLOUD_NAME,
-//     api_key: process.env.REACT_APP_API_KEY,
-//     api_secret: process.env.REACT_APP_API_SECRET
-//   });
-
 import { useState, useRef } from 'react';
 import { useContext } from 'react';
 import { RecipeContext } from '../../context/RecipeContext.js';
@@ -28,7 +22,7 @@ export const CreateRecipe = ({ }) => {
     const [values, setValues] = useState({
         name: '',
         description: '',
-        imageUrl: '',
+        imageUrl: 0,
         category: '',
         type: '',
         season: '',
@@ -44,7 +38,6 @@ export const CreateRecipe = ({ }) => {
         'meal-category': ''
     });
 
-    console.log(images);
     const onChangeHandler = (e) => {
         setValues(state => ({
             ...state,
@@ -93,15 +86,24 @@ export const CreateRecipe = ({ }) => {
         }))
     }
 
-    const validImageUrl = (e) => {
-        const regex = new RegExp(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i);
-        const urlInput = e.target.value;
+    // const validImageUrl = (e) => {
+    //     const regex = new RegExp(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i);
+    //     const urlInput = e.target.value;
 
+    //     setErrors(state => ({
+    //         ...state,
+    //         [e.target.name]: !regex.test(urlInput)
+    //     }))
+    // }
+
+    const uploadImagesCheck = (imagesCount, bound) => {
         setErrors(state => ({
             ...state,
-            [e.target.name]: !regex.test(urlInput)
+            imageUrl: imagesCount == 0 || imagesCount > bound
         }))
     }
+
+    console.log(errors.imageUrl);
 
     const isPositive = (e) => {
         setErrors(state => ({
@@ -110,14 +112,14 @@ export const CreateRecipe = ({ }) => {
         }))
     }
 
-    console.log(images);
+    const submitImage = async () => {
+        if (images.length == 0 || images.length > 3) {
 
-    const submitImage = async (e) => {
-        e.preventDefault();
+        }
         try {
             let arr = [];
             for (let i = 0; i < images.length; i++) {
-                const data = await cloudinary.uploadCloudinary(images[i])
+                const data = await cloudinary.uploadCloudinary(images[i]);
                 arr.push(data);
             }
             setLinks(arr);
@@ -130,260 +132,265 @@ export const CreateRecipe = ({ }) => {
     return (
 
         <>
-          <form onSubmit={submitImage}>
-                        <input type="file" multiple="multiple" onChange={(e) => setImages(e.target.files)} />
-                        <button type="submit">upload</button>
-                    </form>
-        
-                    <div className={styles["create-recipe-background"]}>
-            <section className={styles["create--recipe-section"]}>
-                <form
-                    action=""
-                    className={`${styles["mrgn-auto"]} ${styles["flex-col"]} ${styles["create-recipe-form"]}`}
-                    onSubmit={onSubmitHandler}
-                >
-                    <h1>Create recipe</h1>
-                    <div className={`${styles["name"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
-                        <label htmlFor="name">Recipe name</label>
-                        <input
-                            type="text"
-                            placeholder="Enter the name"
-                            name="name"
-                            value={values.name}
-                            onChange={onChangeHandler}
-                            onBlur={(e) => minLengthCheck(e, 2)}
-                        />
-                        {errors.name && <p className={`${styles["error"]} ${styles["name"]}`}>Recipe name must be at least 2 characters!</p>}
-                    </div>
-                    <div className={`${styles["descr"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
-                        <label htmlFor="description">Description</label>
-                        <textarea
-                            name="description"
-                            id="description"
-                            cols={10}
-                            rows={3}
-                            maxLength={30}
-                            placeholder="Enter description up to max 100 characters..."
-                            value={values.description}
-                            onChange={onChangeHandler}
-                            onBlur={(e) => minLengthCheck(e, 5)}
-                        />
-                        {errors.description && <p className={`${styles["error"]} ${styles["descr"]}`}>Description name must be between 5 and 100 characters!</p>}
-                    </div>
-                    <div className={`${styles["imageUrl"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
-                        <label htmlFor="imageUrl">Recipe URL image</label>
-                        <input
-                            type="text"
-                            placeholder="Insert recipe url here..."
-                            name="imageUrl"
-                            value={values.imageUrl}
-                            onChange={onChangeHandler}
-                            onBlur={validImageUrl} />
+            <div className={styles["create-recipe-background"]}>
+
+                <section className={styles["create--recipe-section"]}>
+                    <form
+                        action=""
+                        className={`${styles["mrgn-auto"]} ${styles["flex-col"]} ${styles["create-recipe-form"]}`}
+                        onSubmit={onSubmitHandler}
+                    >
+                        <h1>Create recipe</h1>
+                        <div className={`${styles["name"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
+                            <label htmlFor="name">Recipe name</label>
+                            <input
+                                type="text"
+                                placeholder="Enter the name"
+                                name="name"
+                                value={values.name}
+                                onChange={onChangeHandler}
+                                onBlur={(e) => minLengthCheck(e, 2)}
+                            />
+                            {errors.name && <p className={`${styles["error"]} ${styles["name"]}`}>Recipe name must be at least 2 characters!</p>}
+                        </div>
+                        <div className={`${styles["descr"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
+                            <label htmlFor="description">Description</label>
+                            <textarea
+                                name="description"
+                                id="description"
+                                cols={10}
+                                rows={3}
+                                maxLength={30}
+                                placeholder="Enter description up to max 100 characters..."
+                                value={values.description}
+                                onChange={onChangeHandler}
+                                onBlur={(e) => minLengthCheck(e, 5)}
+                            />
+                            {errors.description && <p className={`${styles["error"]} ${styles["descr"]}`}>Description name must be between 5 and 100 characters!</p>}
+                        </div>
+
+                        <div className={`${styles["imageUrl"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
+                            <label htmlFor="imageUrl">Please select up to 4 images</label>
+                            <input
+                                type="file"
+                                multiple="multiple"
+                                onChange={(e) => setImages(e.target.files)}
+                                onBlur={(e) => uploadImagesCheck(e.target.files.length, 4)} />
+                            <button disabled={errors.imageUrl} onClick={submitImage} type="submit">upload</button>
+                        </div>
                         {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please insert valid image url!</p>}
-                    </div>
 
-                    <div className={styles["group-wrapper"]}>
-                        <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
-                            <label htmlFor="category">Category</label>
-                            <select
+                        {/* <div className={`${styles["imageUrl"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
+                            <label htmlFor="imageUrl">Recipe URL image</label>
+                            <input
                                 type="text"
-                                name="category"
-                                value={values.category}
+                                placeholder="Insert recipe url here..."
+                                name="imageUrl"
+                                value={values.imageUrl}
                                 onChange={onChangeHandler}
-                                ref={currentRef}
-                            >
-                                <option value="Please select">Please select</option>
-                                <option value="Veggetarian">Veggetarian</option>
-                                <option value="Meat">Meat</option>
-                                <option value="Fish">Fish</option>
-                            </select>
+                                onBlur={validImageUrl} />
+                            {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please insert valid image url!</p>}
+                        </div> */}
+
+                        <div className={styles["group-wrapper"]}>
+                            <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
+                                <label htmlFor="category">Category</label>
+                                <select
+                                    type="text"
+                                    name="category"
+                                    value={values.category}
+                                    onChange={onChangeHandler}
+                                    ref={currentRef}
+                                >
+                                    <option value="Please select">Please select</option>
+                                    <option value="Veggetarian">Veggetarian</option>
+                                    <option value="Meat">Meat</option>
+                                    <option value="Fish">Fish</option>
+                                </select>
+                            </div>
+
+                            <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
+                                <label htmlFor="category">Meal Category</label>
+                                <select
+                                    type="text"
+                                    name="meal-category"
+                                    value={values["meal-category"]}
+                                    onChange={onChangeHandler}
+                                >
+                                    <option value="Please select">Please select</option>
+                                    {values.category && currentRef.current.value != "Please select" && recipeService.mealsCategories[currentRef.current.value]
+                                        .map(cat =>
+                                            <option key={uuid()} value={cat}>{cat}</option>
+                                        )}
+                                </select>
+                            </div>
+                        </div>
+                        <div className={styles["group-wrapper"]}>
+                            <div className={`${styles["type"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
+                                <label htmlFor="type">Time of the day</label>
+                                <select
+                                    type="text"
+                                    name="type"
+                                    value={values.type}
+                                    onChange={onChangeHandler}
+                                >
+                                    <option defaultValue="Please select">Please select</option>
+                                    <option value="Brekfast">Brekfast</option>
+                                    <option value="Dinner">Dinner</option>
+                                    <option value="Snack">Snack</option>
+                                    <option value="Lunch">Lunch</option>
+                                </select>
+                            </div>
+                            <div className={`${styles["season"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
+                                <label htmlFor="season">Season</label>
+                                <select
+                                    type="text"
+                                    name="season"
+                                    value={values.season}
+                                    onChange={onChangeHandler}
+                                >
+                                    <option value="Please select">Please select</option>
+                                    <option value="Spring">Spring</option>
+                                    <option value="Summer">Summer</option>
+                                    <option value="Autumn">Autumn</option>
+                                    <option value="Winter">Winter</option>
+                                </select>
+                            </div>
+                            <div className={`${styles["traditional"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
+                                <label htmlFor="kitchen">Kitchen</label>
+                                <select
+                                    type="text"
+                                    name="kitchen"
+                                    value={values.kitchen}
+                                    onChange={onChangeHandler}
+                                >
+                                    <option value="Please select">Please select</option>
+                                    <option value="Bulgarian">Bulgarian</option>
+                                    <option value="German">German</option>
+                                    <option value="English">English</option>
+                                    <option value="Serbian">Serbian</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
-                            <label htmlFor="category">Meal Category</label>
-                            <select
-                                type="text"
-                                name="meal-category"
-                                value={values["meal-category"]}
+                        <div className={`${styles["ingredients"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
+                            <label htmlFor="products">Ingredients</label>
+                            <textarea
+                                name="products"
+                                id=""
+                                cols={30}
+                                rows={10}
+                                placeholder="Enter one product per row (ex. : Potatoes - 1 kg.)"
+                                value={values.products}
                                 onChange={onChangeHandler}
-                            >
-                                <option value="Please select">Please select</option>
-                                {values.category && currentRef.current.value != "Please select" && recipeService.mealsCategories[currentRef.current.value]
-                                    .map(cat =>
-                                        <option key={uuid()} value={cat}>{cat}</option>
-                                    )}
-                            </select>
-                        </div>
-                    </div>
-                    <div className={styles["group-wrapper"]}>
-                        <div className={`${styles["type"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
-                            <label htmlFor="type">Time of the day</label>
-                            <select
-                                type="text"
-                                name="type"
-                                value={values.type}
-                                onChange={onChangeHandler}
-                            >
-                                <option defaultValue="Please select">Please select</option>
-                                <option value="Brekfast">Brekfast</option>
-                                <option value="Dinner">Dinner</option>
-                                <option value="Snack">Snack</option>
-                                <option value="Lunch">Lunch</option>
-                            </select>
-                        </div>
-                        <div className={`${styles["season"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
-                            <label htmlFor="season">Season</label>
-                            <select
-                                type="text"
-                                name="season"
-                                value={values.season}
-                                onChange={onChangeHandler}
-                            >
-                                <option value="Please select">Please select</option>
-                                <option value="Spring">Spring</option>
-                                <option value="Summer">Summer</option>
-                                <option value="Autumn">Autumn</option>
-                                <option value="Winter">Winter</option>
-                            </select>
-                        </div>
-                        <div className={`${styles["traditional"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
-                            <label htmlFor="kitchen">Kitchen</label>
-                            <select
-                                type="text"
-                                name="kitchen"
-                                value={values.kitchen}
-                                onChange={onChangeHandler}
-                            >
-                                <option value="Please select">Please select</option>
-                                <option value="Bulgarian">Bulgarian</option>
-                                <option value="German">German</option>
-                                <option value="English">English</option>
-                                <option value="Serbian">Serbian</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div className={`${styles["ingredients"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
-                        <label htmlFor="products">Ingredients</label>
-                        <textarea
-                            name="products"
-                            id=""
-                            cols={30}
-                            rows={10}
-                            placeholder="Enter one product per row (ex. : Potatoes - 1 kg.)"
-                            value={values.products}
-                            onChange={onChangeHandler}
-                            onBlur={(e) => minLengthCheck(e, 10)}
-                        />
-                        {errors.products && <p className={`${styles["error"]} ${styles["products"]}`}>Product's list must be at least 10 characters!</p>}
-                    </div>
-                    <div className={`${styles["steps"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
-                        <label htmlFor="steps">Steps</label>
-                        <textarea
-                            name="steps"
-                            id=""
-                            cols={30}
-                            rows={10}
-                            placeholder="Enter one step per row (ex. : 1. Boil the potatoes)"
-                            value={values.steps}
-                            onChange={onChangeHandler}
-                            onBlur={(e) => minLengthCheck(e, 1)}
-                        />
-                        {errors.steps && <p className={`${styles["error"]} ${styles["steps"]}`}>Cooking steps must be at least 10 characters!</p>}
-                    </div>
-                    <div className={styles["group-wrapper"]}>
-                        <div className={`${styles["calories"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
-                            <label htmlFor="calories">Calories (in kcal)</label>
-                            <input
-                                type="text"
-                                name="calories"
-                                value={values.calories}
-                                onChange={onChangeHandler}
-                                onBlur={isPositive}
+                                onBlur={(e) => minLengthCheck(e, 10)}
                             />
-                            {errors.calories && <p className={`${styles["error"]} ${styles["calories"]}`}>Please insert positive number!</p>}
+                            {errors.products && <p className={`${styles["error"]} ${styles["products"]}`}>Product's list must be at least 10 characters!</p>}
                         </div>
-                        <div className={`${styles["prep-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
-                            <label htmlFor="prep-time">Prep time (min)</label>
-                            <input
-                                type="text"
-                                name="prep-time"
-                                value={values['prep-time']}
+                        <div className={`${styles["steps"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
+                            <label htmlFor="steps">Steps</label>
+                            <textarea
+                                name="steps"
+                                id=""
+                                cols={30}
+                                rows={10}
+                                placeholder="Enter one step per row (ex. : 1. Boil the potatoes)"
+                                value={values.steps}
                                 onChange={onChangeHandler}
-                                onBlur={isPositive}
+                                onBlur={(e) => minLengthCheck(e, 1)}
                             />
-                            {errors['prep-time'] && <p className={`${styles["error"]} ${styles["prep-time"]}`}>Please insert positive number!</p>}
+                            {errors.steps && <p className={`${styles["error"]} ${styles["steps"]}`}>Cooking steps must be at least 10 characters!</p>}
                         </div>
-                        <div className={`${styles["cook-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
-                            <label htmlFor="cook-time">Cook time (min)</label>
-                            <input
-                                type="text"
-                                name="cook-time"
-                                value={values['cook-time']}
-                                onChange={onChangeHandler}
-                                onBlur={isPositive}
-                            />
-                            {errors['cook-time'] && <p className={`${styles["error"]} ${styles["cook-time"]}`}>Please insert positive number!</p>}
+                        <div className={styles["group-wrapper"]}>
+                            <div className={`${styles["calories"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
+                                <label htmlFor="calories">Calories (in kcal)</label>
+                                <input
+                                    type="text"
+                                    name="calories"
+                                    value={values.calories}
+                                    onChange={onChangeHandler}
+                                    onBlur={isPositive}
+                                />
+                                {errors.calories && <p className={`${styles["error"]} ${styles["calories"]}`}>Please insert positive number!</p>}
+                            </div>
+                            <div className={`${styles["prep-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
+                                <label htmlFor="prep-time">Prep time (min)</label>
+                                <input
+                                    type="text"
+                                    name="prep-time"
+                                    value={values['prep-time']}
+                                    onChange={onChangeHandler}
+                                    onBlur={isPositive}
+                                />
+                                {errors['prep-time'] && <p className={`${styles["error"]} ${styles["prep-time"]}`}>Please insert positive number!</p>}
+                            </div>
+                            <div className={`${styles["cook-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
+                                <label htmlFor="cook-time">Cook time (min)</label>
+                                <input
+                                    type="text"
+                                    name="cook-time"
+                                    value={values['cook-time']}
+                                    onChange={onChangeHandler}
+                                    onBlur={isPositive}
+                                />
+                                {errors['cook-time'] && <p className={`${styles["error"]} ${styles["cook-time"]}`}>Please insert positive number!</p>}
+                            </div>
                         </div>
-                    </div>
-                    <div className={styles["group-wrapper"]}>
-                        <div className={`${styles["level"]} ${styles["flex-col"]} ${styles["select-wrapper"]}  ${styles["after"]}`}>
-                            <label htmlFor="level">Level</label>
-                            <select
-                                type="text"
-                                name="level"
-                                value={values.level}
-                                onChange={onChangeHandler}
-                            >
-                                <option value="Please select">Please select</option>
-                                <option value="Beginner">Beginner</option>
-                                <option value="Intermediate">Intermediate</option>
-                                <option value="Advanced">Advanced</option>
-                                <option value="Chef">Chef</option>
-                            </select>
+                        <div className={styles["group-wrapper"]}>
+                            <div className={`${styles["level"]} ${styles["flex-col"]} ${styles["select-wrapper"]}  ${styles["after"]}`}>
+                                <label htmlFor="level">Level</label>
+                                <select
+                                    type="text"
+                                    name="level"
+                                    value={values.level}
+                                    onChange={onChangeHandler}
+                                >
+                                    <option value="Please select">Please select</option>
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Advanced">Advanced</option>
+                                    <option value="Chef">Chef</option>
+                                </select>
+                            </div>
+                            <div className={`${styles["occasion"]} ${styles["flex-col"]} ${styles["select-wrapper"]}  ${styles["after"]}`}>
+                                <label htmlFor="occasion">Good for</label>
+                                <select
+                                    type="text"
+                                    name="occasion"
+                                    value={values.occasion}
+                                    onChange={onChangeHandler}
+                                >
+                                    <option value="Please select">Please select</option>
+                                    <option value="Office">Office</option>
+                                    <option value="On the road">On the road</option>
+                                    <option value="School">School</option>
+                                    <option value="Guests">Guests</option>
+                                    <option value="Cheat">Cheat</option>
+                                    <option value="No specific occasion">No specific occasion</option>
+                                </select>
+                            </div>
+                            <div className={`${styles["portions"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
+                                <label htmlFor="portions">Portions</label>
+                                <input
+                                    type="text"
+                                    name="portions"
+                                    value={values.portions}
+                                    onChange={onChangeHandler}
+                                    onBlur={isPositive}
+                                />
+                                {errors.portions && <p className={`${styles["error"]} ${styles["portions"]}`}>Please insert positive number!</p>}
+                            </div>
                         </div>
-                        <div className={`${styles["occasion"]} ${styles["flex-col"]} ${styles["select-wrapper"]}  ${styles["after"]}`}>
-                            <label htmlFor="occasion">Good for</label>
-                            <select
-                                type="text"
-                                name="occasion"
-                                value={values.occasion}
-                                onChange={onChangeHandler}
-                            >
-                                <option value="Please select">Please select</option>
-                                <option value="Office">Office</option>
-                                <option value="On the road">On the road</option>
-                                <option value="School">School</option>
-                                <option value="Guests">Guests</option>
-                                <option value="Cheat">Cheat</option>
-                                <option value="No specific occasion">No specific occasion</option>
-                            </select>
-                        </div>
-                        <div className={`${styles["portions"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
-                            <label htmlFor="portions">Portions</label>
-                            <input
-                                type="text"
-                                name="portions"
-                                value={values.portions}
-                                onChange={onChangeHandler}
-                                onBlur={isPositive}
-                            />
-                            {errors.portions && <p className={`${styles["error"]} ${styles["portions"]}`}>Please insert positive number!</p>}
-                        </div>
-                    </div>
-                    <input
-                        type="submit"
-                        value="Create"
-                        className={styles["create-recipe-submit-btn"]}>
-                    </input>
-                </form>
-                {invalidUserInput && <p className={`${styles["error"]} ${styles["select-menu"]}`}>You have missing fields or incorrect input!</p>}
-            </section>
-        </div>
-        
-        
+                        <input
+                            type="submit"
+                            value="Create"
+                            className={styles["create-recipe-submit-btn"]}>
+                        </input>
+                    </form>
+                    {invalidUserInput && <p className={`${styles["error"]} ${styles["select-menu"]}`}>You have missing fields or incorrect input!</p>}
+                </section>
+            </div>
         </>
-        
     );
 }
 
