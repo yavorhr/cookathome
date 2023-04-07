@@ -15,6 +15,50 @@
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
 }
 
+/* profile pic */
+.profile-pic {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid grey;
+}
+
+.profile-pic:hover .uploadBtn {
+    display: block;
+}
+
+.profile-pic img {
+    height: 200px;
+}
+
+.photo {
+    height: 100%;
+    width: 100%;
+}
+
+.input-profile-pic {
+    display: none;
+}
+
+.uploadBtn {
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    display: none;
+}
+
 .register-section .title {
     position: relative;
 
@@ -98,7 +142,7 @@
     margin-top: 5px;
     background-color: var(--red);
     border-radius: 5px;
-        
+
     color: var(--white);
     text-align: center;
 }
@@ -121,7 +165,7 @@
     border: 2px solid rgb(13, 216, 13) !important
 }
 
-.button-error{
+.button-error {
     width: 50%;
     margin: 0 auto;
 }

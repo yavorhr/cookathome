@@ -33,7 +33,7 @@ export const Profile = () => {
             <section className={styles["user-profile"]}>
                 <article className={styles["user-details"]}>
                     <div className={styles["img-holder"]}>
-                        <img src={user.imageUrl}
+                        <img src={user.imageUrl.url}
                             alt="" />
                     </div>
                     <div className={styles["user-information"]}>

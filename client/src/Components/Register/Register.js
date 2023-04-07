@@ -1,6 +1,8 @@
 import styles from './Register.module.css'
 
 import * as authService from '../../service/authService.js';
+import * as cloudinary from '../../service/cloudinary.js';
+
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
 
@@ -12,7 +14,7 @@ export const Register = () => {
     /*TODO:// To change style of the button when is locked */
     /*TODO:// Add checked/error icon in input */
     /*TODO:// More universal way to check for errors */
-
+    const [profileImage, setProfileImage] = useState({ url: "" });
     const [validateInput, setValidateInput] = useState(true);
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
@@ -21,7 +23,6 @@ export const Register = () => {
         'email': '',
         'password': '',
         'confirm-password': '',
-        'imageUrl': ''
     });
 
     const { userLogin } = useContext(AuthContext);
@@ -41,6 +42,7 @@ export const Register = () => {
             return
         }
 
+        userData.imageUrl = profileImage;
         authService.register(userData).
             then(result => {
                 userLogin(result)
@@ -86,28 +88,50 @@ export const Register = () => {
         }))
     }
 
-    const validImageUrl = (e) => {
-        const regex = new RegExp(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i);
-        const urlInput = e.target.value;
+    // const validImageUrl = (e) => {
+    //     const regex = new RegExp(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i);
+    //     const urlInput = e.target.value;
 
-        if (!regex.test(urlInput)) {
-            e.target.className = styles['red-style'];
-        } else {
-            e.target.className = styles['green-style'];
-        }
+    //     if (!regex.test(urlInput)) {
+    //         e.target.className = styles['red-style'];
+    //     } else {
+    //         e.target.className = styles['green-style'];
+    //     }
 
-        setErrors(state => ({
-            ...state,
-            [e.target.name]: !regex.test(urlInput)
-        }))
+    //     setErrors(state => ({
+    //         ...state,
+    //         [e.target.name]: !regex.test(urlInput)
+    //     }))
+    // }
+
+    const submitImage = (e) => {
+        cloudinary
+            .uploadCloudinary(e.target.files[0])
+            .then(result => setProfileImage(result));
     }
-
     return (
         <section className={styles["register-section"]}>
             <h1 className={styles["title"]}>Registration</h1>
             <form className={styles["register-form"]}
                 onSubmit={onSubmitHandler}>
                 <div className={styles["user-details"]}>
+
+                    <div className={styles["profile-pic"]}>
+                        <img src={profileImage ? profileImage.url : "https://res.cloudinary.com/yavorhr/image/upload/v1680870027/Cook%20at%20home/Users/Blank_profile_lexdev.jpg"} alt="" />
+                        <input
+                            type="file"
+                            id="file"
+                            className={styles["input-profile-pic"]}
+                            onChange={(e) => submitImage(e)} />
+                        <label htmlFor="file" className={styles["uploadBtn"]}>Choose photo</label>
+                    </div>
+
+                    {/* <input
+                        type="file"
+                        onChange={(e) => setProfileImage(e.target.files[0])}
+                    />
+                    <button onClick={submitImage} type="submit">upload</button> */}
+
                     <div className={styles["txt-fields"]}>
                         <label forname="full-name">Full Name</label>
                         <input
@@ -167,7 +191,7 @@ export const Register = () => {
                             onChange={onChangeHandler}
                             value={values['confirm-password']} />
                     </div>
-                    <div className={styles["txt-fields"]}>
+                    {/* <div className={styles["txt-fields"]}>
                         <label forname="Image url">Image Url</label>
                         <input
                             className={styles["input"]}
@@ -179,7 +203,7 @@ export const Register = () => {
                             value={values.imageUrl}
                             onBlur={validImageUrl} />
                         {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please enter valid image url!</p>}
-                    </div>
+                    </div> */}
                 </div>
                 <button type="submit" disabled={check} className={styles["register-submit-btn"]}>Register</button>
                 {!validateInput && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>You have invalid password or blank fields!</p>}

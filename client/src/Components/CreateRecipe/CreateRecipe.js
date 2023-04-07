@@ -131,10 +131,8 @@ export const CreateRecipe = ({ }) => {
 
 
     return (
-
         <>
             <div className={styles["create-recipe-background"]}>
-
                 <section className={styles["create--recipe-section"]}>
                     <form
                         action=""
