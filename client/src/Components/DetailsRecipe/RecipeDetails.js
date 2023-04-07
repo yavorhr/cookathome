@@ -183,7 +183,7 @@ export const RecipeDetails = () => {
                             </div>}
                     </div>
                 </article>
-                <article className={`${styles["article-img-icons"]} ${styles["mrgn-auto"]}`}>
+                <article className={`${styles["article-img-icons"]} ${styles["mrgn-auto"]}`} >
                     <div className={`${styles["icons"]} ${styles["dspl-flex-row-center"]}`}>
                         <div className={`${styles["wrapper"]} ${styles["dspl-flex-col-center"]}`}>
                             <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
@@ -206,29 +206,9 @@ export const RecipeDetails = () => {
                             <p />
                         </div>
                     </div>
-
                     <Gallery images={recipe.links} />
-                    
-                    {/* 
-                    <div className={styles["image-grid"]}>
-                        <img
-                            className={`${styles["image-grid-col-2"]} ${styles["image-grid-row-2"]}`}
-                            src={recipe.imageUrl}
-                            alt="recipe details"
-                        />
-                        <img src="" alt="recipe details" />
-                        <img src="" alt="recipe details" />
-                        <img src="" alt="recipe details" />
-                        <div className={`${styles["add-image-container"]} ${styles["mrgn-auto"]} ${styles["dspl-flex-col-center"]}`}>
-                            <label htmlFor="images">+ Add images</label>
-                            <br />
-                            <span>up to 4 images</span>
-                            <input type="file" name="images" className="add-img" />
-                        </div>
-                    </div> */}
-
-
                 </article>
+
             </section>
 
             <section className={styles["products-section"]}>
