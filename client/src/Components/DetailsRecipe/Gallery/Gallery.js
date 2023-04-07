@@ -30,7 +30,7 @@ export const Gallery = ({
         slideNumber + 1 === images.length ? setSlideNumber(0) : setSlideNumber(slideNumber + 1);
     }
 
-    return <article>
+    return <article className={styles["gallery-article"]}>
         {
             openModal &&
             <div className={styles["sliderwrap"]}>
@@ -43,6 +43,11 @@ export const Gallery = ({
             </div>
         }
 
+        <div>
+            {images && <img className={styles["profile-image"]}
+            
+            src={images[0].url}></img>}
+        </div>
         <div className={styles["gallery-wrap"]}>
             {
                 images && images.map((image, index) => {
