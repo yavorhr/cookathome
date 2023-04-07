@@ -750,7 +750,7 @@
         };
     };
 
-    var require$$0 = "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>SUPS Admin Panel</title>\r\n    <style>\r\n        * {\r\n            padding: 0;\r\n            margin: 0;\r\n        }\r\n\r\n        body {\r\n            padding: 32px;\r\n            font-size: 16px;\r\n        }\r\n\r\n        .layout::after {\r\n            content: '';\r\n            clear: both;\r\n            display: table;\r\n        }\r\n\r\n        .col {\r\n            display: block;\r\n            float: left;\r\n        }\r\n\r\n        p {\r\n            padding: 8px 16px;\r\n        }\r\n\r\n        table {\r\n            border-collapse: collapse;\r\n        }\r\n\r\n        caption {\r\n            font-size: 120%;\r\n            text-align: left;\r\n            padding: 4px 8px;\r\n            font-weight: bold;\r\n            background-color: #ddd;\r\n        }\r\n\r\n        table, tr, th, td {\r\n            border: 1px solid #ddd;\r\n        }\r\n\r\n        th, td {\r\n            padding: 4px 8px;\r\n        }\r\n\r\n        ul {\r\n            list-style: none;\r\n        }\r\n\r\n        .collection-list a {\r\n            display: block;\r\n            width: 120px;\r\n            padding: 4px 8px;\r\n            text-decoration: none;\r\n            color: black;\r\n            background-color: #ccc;\r\n        }\r\n        .collection-list a:hover {\r\n            background-color: #ddd;\r\n        }\r\n        .collection-list a:visited {\r\n            color: black;\r\n        }\r\n    </style>\r\n    <script type=\"module\">\nimport { html, render } from 'https://unpkg.com/lit-html?module';\nimport { until } from 'https://unpkg.com/lit-html/directives/until?module';\n\nconst api = {\r\n    async get(url) {\r\n        return json(url);\r\n    },\r\n    async post(url, body) {\r\n        return json(url, {\r\n            method: 'POST',\r\n            headers: { 'Content-Type': 'application/json' },\r\n            body: JSON.stringify(body)\r\n        });\r\n    }\r\n};\r\n\r\nasync function json(url, options) {\r\n    return await (await fetch('/' + url, options)).json();\r\n}\r\n\r\nasync function getCollections() {\r\n    return api.get('data');\r\n}\r\n\r\nasync function getRecords(collection) {\r\n    return api.get('data/' + collection);\r\n}\r\n\r\nasync function getThrottling() {\r\n    return api.get('util/throttle');\r\n}\r\n\r\nasync function setThrottling(throttle) {\r\n    return api.post('util', { throttle });\r\n}\n\nasync function collectionList(onSelect) {\r\n    const collections = await getCollections();\r\n\r\n    return html`\r\n    <ul class=\"collection-list\">\r\n        ${collections.map(collectionLi)}\r\n    </ul>`;\r\n\r\n    function collectionLi(name) {\r\n        return html`<li><a href=\"javascript:void(0)\" @click=${(ev) => onSelect(ev, name)}>${name}</a></li>`;\r\n    }\r\n}\n\nasync function recordTable(collectionName) {\r\n    const records = await getRecords(collectionName);\r\n    const layout = getLayout(records);\r\n\r\n    return html`\r\n    <table>\r\n        <caption>${collectionName}</caption>\r\n        <thead>\r\n            <tr>${layout.map(f => html`<th>${f}</th>`)}</tr>\r\n        </thead>\r\n        <tbody>\r\n            ${records.map(r => recordRow(r, layout))}\r\n        </tbody>\r\n    </table>`;\r\n}\r\n\r\nfunction getLayout(records) {\r\n    const result = new Set(['_id']);\r\n    records.forEach(r => Object.keys(r).forEach(k => result.add(k)));\r\n\r\n    return [...result.keys()];\r\n}\r\n\r\nfunction recordRow(record, layout) {\r\n    return html`\r\n    <tr>\r\n        ${layout.map(f => html`<td>${JSON.stringify(record[f]) || html`<span>(missing)</span>`}</td>`)}\r\n    </tr>`;\r\n}\n\nasync function throttlePanel(display) {\r\n    const active = await getThrottling();\r\n\r\n    return html`\r\n    <p>\r\n        Request throttling: </span>${active}</span>\r\n        <button @click=${(ev) => set(ev, true)}>Enable</button>\r\n        <button @click=${(ev) => set(ev, false)}>Disable</button>\r\n    </p>`;\r\n\r\n    async function set(ev, state) {\r\n        ev.target.disabled = true;\r\n        await setThrottling(state);\r\n        display();\r\n    }\r\n}\n\n//import page from '//unpkg.com/page/page.mjs';\r\n\r\n\r\nfunction start() {\r\n    const main = document.querySelector('main');\r\n    editor(main);\r\n}\r\n\r\nasync function editor(main) {\r\n    let list = html`<div class=\"col\">Loading&hellip;</div>`;\r\n    let viewer = html`<div class=\"col\">\r\n    <p>Select collection to view records</p>\r\n</div>`;\r\n    display();\r\n\r\n    list = html`<div class=\"col\">${await collectionList(onSelect)}</div>`;\r\n    display();\r\n\r\n    async function display() {\r\n        render(html`\r\n        <section class=\"layout\">\r\n            ${until(throttlePanel(display), html`<p>Loading</p>`)}\r\n        </section>\r\n        <section class=\"layout\">\r\n            ${list}\r\n            ${viewer}\r\n        </section>`, main);\r\n    }\r\n\r\n    async function onSelect(ev, name) {\r\n        ev.preventDefault();\r\n        viewer = html`<div class=\"col\">${await recordTable(name)}</div>`;\r\n        display();\r\n    }\r\n}\r\n\r\nstart();\n\n</script>\r\n</head>\r\n<body>\r\n    <main>\r\n        Loading&hellip;\r\n    </main>\r\n</body>\r\n</html>";
+    var require$$0 = '<!DOCTYPE html>\r\n<html lang="en">\r\n<head>\r\n    <meta charset="UTF-8">\r\n    <meta http-equiv="X-UA-Compatible" content="IE=edge">\r\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\r\n    <title>SUPS Admin Panel</title>\r\n    <style>\r\n        * {\r\n            padding: 0;\r\n            margin: 0;\r\n        }\r\n\r\n        body {\r\n            padding: 32px;\r\n            font-size: 16px;\r\n        }\r\n\r\n        .layout::after {\r\n            content: \'\';\r\n            clear: both;\r\n            display: table;\r\n        }\r\n\r\n        .col {\r\n            display: block;\r\n            float: left;\r\n        }\r\n\r\n        p {\r\n            padding: 8px 16px;\r\n        }\r\n\r\n        table {\r\n            border-collapse: collapse;\r\n        }\r\n\r\n        caption {\r\n            font-size: 120%;\r\n            text-align: left;\r\n            padding: 4px 8px;\r\n            font-weight: bold;\r\n            background-color: #ddd;\r\n        }\r\n\r\n        table, tr, th, td {\r\n            border: 1px solid #ddd;\r\n        }\r\n\r\n        th, td {\r\n            padding: 4px 8px;\r\n        }\r\n\r\n        ul {\r\n            list-style: none;\r\n        }\r\n\r\n        .collection-list a {\r\n            display: block;\r\n            width: 120px;\r\n            padding: 4px 8px;\r\n            text-decoration: none;\r\n            color: black;\r\n            background-color: #ccc;\r\n        }\r\n        .collection-list a:hover {\r\n            background-color: #ddd;\r\n        }\r\n        .collection-list a:visited {\r\n            color: black;\r\n        }\r\n    </style>\r\n    <script type="module">\nimport { html, render } from \'https://unpkg.com/lit-html?module\';\nimport { until } from \'https://unpkg.com/lit-html/directives/until?module\';\n\nconst api = {\r\n    async get(url) {\r\n        return json(url);\r\n    },\r\n    async post(url, body) {\r\n        return json(url, {\r\n            method: \'POST\',\r\n            headers: { \'Content-Type\': \'application/json\' },\r\n            body: JSON.stringify(body)\r\n        });\r\n    }\r\n};\r\n\r\nasync function json(url, options) {\r\n    return await (await fetch(\'/\' + url, options)).json();\r\n}\r\n\r\nasync function getCollections() {\r\n    return api.get(\'data\');\r\n}\r\n\r\nasync function getRecords(collection) {\r\n    return api.get(\'data/\' + collection);\r\n}\r\n\r\nasync function getThrottling() {\r\n    return api.get(\'util/throttle\');\r\n}\r\n\r\nasync function setThrottling(throttle) {\r\n    return api.post(\'util\', { throttle });\r\n}\n\nasync function collectionList(onSelect) {\r\n    const collections = await getCollections();\r\n\r\n    return html`\r\n    <ul class="collection-list">\r\n        ${collections.map(collectionLi)}\r\n    </ul>`;\r\n\r\n    function collectionLi(name) {\r\n        return html`<li><a href="javascript:void(0)" @click=${(ev) => onSelect(ev, name)}>${name}</a></li>`;\r\n    }\r\n}\n\nasync function recordTable(collectionName) {\r\n    const records = await getRecords(collectionName);\r\n    const layout = getLayout(records);\r\n\r\n    return html`\r\n    <table>\r\n        <caption>${collectionName}</caption>\r\n        <thead>\r\n            <tr>${layout.map(f => html`<th>${f}</th>`)}</tr>\r\n        </thead>\r\n        <tbody>\r\n            ${records.map(r => recordRow(r, layout))}\r\n        </tbody>\r\n    </table>`;\r\n}\r\n\r\nfunction getLayout(records) {\r\n    const result = new Set([\'_id\']);\r\n    records.forEach(r => Object.keys(r).forEach(k => result.add(k)));\r\n\r\n    return [...result.keys()];\r\n}\r\n\r\nfunction recordRow(record, layout) {\r\n    return html`\r\n    <tr>\r\n        ${layout.map(f => html`<td>${JSON.stringify(record[f]) || html`<span>(missing)</span>`}</td>`)}\r\n    </tr>`;\r\n}\n\nasync function throttlePanel(display) {\r\n    const active = await getThrottling();\r\n\r\n    return html`\r\n    <p>\r\n        Request throttling: </span>${active}</span>\r\n        <button @click=${(ev) => set(ev, true)}>Enable</button>\r\n        <button @click=${(ev) => set(ev, false)}>Disable</button>\r\n    </p>`;\r\n\r\n    async function set(ev, state) {\r\n        ev.target.disabled = true;\r\n        await setThrottling(state);\r\n        display();\r\n    }\r\n}\n\n//import page from \'//unpkg.com/page/page.mjs\';\r\n\r\n\r\nfunction start() {\r\n    const main = document.querySelector(\'main\');\r\n    editor(main);\r\n}\r\n\r\nasync function editor(main) {\r\n    let list = html`<div class="col">Loading&hellip;</div>`;\r\n    let viewer = html`<div class="col">\r\n    <p>Select collection to view records</p>\r\n</div>`;\r\n    display();\r\n\r\n    list = html`<div class="col">${await collectionList(onSelect)}</div>`;\r\n    display();\r\n\r\n    async function display() {\r\n        render(html`\r\n        <section class="layout">\r\n            ${until(throttlePanel(display), html`<p>Loading</p>`)}\r\n        </section>\r\n        <section class="layout">\r\n            ${list}\r\n            ${viewer}\r\n        </section>`, main);\r\n    }\r\n\r\n    async function onSelect(ev, name) {\r\n        ev.preventDefault();\r\n        viewer = html`<div class="col">${await recordTable(name)}</div>`;\r\n        display();\r\n    }\r\n}\r\n\r\nstart();\n\n</script>\r\n</head>\r\n<body>\r\n    <main>\r\n        Loading&hellip;\r\n    </main>\r\n</body>\r\n</html>';
 
     const mode = process.argv[2] == '-dev' ? 'dev' : 'prod';
 
@@ -1316,18 +1316,18 @@
 
     var rules = initPlugin$3;
 
-    var identity = "email";
+    var identity = 'email';
     var protectedData = {
         users: {
-            "35c62d76-8152-4626-8712-eeb96381bea8": {
-                email: "peter@abv.bg",
-                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
+            '35c62d76-8152-4626-8712-eeb96381bea8': {
+                email: 'peter@abv.bg',
+                hashedPassword: '83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1',
                 imageUrl: 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Users/user_4_wruxoc.jpg',
                 'full-name': 'Peter Georgiev Ivanov',
             },
-            "847ec027-f659-4086-8032-5173e2f9c93a": {
-                email: "john@abv.bg",
-                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
+            '847ec027-f659-4086-8032-5173e2f9c93a': {
+                email: 'john@abv.bg',
+                hashedPassword: '83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1',
                 imageUrl: 'https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg',
                 'full-name': 'John Genadiev Aleksiev'
             }
@@ -1338,295 +1338,295 @@
     var seedData = {
 
         comments: {
-            "gafgdfsdafds": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "recipeId": "c5-40e2-b231-77409e",
-                "comment": "comment"
+            'gafgdfsdafds': {
+                '_ownerId': '847ec027-f659-4086-8032-5173e2f9c93a',
+                'recipeId': 'c5-40e2-b231-77409e',
+                'comment': 'comment'
             }
         },
 
         products: {
-            "gafgdf321asdsdafds": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "title": "Tomatoes - 2kg",
-                "isCompleted": false,
-            }, "fdsfdx3213": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "title": "Cucumbers - 2kg",
-                "isCompleted": false
+            'gafgdf321asdsdafds': {
+                '_ownerId': '847ec027-f659-4086-8032-5173e2f9c93a',
+                'title': 'Tomatoes - 2kg',
+                'isCompleted': false,
+            }, 'fdsfdx3213': {
+                '_ownerId': '847ec027-f659-4086-8032-5173e2f9c93a',
+                'title': 'Cucumbers - 2kg',
+                'isCompleted': false
             },
-            "fdsfdxxczs23213": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "title": "Milk - 2l",
-                "isCompleted": false
+            'fdsfdxxczs23213': {
+                '_ownerId': '847ec027-f659-4086-8032-5173e2f9c93a',
+                'title': 'Milk - 2l',
+                'isCompleted': false
             }
         },
 
         recipes: {
-            "c5-40e2-b231-77409e": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "name": "Moussaka",
-                "description": "Moussaka is the best Dish in Bulgarian Kitchen! A must try!",
-                "season": "all",
-                "time-of-the-day": "lunch",
-                "category": "meat",
-                "cat-by-calories": "up-to-600-kcal",
-                "cat-by-time": "up-to-90-min",
-                "advanced-category": "pork",
-                "kitchen": "bulgarian",
-                "level": "beginner",
-                "calories": "600",
-                "prep-time": "20",
-                "cook-time": "50",
-                "products": [
-                    "Mincede meat - 500 gr",
-                    "Potatoes - 1.5 kg",
-                    "Onions - 100 gr",
-                    "Carrots - 50 gr.",
-                    "Red peppers - 70 gr",
-                    "Tomatoes - cubes from can, 3 tbsp",
-                    "Fresh parsley - 4,5 stalks",
-                    "Oil - 40 ml",
-                    "Red pepper - 2 tbsp",
-                    "Black pepper",
-                    "Salt"
+            'c5-40e2-b231-77409e': {
+                '_ownerId': '847ec027-f659-4086-8032-5173e2f9c93a',
+                'name': 'Moussaka',
+                'description': 'Moussaka is the best Dish in Bulgarian Kitchen! A must try!',
+                'season': 'all',
+                'time-of-the-day': 'lunch',
+                'category': 'meat',
+                'cat-by-calories': 'up-to-600-kcal',
+                'cat-by-time': 'up-to-90-min',
+                'advanced-category': 'pork',
+                'kitchen': 'bulgarian',
+                'level': 'beginner',
+                'calories': '600',
+                'prep-time': '20',
+                'cook-time': '50',
+                'products': [
+                    'Mincede meat - 500 gr',
+                    'Potatoes - 1.5 kg',
+                    'Onions - 100 gr',
+                    'Carrots - 50 gr.',
+                    'Red peppers - 70 gr',
+                    'Tomatoes - cubes from can, 3 tbsp',
+                    'Fresh parsley - 4,5 stalks',
+                    'Oil - 40 ml',
+                    'Red pepper - 2 tbsp',
+                    'Black pepper',
+                    'Salt'
                 ]
-                , "steps": [
-                    "First chop the onion, pepper and carrot. Fry them with the oil and minced meat in a pan. Stir constantly so that the minced meat is well broken up and becomes crumbly. Season with red, black pepper and salt.",
-                    "Cut the peeled potatoes into cubes and put them in a medium-sized pan. Pour the minced meat. Stir well and pour in enough hot water to cover the potatoes.",
-                    "Cook in a hot oven at 200 degrees until the potatoes are soft. Add the tomatoes and chopped parsley. Cook for another 10 min.",
-                    "Make the topping by beating the eggs well with the milk and flour. Add a pinch of salt and pour evenly over the moussaka.",
-                    "Bake in the middle of the oven on the upper rack only until the moussaka topping is cooked.",
-                    "Serve with a spoonful or two of yogurt."
-                ]
-                ,
-                "portions": "6",
-                "_createdOn": 1617194295474,
-                "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1679419931/Cook%20at%20home/dishes/Moussaka_grgzth.jpg",
-                "user": {
-                    "full-name": "John Genadiev Aleksiev",
-                    "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg"
-                }
-            },
-            "zz-4e32xxcv0e2-b231cxz-7409e": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "name": "Classic Meatballs",
-                "description": "This homemade meatball recipe is a Betty classic, and for great reason!",
-                "season": "all",
-                "time-of-the-day": "lunch",
-                "category": "meat",
-                "cat-by-calories": "up-to-600-kcal",
-                "cat-by-time": "up-to-60-min",
-                "advanced-category": "pork",
-                "kitchen": "italian",
-                "level": "beginner",
-                "calories": "280",
-                "prep-time": "15",
-                "cook-time": "25",
-                "products": [
-                    "1 lb lean (at least 80%) ground beef",
-                    "1/2 cup Progresso™ Italian-style bread crumbs",
-                    "1/4 cup milk",
-                    "1/2 teaspoon salt",
-                    "1/2 teaspoon Worcestershire sauce",
-                    "1/4 teaspoon pepper",
-                    "1 small onion, finely chopped (1/4 cup) ",
-                    "1 egg ",
-                ]
-                , "steps": [
-                    "Heat oven to 400°F. Line 13x9-inch pan with foil; spray with cooking spray.",
-                    "In large bowl, mix all ingredients. Shape mixture into 24 (1 1/2-inch) meatballs. Place 1 inch apart in pan.",
-                    "Bake uncovered 18 to 22 minutes or until temperature reaches 160°F and no longer pink in center.",
-                    "For evenly-sized meatballs that will cook in the same amount of time, pat the meat mixture into a 6x4-inch square. Cut into 24 squares. Roll each square into a ball.",
-                    "Mix things up by substituting 1 pound lean ground turkey or chicken for the ground beef. (If using ground chicken, decrease milk to 2 tablespoons.) Bake until no longer pink in center and thermometer inserted in center reads 165°F.",
+                , 'steps': [
+                    'First chop the onion, pepper and carrot. Fry them with the oil and minced meat in a pan. Stir constantly so that the minced meat is well broken up and becomes crumbly. Season with red, black pepper and salt.',
+                    'Cut the peeled potatoes into cubes and put them in a medium-sized pan. Pour the minced meat. Stir well and pour in enough hot water to cover the potatoes.',
+                    'Cook in a hot oven at 200 degrees until the potatoes are soft. Add the tomatoes and chopped parsley. Cook for another 10 min.',
+                    'Make the topping by beating the eggs well with the milk and flour. Add a pinch of salt and pour evenly over the moussaka.',
+                    'Bake in the middle of the oven on the upper rack only until the moussaka topping is cooked.',
+                    'Serve with a spoonful or two of yogurt.'
                 ]
                 ,
-                "portions": "4",
-                "_createdOn": 1680629234920,
-                "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1680629144/Cook%20at%20home/dishes/Meatballs_ea3tas.jpg",
-                "user": {
-                    "full-name": "John Genadiev Aleksiev",
-                    "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg"
+                'portions': '6',
+                '_createdOn': 1617194295474,
+                'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1679419931/Cook%20at%20home/dishes/Moussaka_grgzth.jpg',
+                'user': {
+                    'full-name': 'John Genadiev Aleksiev',
+                    'imageUrl': { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg' }
                 }
             },
-            "kdjsakldjasdasdsa9jd2av": {
-                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "name": "Tarator",
-                "description": "Tarator is cold soup, great for the hot summer days!",
-                "season": "summer",
-                "time-of-the-day": "all",
-                "category": "veggeterian",
-                "advanced-category": "soup",
-                "kitchen": "bulgarian",
-                "level": "beginner",
-                "calories": "200",
-                "prep-time": "10",
-                "cook-time": "5",
-                "cat-by-calories": "up-to-200-kcal",
-                "cat-by-time": "up-to-30-min",
-                "products": [
-                    "Cuccumber - 1 piece",
-                    "Fennel - 1/2 stalk",
-                    "Walnut - 100 gr",
-                    "Water - 300 ml",
-                    "Yoghurt - 400 gr",
-                    "Garlic - 3 cloves ",
-                    "Oil - 2 tbsp",
+            'zz-4e32xxcv0e2-b231cxz-7409e': {
+                '_ownerId': '847ec027-f659-4086-8032-5173e2f9c93a',
+                'name': 'Classic Meatballs',
+                'description': 'This homemade meatball recipe is a Betty classic, and for great reason!',
+                'season': 'all',
+                'time-of-the-day': 'lunch',
+                'category': 'meat',
+                'cat-by-calories': 'up-to-600-kcal',
+                'cat-by-time': 'up-to-60-min',
+                'advanced-category': 'pork',
+                'kitchen': 'italian',
+                'level': 'beginner',
+                'calories': '280',
+                'prep-time': '15',
+                'cook-time': '25',
+                'products': [
+                    '1 lb lean (at least 80%) ground beef',
+                    '1/2 cup Progresso™ Italian-style bread crumbs',
+                    '1/4 cup milk',
+                    '1/2 teaspoon salt',
+                    '1/2 teaspoon Worcestershire sauce',
+                    '1/4 teaspoon pepper',
+                    '1 small onion, finely chopped (1/4 cup) ',
+                    '1 egg ',
+                ]
+                , 'steps': [
+                    'Heat oven to 400°F. Line 13x9-inch pan with foil; spray with cooking spray.',
+                    'In large bowl, mix all ingredients. Shape mixture into 24 (1 1/2-inch) meatballs. Place 1 inch apart in pan.',
+                    'Bake uncovered 18 to 22 minutes or until temperature reaches 160°F and no longer pink in center.',
+                    'For evenly-sized meatballs that will cook in the same amount of time, pat the meat mixture into a 6x4-inch square. Cut into 24 squares. Roll each square into a ball.',
+                    'Mix things up by substituting 1 pound lean ground turkey or chicken for the ground beef. (If using ground chicken, decrease milk to 2 tablespoons.) Bake until no longer pink in center and thermometer inserted in center reads 165°F.',
+                ]
+                ,
+                'portions': '4',
+                '_createdOn': 1680629234920,
+                'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1680629144/Cook%20at%20home/dishes/Meatballs_ea3tas.jpg',
+                'user': {
+                    'full-name': 'John Genadiev Aleksiev',
+                    'imageUrl': { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg' }
+                }
+            },
+            'kdjsakldjasdasdsa9jd2av': {
+                '_ownerId': '847ec027-f659-4086-8032-5173e2f9c93a',
+                'name': 'Tarator',
+                'description': 'Tarator is cold soup, great for the hot summer days!',
+                'season': 'summer',
+                'time-of-the-day': 'all',
+                'category': 'veggeterian',
+                'advanced-category': 'soup',
+                'kitchen': 'bulgarian',
+                'level': 'beginner',
+                'calories': '200',
+                'prep-time': '10',
+                'cook-time': '5',
+                'cat-by-calories': 'up-to-200-kcal',
+                'cat-by-time': 'up-to-30-min',
+                'products': [
+                    'Cuccumber - 1 piece',
+                    'Fennel - 1/2 stalk',
+                    'Walnut - 100 gr',
+                    'Water - 300 ml',
+                    'Yoghurt - 400 gr',
+                    'Garlic - 3 cloves ',
+                    'Oil - 2 tbsp',
 
                 ]
-                , "steps": [
-                    "The first step of the tarator recipe is to prepare the cucumbers. Wash the cucumber and peel it. If you managed to get hold of fresh cucumbers produced by a grandmother in the village, there is no need to peel them. You cut it into very small pieces/cubes. Many housewives grate the cucumber to save time. This softens the cucumber more and the tarator becomes like porridge. But in case you are really thirsty and can't wait long, you can also use this method.",
-                    "Pour the cucumber into a large bowl and add to it the finely chopped fennel (you can also use dry fennel), the ground walnuts and the garlic, which you have crushed or chopped very finely. However, unlike the French, many Bulgarians do not like garlic, so you can not add the garlic to the tarator, but leave it in a separate saucer, so everyone will be happy: garlic lovers will add it later, and the opponents will not frown.",
-                    "After adding the garlic, walnuts and dill, add the oil/olive oil and mix well. Then beat one bucket of milk with one bucket of cold water, add to the cucumber mixture and mix again. The tarator is now ready.",
+                , 'steps': [
+                    'The first step of the tarator recipe is to prepare the cucumbers. Wash the cucumber and peel it. If you managed to get hold of fresh cucumbers produced by a grandmother in the village, there is no need to peel them. You cut it into very small pieces/cubes. Many housewives grate the cucumber to save time. This softens the cucumber more and the tarator becomes like porridge. But in case you are really thirsty and can\'t wait long, you can also use this method.',
+                    'Pour the cucumber into a large bowl and add to it the finely chopped fennel (you can also use dry fennel), the ground walnuts and the garlic, which you have crushed or chopped very finely. However, unlike the French, many Bulgarians do not like garlic, so you can not add the garlic to the tarator, but leave it in a separate saucer, so everyone will be happy: garlic lovers will add it later, and the opponents will not frown.',
+                    'After adding the garlic, walnuts and dill, add the oil/olive oil and mix well. Then beat one bucket of milk with one bucket of cold water, add to the cucumber mixture and mix again. The tarator is now ready.',
                 ]
                 ,
-                "portions": "1",
-                "_createdOn": 1617194295474,
-                "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1679420831/Cook%20at%20home/dishes/Tarator_jla2ds.jpg",
-                "user": {
-                    "full-name": "John Genadiev Aleksiev",
-                    "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg"
+                'portions': '1',
+                '_createdOn': 1617194295474,
+                'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1679420831/Cook%20at%20home/dishes/Tarator_jla2ds.jpg',
+                'user': {
+                    'full-name': 'John Genadiev Aleksiev',
+                    'imageUrl': { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg' }
                 }
             },
-            "azxjs213kzsdsa9jd2av": {
-                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "name": "The best spaghetti bolognese",
-                "description": "Our best ever spaghetti bolognese is super easy and a true Italian classic with a meaty, chilli sauce.",
-                "season": "summer",
-                "time-of-the-day": "all",
-                "category": "meat",
-                "advanced-category": "pasta",
-                "kitchen": "bulgarian",
-                "level": "intermediate",
-                "calories": "624",
-                "prep-time": "10",
-                "cook-time": "40",
-                "cat-by-calories": "up-to-800-kcal",
-                "cat-by-time": "up-to-60-min",
-                "products": [
-                    "1 tbsp olive oil",
-                    "4 rashers smoked streaky bacon, finely chopped",
-                    "2 carrots, trimmed and finely chopped",
-                    "2 garlic cloves finely chopped",
-                    "2-3 sprigs rosemary leaves picked and finely chopped",
-                    "Garlic - 3 cloves ",
-                    "500g beef mince",
-                    "2 x 400g tins plum tomatoes",
-                    "small pack basil leaves picked, ¾ finely chopped and the rest left whole for garnish",
-                    "1 tsp dried oregano",
-                    "2 fresh bay leaves",
-                    "2 tbsp tomato purée",
-                    "1 beef stock cube",
-                    "1 red chilli deseeded and finely chopped (optional)",
-                    "125ml red wine",
-                    "6 cherry tomatoes sliced in half"
+            'azxjs213kzsdsa9jd2av': {
+                '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
+                'name': 'The best spaghetti bolognese',
+                'description': 'Our best ever spaghetti bolognese is super easy and a true Italian classic with a meaty, chilli sauce.',
+                'season': 'summer',
+                'time-of-the-day': 'all',
+                'category': 'meat',
+                'advanced-category': 'pasta',
+                'kitchen': 'bulgarian',
+                'level': 'intermediate',
+                'calories': '624',
+                'prep-time': '10',
+                'cook-time': '40',
+                'cat-by-calories': 'up-to-800-kcal',
+                'cat-by-time': 'up-to-60-min',
+                'products': [
+                    '1 tbsp olive oil',
+                    '4 rashers smoked streaky bacon, finely chopped',
+                    '2 carrots, trimmed and finely chopped',
+                    '2 garlic cloves finely chopped',
+                    '2-3 sprigs rosemary leaves picked and finely chopped',
+                    'Garlic - 3 cloves ',
+                    '500g beef mince',
+                    '2 x 400g tins plum tomatoes',
+                    'small pack basil leaves picked, ¾ finely chopped and the rest left whole for garnish',
+                    '1 tsp dried oregano',
+                    '2 fresh bay leaves',
+                    '2 tbsp tomato purée',
+                    '1 beef stock cube',
+                    '1 red chilli deseeded and finely chopped (optional)',
+                    '125ml red wine',
+                    '6 cherry tomatoes sliced in half'
                 ]
-                , "steps": [
-                    "Put a large saucepan on a medium heat and add 1 tbsp olive oil.",
-                    "Add 4 finely chopped bacon rashers and fry for 10 mins until golden and crisp.",
-                    "Reduce the heat and add the 2 onions, 2 carrots, 2 celery sticks, 2 garlic cloves and the leaves from 2-3 sprigs rosemary, all finely chopped, then fry for 10 mins. Stir the veg often until it softens.",
-                    "Increase the heat to medium-high, add 500g beef mince and cook stirring for 3-4 mins until the meat is browned all over.",
-                    "Add 2 tins plum tomatoes, the finely chopped leaves from ¾ small pack basil, 1 tsp dried oregano, 2 bay leaves, 2 tbsp tomato purée, 1 beef stock cube, 1 deseeded and finely chopped red chilli (if using), 125ml red wine and 6 halved cherry tomatoes. Stir with a wooden spoon, breaking up the plum tomatoes.",
-                    "Bring to the boil, reduce to a gentle simmer and cover with a lid. Cook for 1 hr 15 mins stirring occasionally, until you have a rich, thick sauce.",
-                    "Add the 75g grated parmesan, check the seasoning and stir.",
-                    "When the bolognese is nearly finished, cook 400g spaghetti following the pack instructions.",
-                    "Drain the spaghetti and either stir into the bolognese sauce, or serve the sauce on top. Serve with more grated parmesan, the remaining basil leaves and crusty bread, if you like."
+                , 'steps': [
+                    'Put a large saucepan on a medium heat and add 1 tbsp olive oil.',
+                    'Add 4 finely chopped bacon rashers and fry for 10 mins until golden and crisp.',
+                    'Reduce the heat and add the 2 onions, 2 carrots, 2 celery sticks, 2 garlic cloves and the leaves from 2-3 sprigs rosemary, all finely chopped, then fry for 10 mins. Stir the veg often until it softens.',
+                    'Increase the heat to medium-high, add 500g beef mince and cook stirring for 3-4 mins until the meat is browned all over.',
+                    'Add 2 tins plum tomatoes, the finely chopped leaves from ¾ small pack basil, 1 tsp dried oregano, 2 bay leaves, 2 tbsp tomato purée, 1 beef stock cube, 1 deseeded and finely chopped red chilli (if using), 125ml red wine and 6 halved cherry tomatoes. Stir with a wooden spoon, breaking up the plum tomatoes.',
+                    'Bring to the boil, reduce to a gentle simmer and cover with a lid. Cook for 1 hr 15 mins stirring occasionally, until you have a rich, thick sauce.',
+                    'Add the 75g grated parmesan, check the seasoning and stir.',
+                    'When the bolognese is nearly finished, cook 400g spaghetti following the pack instructions.',
+                    'Drain the spaghetti and either stir into the bolognese sauce, or serve the sauce on top. Serve with more grated parmesan, the remaining basil leaves and crusty bread, if you like.'
                 ]
                 ,
-                "portions": "6",
-                "_createdOn": 1617194295474,
-                "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1679505438/Cook%20at%20home/dishes/Spaghetti_bolognese_rvfixq.jpg",
-                "user": {
-                    "full-name": "Peter Georgiev Ivanov",
-                    "imageUrl": 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Users/user_4_wruxoc.jpg',
+                'portions': '6',
+                '_createdOn': 1617194295474,
+                'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1679505438/Cook%20at%20home/dishes/Spaghetti_bolognese_rvfixq.jpg',
+                'user': {
+                    'full-name': 'Peter Georgiev Ivanov',
+                    'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Users/user_4_wruxoc.jpg',
                 }
-            }, "azxjhgk45kzsdszzz9jd2av": {
-                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "name": "Greek Lemon Chicken and Potatoes",
-                "description": "Greek chicken and potatoes is a classic!",
-                "season": "all",
-                "time-of-the-day": "all",
-                "category": "meat",
-                "advanced-category": "chicken",
-                "kitchen": "greek",
-                "level": "advanced",
-                "calories": "1139",
-                "cat-by-calories": "more-than-800-kcal",
-                "cat-by-time": "up-to-60-min",
-                "prep-time": "10",
-                "cook-time": "50",
-                "products": [
-                    "4 pounds skin-on, bone-in chicken thighs",
-                    "3 russet potatoes, peeled and quartered",
-                    "½ cup fresh lemon juice",
-                    "½ cup olive oil",
-                    "6 cloves garlic, minced",
-                    "1 tbsp dried oregano",
-                    "1 tbsp kosher salt",
-                    "1 teaspoon dried rosemary",
-                    "1 teaspoon freshly ground black pepper",
-                    "1 pinch cayenne pepper",
-                    "1 cup chicken broth, divided",
-                    "1 teaspoon chopped fresh oregano, or to taste"
+            }, 'azxjhgk45kzsdszzz9jd2av': {
+                '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
+                'name': 'Greek Lemon Chicken and Potatoes',
+                'description': 'Greek chicken and potatoes is a classic!',
+                'season': 'all',
+                'time-of-the-day': 'all',
+                'category': 'meat',
+                'advanced-category': 'chicken',
+                'kitchen': 'greek',
+                'level': 'advanced',
+                'calories': '1139',
+                'cat-by-calories': 'more-than-800-kcal',
+                'cat-by-time': 'up-to-60-min',
+                'prep-time': '10',
+                'cook-time': '50',
+                'products': [
+                    '4 pounds skin-on, bone-in chicken thighs',
+                    '3 russet potatoes, peeled and quartered',
+                    '½ cup fresh lemon juice',
+                    '½ cup olive oil',
+                    '6 cloves garlic, minced',
+                    '1 tbsp dried oregano',
+                    '1 tbsp kosher salt',
+                    '1 teaspoon dried rosemary',
+                    '1 teaspoon freshly ground black pepper',
+                    '1 pinch cayenne pepper',
+                    '1 cup chicken broth, divided',
+                    '1 teaspoon chopped fresh oregano, or to taste'
                 ]
-                , "steps": [
-                    "Preheat the oven to 425 degrees F (220 degrees C). Lightly oil a large roasting pan.",
-                    "Place chicken and potatoes in a large bowl. Add lemon juice, olive oil, garlic, dried oregano, salt, rosemary, black pepper, and cayenne. Toss until chicken and potatoes are evenly coated.",
-                    "Place chicken pieces skin-side up in the prepared pan. Tuck potato pieces around chicken. Drizzle with 2/3 cup chicken broth. Spoon any remaining marinade from the bowl over chicken and potatoes.",
-                    "Bake in the preheated oven for 20 minutes. Toss chicken and potatoes, then place chicken skin-side up again.",
-                    "Continue baking until chicken is browned and cooked through, about 25 minutes more; an instant-read thermometer inserted near the bone should register 165 degrees F (74 degrees C).",
-                    "Transfer chicken to a serving platter and keep warm; leave potatoes in the pan.",
-                    "Turn on the broiler, or set oven to highest heat. Toss potatoes again to coat in pan juices. Place the pan under the broiler and broil until potatoes are crisped, about 3 minutes.",
-                    "Transfer potatoes to the platter with chicken. ",
-                    "Place the roasting pan on the stovetop over medium heat. Add the remaining 1/3 cup chicken broth and scrape up browned bits from the bottom of the pan. Strain pan juices over chicken and potatoes. Sprinkle with fresh oregano."
+                , 'steps': [
+                    'Preheat the oven to 425 degrees F (220 degrees C). Lightly oil a large roasting pan.',
+                    'Place chicken and potatoes in a large bowl. Add lemon juice, olive oil, garlic, dried oregano, salt, rosemary, black pepper, and cayenne. Toss until chicken and potatoes are evenly coated.',
+                    'Place chicken pieces skin-side up in the prepared pan. Tuck potato pieces around chicken. Drizzle with 2/3 cup chicken broth. Spoon any remaining marinade from the bowl over chicken and potatoes.',
+                    'Bake in the preheated oven for 20 minutes. Toss chicken and potatoes, then place chicken skin-side up again.',
+                    'Continue baking until chicken is browned and cooked through, about 25 minutes more; an instant-read thermometer inserted near the bone should register 165 degrees F (74 degrees C).',
+                    'Transfer chicken to a serving platter and keep warm; leave potatoes in the pan.',
+                    'Turn on the broiler, or set oven to highest heat. Toss potatoes again to coat in pan juices. Place the pan under the broiler and broil until potatoes are crisped, about 3 minutes.',
+                    'Transfer potatoes to the platter with chicken. ',
+                    'Place the roasting pan on the stovetop over medium heat. Add the remaining 1/3 cup chicken broth and scrape up browned bits from the bottom of the pan. Strain pan juices over chicken and potatoes. Sprinkle with fresh oregano.'
                 ]
                 ,
-                "portions": "4",
-                "_createdOn": 1617194295474,
-                "imageUrl": "https://res.cloudinary.com/yavorhr/image/upload/v1679505373/Cook%20at%20home/dishes/instant-pot-chicken-potatoes-2_oiunh2.jpg",
-                "user": {
-                    "full-name": "Peter Georgiev Ivanov",
-                    "imageUrl": 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Users/user_4_wruxoc.jpg',
+                'portions': '4',
+                '_createdOn': 1617194295474,
+                'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1679505373/Cook%20at%20home/dishes/instant-pot-chicken-potatoes-2_oiunh2.jpg',
+                'user': {
+                    'full-name': 'Peter Georgiev Ivanov',
+                    'imageUrl': { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Users/user_4_wruxoc.jpg' },
                 }
             },
         },
 
 
         articles: {
-            "dasfdsf3215": {
-                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "imageUrl": "/img/dishes/eggsausage.jpg",
-                "title": "Egg & Sausage",
-                "createdOn": "08 August",
-                "author": "Peter"
+            'dasfdsf3215': {
+                '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
+                'imageUrl': '/img/dishes/eggsausage.jpg',
+                'title': 'Egg & Sausage',
+                'createdOn': '08 August',
+                'author': 'Peter'
             },
-            "dasfdxdasgs215": {
-                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "imageUrl": "/img/dishes/benedikt.jpg",
-                "title": "benedikt",
-                "createdOn": "15 January",
-                "author": "Peter"
+            'dasfdxdasgs215': {
+                '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
+                'imageUrl': '/img/dishes/benedikt.jpg',
+                'title': 'benedikt',
+                'createdOn': '15 January',
+                'author': 'Peter'
             },
-            "dasjhoiuygs001": {
-                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "imageUrl": "/img/dishes/Best-Lasagna-550.jpg",
-                "title": "Lasagna",
-                "createdOn": "01 May",
-                "author": "Peter"
+            'dasjhoiuygs001': {
+                '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
+                'imageUrl': '/img/dishes/Best-Lasagna-550.jpg',
+                'title': 'Lasagna',
+                'createdOn': '01 May',
+                'author': 'Peter'
             },
-            "dasjggdens005": {
-                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "imageUrl": "/img/dishes/Best-Lasagna-550.jpg",
-                "title": "Pancakes",
-                "createdOn": "21 April",
-                "author": "Peter"
+            'dasjggdens005': {
+                '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
+                'imageUrl': '/img/dishes/Best-Lasagna-550.jpg',
+                'title': 'Pancakes',
+                'createdOn': '21 April',
+                'author': 'Peter'
             },
-            "dasjggfsgsk5832": {
-                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "imageUrl": "/img/dishes/bananas.jpg",
-                "title": "Bananas",
-                "createdOn": "10 March",
-                "author": "Peter"
+            'dasjggfsgsk5832': {
+                '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
+                'imageUrl': '/img/dishes/bananas.jpg',
+                'title': 'Bananas',
+                'createdOn': '10 March',
+                'author': 'Peter'
             }
         },
 
@@ -1635,16 +1635,16 @@
 
         },
 
-    }
+    };
 
     var rules$1 = {
         users: {
-            ".create": false,
-            ".read": [
-                "Owner"
+            '.create': false,
+            '.read': [
+                'Owner'
             ],
-            ".update": false,
-            ".delete": false
+            '.update': false,
+            '.delete': false
         }
     };
     var settings = {
