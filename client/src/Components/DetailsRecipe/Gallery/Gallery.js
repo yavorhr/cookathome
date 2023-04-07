@@ -38,24 +38,25 @@ export const Gallery = ({
                 <FontAwesomeIcon className={styles["btnPrev"]} icon={faCircleChevronLeft} onClick={prevSlide} />
                 <FontAwesomeIcon className={styles["btnNext"]} icon={faCircleChevronRight} onClick={nextSlide} />
                 <div className={styles["full-screen-image"]}>
-                    <img src={images[slideNumber].url} alt="" />
+                    <img src={images[slideNumber]} alt="" />
                 </div>
             </div>
         }
 
+        {console.log(images.slice(1))}
+
         <div>
             {images && <img className={styles["profile-image"]}
-            
-            src={images[0].url}></img>}
+                src={images[0]}></img>}
         </div>
         <div className={styles["gallery-wrap"]}>
             {
-                images && images.map((image, index) => {
+                images && images.length > 1 && images.slice(1).map((image, index) => {
                     return <div
                         key={index}
                         className={styles["single"]}
                         onClick={() => handleOpenModal(index)}>
-                        <img src={image.url} alt="" />
+                        <img src={image} alt="" />
                     </div>
                 })
             }

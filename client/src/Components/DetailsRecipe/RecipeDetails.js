@@ -65,6 +65,7 @@ export const RecipeDetails = () => {
         className = "";
     }
 
+    console.log(recipe);
     const addToFavorites = (recipe, accessToken) => {
         favoriteService
             .addToFavorites(
