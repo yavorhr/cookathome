@@ -72,6 +72,9 @@ export const CreateRecipe = ({ }) => {
         recipe.user = { imageUrl: user.imageUrl, "full-name": user["full-name"] }
         recipe["cat-by-time"] = cookingTimeStr;
         recipe["cat-by-calories"] = caloriesStr;
+        recipe.links = links;
+
+        console.log(links);
 
         recipeService.createRecipe(recipe, user.accessToken)
             .then(result =>
@@ -102,8 +105,6 @@ export const CreateRecipe = ({ }) => {
             imageUrl: imagesCount == 0 || imagesCount > bound
         }))
     }
-
-    console.log(errors.imageUrl);
 
     const isPositive = (e) => {
         setErrors(state => ({

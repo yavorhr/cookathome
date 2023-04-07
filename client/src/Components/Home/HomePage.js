@@ -3,7 +3,6 @@ import styles from './HomePage.module.css';
 import { GalleryArticles } from './GalleryArticles/GalleryArticles.js';
 import { TodayRecipe } from './TodayRecipe/TodayRecipe.js';
 import { RecipeByUser } from './RecipeByUser/RecipeByUser.js';
-import { Navigation } from './RecentyAddedRecipes/Navigation/Navigation.js';
 import { NewestRecipes } from './RecentyAddedRecipes/NewestRecipes/NewestRecipes.js';
 
 export const HomePage = ({

@@ -15,15 +15,13 @@ import { AuthContext } from '../../context/AuthContext.js';
 import { RecipeContext } from '../../context/RecipeContext.js';
 
 import { ProductItem } from './ProductItem/ProductItem.js';
+import { Gallery } from './Gallery/Gallery.js';
 
 /*TODO : To chane fab icons with svg icons */
 export const RecipeDetails = () => {
     const [recipe, setRecipe] = useState({});
     const [isAlertVisible, setIsAlertVisible] = useState(false);
     const [savedToFavorites, setSavedToFavorites] = useState(false);
-
-
-
     const { recipeId } = useParams();
     const navigate = useNavigate();
 
@@ -32,7 +30,6 @@ export const RecipeDetails = () => {
 
     const isOwner = user._id == recipe._ownerId;
     const accessToken = user.accessToken;
-
     useEffect(() => {
 
         const getRecipeById =
@@ -46,7 +43,6 @@ export const RecipeDetails = () => {
         Promise
             .all([getRecipeById, checkFavoriteRecipesByUserId])
             .then(data => {
-
 
                 setRecipe(data[0]);
 
@@ -210,6 +206,10 @@ export const RecipeDetails = () => {
                             <p />
                         </div>
                     </div>
+
+                    <Gallery images={recipe.links} />
+                    
+                    {/* 
                     <div className={styles["image-grid"]}>
                         <img
                             className={`${styles["image-grid-col-2"]} ${styles["image-grid-row-2"]}`}
@@ -225,7 +225,9 @@ export const RecipeDetails = () => {
                             <span>up to 4 images</span>
                             <input type="file" name="images" className="add-img" />
                         </div>
-                    </div>
+                    </div> */}
+
+
                 </article>
             </section>
 
