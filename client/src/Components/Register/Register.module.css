@@ -18,8 +18,10 @@
 /* profile pic */
 .profile-pic {
     position: relative;
+    left: 30px;
     height: 200px;
     width: 200px;
+    margin-bottom: 10px;
     border-radius: 50%;
     overflow: hidden;
     border: 1px solid grey;
@@ -81,12 +83,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
     margin: 20px 0 12px 0;
 }
 
 .register-form .user-details .txt-fields {
-    width: calc(100% / 2 - 20px);
+    width: calc(100% / 2 - 10px);
     margin-bottom: 15px;
 }
 

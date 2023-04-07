@@ -14,7 +14,7 @@ export const Register = () => {
     /*TODO:// To change style of the button when is locked */
     /*TODO:// Add checked/error icon in input */
     /*TODO:// More universal way to check for errors */
-    const [profileImage, setProfileImage] = useState({ url: "" });
+    const [userImageUrl, setImageUserUrl] = useState();
     const [validateInput, setValidateInput] = useState(true);
     const [errors, setErrors] = useState({});
     const [values, setValues] = useState({
@@ -42,7 +42,7 @@ export const Register = () => {
             return
         }
 
-        userData.imageUrl = profileImage;
+        userData.imageUrl = userImageUrl;
         authService.register(userData).
             then(result => {
                 userLogin(result)
@@ -104,20 +104,21 @@ export const Register = () => {
     //     }))
     // }
 
+
     const submitImage = (e) => {
         cloudinary
             .uploadCloudinary(e.target.files[0])
-            .then(result => setProfileImage(result));
+            .then(result => setImageUserUrl(result.url));
     }
     return (
         <section className={styles["register-section"]}>
             <h1 className={styles["title"]}>Registration</h1>
-            <form className={styles["register-form"]}
+            <form
+                className={styles["register-form"]}
                 onSubmit={onSubmitHandler}>
                 <div className={styles["user-details"]}>
-
                     <div className={styles["profile-pic"]}>
-                        <img src={profileImage ? profileImage.url : "https://res.cloudinary.com/yavorhr/image/upload/v1680870027/Cook%20at%20home/Users/Blank_profile_lexdev.jpg"} alt="" />
+                        <img src={userImageUrl ? userImageUrl : "https://res.cloudinary.com/yavorhr/image/upload/v1680870027/Cook%20at%20home/Users/Blank_profile_lexdev.jpg"} alt="" />
                         <input
                             type="file"
                             id="file"
@@ -125,12 +126,6 @@ export const Register = () => {
                             onChange={(e) => submitImage(e)} />
                         <label htmlFor="file" className={styles["uploadBtn"]}>Choose photo</label>
                     </div>
-
-                    {/* <input
-                        type="file"
-                        onChange={(e) => setProfileImage(e.target.files[0])}
-                    />
-                    <button onClick={submitImage} type="submit">upload</button> */}
 
                     <div className={styles["txt-fields"]}>
                         <label forname="full-name">Full Name</label>
