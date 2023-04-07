@@ -114,8 +114,8 @@ export const CreateRecipe = ({ }) => {
     }
 
     const submitImage = async () => {
-        if (images.length == 0 || images.length > 3) {
-
+        if (images.length == 0 || images.length > 7) {
+            return;
         }
         try {
             let arr = [];
@@ -179,7 +179,7 @@ export const CreateRecipe = ({ }) => {
                                 onBlur={(e) => uploadImagesCheck(e.target.files.length, 4)} />
                             <button disabled={errors.imageUrl} onClick={submitImage} type="submit">upload</button>
                         </div>
-                        {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please add up to 4 images</p>}
+                        {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please add up to 8 images</p>}
 
                         {/* <div className={`${styles["imageUrl"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                             <label htmlFor="imageUrl">Recipe URL image</label>
