@@ -1,31 +1,32 @@
 import styles from './EditRecipe.module.css';
 
-import { useState, useEffect, useContext } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useState, useEffect, useContext, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 
 import * as recipeService from "../../service/recipeService.js"
 import { RecipeContext } from '../../context/RecipeContext.js';
 import { AuthContext } from '../../context/AuthContext.js';
+import uuid from 'react-uuid';
+
 
 export const EditRecipe = () => {
     const [recipe, setRecipe] = useState({});
     const [invalidUserInput, setInvalidUserInput] = useState(false);
     const [errors, setErrors] = useState({});
+    const currentRef = useRef();
 
     const { recipeId } = useParams();
     const { onRecipeEdit } = useContext(RecipeContext);
     const { user } = useContext(AuthContext);
-    const accessToken = user.accessToken;
-
     const [values, setValues] = useState({
-        title: '',
-        descr: '',
-        imageUrl: '',
+        name: '',
+        description: '',
+        imageUrl: 0,
         category: '',
-        type: '',
+        'time-of-the-day': '',
         season: '',
         kitchen: '',
-        ingredients: '',
+        products: '',
         steps: '',
         calories: '',
         'prep-time': '',
@@ -33,7 +34,11 @@ export const EditRecipe = () => {
         level: '',
         occasion: '',
         portions: '',
+        'meal-category': ''
     });
+
+    console.log(values);
+    console.log(recipe);
 
     useEffect(() => {
         recipeService
@@ -54,9 +59,19 @@ export const EditRecipe = () => {
 
         setInvalidUserInput(false);
 
-        recipeService.updateRecipe(recipeId, updatedRecipe, accessToken)
-            .then(result => onRecipeEdit(recipeId, result));
+        const products = stringToArray(recipe.products);
+        const steps = stringToArray(recipe.steps);
+        const cookingTimeStr = cookingTimeCategory(Number(recipe["cook-time"] + Number(recipe["prep-time"])))
+        const caloriesStr = caloriesCategory(Number(recipe.calories));
 
+        recipe.products = products;
+        recipe.steps = steps;
+        recipe.user = { imageUrl: user.imageUrl, "full-name": user["full-name"] }
+        recipe["cat-by-time"] = cookingTimeStr;
+        recipe["cat-by-calories"] = caloriesStr;
+
+        recipeService.edit(recipeId, updatedRecipe)
+            .then(result => onRecipeEdit(recipeId, result));
     }
 
     const onChangeHandler = (e) => {
@@ -70,17 +85,6 @@ export const EditRecipe = () => {
         setErrors(state => ({
             ...state,
             [e.target.name]: values[e.target.name].length < bound
-        }))
-        console.log(errors);
-    }
-
-    const validImageUrl = (e) => {
-        const regex = new RegExp(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i);
-        const urlInput = e.target.value;
-
-        setErrors(state => ({
-            ...state,
-            [e.target.name]: !regex.test(urlInput)
         }))
     }
 
@@ -103,37 +107,26 @@ export const EditRecipe = () => {
                         <input
                             type="text"
                             placeholder="Enter the title"
-                            name="title"
-                            defaultValue={recipe.title}
+                            name="name"
+                            defaultValue={recipe.name}
                             onChange={onChangeHandler}
                             onBlur={(e) => minLengthCheck(e, 2)}
                         />
-                        {errors.title && <p className={`${styles["error"]} ${styles["title"]}`}>Recipe name must be at least 2 characters!</p>}
+                        {errors.name && <p className={`${styles["error"]} ${styles["title"]}`}>Recipe name must be at least 2 characters!</p>}
                     </div>
                     <div className={`${styles["descr"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
-                        <label htmlFor="descr">Description</label>
+                        <label htmlFor="description">Description</label>
                         <textarea
-                            name="descr"
+                            name="description"
                             id=""
                             cols={10}
                             rows={10}
                             placeholder="Enter short description..."
-                            defaultValue={recipe.descr}
+                            defaultValue={recipe.description}
                             onChange={onChangeHandler}
                             onBlur={(e) => minLengthCheck(e, 5)}
                         />
-                        {errors.descr && <p className={`${styles["error"]} ${styles["descr"]}`}>Description name must be at least 5 characters!</p>}
-                    </div>
-                    <div className={`${styles["imageUrl"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
-                        <label htmlFor="imageUrl">Recipe URL image</label>
-                        <input
-                            type="text"
-                            placeholder="Insert recipe url here..."
-                            name="imageUrl"
-                            value={values.imageUrl}
-                            onChange={onChangeHandler}
-                            onBlur={validImageUrl} />
-                        {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please insert valid image url!</p>}
+                        {errors.description && <p className={`${styles["error"]} ${styles["descr"]}`}>Description name must be at least 5 characters!</p>}
                     </div>
                     <div className={styles["group-wrapper"]}>
                         <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
@@ -141,29 +134,44 @@ export const EditRecipe = () => {
                             <select
                                 type="text"
                                 name="category"
-                                onChange={onChangeHandler}>
-                                <option
-                                    defaultValue={recipe.category}>
-                                    {recipe.category}
-                                </option>
-                                <option value="Pork meals">Pork meals</option>
-                                <option value="Chicken meals">Pork meals</option>
-                                <option value="Veggie meals">Veggie meals</option>
+                                value={values.category}
+                                onChange={onChangeHandler}
+                                ref={currentRef}
+                            >
+                                <option value="Please select">Please select</option>
+                                <option value="Veggetarian">Veggetarian</option>
+                                <option value="Meat">Meat</option>
+                                <option value="Fish">Fish</option>
+                            </select>
+                        </div>
+                        <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
+                            <label htmlFor="category">Meal Category</label>
+                            <select
+                                type="text"
+                                name="meal-category"
+                                value={values["meal-category"]}
+                                onChange={onChangeHandler}
+                            >
+                                <option value="Please select">Please select</option>
+                                {values.category && currentRef.current.value != "Please select" && recipeService.mealsCategories[currentRef.current.value]
+                                    .map(cat =>
+                                        <option key={uuid()} value={cat}>{cat}</option>
+                                    )}
                             </select>
                         </div>
                         <div className={`${styles["type"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
-                            <label htmlFor="type">Type</label>
+                            <label htmlFor="type">Time of the day</label>
                             <select
                                 type="text"
-                                name="type"
-                                onChange={onChangeHandler}>
-                                <option
-                                    defaultValue={recipe.type}>
-                                    {recipe.type}
-                                </option>
-                                <option value="Lamb soup">Lamb soup</option>
-                                <option value="Baclava">Baclava</option>
-                                <option value="Babek">Babek</option>
+                                name="time-of-the-day"
+                                value={values["time-of-the-day"]}
+                                onChange={onChangeHandler}
+                            >
+                                <option defaultValue="Please select">Please select</option>
+                                <option value="Brekfast">Brekfast</option>
+                                <option value="Dinner">Dinner</option>
+                                <option value="Snack">Snack</option>
+                                <option value="Lunch">Lunch</option>
                             </select>
                         </div>
                         <div className={`${styles["season"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
@@ -172,31 +180,87 @@ export const EditRecipe = () => {
                                 type="text"
                                 name="season"
                                 onChange={onChangeHandler}>
-                                <option
-                                    defaultValue={recipe.season}>
-                                    {recipe.season}
-                                </option>
+                                <option value="Please select">Please select</option>
                                 <option value="Spring">Spring</option>
                                 <option value="Summer">Summer</option>
                                 <option value="Autumn">Autumn</option>
                                 <option value="Winter">Winter</option>
                             </select>
                         </div>
+
+                    </div>
+                    <div className={styles["group-wrapper"]}>
+
                         <div className={`${styles["traditional"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
                             <label htmlFor="traditional">Kitchen</label>
                             <select
                                 type="text"
                                 name="traditional"
                                 onChange={onChangeHandler}>
-                                <option
-                                    defaultValue={recipe.kitchen}>
-                                    {recipe.kitchen}
-                                </option>
+                                <option value="Please select">Please select</option>
                                 <option value="Bulgarian">Bulgarian</option>
                                 <option value="German">German</option>
                                 <option value="English">English</option>
                                 <option value="Serbian">Serbian</option>
                             </select>
+                        </div>
+                        <div className={`${styles["level"]} ${styles["flex-col"]} ${styles["select-wrapper"]}  ${styles["after"]}`}>
+                            <label htmlFor="level">Complexity</label>
+                            <select
+                                type="text"
+                                name="level"
+                                onChange={onChangeHandler}>
+                                <option value="Please select">Please select</option>
+                                <option value="Bulgarian">Easy</option>
+                                <option value="German">Average</option>
+                                <option value="English">Complex</option>
+                                <option value="Serbian">Very complex</option>
+                            </select>
+                        </div>
+                        <div className={`${styles["calories"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
+                            <label htmlFor="calories">Calories (in kcal)</label>
+                            <input
+                                type="text"
+                                name="calories"
+                                defaultValue={recipe.calories}
+                                onChange={onChangeHandler}
+                                onBlur={isPositive}
+                            />
+                            {errors.calories && <p className={`${styles["error"]} ${styles["calories"]}`}>Please insert positive number!</p>}
+                        </div>
+                        <div className={`${styles["portions"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
+                            <label htmlFor="portions">Portions</label>
+                            <input
+                                type="text"
+                                name="portions"
+                                defaultValue={recipe.portions}
+                                onChange={onChangeHandler}
+                                onBlur={isPositive}
+                            />
+                        </div>
+                    </div>
+                    <div className={styles["group-wrapper-time"]}>
+                        <div className={`${styles["prep-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
+                            <label htmlFor="prep-time">Prep time (min)</label>
+                            <input
+                                type="text"
+                                name="prep-time"
+                                defaultValue={recipe["prep-time"]}
+                                onChange={onChangeHandler}
+                                onBlur={isPositive}
+                            />
+                            {errors['prep-time'] && <p className={`${styles["error"]} ${styles["prep-time"]}`}>Please insert positive number!</p>}
+                        </div>
+                        <div className={`${styles["cook-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
+                            <label htmlFor="cook-time">Cook time (min)</label>
+                            <input
+                                type="text"
+                                name="cook-time"
+                                defaultValue={recipe["cook-time"]}
+                                onChange={onChangeHandler}
+                                onBlur={isPositive}
+                            />
+                            {errors['cook-time'] && <p className={`${styles["error"]} ${styles["cook-time"]}`}>Please insert positive number!</p>}
                         </div>
                     </div>
                     <div className={`${styles["ingredients"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
@@ -229,90 +293,8 @@ export const EditRecipe = () => {
                         {errors.steps &&
                             <p className={`${styles["error"]} ${styles["steps"]}`}>Cooking steps must be at least 10 characters!</p>}
                     </div>
-                    <div className={styles["group-wrapper"]}>
-                        <div className={`${styles["calories"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
-                            <label htmlFor="calories">Calories (in kcal)</label>
-                            <input
-                                type="text"
-                                name="calories"
-                                defaultValue={recipe.calories}
-                                onChange={onChangeHandler}
-                                onBlur={isPositive}
-                            />
-                            {errors.calories && <p className={`${styles["error"]} ${styles["calories"]}`}>Please insert positive number!</p>}
-                        </div>
-                        <div className={`${styles["prep-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
-                            <label htmlFor="prep-time">Prep time (min)</label>
-                            <input
-                                type="text"
-                                name="prep-time"
-                                defaultValue={recipe["prep-time"]}
-                                onChange={onChangeHandler}
-                                onBlur={isPositive}
-                            />
-                            {errors['prep-time'] && <p className={`${styles["error"]} ${styles["prep-time"]}`}>Please insert positive number!</p>}
-                        </div>
-                        <div className={`${styles["cook-time"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
-                            <label htmlFor="cook-time">Cook time (min)</label>
-                            <input
-                                type="text"
-                                name="cook-time"
-                                defaultValue={recipe["cook-time"]}
-                                onChange={onChangeHandler}
-                                onBlur={isPositive}
-                            />
-                            {errors['cook-time'] && <p className={`${styles["error"]} ${styles["cook-time"]}`}>Please insert positive number!</p>}
-                        </div>
-                    </div>
-                    <div className={styles["group-wrapper"]}>
-                        <div className={`${styles["level"]} ${styles["flex-col"]} ${styles["select-wrapper"]}  ${styles["after"]}`}>
-                            <label htmlFor="level">Complexity</label>
-                            <select
-                                type="text"
-                                name="level"
-                                onChange={onChangeHandler}>
-                                <option
-                                    defaultValue={recipe.level}>
-                                    {recipe.level}
-                                </option>
-                                <option value="Bulgarian">Easy</option>
-                                <option value="German">Average</option>
-                                <option value="English">Complex</option>
-                                <option value="Serbian">Very complex</option>
-                            </select>
-                        </div>
-                        <div className={`${styles["occasion"]} ${styles["flex-col"]} ${styles["select-wrapper"]}  ${styles["after"]}`}>
-                            <label htmlFor="occasion">Good for</label>
-                            <select
-                                type="text"
-                                name="occasion"
-                                onChange={onChangeHandler}>
-                                <option
-                                    defaultValue={recipe.occasion}>
-                                    {recipe.occasion}
-                                </option>
-                                <option value="">Breakfast</option>
-                                <option value="">Lunch</option>
-                                <option value="">Dinner</option>
-                                <option value="">Office</option>
-                                <option value="">On the road</option>
-                                <option value="">School</option>
-                                <option value="">Guests</option>
-                                <option value="">Guests</option>
-                                <option value="">Snack</option>
-                            </select>
-                        </div>
-                        <div className={`${styles["portions"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
-                            <label htmlFor="portions">Portions</label>
-                            <input
-                                type="text"
-                                name="portions"
-                                defaultValue={recipe.portions}
-                                onChange={onChangeHandler}
-                                onBlur={isPositive}
-                            />
-                        </div>
-                    </div>
+
+
                     <input
                         type="submit"
                         value="Edit"
@@ -321,4 +303,41 @@ export const EditRecipe = () => {
             </section>
         </div >
     );
+}
+
+const stringToArray = (string) => {
+    let result = string.split(/\r?\n/);
+    return result;
+}
+
+const caloriesCategory = (cal) => {
+    let caloriesStr = "";
+    if (cal <= 200) {
+        caloriesStr = "up-to-200-kcal"
+    } else if (cal <= 500) {
+        caloriesStr = "up-to-500-kcal"
+    }
+    else if (cal <= 800) {
+        caloriesStr = "up-to-800-kcal"
+    }
+    else {
+        caloriesStr = "more-than-800-kcal"
+    }
+    return caloriesStr;
+}
+
+const cookingTimeCategory = (min) => {
+    let timeStr = "";
+    if (min <= 30) {
+        timeStr = "up-to-30-min"
+    } else if (min <= 60) {
+        timeStr = "up-to-60-min"
+    }
+    else if (min <= 90) {
+        timeStr = "up-to-90-min"
+    }
+    else {
+        timeStr = "more-than-90-min"
+    }
+    return timeStr;
 }

@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 import * as recipeService from '../../../../service/recipeService.js'
 
 export const NewestRecipes = ({  }) => {
-    const [category, setCategory] = useState("All");
-    const [recipess, setRecipes] = useState([]);
+    const [category, setCategory] = useState('tuna');
+    const [recipes, setRecipes] = useState('');
 
     const recipeCategory = (e) => {
         if (e.target.textContent.startsWith("New")) {
@@ -29,7 +29,7 @@ export const NewestRecipes = ({  }) => {
             <Navigation category={recipeCategory} />
 
             <ul className={styles["latest-recipes__grid"]} type="none">
-                {recipess && recipess.map(r =>
+                {recipes && recipes.map(r =>
 
                     <li className={styles["recipe-card"]} key={r._id}>
                         <div className={styles["img-holder"]}>

@@ -63,6 +63,13 @@
     padding: 20px;
 }
 
+.group-wrapper-time {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .group-wrapper .select-wrapper {
     width: 20%;
 }

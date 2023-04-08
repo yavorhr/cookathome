@@ -11,7 +11,7 @@ export const RecipeProvider = ({
     const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
     const navigate = useNavigate();
 
-    const createRecipeHandler = (newRecipe) => {
+    const createRecipe = (newRecipe) => {
         setRecipes(state =>
             [...state,
                 newRecipe]);
@@ -26,7 +26,7 @@ export const RecipeProvider = ({
 
     return (
         <RecipeContext.Provider value={{
-            createRecipeHandler,
+            createRecipe,
             onRecipeEdit,
             recipes
         }}>

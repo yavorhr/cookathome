@@ -11,7 +11,7 @@ import { AuthContext } from '../../context/AuthContext.js';
 
 export const CreateRecipe = ({ }) => {
     const { user } = useContext(AuthContext);
-    const { createRecipeHandler } = useContext(RecipeContext);
+    const { createRecipe } = useContext(RecipeContext);
     const currentRef = useRef();
 
     /* TODO: validation hook for errors, so it can be re-usable to edit page */
@@ -24,7 +24,7 @@ export const CreateRecipe = ({ }) => {
         description: '',
         imageUrl: 0,
         category: '',
-        type: '',
+        'time-of-the-day': '',
         season: '',
         kitchen: '',
         products: '',
@@ -63,7 +63,7 @@ export const CreateRecipe = ({ }) => {
         setInvalidUserInput(false);
 
         const products = stringToArray(recipe.products);
-        const steps = stringToArray(recipe.products);
+        const steps = stringToArray(recipe.steps);
         const cookingTimeStr = cookingTimeCategory(Number(recipe["cook-time"] + Number(recipe["prep-time"])))
         const caloriesStr = caloriesCategory(Number(recipe.calories));
 
@@ -74,11 +74,9 @@ export const CreateRecipe = ({ }) => {
         recipe["cat-by-calories"] = caloriesStr;
         recipe.links = links;
 
-        console.log(links);
-
-        recipeService.createRecipe(recipe, user.accessToken)
+        recipeService.create(recipe)
             .then(result =>
-                createRecipeHandler(result)
+                createRecipe(result)
             )
     }
 
@@ -178,19 +176,6 @@ export const CreateRecipe = ({ }) => {
                             <button disabled={errors.imageUrl} onClick={submitImage} type="submit">upload</button>
                         </div>
                         {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please add up to 8 images</p>}
-
-                        {/* <div className={`${styles["imageUrl"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
-                            <label htmlFor="imageUrl">Recipe URL image</label>
-                            <input
-                                type="text"
-                                placeholder="Insert recipe url here..."
-                                name="imageUrl"
-                                value={values.imageUrl}
-                                onChange={onChangeHandler}
-                                onBlur={validImageUrl} />
-                            {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please insert valid image url!</p>}
-                        </div> */}
-
                         <div className={styles["group-wrapper"]}>
                             <div className={`${styles["category"]} ${styles["select-wrapper"]} ${styles["flex-col"]} ${styles["after"]}`}>
                                 <label htmlFor="category">Category</label>
@@ -229,8 +214,8 @@ export const CreateRecipe = ({ }) => {
                                 <label htmlFor="type">Time of the day</label>
                                 <select
                                     type="text"
-                                    name="type"
-                                    value={values.type}
+                                    name="time-of-the-day"
+                                    value={values['time-of-the-day']}
                                     onChange={onChangeHandler}
                                 >
                                     <option defaultValue="Please select">Please select</option>
@@ -351,23 +336,7 @@ export const CreateRecipe = ({ }) => {
                                     <option value="Chef">Chef</option>
                                 </select>
                             </div>
-                            <div className={`${styles["occasion"]} ${styles["flex-col"]} ${styles["select-wrapper"]}  ${styles["after"]}`}>
-                                <label htmlFor="occasion">Good for</label>
-                                <select
-                                    type="text"
-                                    name="occasion"
-                                    value={values.occasion}
-                                    onChange={onChangeHandler}
-                                >
-                                    <option value="Please select">Please select</option>
-                                    <option value="Office">Office</option>
-                                    <option value="On the road">On the road</option>
-                                    <option value="School">School</option>
-                                    <option value="Guests">Guests</option>
-                                    <option value="Cheat">Cheat</option>
-                                    <option value="No specific occasion">No specific occasion</option>
-                                </select>
-                            </div>
+
                             <div className={`${styles["portions"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
                                 <label htmlFor="portions">Portions</label>
                                 <input

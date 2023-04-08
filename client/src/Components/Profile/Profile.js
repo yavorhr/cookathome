@@ -15,6 +15,8 @@ export const Profile = () => {
     const [favorites, setFavorites] = useState([]);
     const { user } = useContext(AuthContext);
 
+    console.log(user);
+
     useEffect(() => {
         recipeService
             .getRecipeByUserId(user._id)

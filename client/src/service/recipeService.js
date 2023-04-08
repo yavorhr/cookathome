@@ -1,72 +1,17 @@
 
-/* Fetch requests */ 
-
 import * as request from './requester.js'
+
 const baseUrl = 'http://localhost:3030/data/recipes'
 
-/* Get recipes by given argument */ 
+export const getRecipeById = (recipeId) => request.get(`${baseUrl}/${recipeId}`);
+export const getRecipeByUserId = (ownerId) => request.get(`${baseUrl}?where=_ownerId%3D%22${ownerId}%22`);
+export const getRecipeByCategory = (category) => request.get(`${baseUrl}?where=advanced-category%3D%22${category}%22`);
+export const getRecipesByCategoryAndType = (category, type) => request.get(`${baseUrl}?where=${category}%3D%22${type}%22`);
 
-export const getRecipeById = (id) => {
-    return fetch(`${baseUrl}/${id}`)
-        .then(resp => resp.json());
-}
+export const create = (gameData) => request.post(baseUrl, gameData);
+export const remove = (recipeId) => request.del(`${baseUrl}/${recipeId}`);
+export const edit = (recipeId, updatedRecipe) => request.put(`${baseUrl}/${recipeId}`, updatedRecipe);
 
-export const getRecipeByUserId = (ownerId) => {
-    return fetch(`${baseUrl}?where=_ownerId%3D%22${ownerId}%22`)
-        .then(result => result.json())
-}
-
-export const getRecipeByCategory = (category) => {
-    return fetch(`${baseUrl}?where=advanced-category%3D%22${category}%22`)
-        .then(result => result.json())
-}
-
-export const getRecipesByCategoryAndType = (category, type) => {
-    return fetch(`${baseUrl}?where=${category}%3D%22${type}%22`)
-        .then(result => result.json())
-}
-
-/* Create recipe */ 
-
-export const createRecipe = (recipe, accessToken) => {
-    try {
-        return fetch(`${baseUrl}`, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application-json',
-                'X-Authorization': accessToken
-            },
-            body: JSON.stringify(recipe)
-        })
-            .then(resp => resp.json());
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-/* Delete recipe */ 
-
-export const deleteRecipeByid = (recipeId, accessToken) => {
-    return fetch(`${baseUrl}/${recipeId}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-type': 'application-json',
-            'X-Authorization': accessToken
-        }
-    }).then(result => result.json());
-}
-
-/* Update recipe */ 
-
-export const updateRecipe = (recipeId, updatedRecipe, accessToken) => {
-    return fetch(`${baseUrl}/${recipeId}`, {
-        method: 'PUT',
-        headers: {
-            'Content-type': 'application-json',
-            'X-Authorization': accessToken
-        }, body: JSON.stringify(updatedRecipe)
-    }).then(result => result.json());
-}
 
 /* Helper functions and data */
 

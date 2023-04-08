@@ -101,10 +101,9 @@ export const RecipeDetails = () => {
     }
 
     const deleteRecipeHandler = (id) => {
-        recipeService.deleteRecipeByid(id, accessToken);
+        recipeService.remove(id);
         navigate('/');
     }
-
 
     return (
         <>
