@@ -1,9 +1,10 @@
 
 /* Fetch requests */ 
 
+import * as request from './requester.js'
 const baseUrl = 'http://localhost:3030/data/recipes'
 
-/* Get recipe */ 
+/* Get recipes by given argument */ 
 
 export const getRecipeById = (id) => {
     return fetch(`${baseUrl}/${id}`)

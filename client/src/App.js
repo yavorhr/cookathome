@@ -1,12 +1,10 @@
 import './App.css';
 
 import { useFetch } from '../src/hooks/useFetch.js';
-import { useLocalStorage } from './hooks/userLocalStorage.js';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import { AuthContext } from './context/AuthContext.js';
 import { RecipeContext } from './context/RecipeContext.js';
-import * as authService from './service/authService.js';
+import { AuthProvider } from './context/AuthContext.js';
 
 import { HomePage } from "./Components/Home/HomePage.js";
 import { Login } from "./Components/Login/Login.js";
@@ -25,28 +23,16 @@ import { RecipeDetails } from './Components/DetailsRecipe/RecipeDetails.js';
 import { GroceryList } from './Components/GroceryList/GroceryList.js';
 import { Footer } from "./Components/common/Footer/Footer.js";
 import { Navbar } from './Components/common/Navigation/Navbar/Navbar.js';
-import { Recipe } from './Components/Home/RecipeByUser/Recipe/Recipe.js';
 import { Search } from './Components/Search/Search.js';
+import {Logout} from './Components/Logout/Logout.js';
+
 
 function App() {
     const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
     const [articles, setArticles] = useFetch("http://localhost:3030/data/articles", []);
-    const [auth, setAuth] = useLocalStorage('auth', {});
-        
+
     const navigate = useNavigate();
 
-    const userLogin = (userData) => {
-        setAuth(userData);
-        navigate('/')
-    }
-
-    const userLogout = (userData) => {
-        authService
-            .logout(userData.accessToken);
-
-        setAuth({})
-        navigate('/')
-    }
 
     const createRecipeHandler = (newRecipe) => {
         setRecipes(state =>
@@ -60,14 +46,10 @@ function App() {
         setRecipes(state => state.map(r => r._id === recipeId ? updatedRecipe : r));
         navigate(`/details/${recipeId}`)
     }
-    
+
     return (
         <div className="App">
-            <AuthContext.Provider value={{
-                user: auth,
-                userLogout,
-                userLogin,
-            }}>
+            <AuthProvider>
                 <Navbar />
                 <RecipeContext.Provider value=
                     {{
@@ -87,11 +69,11 @@ function App() {
                         <Route path="/edit/:recipeId" element={<EditRecipe />} />
                         <Route path="/recipes/:category/:type" element={<CatalogRecipes recipes={recipes} />} />
                         <Route path="/create/recipe" element={<CreateRecipe />} />
-                        <Route path="/recipes/search" element={<Search/>} />
+                        <Route path="/recipes/search" element={<Search />} />
+                        <Route path="/logout" element={<Logout />} />
                     </Routes>
                 </RecipeContext.Provider>
-            </AuthContext.Provider>
-
+            </AuthProvider>
 
             {/* <CatalogArticles />
             <ArticleCategories></ArticleCategories> */}
@@ -100,9 +82,7 @@ function App() {
             {/* <EditArtice></EditArtice> */}
 
             <Footer />
-
         </div>
-
     );
 }
 

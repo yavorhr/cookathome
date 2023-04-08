@@ -1,19 +1,21 @@
 
 
 import styles from './ProfileDropdown.module.css';
+
 import { useEffect, useState, useRef } from "react";
 import { useContext } from 'react';
 import { AuthContext } from '../../../../context/AuthContext.js';
 
 import { ReactComponent as Arrow } from '../svg/arrow.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const ProfileDropdown = (props) => {
     const [open, setOpen] = useState(false);
     const [openBtn, setOpenBtn] = useState(false);
 
-    const { user, userLogout } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const isLoggedIn = user.email;
+    const navigate = useNavigate();
 
     let className = open ? 'active' : 'inactive';
     let classNameBtn = openBtn ? 'active' : 'inactive';
@@ -40,8 +42,8 @@ export const ProfileDropdown = (props) => {
     }
 
     const handleClick = () => {
-        userLogout(user);
-        openHandler()
+        openHandler();
+        navigate('/logout')
     }
 
     return (
