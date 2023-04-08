@@ -1,22 +1,16 @@
 import './App.css';
 
 import { useFetch } from '../src/hooks/useFetch.js';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import { RecipeProvider } from './context/RecipeContext.js';
 import { AuthProvider } from './context/AuthContext.js';
-
 import { HomePage } from "./Components/Home/HomePage.js";
 import { Login } from "./Components/Login/Login.js";
 import { Register } from "./Components/Register/Register.js";
 import { Profile } from "./Components/Profile/Profile.js";
-import { CatalogArticles } from "./Components/CatalogeArticles/CatalogArticles.js";
 import { CatalogRecipes } from './Components/CatalogRecipes/CatalogRecipes.js';
-import { ArticleDetails } from "./Components/ArticleDetails/ArticleDetails.js";
 import { Favorites } from './Components/Favorites/Favorites.js';
-import { ArticleCategories } from './Components/ArticleCategories/ArticleCategories.js';
-import { CreateArticle } from './Components/CreateArticle/CreateArticle.js';
-import { EditArtice } from './Components/EditArticle/EditArticle.js';
 import { CreateRecipe } from './Components/CreateRecipe/CreateRecipe.js';
 import { EditRecipe } from './Components/EditRecipe/EditRecipe.js';
 import { RecipeDetails } from './Components/DetailsRecipe/RecipeDetails.js';
@@ -25,6 +19,12 @@ import { Footer } from "./Components/common/Footer/Footer.js";
 import { Navbar } from './Components/common/Navigation/Navbar/Navbar.js';
 import { Search } from './Components/Search/Search.js';
 import { Logout } from './Components/Logout/Logout.js';
+
+import { ArticleCategories } from './Components/ArticleCategories/ArticleCategories.js';
+import { CreateArticle } from './Components/CreateArticle/CreateArticle.js';
+import { EditArtice } from './Components/EditArticle/EditArticle.js';
+import { ArticleDetails } from "./Components/ArticleDetails/ArticleDetails.js";
+import { CatalogArticles } from "./Components/CatalogeArticles/CatalogArticles.js";
 
 
 function App() {
