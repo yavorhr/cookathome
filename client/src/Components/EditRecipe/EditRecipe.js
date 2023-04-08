@@ -37,7 +37,7 @@ export const EditRecipe = () => {
 
     useEffect(() => {
         recipeService
-            .getById(recipeId)
+            .getRecipeById(recipeId)
             .then(result => setRecipe(result));
     }, []);
 

@@ -18,7 +18,7 @@ export const Favorites = () => {
 
     useEffect(() => {
         favoritesService
-            .findRecipesByUserId(user._id)
+            .getRecipeByUserId(user._id)
             .then(result =>
                 setRecipes(result));
     }, []);

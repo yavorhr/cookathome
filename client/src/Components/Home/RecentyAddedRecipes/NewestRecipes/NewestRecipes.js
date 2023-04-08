@@ -19,7 +19,7 @@ export const NewestRecipes = ({ recipes }) => {
 
     useEffect(() => {
         recipeService
-            .findRecipesByCategory(category)
+            .getRecipeByCategory(category)
             .then(result => {
                 const sortByCreationDate = recipeService.sortRecipesByCreationDateDesc(result);
                 setRecipes(sortByCreationDate);

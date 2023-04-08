@@ -35,11 +35,11 @@ export const RecipeDetails = () => {
             
         const getRecipeById =
             recipeService
-                .getById(recipeId);
+                .getRecipeById(recipeId);
 
         // Check if User has already add to favorites
         const checkFavoriteRecipesByUserId =
-            favoriteService.findRecipesByUserId(user._id);
+            favoriteService.getRecipeByUserId(user._id);
 
         Promise.all([getRecipeById, checkFavoriteRecipesByUserId])
             .then(data => {

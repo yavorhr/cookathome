@@ -16,7 +16,7 @@ export const addToFavorites = (data, accessToken) => {
     }
 }
 
-export const findRecipesByUserId = (ownerId) => {
+export const getRecipeByUserId = (ownerId) => {
     return fetch(`${baseUrl}?where=_ownerId%3D%22${ownerId}%22`)
         .then(result => result.json())
 }
