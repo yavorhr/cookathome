@@ -4,9 +4,7 @@ import { Navigation } from '../Navigation/Navigation.js';
 import { useEffect, useState } from 'react';
 import * as recipeService from '../../../../service/recipeService.js'
 
-
-
-export const NewestRecipes = ({ recipes }) => {
+export const NewestRecipes = ({  }) => {
     const [category, setCategory] = useState("All");
     const [recipess, setRecipes] = useState([]);
 

@@ -1,12 +1,14 @@
 import styles from './TodayRecipe.module.css';
 
-import { Link } from 'react-router-dom';
-
 import * as recipeService from '../../../service/recipeService.js';
 
-export const TodayRecipe = ({
-    recipes }) => {
+import { Link } from 'react-router-dom';
+import { RecipeContext } from '../../../context/RecipeContext.js';
+import { useContext } from 'react';
 
+export const TodayRecipe = ({ }) => {
+
+    const { recipes } = useContext(RecipeContext);
     const recipe = recipeService.getRandomRecipe(recipes);
 
     return (

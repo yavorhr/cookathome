@@ -3,7 +3,7 @@ import './App.css';
 import { useFetch } from '../src/hooks/useFetch.js';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import { RecipeContext } from './context/RecipeContext.js';
+import { RecipeProvider } from './context/RecipeContext.js';
 import { AuthProvider } from './context/AuthContext.js';
 
 import { HomePage } from "./Components/Home/HomePage.js";
@@ -24,65 +24,43 @@ import { GroceryList } from './Components/GroceryList/GroceryList.js';
 import { Footer } from "./Components/common/Footer/Footer.js";
 import { Navbar } from './Components/common/Navigation/Navbar/Navbar.js';
 import { Search } from './Components/Search/Search.js';
-import {Logout} from './Components/Logout/Logout.js';
+import { Logout } from './Components/Logout/Logout.js';
 
 
 function App() {
-    const [recipes, setRecipes] = useFetch("http://localhost:3030/data/recipes", []);
     const [articles, setArticles] = useFetch("http://localhost:3030/data/articles", []);
 
-    const navigate = useNavigate();
-
-
-    const createRecipeHandler = (newRecipe) => {
-        setRecipes(state =>
-            [...state,
-                newRecipe]);
-
-        navigate(`/details/${newRecipe._id}`)
-    }
-
-    const onRecipeEdit = (recipeId, updatedRecipe) => {
-        setRecipes(state => state.map(r => r._id === recipeId ? updatedRecipe : r));
-        navigate(`/details/${recipeId}`)
-    }
-
     return (
-        <div className="App">
-            <AuthProvider>
+        <AuthProvider>
+            <div className="App">
                 <Navbar />
-                <RecipeContext.Provider value=
-                    {{
-                        createRecipeHandler,
-                        onRecipeEdit,
-                        recipes
-                    }}>
+                <RecipeProvider>
                     <Routes>
-                        <Route path="/" element={<HomePage recipes={recipes} articles={articles} />} />
+                        <Route path="/" element={<HomePage articles={articles} />} />
                         <Route path="/users/login" element={<Login />} />
                         <Route path="/users/register" element={<Register />} />
                         <Route path="/users/profile" element={<Profile />} />
                         <Route path="/favorites" element={<Favorites />} />
                         <Route path="/groecery-list" element={<GroceryList />} />
-                        <Route path="/recipes/:season" element={<CatalogRecipes recipes={recipes} />} />
+                        <Route path="/recipes/:season" element={<CatalogRecipes />} />
                         <Route path="/details/:recipeId" element={<RecipeDetails />} />
                         <Route path="/edit/:recipeId" element={<EditRecipe />} />
-                        <Route path="/recipes/:category/:type" element={<CatalogRecipes recipes={recipes} />} />
+                        <Route path="/recipes/:category/:type" element={<CatalogRecipes />} />
                         <Route path="/create/recipe" element={<CreateRecipe />} />
                         <Route path="/recipes/search" element={<Search />} />
                         <Route path="/logout" element={<Logout />} />
                     </Routes>
-                </RecipeContext.Provider>
-            </AuthProvider>
+                </RecipeProvider>
 
-            {/* <CatalogArticles />
+                {/* <CatalogArticles />
             <ArticleCategories></ArticleCategories> */}
-            {/* <ArticleDetails /> */}
-            {/* <CreateArticle></CreateArticle> */}
-            {/* <EditArtice></EditArtice> */}
+                {/* <ArticleDetails /> */}
+                {/* <CreateArticle></CreateArticle> */}
+                {/* <EditArtice></EditArtice> */}
 
-            <Footer />
-        </div>
+                <Footer />
+            </div>
+        </AuthProvider>
     );
 }
 
