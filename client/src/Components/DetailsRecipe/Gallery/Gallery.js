@@ -43,8 +43,6 @@ export const Gallery = ({
             </div>
         }
 
-        {console.log(images.slice(1))}
-
         <div>
             {images && <img className={styles["profile-image"]}
                 src={images[0]}></img>}

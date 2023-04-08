@@ -30,20 +30,19 @@ export const RecipeDetails = () => {
 
     const isOwner = user._id == recipe._ownerId;
     const accessToken = user.accessToken;
-    useEffect(() => {
 
+    useEffect(() => {
+            
         const getRecipeById =
             recipeService
                 .getById(recipeId);
 
-        // Check if User has already add to favarites
+        // Check if User has already add to favorites
         const checkFavoriteRecipesByUserId =
             favoriteService.findRecipesByUserId(user._id);
 
-        Promise
-            .all([getRecipeById, checkFavoriteRecipesByUserId])
+        Promise.all([getRecipeById, checkFavoriteRecipesByUserId])
             .then(data => {
-
                 setRecipe(data[0]);
 
                 const allFavoriteRecipes = data[1];
@@ -53,11 +52,11 @@ export const RecipeDetails = () => {
                         .some(recipe =>
                             recipe.recipeId == recipeId)
                     && setSavedToFavorites(true)
-
             })
     }, [])
 
-    // Add style if user already added the current recipe to favorites
+    // Add style if user already added the current recipe to favorites;
+
     let className = "";
     if (savedToFavorites) {
         className = "saved-favorites"
