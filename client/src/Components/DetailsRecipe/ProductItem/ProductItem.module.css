@@ -1,15 +1,14 @@
-
 .food-item {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	justify-content: space-between;
 
-	height: 50px;
-	width: 100%;
+	height: 70px;
+	width: 70%;
 
 	padding: 5px 10px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin: 10px auto;
 	border-radius: 0px;
 	border-bottom: 2px solid #d1d3d4;
 	background-color: var(--white);
@@ -19,17 +18,11 @@
 	font-size: 22px;
 	letter-spacing: 1px;
 	cursor: pointer;
-}
-
-.food-item {
-	width: 70%;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 20px;
+	padding: 20px 0px;
 }
 
 .btn-wrapper {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
@@ -45,4 +38,6 @@
 
 .food-item .btn-wrapper .add {
 	background-color: var(--grass-green);
+	position: absolute;
+	right: 5px;
 }

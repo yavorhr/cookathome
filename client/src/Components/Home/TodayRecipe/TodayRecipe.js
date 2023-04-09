@@ -11,6 +11,7 @@ export const TodayRecipe = ({ }) => {
     const { recipes } = useContext(RecipeContext);
     const recipe = recipeService.getRandomRecipe(recipes);
 
+    console.log(recipe);
     return (
         <div className={styles["today-recipe"]}>
             <img src={recipe.links[0].url} alt="" />

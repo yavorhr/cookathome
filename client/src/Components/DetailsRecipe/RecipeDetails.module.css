@@ -294,7 +294,6 @@
 	width: 40px;
 }
 
-
 .food-item .btn-wrapper .add {
 	background-color: var(--grass-green);
 }
@@ -303,6 +302,9 @@
 	background-color: var(--red);
 }
 
+.products-title{
+	text-align: center;
+}
 
 /*
 ==========================

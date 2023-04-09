@@ -10,6 +10,8 @@ export const GroceryList = () => {
     const [products, setProducts] = useState([]);
     const { user } = useContext(AuthContext);
 
+    console.log(products);
+
     useEffect(() => {
         productsService
             .getProductsByUserId(user._id)
@@ -59,21 +61,23 @@ export const GroceryList = () => {
                                 type="text"
                                 name="title"
                                 id="title"
-                                placeholder="Enter task" />
+                                placeholder="Enter product" />
                             <button className={styles["add-task"]}>Add</button>
                         </form>
                     </div>
-                    <ul className={styles["groceries"]}>
-                        {products
-                            .map(p =>
+
+                    {products.length > 0 &&
+                        <ul className={styles["groceries"]}>
+                            {products.map(p =>
                                 <FoodItem
                                     key={p._id}
                                     product={p}
                                     onDeleteProduct={deleteProductHandler}
                                     onToggle={onToggleHandler} >
-                                </FoodItem>)
-                        }
-                    </ul>
+                                </FoodItem>)}
+                        </ul>
+                    }
+
                 </section>
             </div>
         </>

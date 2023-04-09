@@ -212,7 +212,7 @@ export const RecipeDetails = () => {
                         <div className={styles['alert-container']}>
                             <div className={styles['alert-inner']}>Added to shopping list!</div>
                         </div>}
-                    <h2 className={styles["title"]}>Products</h2>
+                    <h2 className={styles["products-title"]}>Needed Products</h2>
 
                     {recipe.products &&
                         recipe.products.map(p =>
