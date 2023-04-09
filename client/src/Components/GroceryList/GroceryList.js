@@ -12,27 +12,27 @@ export const GroceryList = () => {
 
     useEffect(() => {
         productsService
-            .findProductsByUserid(user._id)
+            .getProductsByUserId(user._id)
             .then(result => setProducts((result)));
     }, []);
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        const product = Object.fromEntries(new FormData(e.target));
+        const newProduct = Object.fromEntries(new FormData(e.target));
 
         productsService
-            .addProduct(product, user.accessToken)
+            .addProduct(newProduct)
             .then(result =>
                 setProducts(state =>
                     [...state,
-                     result ])
+                        result])
             );
         e.target.reset();
     }
 
     const deleteProductHandler = (productId) => {
         productsService
-            .deleteProduct(productId, user.accessToken)
+            .removeProduct(productId)
             .then(result =>
                 setProducts(state =>
                     state.filter(p => p._id != productId)))
@@ -43,7 +43,7 @@ export const GroceryList = () => {
         const updatedProduct = { ...product, isCompleted: isCompleted }
 
         productsService
-            .updateProduct(product._id, updatedProduct, user.accessToken)
+            .updateProduct(product._id, updatedProduct)
             .then(result => {
                 setProducts(state => state.map(p => p._id == product._id ? result : p))
             })
