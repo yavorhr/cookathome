@@ -37,7 +37,6 @@ export const CreateRecipe = ({ }) => {
         portions: '',
         'meal-category': ''
     });
-
     const onChangeHandler = (e) => {
         setValues(state => ({
             ...state,
@@ -55,17 +54,20 @@ export const CreateRecipe = ({ }) => {
         const invalidUserInput = Object.values(errors).some(e => Boolean(e))
         const selectMenuErrorOrBlankInput = Object.values(recipe).some(e => e == 'Please select' || e == '');
 
-        console.log(invalidUserInput);
-        console.log(errors);
-
         if (invalidUserInput || selectMenuErrorOrBlankInput) {
             setInvalidUserInput(true);
             return
         }
 
-        if (images.length == 0) {
+        console.log(invalidUserInput);
+        console.log(selectMenuErrorOrBlankInput)
+        console.log(invalidUserInput);;
+
+        if (links.length == 0) {
             setErrors(state => ({ ...state, imageUrl: true }));
             return
+        } else {
+            setErrors(state => ({ ...state, imageUrl: false }));
         }
 
         setInvalidUserInput(false);
@@ -81,7 +83,7 @@ export const CreateRecipe = ({ }) => {
         recipe["cat-by-time"] = cookingTimeStr;
         recipe["cat-by-calories"] = caloriesStr;
         recipe.links = links;
-
+        
         recipeService.create(recipe)
             .then(result =>
                 createRecipe(result)
@@ -95,15 +97,6 @@ export const CreateRecipe = ({ }) => {
         }))
     }
 
-    const uploadImagesCheck = (e, bound) => {
-        setErrors(state => ({
-            ...state,
-            [e.target.name]: e.target.files.length < bound
-        }))
-        console.log(errors);
-        console.log(bound);
-    }
-
     const isPositive = (e) => {
         setErrors(state => ({
             ...state,
@@ -112,9 +105,10 @@ export const CreateRecipe = ({ }) => {
     }
 
     const submitImage = async () => {
-        if (images.length == 0 || images.length > 7) {
-            return;
+        if (images.length > 0) {
+            setErrors(state => ({ ...state, imageUrl: false }))
         }
+
         try {
             let arr = [];
             for (let i = 0; i < images.length; i++) {
@@ -122,6 +116,7 @@ export const CreateRecipe = ({ }) => {
                 arr.push(data);
             }
             setLinks(arr);
+            setErrors(state => ({ ...state, imageUrl: false }))
         } catch (err) {
             console.log(err);
         }
@@ -174,7 +169,7 @@ export const CreateRecipe = ({ }) => {
                                 onChange={(e) =>
                                     setImages(e.target.files)
                                 }
-                                onBlur={(e) => uploadImagesCheck(e, 1)} />
+                            />
                             <button onClick={submitImage} type="submit">upload</button>
                         </div>
                         {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please add up to 8 images</p>}
