@@ -33,7 +33,7 @@ export const NewestRecipes = ({  }) => {
 
                     <li className={styles["recipe-card"]} key={r._id}>
                         <div className={styles["img-holder"]}>
-                            <img src={r.imageUrl} alt="recipe image" />
+                            <img src={r.links[0].url} alt="recipe image" />
                         </div>
                         <div className={styles["recipe-card__info"]}>
                             <h3>

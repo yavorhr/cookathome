@@ -15,7 +15,7 @@ export const CardItem = ({
             <Link to={`/details/${recipe._id}`}>
                 <div className={styles["card-item"]}>
                     <div className={styles["image-holder"]}>
-                        <img className={styles["card-item__img"]} src={recipe.imageUrl} alt="recipe-image" />
+                        <img className={styles["card-item__img"]} src={recipe.links[0].url} alt="recipe-image" />
                     </div>
                     <p className={styles["card-title"]}>{recipe.name}</p>
                     {/* <p className={styles["card-author"]}>{recipe.user["full-name"]}</p> */}
