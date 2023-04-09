@@ -61,9 +61,9 @@ export const RecipeDetails = () => {
         className = "";
     }
 
-    const addToFavorites = (recipe) => {
+    const addToFavoritesHandler = (recipe) => {
         favoriteService
-            .addToFavorites(
+            .addRecipe(
                 {
                     recipeId: recipe._id,
                     name: recipe.name,
@@ -169,7 +169,7 @@ export const RecipeDetails = () => {
                                 <div className={styles["wrapper"]}>
                                     <button
                                         className={`${styles["btn"]} ${styles[className]}`}
-                                        onClick={() => addToFavorites(recipe, accessToken)}
+                                        onClick={() => addToFavoritesHandler(recipe)}
                                         disabled={savedToFavorites}>
                                         <FontAwesomeIcon className={styles["icon"]} icon={faHeart}></FontAwesomeIcon>
                                     </button>

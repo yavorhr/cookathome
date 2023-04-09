@@ -25,7 +25,7 @@ export const Favorites = () => {
     console.log(recipes);
     const removeFromFavoritesById = (recipeId) => {
         favoritesService
-            .removeRecipe(recipeId, user.accessToken)
+            .removeRecipe(recipeId)
             .then(result =>
                 setRecipes(state => state.filter(r => r._id != recipeId)));
     }
