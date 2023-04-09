@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import * as recipeService from '../../../../service/recipeService.js'
 
 export const NewestRecipes = ({  }) => {
-    const [category, setCategory] = useState('tuna');
+    const [category, setCategory] = useState('');
     const [recipes, setRecipes] = useState('');
 
     const recipeCategory = (e) => {

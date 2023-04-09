@@ -26,7 +26,6 @@ export const RecipeDetails = () => {
     const navigate = useNavigate();
 
     const { user } = useContext(AuthContext);
-    const { onRecipeEdit } = useContext(RecipeContext);
 
     const isOwner = user._id == recipe._ownerId;
     const accessToken = user.accessToken;

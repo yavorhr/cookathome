@@ -37,13 +37,15 @@ export const EditRecipe = () => {
         'meal-category': ''
     });
 
-    console.log(values);
-    console.log(recipe);
-
     useEffect(() => {
         recipeService
             .getRecipeById(recipeId)
-            .then(result => setRecipe(result));
+            .then(result =>
+                setRecipe({
+                    ...result,
+                    steps: result.steps.join('\n'),
+                    products: result.products.join("\n")
+                }));
     }, []);
 
     const onEditSubmitHandler = (e) => {
@@ -59,16 +61,14 @@ export const EditRecipe = () => {
 
         setInvalidUserInput(false);
 
-        const products = stringToArray(recipe.products);
-        const steps = stringToArray(recipe.steps);
         const cookingTimeStr = cookingTimeCategory(Number(recipe["cook-time"] + Number(recipe["prep-time"])))
         const caloriesStr = caloriesCategory(Number(recipe.calories));
 
-        recipe.products = products;
-        recipe.steps = steps;
-        recipe.user = { imageUrl: user.imageUrl, "full-name": user["full-name"] }
-        recipe["cat-by-time"] = cookingTimeStr;
-        recipe["cat-by-calories"] = caloriesStr;
+        updatedRecipe.products =  stringToArray(updatedRecipe.products);
+        updatedRecipe.steps = stringToArray(updatedRecipe.steps);
+        updatedRecipe.user = { imageUrl: user.imageUrl, "full-name": user["full-name"] }
+        updatedRecipe["cat-by-time"] = cookingTimeStr;
+        updatedRecipe["cat-by-calories"] = caloriesStr;
 
         recipeService.edit(recipeId, updatedRecipe)
             .then(result => onRecipeEdit(recipeId, result));
@@ -187,7 +187,6 @@ export const EditRecipe = () => {
                                 <option value="Winter">Winter</option>
                             </select>
                         </div>
-
                     </div>
                     <div className={styles["group-wrapper"]}>
 
@@ -266,8 +265,8 @@ export const EditRecipe = () => {
                     <div className={`${styles["ingredients"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                         <label htmlFor="ingredients">Products</label>
                         <textarea
-                            name="ingredients"
-                            id="ingredients"
+                            name="products"
+                            id="products"
                             cols={30}
                             rows={10}
                             placeholder="Enter one product per row (ex. : Potatoes - 1 kg.)"
@@ -293,8 +292,6 @@ export const EditRecipe = () => {
                         {errors.steps &&
                             <p className={`${styles["error"]} ${styles["steps"]}`}>Cooking steps must be at least 10 characters!</p>}
                     </div>
-
-
                     <input
                         type="submit"
                         value="Edit"
@@ -306,7 +303,7 @@ export const EditRecipe = () => {
 }
 
 const stringToArray = (string) => {
-    let result = string.split(/\r?\n/);
+    let result = string.split(/\r?\n/).filter(Boolean);
     return result;
 }
 

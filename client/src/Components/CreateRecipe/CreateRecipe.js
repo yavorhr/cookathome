@@ -38,6 +38,9 @@ export const CreateRecipe = ({ }) => {
         'meal-category': ''
     });
 
+    console.log(invalidUserInput);
+
+
     const onChangeHandler = (e) => {
         setValues(state => ({
             ...state,
@@ -87,16 +90,6 @@ export const CreateRecipe = ({ }) => {
         }))
     }
 
-    // const validImageUrl = (e) => {
-    //     const regex = new RegExp(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i);
-    //     const urlInput = e.target.value;
-
-    //     setErrors(state => ({
-    //         ...state,
-    //         [e.target.name]: !regex.test(urlInput)
-    //     }))
-    // }
-
     const uploadImagesCheck = (imagesCount, bound) => {
         setErrors(state => ({
             ...state,
@@ -126,7 +119,6 @@ export const CreateRecipe = ({ }) => {
             console.log(err);
         }
     }
-
 
     return (
         <>
@@ -363,7 +355,7 @@ export const CreateRecipe = ({ }) => {
 }
 
 const stringToArray = (string) => {
-    let result = string.split(/\r?\n/);
+    let result = string.split(/\r?\n/).filter(Boolean);
     return result;
 }
 
