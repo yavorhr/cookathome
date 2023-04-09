@@ -16,7 +16,7 @@ export const CreateRecipe = ({ }) => {
 
     /* TODO: validation hook for errors, so it can be re-usable to edit page */
     const [invalidUserInput, setInvalidUserInput] = useState(false);
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState({ imageUrl: false });
     const [images, setImages] = useState([]);
     const [links, setLinks] = useState([]);
     const [values, setValues] = useState({
@@ -38,9 +38,6 @@ export const CreateRecipe = ({ }) => {
         'meal-category': ''
     });
 
-    console.log(invalidUserInput);
-
-
     const onChangeHandler = (e) => {
         setValues(state => ({
             ...state,
@@ -58,8 +55,16 @@ export const CreateRecipe = ({ }) => {
         const invalidUserInput = Object.values(errors).some(e => Boolean(e))
         const selectMenuErrorOrBlankInput = Object.values(recipe).some(e => e == 'Please select' || e == '');
 
+        console.log(invalidUserInput);
+        console.log(errors);
+
         if (invalidUserInput || selectMenuErrorOrBlankInput) {
             setInvalidUserInput(true);
+            return
+        }
+
+        if (images.length == 0) {
+            setErrors(state => ({ ...state, imageUrl: true }));
             return
         }
 
@@ -90,11 +95,13 @@ export const CreateRecipe = ({ }) => {
         }))
     }
 
-    const uploadImagesCheck = (imagesCount, bound) => {
+    const uploadImagesCheck = (e, bound) => {
         setErrors(state => ({
             ...state,
-            imageUrl: imagesCount == 0 || imagesCount > bound
+            [e.target.name]: e.target.files.length < bound
         }))
+        console.log(errors);
+        console.log(bound);
     }
 
     const isPositive = (e) => {
@@ -162,10 +169,13 @@ export const CreateRecipe = ({ }) => {
                             <label htmlFor="imageUrl">Please select up to 4 images</label>
                             <input
                                 type="file"
+                                name="imageUrl"
                                 multiple="multiple"
-                                onChange={(e) => setImages(e.target.files)}
-                                onBlur={(e) => uploadImagesCheck(e.target.files.length, 4)} />
-                            <button disabled={errors.imageUrl} onClick={submitImage} type="submit">upload</button>
+                                onChange={(e) =>
+                                    setImages(e.target.files)
+                                }
+                                onBlur={(e) => uploadImagesCheck(e, 1)} />
+                            <button onClick={submitImage} type="submit">upload</button>
                         </div>
                         {errors.imageUrl && <p className={`${styles["error"]} ${styles["imageUrl"]}`}>Please add up to 8 images</p>}
                         <div className={styles["group-wrapper"]}>
