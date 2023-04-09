@@ -8,7 +8,7 @@ import { useContext } from 'react';
 export const RecipeByUser = ({ }) => {
 
     const { recipes } = useContext(RecipeContext);
-    const sortedRecipes = recipeServer.sortRecipesByCreationDateDesc(recipes);
+    const sortedRecipes = recipeServer.sortRecipesByCreationDateDesc(recipes,5);
 
     return (
         <div className={styles["recipe-by-user"]}>

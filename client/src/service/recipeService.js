@@ -86,7 +86,7 @@ export const getRandomRecipe = (recipes) => {
     return randomRecipe;
 }
 
-export const sortRecipesByCreationDateDesc = (recipesArray) => {
+export const sortRecipesByCreationDateDesc = (recipesArray, count) => {
 
     let result = [];
     result = [...recipesArray];
@@ -100,7 +100,7 @@ export const sortRecipesByCreationDateDesc = (recipesArray) => {
         }
         return 0;
     }
-    return result.sort(compare).splice(0, 5);
+    return result.sort(compare).splice(0, count);
 }
 
 export const findRecipesBySeason = (season) => {

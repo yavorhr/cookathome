@@ -19,7 +19,7 @@ export const NewestRecipes = () => {
         recipeService
             .getRecipeByCategory(category)
             .then(result => {
-                const sortByCreationDate = recipeService.sortRecipesByCreationDateDesc(result);
+                const sortByCreationDate = recipeService.sortRecipesByCreationDateDesc(result, 3);
                 setRecipes(sortByCreationDate);
             });
     }, [category])
