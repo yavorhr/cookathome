@@ -1451,7 +1451,12 @@
                 ,
                 'portions': '4',
                 '_createdOn': 1680629234920,
-                'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1680629144/Cook%20at%20home/dishes/Meatballs_ea3tas.jpg',
+                'links':
+                    [{ 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1680629144/Cook%20at%20home/dishes/Meatballs_ea3tas.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681048893/Cook%20at%20home/dishes/Meatballs_2_dzblpt.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681048894/Cook%20at%20home/dishes/Mearballs_3_obuuj9.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681048893/Cook%20at%20home/dishes/Meatballs_4_yv91vb.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681048894/Cook%20at%20home/dishes/Meatballs_5_ie7k0p.jpg' }],
                 'user': {
                     'full-name': 'John Genadiev Aleksiev',
                     'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg'
@@ -1490,7 +1495,11 @@
                 ,
                 'portions': '1',
                 '_createdOn': 1617194295474,
-                'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1679420831/Cook%20at%20home/dishes/Tarator_jla2ds.jpg',
+                'links':
+                    [{ 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1679420831/Cook%20at%20home/dishes/Tarator_jla2ds.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681048282/Cook%20at%20home/dishes/Tarator_2_upd4zw.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681048282/Cook%20at%20home/dishes/Tarator_3_qoiolx.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681048283/Cook%20at%20home/dishes/Tarator_4_iuf2n6.jpg' }],
                 'user': {
                     'full-name': 'John Genadiev Aleksiev',
                     'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg'
@@ -1543,7 +1552,13 @@
                 ,
                 'portions': '6',
                 '_createdOn': 1617194295474,
-                'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1679505438/Cook%20at%20home/dishes/Spaghetti_bolognese_rvfixq.jpg',
+                'links':
+                    [{ 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1679505438/Cook%20at%20home/dishes/Spaghetti_bolognese_rvfixq.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681049421/Cook%20at%20home/dishes/Spaghetti_Bolognese_6_le1ipo.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681049421/Cook%20at%20home/dishes/Spaghetti_Bolognese_4_taecdt.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681049420/Cook%20at%20home/dishes/Spaghetti_Bolognese_2_mvzkxd.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681049420/Cook%20at%20home/dishes/Spaghetti_Bolognese_5_yguthz.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681049421/Cook%20at%20home/dishes/Spaghetti_Bolognese_3_ofmbhg.jpg' }],
                 'user': {
                     'full-name': 'Peter Georgiev Ivanov',
                     'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Users/user_4_wruxoc.jpg',
@@ -1591,7 +1606,11 @@
                 ,
                 'portions': '4',
                 '_createdOn': 1617194295474,
-                'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1679505373/Cook%20at%20home/dishes/instant-pot-chicken-potatoes-2_oiunh2.jpg',
+                'links':
+                    [{ 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681049813/Cook%20at%20home/dishes/Greek_chicken_4_zgmfu4.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681049813/Cook%20at%20home/dishes/Greek_chicken_upr9ae.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681049813/Cook%20at%20home/dishes/Greek_chicken_2_vd1acf.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681049813/Cook%20at%20home/dishes/Greek_chicken_3_ouhwhi.jpg' },],
                 'user': {
                     'full-name': 'Peter Georgiev Ivanov',
                     'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Users/user_4_wruxoc.jpg',
