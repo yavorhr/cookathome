@@ -63,7 +63,6 @@ export const CreateRecipe = ({ }) => {
             setErrors(state => ({ ...state, imageUrl: false }))
         }
 
-        console.log(errors);
         if (invalidUserInput || selectMenuErrorOrBlankInput) {
             setInvalidUserInput(true);
             return

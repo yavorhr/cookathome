@@ -1402,14 +1402,14 @@
                 ,
                 'portions': '6',
                 '_createdOn': 1617194295474,
-                'links': ['https://res.cloudinary.com/yavorhr/image/upload/v1679419931/Cook%20at%20home/dishes/Moussaka_grgzth.jpg',
-                    'https://res.cloudinary.com/yavorhr/image/upload/v1680886152/Cook%20at%20home/dishes/Musaka2_jnycbp.jpg',
-                    'https://res.cloudinary.com/yavorhr/image/upload/v1680886151/Cook%20at%20home/dishes/Musaka3_kzfurw.jpg',
-                    'https://res.cloudinary.com/yavorhr/image/upload/v1680886151/Cook%20at%20home/dishes/Musaka4_sjx5tz.jpg',
-                    'https://res.cloudinary.com/yavorhr/image/upload/v1680886151/Cook%20at%20home/dishes/Musaka5_q1yk5f.jpg',
-                    'https://res.cloudinary.com/yavorhr/image/upload/v1680886151/Cook%20at%20home/dishes/Musaka6_kthbwi.jpg',
-                    'https://res.cloudinary.com/yavorhr/image/upload/v1680886154/Cook%20at%20home/dishes/Musaka7_uo7iod.jpg',
-                    'https://res.cloudinary.com/yavorhr/image/upload/v1680886151/Cook%20at%20home/dishes/Musaka8_i3gicg.jpg'
+                'links': [{ 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1679419931/Cook%20at%20home/dishes/Moussaka_grgzth.jpg' },
+                { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1680886152/Cook%20at%20home/dishes/Musaka2_jnycbp.jpg' },
+                { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1680886151/Cook%20at%20home/dishes/Musaka3_kzfurw.jpg' },
+                { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1680886151/Cook%20at%20home/dishes/Musaka4_sjx5tz.jpg' },
+                { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1680886151/Cook%20at%20home/dishes/Musaka5_q1yk5f.jpg' },
+                { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1680886151/Cook%20at%20home/dishes/Musaka6_kthbwi.jpg' },
+                { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1680886154/Cook%20at%20home/dishes/Musaka7_uo7iod.jpg' },
+                { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1680886151/Cook%20at%20home/dishes/Musaka8_i3gicg.jpg' }
                 ],
                 'user': {
                     'full-name': 'John Genadiev Aleksiev',

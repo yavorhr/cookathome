@@ -21,7 +21,6 @@ export const EditRecipe = () => {
     const [values, setValues] = useState({
         name: '',
         description: '',
-        imageUrl: 0,
         category: '',
         'time-of-the-day': '',
         season: '',
@@ -52,19 +51,27 @@ export const EditRecipe = () => {
         e.preventDefault();
 
         const updatedRecipe = Object.fromEntries(new FormData(e.target));
-        const invalidUserInput = Object.values(errors).some(e => Boolean(e))
 
-        if (invalidUserInput) {
+        const invalidUserInput = Object.values(errors).some(e => Boolean(e));
+        const selectMenuErrorOrBlankInput = Object.values(updatedRecipe).some(e => e == 'Please select' || e == '');
+
+        console.log(errors);
+
+        if (invalidUserInput || selectMenuErrorOrBlankInput) {
             setInvalidUserInput(true);
             return
         }
+
+        console.log(invalidUserInput);
+        console.log(selectMenuErrorOrBlankInput);
 
         setInvalidUserInput(false);
 
         const cookingTimeStr = cookingTimeCategory(Number(recipe["cook-time"] + Number(recipe["prep-time"])))
         const caloriesStr = caloriesCategory(Number(recipe.calories));
 
-        updatedRecipe.products =  stringToArray(updatedRecipe.products);
+        updatedRecipe.links = recipe.links;
+        updatedRecipe.products = stringToArray(updatedRecipe.products);
         updatedRecipe.steps = stringToArray(updatedRecipe.steps);
         updatedRecipe.user = { imageUrl: user.imageUrl, "full-name": user["full-name"] }
         updatedRecipe["cat-by-time"] = cookingTimeStr;
@@ -297,6 +304,7 @@ export const EditRecipe = () => {
                         value="Edit"
                         className={styles["submit-edit-btn"]} />
                 </form>
+                {invalidUserInput && <p className={`${styles["error"]} ${styles["select-menu"]}`}>You have missing fields or incorrect input!</p>}
             </section>
         </div >
     );
