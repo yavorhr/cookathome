@@ -54,7 +54,6 @@ export const RecipeDetails = () => {
     }, [])
 
     // Add style if user already added the current recipe to favorites;
-
     let className = "";
     if (savedToFavorites) {
         className = "saved-favorites"
@@ -62,15 +61,14 @@ export const RecipeDetails = () => {
         className = "";
     }
 
-    console.log(recipe);
-    const addToFavorites = (recipe, accessToken) => {
+    const addToFavorites = (recipe) => {
         favoriteService
             .addToFavorites(
                 {
                     recipeId: recipe._id,
                     name: recipe.name,
                     description: recipe.description,
-                    imageUrl: recipe.imageUrl,
+                    imageUrl: recipe.links[0].url,
                     'cook-time': recipe['cook-time'],
                 }, accessToken)
             .then(result =>

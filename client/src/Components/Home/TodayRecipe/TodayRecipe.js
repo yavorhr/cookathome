@@ -13,7 +13,7 @@ export const TodayRecipe = ({ }) => {
 
     return (
         <div className={styles["today-recipe"]}>
-            <img src={recipe.imageUrl} alt="" />
+            <img src={recipe.links[0].url} alt="" />
             <article>
                 <p className={styles["today-recipe__title"]}>Vegeterian Dinner </p>
                 <h2>{recipe.name}</h2>

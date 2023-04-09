@@ -2,7 +2,6 @@ import styles from './Favorites.module.css'
 
 import { AuthContext } from '../../context/AuthContext.js';
 import { useContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faClock, faV } from '@fortawesome/free-solid-svg-icons';
@@ -14,7 +13,7 @@ export const Favorites = () => {
     const [recipes, setRecipes] = useState([]);
     const { user } = useContext(AuthContext);
 
-    const navigate = useNavigate();
+    console.log(recipes);
 
     useEffect(() => {
         favoritesService

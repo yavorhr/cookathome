@@ -1,3 +1,6 @@
+
+import * as request from './requester.js'
+
 const baseUrl = "http://localhost:3030/data/favorites";
 
 export const addToFavorites = (data, accessToken) => {
@@ -8,7 +11,7 @@ export const addToFavorites = (data, accessToken) => {
                 'Content-type': 'application-json',
                 'X-Authorization': accessToken
             },
-            body: JSON.stringify( data )
+            body: JSON.stringify(data)
         })
             .then(resp => resp.json());
     } catch (error) {
