@@ -31,7 +31,6 @@ export const RecipeDetails = () => {
     const accessToken = user.accessToken;
 
     useEffect(() => {
-            
         const getRecipeById =
             recipeService
                 .getRecipeById(recipeId);

@@ -37,6 +37,7 @@ export const CreateRecipe = ({ }) => {
         portions: '',
         'meal-category': ''
     });
+
     const onChangeHandler = (e) => {
         setValues(state => ({
             ...state,
@@ -51,23 +52,21 @@ export const CreateRecipe = ({ }) => {
 
         const recipe = Object.fromEntries(new FormData(e.target));
 
-        const invalidUserInput = Object.values(errors).some(e => Boolean(e))
+        const invalidUserInput = Object.values(errors).some(e => Boolean(e));
         const selectMenuErrorOrBlankInput = Object.values(recipe).some(e => e == 'Please select' || e == '');
 
+        if (links.length == 0) {
+            setInvalidUserInput(true);
+            setErrors(state => ({ ...state, imageUrl: true }))
+            return;
+        } else {
+            setErrors(state => ({ ...state, imageUrl: false }))
+        }
+
+        console.log(errors);
         if (invalidUserInput || selectMenuErrorOrBlankInput) {
             setInvalidUserInput(true);
             return
-        }
-
-        console.log(invalidUserInput);
-        console.log(selectMenuErrorOrBlankInput)
-        console.log(invalidUserInput);;
-
-        if (links.length == 0) {
-            setErrors(state => ({ ...state, imageUrl: true }));
-            return
-        } else {
-            setErrors(state => ({ ...state, imageUrl: false }));
         }
 
         setInvalidUserInput(false);
@@ -83,7 +82,7 @@ export const CreateRecipe = ({ }) => {
         recipe["cat-by-time"] = cookingTimeStr;
         recipe["cat-by-calories"] = caloriesStr;
         recipe.links = links;
-        
+
         recipeService.create(recipe)
             .then(result =>
                 createRecipe(result)
@@ -105,10 +104,9 @@ export const CreateRecipe = ({ }) => {
     }
 
     const submitImage = async () => {
-        if (images.length > 0) {
-            setErrors(state => ({ ...state, imageUrl: false }))
+        if (images.length == 0) {
+            return
         }
-
         try {
             let arr = [];
             for (let i = 0; i < images.length; i++) {
@@ -116,7 +114,8 @@ export const CreateRecipe = ({ }) => {
                 arr.push(data);
             }
             setLinks(arr);
-            setErrors(state => ({ ...state, imageUrl: false }))
+            setInvalidUserInput(false);
+            setErrors(state => ({...state, imageUrl : false}))
         } catch (err) {
             console.log(err);
         }
@@ -253,7 +252,6 @@ export const CreateRecipe = ({ }) => {
                                 </select>
                             </div>
                         </div>
-
                         <div className={`${styles["ingredients"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
                             <label htmlFor="products">Ingredients</label>
                             <textarea
