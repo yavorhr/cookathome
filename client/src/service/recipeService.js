@@ -90,12 +90,12 @@ export const sortRecipesByCreationDateDesc = (recipesArray) => {
 
     let result = [];
     result = [...recipesArray];
-
+    
     function compare(a, b) {
-        if (formatDate(a.createdOn) < formatDate(b.createdOn)) {
+        if (formatDate(a._createdOn) < formatDate(b._createdOn)) {
             return -1;
         }
-        if (formatDate(a.createdOn) > formatDate(b.createdOn)) {
+        if (formatDate(a._createdOn) > formatDate(b._createdOn)) {
             return 1;
         }
         return 0;
