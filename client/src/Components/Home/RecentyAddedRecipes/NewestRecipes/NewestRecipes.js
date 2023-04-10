@@ -30,10 +30,9 @@ export const NewestRecipes = () => {
 
             <ul className={styles["latest-recipes__grid"]} type="none">
                 {recipes && recipes.map(r =>
-
                     <li className={styles["recipe-card"]} key={r._id}>
                         <div className={styles["img-holder"]}>
-                            <img src={r.links[0].url} alt="recipe image" />
+                            <img src={r["profile-image"]} alt="recipe image" />
                         </div>
                         <div className={styles["recipe-card__info"]}>
                             <h3>

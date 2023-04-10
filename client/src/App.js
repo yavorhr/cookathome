@@ -20,13 +20,6 @@ import { Navbar } from './Components/common/Navigation/Navbar/Navbar.js';
 import { Search } from './Components/Search/Search.js';
 import { Logout } from './Components/Logout/Logout.js';
 
-import { ArticleCategories } from './Components/ArticleCategories/ArticleCategories.js';
-import { CreateArticle } from './Components/CreateArticle/CreateArticle.js';
-import { EditArtice } from './Components/EditArticle/EditArticle.js';
-import { ArticleDetails } from "./Components/ArticleDetails/ArticleDetails.js";
-import { CatalogArticles } from "./Components/CatalogeArticles/CatalogArticles.js";
-
-
 function App() {
     const [articles, setArticles] = useFetch("http://localhost:3030/data/articles", []);
 
@@ -51,13 +44,6 @@ function App() {
                         <Route path="/logout" element={<Logout />} />
                     </Routes>
                 </RecipeProvider>
-
-                {/* <CatalogArticles />
-            <ArticleCategories></ArticleCategories> */}
-                {/* <ArticleDetails /> */}
-                {/* <CreateArticle></CreateArticle> */}
-                {/* <EditArtice></EditArtice> */}
-
                 <Footer />
             </div>
         </AuthProvider>
