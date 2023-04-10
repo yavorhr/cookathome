@@ -30,34 +30,36 @@ export const Gallery = ({
         slideNumber + 1 === images.length ? setSlideNumber(0) : setSlideNumber(slideNumber + 1);
     }
 
-    return <article className={styles["gallery-article"]}>
-        {
-            openModal &&
-            <div className={styles["sliderwrap"]}>
-                <FontAwesomeIcon className={styles["btnClose"]} icon={faCircleXmark} onClick={handleCloseModal} />
-                <FontAwesomeIcon className={styles["btnPrev"]} icon={faCircleChevronLeft} onClick={prevSlide} />
-                <FontAwesomeIcon className={styles["btnNext"]} icon={faCircleChevronRight} onClick={nextSlide} />
-                <div className={styles["full-screen-image"]}>
-                    <img src={images[slideNumber].url} alt="" />
-                </div>
-            </div>
-        }
-
-        <div>
-            {images && <img className={styles["profile-image"]}
-                src={images[0].url}></img>}
-        </div>
-        <div className={styles["gallery-wrap"]}>
+    return (
+        <article className={styles["gallery-article"]}>
             {
-                images && images.length > 1 && images.slice(1).map((image, index) => {
-                    return <div
-                        key={index}
-                        className={styles["single"]}
-                        onClick={() => handleOpenModal(index)}>
-                        <img src={image.url} alt="" />
+                openModal &&
+                <div className={styles["sliderwrap"]}>
+                    <FontAwesomeIcon className={styles["btnClose"]} icon={faCircleXmark} onClick={handleCloseModal} />
+                    <FontAwesomeIcon className={styles["btnPrev"]} icon={faCircleChevronLeft} onClick={prevSlide} />
+                    <FontAwesomeIcon className={styles["btnNext"]} icon={faCircleChevronRight} onClick={nextSlide} />
+                    <div className={styles["full-screen-image"]}>
+                        <img src={images[slideNumber].url} alt="" />
                     </div>
-                })
+                </div>
             }
-        </div>
-    </article>
+
+            <div>
+                {images && <img className={styles["profile-image"]}
+                    src={images[0].url}></img>}
+            </div>
+            <div className={styles["gallery-wrap"]}>
+                {
+                    images && images.length > 1 && images.map((image, index) => {
+                        return <div
+                            key={index}
+                            className={styles["single"]}
+                            onClick={() => handleOpenModal(index)}>
+                            <img src={image.url} alt="" />
+                        </div>
+                    })
+                }
+            </div>
+        </article>
+    )
 }

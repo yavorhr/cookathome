@@ -10,18 +10,22 @@ export const TodayRecipe = ({ }) => {
 
     const { recipes } = useContext(RecipeContext);
     const recipe = recipeService.getRandomRecipe(recipes);
-    
-    /*TODO: To check recipe.links issue*/ 
 
     return (
-        <div className={styles["today-recipe"]}>
-            {/* <img src={recipe && recipe.links[0].url} alt="" /> */}
-            <article>
-                <p className={styles["today-recipe__title"]}>Vegeterian Dinner </p>
-                <h2>{recipe.name}</h2>
-                <p className={styles["today-recipe__descr"]}>Dignissimos culpa aliquid ad nulla nemo, esse unde iusto beatae facilis
-                    quia, minima assumenda.</p>
-                <Link to={`/details/${recipe._id}`}>Get the recipe</Link>
-            </article>
-        </div>);
+        < div className={styles["today-recipe"]} >
+            <>
+                <img src={recipe["profile-image"]} alt={''} />
+                <article>
+                    <p className={styles["today-recipe__title"]}>Vegeterian Dinner </p>
+                    <h2>{recipe.name}</h2>
+                    <p className={styles["today-recipe__descr"]}>Dignissimos culpa aliquid ad nulla nemo, esse unde iusto beatae facilis
+                        quia, minima assumenda.</p>
+                    <Link to={`/details/${recipe._id}`}>Get the recipe</Link>
+                </article>
+            </>
+
+
+
+        </div >
+    );
 }

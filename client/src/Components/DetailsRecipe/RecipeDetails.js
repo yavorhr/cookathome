@@ -68,7 +68,7 @@ export const RecipeDetails = () => {
                     recipeId: recipe._id,
                     name: recipe.name,
                     description: recipe.description,
-                    imageUrl: recipe.links[0].url,
+                    imageUrl: recipe["profile-image"],
                     'cook-time': recipe['cook-time'],
                 }, accessToken)
             .then(result =>
