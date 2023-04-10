@@ -1,6 +1,6 @@
 import styles from './HomePage.module.css';
 
-import { GalleryArticles } from './GalleryArticles/GalleryArticles.js';
+import { GalleryArticles } from './GalleryArticles/GalleryRecipes.js';
 import { TodayRecipe } from './TodayRecipe/TodayRecipe.js';
 import { RecipeByUser } from './RecipeByUser/RecipeByUser.js';
 import { NewestRecipes } from './RecentyAddedRecipes/NewestRecipes/NewestRecipes.js';
