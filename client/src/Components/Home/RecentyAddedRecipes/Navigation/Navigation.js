@@ -8,34 +8,26 @@ export const Navigation = ({
     return (
         <nav className={styles["navigation"]}>
             <ul type="none" onClick={(e) => category(e)}>
-                <span>New recipes</span>
+                <li>New recipes</li>
                 <li>
-                    Tuna
+                    Category
                 </li>
                 <li>
-                    Pork
+                    Level
                 </li>
                 <li>
-                    Beef
+                    Kitchen
                 </li>
                 <li>
-                    Chicken
+                    Calories
                 </li>
                 <li>
-                    Lamb
+                    Season
                 </li>
                 <li>
-                    Pasta
+                    By time
                 </li>
-                <li>
-                    Fruits
-                </li>
-                <li>
-                    Vegetables
-                </li>
-                <li>
-                    Rice
-                </li>
+
             </ul>
         </nav>);
 }

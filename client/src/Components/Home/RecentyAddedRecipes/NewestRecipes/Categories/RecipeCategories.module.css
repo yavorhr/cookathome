@@ -1,0 +1,9 @@
+.category {
+    color: black;
+}
+
+.categories-list {
+    display: flex;
+    gap: 10px;
+    margin-left: 150px;
+}

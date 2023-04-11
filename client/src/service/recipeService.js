@@ -59,7 +59,7 @@ export const urlMappingDataRecipes = [
             ['/recipes/level/beginner',
                 '/recipes/level/intermediate',
                 '/recipes/level/advanced',
-                '/recipes/level/chef',]
+                '/recipes/level/chef']
     }
     ,
     {

@@ -1,19 +1,16 @@
 import styles from './HomePage.module.css';
 
-import { GalleryArticles } from './GalleryArticles/GalleryRecipes.js';
+import { GalleryRecipes } from './GalleryRecipes/GalleryRecipes.js';
 import { TodayRecipe } from './TodayRecipe/TodayRecipe.js';
 import { RecipeByUser } from './RecipeByUser/RecipeByUser.js';
 import { NewestRecipes } from './RecentyAddedRecipes/NewestRecipes/NewestRecipes.js';
 
 export const HomePage = ({
-    articles,
-    recipes }) => {
+   recipes }) => {
 
-    
     return (
         <>
-            <GalleryArticles articles={articles} />
-
+            <GalleryRecipes recipes={recipes} />
             <section className={styles['hero']}>
                 <TodayRecipe recipes={recipes} />
                 <RecipeByUser recipes={recipes} />
