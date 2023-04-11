@@ -18,7 +18,7 @@
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-  transform: translateX(-7%);
+  transform: translateX(-9%);
   transition: var(--speed) ease;
 }
 
@@ -30,16 +30,17 @@
 }
 
 .dropdown-create-btn {
-  top: 27px;
+  top: 40px;
   width: 170px;
 }
 
 .dropdown-create-btn.active {
-  transform: translateX(70%);
+  transform: translateX(68%);
 }
 
 .dropdown-create-btn.inactive {
   transform: translateX(44%);
+  
 }
 
 .dropdown .link-item {

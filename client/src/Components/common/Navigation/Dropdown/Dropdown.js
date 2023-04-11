@@ -1,12 +1,12 @@
 
 
 import styles from './Dropdown.module.css';
+
 import { useState, useEffect, useRef } from "react";
 import { Link } from 'react-router-dom';
 import { DropdownMenu } from "../DropdownMenu/DropdownMenu.js"
 
 import { urlMappingDataRecipes } from '../../../../service/recipeService.js';
-import { urlMappingDataArticles } from '../../../../service/articleService.js';
 
 export const Dropdown = (props) => {
     const [open, setOpen] = useState(false);
@@ -43,10 +43,6 @@ export const Dropdown = (props) => {
                 {open && props.title === 'Recipes' &&
                     <DropdownMenu
                         data={urlMappingDataRecipes}
-                        onClickHandler={clickHandler} />}
-                {open && props.title === 'Articles' &&
-                    <DropdownMenu
-                        data={urlMappingDataArticles}
                         onClickHandler={clickHandler} />}
             </li>
 

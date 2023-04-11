@@ -81,10 +81,6 @@ export const ProfileDropdown = (props) => {
                                 className={styles["link-item"]}
                                 to="/create/recipe"
                                 onClick={openHandler}>Create Recipe</Link>
-                            <Link
-                                className={styles["link-item"]}
-                                to="/create/recipe"
-                                onClick={openHandler}>Create Article</Link>
                         </div>
                     </>
 

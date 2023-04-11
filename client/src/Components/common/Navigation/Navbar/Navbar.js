@@ -8,7 +8,6 @@ import { ReactComponent as Favorites } from '../svg/favorites.svg';
 import { ReactComponent as Bag } from '../svg//bag.svg';
 import { ReactComponent as Profile } from '../svg//profile3.svg';
 import { ReactComponent as Recipes } from '../svg/ladle.svg';
-import { ReactComponent as Articles } from '../svg/write.svg';
 import { ReactComponent as Search } from '../svg/search.svg';
 
 import { Dropdown } from "../Dropdown/Dropdown.js";
@@ -34,13 +33,11 @@ export const Navbar = () => {
                         <>
                             <NavItem url='/favorites' icon={<Favorites />} />
                             <NavItem url='/groecery-list' icon={<Bag />} />
+                            <Dropdown icon={<Recipes />} title='Recipes' />
                         </>
                     }
                 </div>
-                <div className={styles["wrapper-dropdown"]}>
-                    <Dropdown icon={<Recipes />} title='Recipes' />
-                    <Dropdown icon={<Articles />} title='Articles' />
-                </div>
+             
 
                 <div className={styles["wrapper"]}>
                     <article className={styles["sign-wrapper"]}>
