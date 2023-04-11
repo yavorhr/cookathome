@@ -7,20 +7,20 @@ import { Navigation } from '../Navigation/Navigation.js';
 import * as recipeService from '../../../../service/recipeService.js'
 
 import { RecipeContext } from '../../../../context/RecipeContext.js';
-import { RecipeCategories } from './Categories/RecipeCategories.js';
+import { CategoriesList } from './ListCategories/CategoriesList.js';
 
 export const NewestRecipes = () => {
-    const { recipes } = useContext(RecipeContext);
-
-    const [category, setCategory] = useState('');
+    const [category, setCategory] = useState('all');
     const [type, setType] = useState('');
     const [recipesByCat, setRecipesByCat] = useState([]);
+
+    const { recipes } = useContext(RecipeContext);
 
     useEffect(() => {
         recipeService
             .getRecipesByCategoryAndType(category, type)
             .then(result => setRecipesByCat(result));
-    }, [type])
+    }, [type]);
 
     const recipeCategory = (e) => {
         if (e.target.textContent == "New recipes") {
@@ -41,40 +41,40 @@ export const NewestRecipes = () => {
     return (
         <>
             <Navigation category={recipeCategory} />
-            <RecipeCategories onSelect={onTypeSelect} filter={category} />
+            <CategoriesList onSelect={onTypeSelect} filter={category} />
 
             <ul className={styles["latest-recipes__grid"]} type="none">
 
-            {recipesByCat.length > 0 
-            ? recipesByCat.map(r =>
-                    <li className={styles["recipe-card"]} key={r._id}>
-                        <div className={styles["img-holder"]}>
-                            <img src={r["profile-image"]} alt="recipe image" />
-                        </div>
-                        <div className={styles["recipe-card__info"]}>
-                            <h3>
-                                <Link to={`/details/${r._id}`}>{r.name}</Link>
-                            </h3>
-                            <p>{recipeService.formatDate(r._createdOn)}<span href="">{r.user["full-name"]}</span> </p>
-                        </div>
-                    </li>
-                ) : recipes.map(r =>
-                    <li className={styles["recipe-card"]} key={r._id}>
-                        <div className={styles["img-holder"]}>
-                            <img src={r["profile-image"]} alt="recipe image" />
-                        </div>
-                        <div className={styles["recipe-card__info"]}>
-                            <h3>
-                                <Link to={`/details/${r._id}`}>{r.name}</Link>
-                            </h3>
-                            <p>{recipeService.formatDate(r._createdOn)}<span href="">{r.user["full-name"]}</span> </p>
-                        </div>
-                    </li>)
+                {recipesByCat.length > 0
+                    ? recipesByCat.map(r =>
+                        <li className={styles["recipe-card"]} key={r._id}>
+                            <div className={styles["img-holder"]}>
+                                <img src={r["profile-image"]} alt="recipe image" />
+                            </div>
+                            <div className={styles["recipe-card__info"]}>
+                                <h3>
+                                    <Link to={`/details/${r._id}`}>{r.name}</Link>
+                                </h3>
+                                <p>{recipeService.formatDate(r._createdOn)}<span href="">{r.user["full-name"]}</span> </p>
+                            </div>
+                        </li>
+                    ) : recipes.map(r =>
+                        <li className={styles["recipe-card"]} key={r._id}>
+                            <div className={styles["img-holder"]}>
+                                <img src={r["profile-image"]} alt="recipe image" />
+                            </div>
+                            <div className={styles["recipe-card__info"]}>
+                                <h3>
+                                    <Link to={`/details/${r._id}`}>{r.name}</Link>
+                                </h3>
+                                <p>{recipeService.formatDate(r._createdOn)}<span href="">{r.user["full-name"]}</span> </p>
+                            </div>
+                        </li>)
                 }
 
-      
 
-               
+
+
             </ul>
         </>
 

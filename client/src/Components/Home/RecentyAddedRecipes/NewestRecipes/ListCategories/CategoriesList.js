@@ -1,25 +1,23 @@
 import uuid from 'react-uuid';
 
-import { useEffect, useState, useContext } from 'react';
 
-import styles from './RecipeCategories.module.css';
-import { Category } from './Category/Category.js';
+import styles from './CategoriesList.module.css';
+import { Category } from '../Category/Category.js';
 
-export const RecipeCategories = ({
+export const CategoriesList = ({
   filter,
   onSelect }) => {
-  const [open, setOpen] = useState(false);
 
   return (
-    < ul className={styles["categories-list"]} >
+    <ul className={styles["categories-list"]} >
       {categories[filter] &&
 
         categories[filter].map(c =>
           <Category key={uuid()}
             filter={filter}
             data={c}
-            onSelect={onSelect} 
-            />
+            onSelect={onSelect}
+          />
         )}
     </ul>
   )

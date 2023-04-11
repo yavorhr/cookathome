@@ -1,13 +1,15 @@
-.navigation li {
+.navigation .cat-link {
 	text-decoration: none;
 	color: var(--black);
 	font-size: 20px;
 	cursor: pointer;
 }
 
-.navigation li:hover {
+.navigation .cat-link:hover {
 	text-decoration: underline;
 	color: var(--orange);
+	transition: color .1s ease-in;
+
 }
 
 .navigation ul {
@@ -15,10 +17,17 @@
 	gap: 20px;
 }
 
-.navigation span {
+.all-recipes {
 	background-color: var(--orange);
 	padding: 10px;
 	border-radius: 20px;
 
 	font-size: 20px;
+	cursor: pointer;
+}
+
+.all-recipes:hover{
+	color: white;
+	transition: color .2s ease-in;
+
 }

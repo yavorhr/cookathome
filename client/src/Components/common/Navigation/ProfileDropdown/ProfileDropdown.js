@@ -29,7 +29,6 @@ export const ProfileDropdown = (props) => {
                 setOpenBtn(false);
             }
         };
-
         document.addEventListener("mousedown", handler);
 
         return () => {

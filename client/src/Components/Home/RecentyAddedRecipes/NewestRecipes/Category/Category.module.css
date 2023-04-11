@@ -1,0 +1,14 @@
+.category {
+    color: black;
+    cursor: pointer;
+    background-color: orange;
+    text-transform: capitalize;
+    padding: 10px;
+
+}
+
+.category:hover {
+    color: white;
+    transition: color .2s ease-in;
+
+}
