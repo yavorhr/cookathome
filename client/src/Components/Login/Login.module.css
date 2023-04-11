@@ -1,23 +1,27 @@
-/*
-====================
-   Login Section
-====================
-*/
-
 .login-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     width: 20%;
-    margin: 50px auto;
+    min-height: 400px;
     padding: 20px;
     background-color: var(--white);
     border-radius: 20px;
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
+    height: 55vh;
+}
+
+.login-section form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 /* Login title */
 
 .login-section h1 {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     border-bottom: 1px solid var(--grey);
 
     text-align: center;
@@ -50,7 +54,7 @@ form .text-field {
     left: 8px;
 
     color: var(--lightgray);
-    
+
     pointer-events: none;
     transform: translateY(-50%);
     transition: .5s;
@@ -121,3 +125,4 @@ form .text-field {
 .sign-up-link a:hover {
     text-decoration: underline;
 }
+

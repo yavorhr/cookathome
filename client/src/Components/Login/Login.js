@@ -16,7 +16,7 @@ export const Login = ({
         const userData = Object.fromEntries(new FormData(e.target));
 
         /* TRY CATCH in ALL AJAX */
-        
+
         authService
             .login(userData)
             .then(result => {
@@ -44,10 +44,12 @@ export const Login = ({
                     <span></span>
                     <label forname="password">Password</label>
                 </div>
-                <button type="submit" className={styles["submit--login-btn"]}>Login</button>
-                <div className={styles["sign-up-link"]}>
-                    <p>Not a member ?</p>
-                    <Link to="/users/register">Sign up</Link>
+                <div className={styles["wrapper"]}>
+                    <button type="submit" className={styles["submit--login-btn"]}>Login</button>
+                    <div className={styles["sign-up-link"]}>
+                        <p>Not a member ?</p>
+                        <Link to="/users/register">Sign up</Link>
+                    </div>
                 </div>
             </form>
         </section>
