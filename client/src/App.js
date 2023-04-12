@@ -20,7 +20,6 @@ import { Search } from './Components/Search/Search.js';
 import { Logout } from './Components/Logout/Logout.js';
 
 function App() {
-
     return (
         <AuthProvider>
             <div className="App">

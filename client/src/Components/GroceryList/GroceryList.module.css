@@ -4,12 +4,11 @@
     background-position: center center;
     background-size: cover;
     padding: 30px 0;
+    min-height: 80vh;
 }
 
 /*
-=========================
    Grocery list Section 
-=========================
 */
 
 .grocery-list {

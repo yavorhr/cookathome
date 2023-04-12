@@ -52,7 +52,6 @@ export const GroceryList = () => {
     }
 
     return (
-        <>
             <div className={styles["background"]}>
                 <section className={styles["grocery-list"]}>
                     <div className={styles["new-task"]}>
@@ -80,6 +79,6 @@ export const GroceryList = () => {
 
                 </section>
             </div>
-        </>
+    
     );
 }
