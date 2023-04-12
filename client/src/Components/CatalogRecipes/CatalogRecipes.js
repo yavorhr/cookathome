@@ -38,6 +38,7 @@ export const CatalogRecipes = ({ }) => {
                 r.name
                     .toLowerCase()
                     .includes(search.toLowerCase())));
+
         setSearchValue('');
     }
 
@@ -50,13 +51,13 @@ export const CatalogRecipes = ({ }) => {
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
     }
+
     return (
         <section>
             <article>
                 {recipes.length > 0 &&
                     <>
                         <h2 className={styles["section-title"]}>{type} recipes</h2>
-
                         <form className={styles["search-form"]} action="" onSubmit={onSearchSubmit}>
                             <input
                                 type="text"
@@ -69,12 +70,17 @@ export const CatalogRecipes = ({ }) => {
                         </form>
 
                         <ul className={styles["card-list"]} type="none">
-                            {currentRecipes.map(r => <CardItem recipe={r} key={r._id} />)}
+                            {
+                                currentRecipes.map(r =>
+                                    <CardItem recipe={r} key={r._id} />)
+                            }
                         </ul>
+
                         <Pagination
-                                recipesPerPage={recipesPerPage}
-                                totalRecipes={filteredRecipes.length}
-                                paginate={paginate} />
+                            recipesPerPage={recipesPerPage}
+                            totalRecipes={filteredRecipes.length}
+                            paginate={paginate}
+                            currentPage={currentPage} />
                     </>
                 }
             </article>

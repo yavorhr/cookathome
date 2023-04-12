@@ -16,13 +16,13 @@
     cursor: pointer;
     transition: all 0.3s ease;
     background: transparent;
-    color: var(--white);
+    color: var(--black);
     border-color: var(--white);
 }
 
 .pagination button.active {
     font-weight: 900;
-    border-color: var(--black);
-    background: yellow;
-    color: var(--black);
+    border-color: var(--white);
+    background: var(--user--login--btn--bckgrnd);
+    color: var(--white);
 }

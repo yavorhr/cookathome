@@ -1,11 +1,11 @@
 
 
 import styles from './Pagination.module.css';
-import { Link } from 'react-router-dom';
 
-export const Pagination = ({ recipesPerPage, totalRecipes, paginate }) => {
+export const Pagination = ({ recipesPerPage, totalRecipes, paginate, currentPage }) => {
     const pageNumbers = [];
 
+    // Pages count
     for (let i = 1; i <= Math.ceil(totalRecipes / recipesPerPage); i++) {
         pageNumbers.push(i)
     }
@@ -13,10 +13,12 @@ export const Pagination = ({ recipesPerPage, totalRecipes, paginate }) => {
     return (
         <nav>
             <ul className={styles["pagination"]} type="none">
-                {pageNumbers.map(number => (
-                    <li className={styles["page-item"]} key={number}>
-                        <button onClick={() => paginate(number)} to="#" className={styles["page-link"]}>
-                            {number}
+                {pageNumbers.map(page => (
+                    <li className={styles["page-item"]} key={page}>
+                        <button              
+                            onClick={() => paginate(page)}
+                            className={page == currentPage ? styles["active"] : ''}>
+                            {page}
                         </button>
                     </li>
                 ))}
