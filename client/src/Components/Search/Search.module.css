@@ -87,9 +87,10 @@
 
 /* Filtered recipes */
 .list-recipes {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    justify-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 
     width: 1200px;
     margin: 0 auto;
