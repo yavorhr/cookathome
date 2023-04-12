@@ -1,6 +1,5 @@
 import './App.css';
 
-import { useFetch } from '../src/hooks/useFetch.js';
 import { Routes, Route } from 'react-router-dom';
 
 import { RecipeProvider } from './context/RecipeContext.js';
@@ -16,7 +15,7 @@ import { EditRecipe } from './Components/EditRecipe/EditRecipe.js';
 import { RecipeDetails } from './Components/DetailsRecipe/RecipeDetails.js';
 import { GroceryList } from './Components/GroceryList/GroceryList.js';
 import { Footer } from "./Components/common/Footer/Footer.js";
-import { Navbar } from './Components/common/Navigation/Navbar/Navbar.js';
+import { Navigation } from './Components/common/Navigation/Navigation.js';
 import { Search } from './Components/Search/Search.js';
 import { Logout } from './Components/Logout/Logout.js';
 
@@ -25,10 +24,10 @@ function App() {
     return (
         <AuthProvider>
             <div className="App">
-                <Navbar />
+                <Navigation />
                 <RecipeProvider>
                     <Routes>
-                        <Route path="/" element={<HomePage/>} />
+                        <Route path="/" element={<HomePage />} />
                         <Route path="/users/login" element={<Login />} />
                         <Route path="/users/register" element={<Register />} />
                         <Route path="/users/profile" element={<Profile />} />

@@ -1,20 +1,20 @@
 
-import styles from './Navbar.module.css';
+import styles from './Navigation.module.css';
 import { Link } from "react-router-dom";
 import { useContext } from 'react';
-import { AuthContext } from '../../../../context/AuthContext.js';
+import { AuthContext } from '../../../context/AuthContext.js';
 
-import { ReactComponent as Favorites } from '../svg/favorites.svg';
-import { ReactComponent as Bag } from '../svg//bag.svg';
-import { ReactComponent as Profile } from '../svg//profile3.svg';
-import { ReactComponent as Recipes } from '../svg/ladle.svg';
-import { ReactComponent as Search } from '../svg/search.svg';
+import { ReactComponent as Favorites } from './svg/favorites.svg';
+import { ReactComponent as Bag } from './svg//bag.svg';
+import { ReactComponent as Profile } from './svg//profile3.svg';
+import { ReactComponent as Recipes } from './svg/ladle.svg';
+import { ReactComponent as Search } from './svg/search.svg';
 
-import { Dropdown } from "../Dropdown/Dropdown.js";
-import { NavItem } from '../NavItem/NavItem.js'
-import { ProfileDropdown } from '../ProfileDropdown/ProfileDropdown.js';
+import { Dropdown } from "./Dropdown/Dropdown.js";
+import { NavItem } from './NavItem/NavItem.js'
+import { ProfileDropdown } from './ProfileDropdown/ProfileDropdown.js';
 
-export const Navbar = () => {
+export const Navigation = () => {
     const { user } = useContext(AuthContext);
 
     const loggedIn = user.email;
@@ -37,8 +37,6 @@ export const Navbar = () => {
                         </>
                     }
                 </div>
-             
-
                 <div className={styles["wrapper"]}>
                     <article className={styles["sign-wrapper"]}>
                         <div className={styles["sign-up-links"]}>
@@ -46,8 +44,9 @@ export const Navbar = () => {
                             <ProfileDropdown icon={<Profile />} />
                         </div>
                     </article>
+                    <NavItem icon={<Search />} url='/recipes/search' />
                 </div>
-                <NavItem icon={<Search />} url='/recipes/search' />
+              
             </ul>
         </nav>
     );
