@@ -9,13 +9,15 @@ import * as recipeService from "../../service/recipeService.js"
 import * as favoriteService from "../../service/favoriteService.js"
 
 import { CardItem } from './CardItem/CardItem.js';
+import { Pagination } from '../common/Pagination/Pagination.js';
 
 export const Profile = () => {
     const [recipes, setRecipes] = useState([]);
     const [favorites, setFavorites] = useState([]);
     const { user } = useContext(AuthContext);
 
-    console.log(user);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [recipesPerPage] = useState(1);
 
     useEffect(() => {
         recipeService
@@ -28,8 +30,17 @@ export const Profile = () => {
             .then(result =>
                 setFavorites(result));
 
-    }, [])
+    }, []);
 
+    // Get current posts
+    const lastIndex = currentPage * recipesPerPage;
+    const startIndex = lastIndex - recipesPerPage;
+    const currentRecipes = recipes.slice(startIndex, lastIndex);
+
+    // Change page
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    }
     return (
         <>
             <section className={styles["user-profile"]}>
@@ -75,12 +86,6 @@ export const Profile = () => {
                                         : favorites.length}
                                 </span></p>
                             </div>
-                            <div className={styles["wrapper"]}>
-                                <button className={styles["btn"]}>
-                                    <FontAwesomeIcon icon={faCamera} className={styles["icon"]}></FontAwesomeIcon>
-                                </button>
-                                <p>Gallery</p>
-                            </div>
                         </div>
                     </div>
                 </article>
@@ -93,12 +98,17 @@ export const Profile = () => {
                         <>
                             <h2 className={styles["recipes-title"]}>Recently added</h2>
                             <ul className={styles["card-list"]} type="none">
-                                {recipes.map(r => <CardItem recipe={r} key={r._id} />)}
+                                {currentRecipes.map(r => <CardItem recipe={r} key={r._id} />)}
                             </ul>
                         </>
                         : <h2 className={styles["recipes-title"]} >You have no recipes yet</h2>
                     }
                 </div>
+                <Pagination
+                    recipesPerPage={recipesPerPage}
+                    totalRecipes={recipes.length}
+                    paginate={paginate}
+                    currentPage={currentPage} />
             </section>
         </>
 
