@@ -16,7 +16,6 @@ import { ProfileDropdown } from './ProfileDropdown/ProfileDropdown.js';
 
 export const Navigation = () => {
     const { user } = useContext(AuthContext);
-
     const loggedIn = user.email;
 
     /*TODO: to set profile picture instead of the user profile icon*/
@@ -24,7 +23,6 @@ export const Navigation = () => {
     return (
         <nav className={styles["navbar"]}>
             <ul className={styles["navbar-nav"]}>
-
                 <div className={styles["wrapper"]}>
                     <Link to="/">
                         <img className={styles["logo"]} src="../img/logo.png" />
@@ -46,7 +44,6 @@ export const Navigation = () => {
                     </article>
                     <NavItem icon={<Search />} url='/recipes/search' />
                 </div>
-              
             </ul>
         </nav>
     );

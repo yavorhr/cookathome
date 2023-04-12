@@ -1,6 +1,6 @@
 import styles from './DropdownMenu.module.css';
 
-import { DropdownHeading } from '../DropdownHeading.js/DropdownHeading.js'
+import { DropdownHeading } from './DropdownHeading.js/DropdownHeading.js';
 
 export const DropdownMenu = (props) => {
 
