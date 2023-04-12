@@ -12,15 +12,15 @@ export const Pagination = ({ recipesPerPage, totalRecipes, paginate }) => {
 
     return (
         <nav>
-            <u>
+            <ul className={styles["pagination"]} type="none">
                 {pageNumbers.map(number => (
                     <li className={styles["page-item"]} key={number}>
-                        <Link onClick={() => paginate(number)} to="#" className={styles["page-link"]}>
+                        <button onClick={() => paginate(number)} to="#" className={styles["page-link"]}>
                             {number}
-                        </Link>
+                        </button>
                     </li>
                 ))}
-            </u>
+            </ul>
         </nav>
     )
 }

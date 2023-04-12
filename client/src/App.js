@@ -21,7 +21,6 @@ import { Search } from './Components/Search/Search.js';
 import { Logout } from './Components/Logout/Logout.js';
 
 function App() {
-    const [articles, setArticles] = useFetch("http://localhost:3030/data/articles", []);
 
     return (
         <AuthProvider>
@@ -29,7 +28,7 @@ function App() {
                 <Navbar />
                 <RecipeProvider>
                     <Routes>
-                        <Route path="/" element={<HomePage articles={articles} />} />
+                        <Route path="/" element={<HomePage/>} />
                         <Route path="/users/login" element={<Login />} />
                         <Route path="/users/register" element={<Register />} />
                         <Route path="/users/profile" element={<Profile />} />

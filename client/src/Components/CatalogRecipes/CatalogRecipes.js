@@ -33,7 +33,11 @@ export const CatalogRecipes = ({ }) => {
 
         const { search } = Object.fromEntries(new FormData(e.target));
 
-        setFilteredRecipes(recipes.filter(r => r.name.toLowerCase().includes(search.toLowerCase())));
+        setFilteredRecipes(recipes
+            .filter(r =>
+                r.name
+                    .toLowerCase()
+                    .includes(search.toLowerCase())));
         setSearchValue('');
     }
 
@@ -66,11 +70,11 @@ export const CatalogRecipes = ({ }) => {
 
                         <ul className={styles["card-list"]} type="none">
                             {currentRecipes.map(r => <CardItem recipe={r} key={r._id} />)}
-                            <Pagination
-                                recipesPerPage={recipesPerPage}
-                                totalRecipes={recipes.length}
-                                paginate={paginate} />
                         </ul>
+                        <Pagination
+                                recipesPerPage={recipesPerPage}
+                                totalRecipes={filteredRecipes.length}
+                                paginate={paginate} />
                     </>
                 }
             </article>
