@@ -17,7 +17,7 @@ export const CatalogRecipes = ({ }) => {
     const { category, type } = useParams();
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [recipesPerPage] = useState(2);
+    const [recipesPerPage] = useState(1);
 
     useEffect(() => {
         recipeService
@@ -38,6 +38,7 @@ export const CatalogRecipes = ({ }) => {
                 r.name
                     .toLowerCase()
                     .includes(search.toLowerCase())));
+        setCurrentPage(1);
 
         setSearchValue('');
     }

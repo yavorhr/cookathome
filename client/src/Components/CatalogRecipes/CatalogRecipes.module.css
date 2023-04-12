@@ -107,10 +107,12 @@
 
 .card-list {
     /* display */
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     /* border box */
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 40px auto;
 }
 
