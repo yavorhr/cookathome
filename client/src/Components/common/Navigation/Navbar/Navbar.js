@@ -33,7 +33,7 @@ export const Navbar = () => {
                         <>
                             <NavItem url='/favorites' icon={<Favorites />} />
                             <NavItem url='/groecery-list' icon={<Bag />} />
-                            <Dropdown icon={<Recipes />} title='Recipes' />
+                            <Dropdown icon={<Recipes/>} title='Recipes' />
                         </>
                     }
                 </div>

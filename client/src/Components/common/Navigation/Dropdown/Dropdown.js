@@ -24,7 +24,6 @@ export const Dropdown = (props) => {
             }
         };
         document.addEventListener("mousedown", handler);
-
         return () => {
             document.removeEventListener("mousedown", handler);
         }
@@ -40,7 +39,7 @@ export const Dropdown = (props) => {
                     {props.icon}
                 </Link>
 
-                {open && props.title === 'Recipes' &&
+                {open &&
                     <DropdownMenu
                         data={urlMappingDataRecipes}
                         onClickHandler={clickHandler} />}

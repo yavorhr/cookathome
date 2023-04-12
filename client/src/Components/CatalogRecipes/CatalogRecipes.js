@@ -8,15 +8,17 @@ import { useParams } from 'react-router-dom';
 import * as recipeService from "../../service/recipeService.js";
 
 import { CardItem } from '../Profile/CardItem/CardItem.js';
+import { Pagination } from '../common/Pagination/Pagination.js';
 
 export const CatalogRecipes = ({ }) => {
     const [recipes, setRecipes] = useState([]);
     const [filteredRecipes, setFilteredRecipes] = useState([]);
     const [searchValue, setSearchValue] = useState('');
-
-    console.log(recipes);
-
     const { category, type } = useParams();
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [recipesPerPage] = useState(2);
+
 
     useEffect(() => {
         recipeService
@@ -36,9 +38,17 @@ export const CatalogRecipes = ({ }) => {
         setSearchValue('');
     }
 
+    // Get current posts
+    const lastIndex = currentPage * recipesPerPage;
+    const startIndex = lastIndex - recipesPerPage;
+    const currentRecipes = filteredRecipes.slice(startIndex, lastIndex);
+
+    // Change page
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    }
     return (
         <section>
-
             <article>
                 {recipes.length > 0 &&
                     <>
@@ -50,13 +60,17 @@ export const CatalogRecipes = ({ }) => {
                                 name="search"
                                 placeholder="Search here..."
                                 id="search" />
-                              <button type="submit">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["icon"]}></FontAwesomeIcon>
-                    </button>
+                            <button type="submit">
+                                <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["icon"]}></FontAwesomeIcon>
+                            </button>
                         </form>
 
                         <ul className={styles["card-list"]} type="none">
-                            {filteredRecipes.map(r => <CardItem recipe={r} key={r._id} />)}
+                            {currentRecipes.map(r => <CardItem recipe={r} key={r._id} />)}
+                            <Pagination
+                                recipesPerPage={recipesPerPage}
+                                totalRecipes={recipes.length}
+                                paginate={paginate} />
                         </ul>
                     </>
                 }

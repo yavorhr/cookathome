@@ -14,12 +14,13 @@ export const DropdownHeading = ({
                         .map(string => {
                             const recipeTitle = recipeTitleManipulation(string, '/', 3);
 
-                            return <Link
-                                key={string}
-                                onClick={() => onClickHandler(false)}
-                                to={string}
-                                className={styles['nav-link']}> {recipeTitle}
-                            </Link>
+                            return (
+                                <Link
+                                    key={string}
+                                    onClick={() => onClickHandler(false)}
+                                    to={string}
+                                    className={styles['nav-link']}> {recipeTitle}
+                                </Link>)
                         })
                 }
             </div>
