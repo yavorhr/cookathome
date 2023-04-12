@@ -1329,7 +1329,7 @@
                 email: 'john@abv.bg',
                 hashedPassword: '83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1',
                 imageUrl: 'https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg',
-                'full-name': 'John Genadiev Aleksiev'
+                'full-name': 'John Aleksiev'
             }
         },
         sessions: {
@@ -1413,7 +1413,7 @@
                 { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1680886151/Cook%20at%20home/dishes/Musaka8_i3gicg.jpg' }
                 ],
                 'user': {
-                    'full-name': 'John Genadiev Aleksiev',
+                    'full-name': 'John Aleksiev',
                     'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg'
                 }
             },
@@ -1460,7 +1460,7 @@
                     { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681048893/Cook%20at%20home/dishes/Meatballs_4_yv91vb.jpg' },
                     { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681048894/Cook%20at%20home/dishes/Meatballs_5_ie7k0p.jpg' }],
                 'user': {
-                    'full-name': 'John Genadiev Aleksiev',
+                    'full-name': 'John Aleksiev',
                     'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg'
                 }
             },
@@ -1504,7 +1504,7 @@
                     { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681048282/Cook%20at%20home/dishes/Tarator_3_qoiolx.jpg' },
                     { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681048283/Cook%20at%20home/dishes/Tarator_4_iuf2n6.jpg' }],
                 'user': {
-                    'full-name': 'John Genadiev Aleksiev',
+                    'full-name': 'John Aleksiev',
                     'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg'
                 }
             },
@@ -1517,7 +1517,7 @@
                 'category': 'meat',
                 'advanced-category': 'pasta',
                 'kitchen': 'bulgarian',
-                'profile-image' : 'https://res.cloudinary.com/yavorhr/image/upload/v1679505438/Cook%20at%20home/dishes/Spaghetti_bolognese_rvfixq.jpg',
+                'profile-image': 'https://res.cloudinary.com/yavorhr/image/upload/v1679505438/Cook%20at%20home/dishes/Spaghetti_bolognese_rvfixq.jpg',
                 'level': 'intermediate',
                 'calories': '624',
                 'prep-time': '10',
@@ -1577,7 +1577,7 @@
                 'advanced-category': 'chicken',
                 'kitchen': 'greek',
                 'level': 'advanced',
-                'profile-image' : 'https://res.cloudinary.com/yavorhr/image/upload/v1681049813/Cook%20at%20home/dishes/Greek_chicken_4_zgmfu4.jpg',
+                'profile-image': 'https://res.cloudinary.com/yavorhr/image/upload/v1681049813/Cook%20at%20home/dishes/Greek_chicken_4_zgmfu4.jpg',
                 'calories': '1139',
                 'cat-by-calories': 'more-than-800-kcal',
                 'cat-by-time': 'up-to-60-min',
@@ -1620,46 +1620,51 @@
                     'full-name': 'Peter Georgiev Ivanov',
                     'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Users/user_4_wruxoc.jpg',
                 }
+            }, 'apsdofbmzxcr3': {
+                '_ownerId': '847ec027-f659-4086-8032-5173e2f9c93a',
+                'name': 'Epic summer salad',
+                'description': 'Perfect for BBQs and buffets, our epic salad is an assembly job of gorgeous ingredients!',
+                'season': 'summer',
+                'time-of-the-day': 'all',
+                'category': 'veggeterian',
+                'advanced-category': 'salad',
+                'kitchen': 'italian',
+                'level': 'beginner',
+                'calories': '392',
+                'prep-time': '10',
+                'profile-image': 'https://res.cloudinary.com/yavorhr/image/upload/v1681295268/Cook%20at%20home/dishes/Epic_salad_owkhgp.jpg',
+                'cook-time': '15',
+                'cat-by-calories': 'up-to-200-kcal',
+                'cat-by-time': 'up-to-30-min',
+                'products': [
+                    '400g black beans, drained',
+                    '2 large handfuls baby spinach leaves, roughly chopped',
+                    '500g heritage tomatoes, chopped into large chunks',
+                    '½ cucumber, halved lengthways, seeds scooped out and sliced on an angle',
+                    '1 mango, peeled and chopped into chunks',
+                    '1 large red onion, halved and finely sliced ',
+                    '6-8 radishes, sliced',
+                    '2 avocados, peeled and sliced',
+                    '100g feta, crumbled',
+                    'handful of herbs (reserved from the dressing)'
+                ]
+                , 'steps': [
+                    'Make the dressing by blending all of the ingredients in a food processor (or very finely chop them), saving a few herb leaves for the salad. You can make the dressing up to 24 hrs before serving.',
+                    'Scatter the beans and spinach over a large platter. Arrange the tomatoes, cucumber, mango, onion and radishes on top and gently toss together with your hands. Top the salad with the avocados, feta and herbs, and serve the dressing on the side.'
+                ]
+                ,
+                'portions': '6',
+                '_createdOn': 1681295596602,
+                'links':
+                    [{ 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681295269/Cook%20at%20home/dishes/Epic_salad_2_d5qrd1.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681295269/Cook%20at%20home/dishes/Epic_salad_3_dqt6cv.jpg' },
+                    { 'url': 'https://res.cloudinary.com/yavorhr/image/upload/v1681295268/Cook%20at%20home/dishes/Epic_salad_4_seowvj.jpg' },
+                    ],
+                'user': {
+                    'full-name': 'John Aleksiev',
+                    'imageUrl': 'https://res.cloudinary.com/yavorhr/image/upload/v1678541994/Cook%20at%20home/Users/user_1_hvg74o.jpg'
+                }
             },
-        },
-
-
-        articles: {
-            'dasfdsf3215': {
-                '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
-                'imageUrl': '/img/dishes/eggsausage.jpg',
-                'title': 'Egg & Sausage',
-                'createdOn': '08 August',
-                'author': 'Peter'
-            },
-            'dasfdxdasgs215': {
-                '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
-                'imageUrl': '/img/dishes/benedikt.jpg',
-                'title': 'benedikt',
-                'createdOn': '15 January',
-                'author': 'Peter'
-            },
-            'dasjhoiuygs001': {
-                '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
-                'imageUrl': '/img/dishes/Best-Lasagna-550.jpg',
-                'title': 'Lasagna',
-                'createdOn': '01 May',
-                'author': 'Peter'
-            },
-            'dasjggdens005': {
-                '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
-                'imageUrl': '/img/dishes/Best-Lasagna-550.jpg',
-                'title': 'Pancakes',
-                'createdOn': '21 April',
-                'author': 'Peter'
-            },
-            'dasjggfsgsk5832': {
-                '_ownerId': '35c62d76-8152-4626-8712-eeb96381bea8',
-                'imageUrl': '/img/dishes/bananas.jpg',
-                'title': 'Bananas',
-                'createdOn': '10 March',
-                'author': 'Peter'
-            }
         },
 
         favorites: {

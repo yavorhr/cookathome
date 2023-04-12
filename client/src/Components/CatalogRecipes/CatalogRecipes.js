@@ -19,7 +19,6 @@ export const CatalogRecipes = ({ }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [recipesPerPage] = useState(2);
 
-
     useEffect(() => {
         recipeService
             .getRecipesByCategoryAndType(category, type)

@@ -74,7 +74,7 @@ export const mealsCategories =
 {
     "Fish": ["Tuna", "Salmon", "Catfish", "Cod", "Bass", "Trout"],
     "Meat": ["Pork", "Lamb", "Duck", "Goat", "Beef", "Chicken", "Turkey"],
-    "Veggetarian": ["Fruits", "Vegetables", "Beans", "Nuts", "Seeds", "Pasta", "Rice", "Bread", "Yoghurt", "Soup"]
+    "Veggetarian": ["Fruits", "Vegetables", "Beans", "Nuts", "Seeds", "Pasta", "Rice", "Bread", "Yoghurt", "Soup", "Salad"]
 }
 
 export const getRandomRecipe = (recipes) => {
