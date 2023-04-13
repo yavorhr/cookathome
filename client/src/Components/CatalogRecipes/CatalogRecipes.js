@@ -13,9 +13,8 @@ import { Spinner } from '../common/Spinner/Spinner.js';
 
 export const CatalogRecipes = ({ }) => {
     const [recipes, setRecipes] = useState([]);
-    const [filteredRecipes, setFilteredRecipes] = useState([]);
-    const [search, setSearch] = useState();
-
+    const [search, setSearch] = useState('');
+    const [sortValue, setSortValue] = useState('');
 
     const [currentPage, setCurrentPage] = useState(1);
     const [recipesPerPage] = useState(5);
@@ -27,11 +26,12 @@ export const CatalogRecipes = ({ }) => {
             .getAll()
             .then(result => {
                 setRecipes(result);
-                setFilteredRecipes(result);
+                // setFilteredRecipes(result);
                 setIsLoading(false);
             })
     }, []);
 
+    const sortOptions = ["name", "calories"];
 
     // Get current posts
     const lastIndex = currentPage * recipesPerPage;
@@ -43,38 +43,79 @@ export const CatalogRecipes = ({ }) => {
         setCurrentPage(pageNumber);
     }
 
+    const onSearchSubmit = (e) => {
+        e.preventDefault();
+
+        const { search } = Object.fromEntries(new FormData(e.target));
+
+        recipeService.getAll()
+            .then(result => setRecipes(result.filter(r => r.name.toLowerCase().includes(search.toLocaleLowerCase()))));
+        setSearch('');
+    }
+
+    const handleReset = () => {
+        recipeService.getAll().then(result => setRecipes(result))
+    }
+
+    const handleSort = (e) => {
+        let value = e.target.value;
+        setSortValue(value);
+    }
+
     return (
         <section>
             <article>
                 {isLoading && <Spinner />}
-                {recipes.length > 0 &&
-                    <>
-                        <form className={styles["search-form"]} action="">
-                            <input
-                                type="text"
-                                name="search"
-                                placeholder="Search here..."
-                                id="search"
-                                onChange={(e) => setSearch(e.target.value)}
-                            />
-                        </form>
-
-                        <ul className={styles["card-list"]} type="none">
-                            {
-                                currentRecipes.map(r =>
-                                    <CardItem
-                                        recipe={r}
-                                        key={r._id} />)
-                            }
-                        </ul>
-
-                        <Pagination
+                <form
+                    className={styles["search-form"]}
+                    action=""
+                    onSubmit={onSearchSubmit}>
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Search for a recipe name.."
+                        id="search"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+                    <button type="submit" >Search</button>
+                    <button type="submit" onClick={() => handleReset()}>Reset</button>
+                </form>
+                {recipes.length > 0
+                    ?
+                    <ul className={styles["card-list"]} type="none">
+                        {
+                            currentRecipes.map(r =>
+                                <CardItem
+                                    recipe={r}
+                                    key={r._id} />)
+                        }
+                    </ul>
+                    : <h1>No data</h1>
+                }
+                {/* <Pagination
                             recipesPerPage={recipesPerPage}
                             totalRecipes={recipes.length}
                             paginate={paginate}
-                            currentPage={currentPage} />
-                    </>
-                }
+                            currentPage={currentPage} /> */}
+
+
+            </article>
+            <article>
+                <h5>Sort By:</h5>
+                <select
+                    name=""
+                    id=""
+                    onChange={handleSort}
+                    value={sortValue}
+                >
+                    <option value="">Please select</option>
+                    {sortOptions.map((item, index) => (
+                        <option value={item} key={index}>{item}</option>
+                    ))}
+
+
+                </select>
             </article>
         </section >
     );
