@@ -5,7 +5,6 @@ import { AuthContext } from "../../../context/AuthContext.js";
 
 export const PrivateGuard = () => {
     const { isAuthenticated } = useContext(AuthContext);
-    console.log(isAuthenticated);
 
     if (!isAuthenticated) {
         return <Navigate to="/users/login" />

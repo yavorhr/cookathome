@@ -44,8 +44,5 @@ export const Dropdown = (props) => {
                         data={urlMappingDataRecipes}
                         onClickHandler={clickHandler} />}
             </li>
-
-            {props.title && <span>{props.title}</span>}
-
         </div>);
 }

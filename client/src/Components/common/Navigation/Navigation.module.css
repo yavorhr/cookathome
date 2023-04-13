@@ -13,14 +13,17 @@
     justify-content: space-between;
     align-items: center;
 }
-
 /* Navbar wrappers */
 .wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     width: 400px;
-    gap: 7px;
+    gap: 10px;
+}
+
+.navbar .wrapper:nth-child(2) {
+    justify-content: end;
 }
 
 .wrapper-dropdown {

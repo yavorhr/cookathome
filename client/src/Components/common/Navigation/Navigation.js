@@ -27,11 +27,11 @@ export const Navigation = () => {
                     <Link to="/">
                         <img className={styles["logo"]} src="../img/logo.png" />
                     </Link>
+                    <Dropdown icon={<Recipes />} />
                     {loggedIn &&
                         <>
                             <NavItem url='/favorites' icon={<Favorites />} />
                             <NavItem url='/groecery-list' icon={<Bag />} />
-                            <Dropdown icon={<Recipes/>} title='Recipes' />
                         </>
                     }
                 </div>

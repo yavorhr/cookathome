@@ -42,8 +42,6 @@ function App() {
                             <Route path="/users/register" element={<Register />} />
                         </Route>
                         <Route path="/" element={<HomePage />} />
-
-                        <Route path="/recipes/:season" element={<CatalogRecipes />} />
                         <Route path="/details/:recipeId" element={<RecipeDetails />} />
                         <Route path="/recipes/search" element={<Search />} />
                     </Routes>
