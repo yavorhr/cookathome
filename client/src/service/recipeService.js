@@ -7,6 +7,7 @@ export const getRecipeById = (recipeId) => request.get(`${baseUrl}/${recipeId}`)
 export const getRecipeByUserId = (ownerId) => request.get(`${baseUrl}?where=_ownerId%3D%22${ownerId}%22`);
 export const getRecipeByCategory = (category) => request.get(`${baseUrl}?where=advanced-category%3D%22${category}%22`);
 export const getRecipesByCategoryAndType = (category, type) => request.get(`${baseUrl}?where=${category}%3D%22${type}%22`);
+export const getAll = () => request.get(`${baseUrl}`);
 
 export const create = (gameData) => request.post(baseUrl, gameData);
 export const remove = (recipeId) => request.del(`${baseUrl}/${recipeId}`);

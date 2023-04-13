@@ -27,7 +27,8 @@ export const Navigation = () => {
                     <Link to="/">
                         <img className={styles["logo"]} src="../img/logo.png" />
                     </Link>
-                    <Dropdown icon={<Recipes />} />
+                    {/* <Dropdown icon={<Recipes />} /> */}
+                    <NavItem url='/catalog/recipes' icon={<Recipes />} />
                     {loggedIn &&
                         <>
                             <NavItem url='/favorites' icon={<Favorites />} />

@@ -14,43 +14,29 @@ import { Spinner } from '../common/Spinner/Spinner.js';
 export const CatalogRecipes = ({ }) => {
     const [recipes, setRecipes] = useState([]);
     const [filteredRecipes, setFilteredRecipes] = useState([]);
-    const [searchValue, setSearchValue] = useState('');
-    const { category, type } = useParams();
+    const [search, setSearch] = useState();
+
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [recipesPerPage] = useState(1);
+    const [recipesPerPage] = useState(5);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         setIsLoading(true)
         recipeService
-            .getRecipesByCategoryAndType(category, type)
+            .getAll()
             .then(result => {
-                setRecipes(result)
-                setFilteredRecipes(result)
+                setRecipes(result);
+                setFilteredRecipes(result);
                 setIsLoading(false);
             })
-    }, [category, type]);
+    }, []);
 
-    const onSearchSubmit = (e) => {
-        e.preventDefault();
-
-        const { search } = Object.fromEntries(new FormData(e.target));
-
-        setFilteredRecipes(recipes
-            .filter(r =>
-                r.name
-                    .toLowerCase()
-                    .includes(search.toLowerCase())));
-        setCurrentPage(1);
-
-        setSearchValue('');
-    }
 
     // Get current posts
     const lastIndex = currentPage * recipesPerPage;
     const startIndex = lastIndex - recipesPerPage;
-    const currentRecipes = filteredRecipes.slice(startIndex, lastIndex);
+    const currentRecipes = recipes.slice(startIndex, lastIndex);
 
     // Change page
     const paginate = (pageNumber) => {
@@ -60,31 +46,31 @@ export const CatalogRecipes = ({ }) => {
     return (
         <section>
             <article>
-                {isLoading && <Spinner/>}
+                {isLoading && <Spinner />}
                 {recipes.length > 0 &&
                     <>
-                        <h2 className={styles["section-title"]}>{type} recipes</h2>
-                        <form className={styles["search-form"]} action="" onSubmit={onSearchSubmit}>
+                        <form className={styles["search-form"]} action="">
                             <input
                                 type="text"
                                 name="search"
                                 placeholder="Search here..."
-                                id="search" />
-                            <button type="submit">
-                                <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["icon"]}></FontAwesomeIcon>
-                            </button>
+                                id="search"
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
                         </form>
 
                         <ul className={styles["card-list"]} type="none">
                             {
                                 currentRecipes.map(r =>
-                                    <CardItem recipe={r} key={r._id} />)
+                                    <CardItem
+                                        recipe={r}
+                                        key={r._id} />)
                             }
                         </ul>
 
                         <Pagination
                             recipesPerPage={recipesPerPage}
-                            totalRecipes={filteredRecipes.length}
+                            totalRecipes={recipes.length}
                             paginate={paginate}
                             currentPage={currentPage} />
                     </>

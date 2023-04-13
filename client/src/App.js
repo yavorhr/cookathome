@@ -34,7 +34,7 @@ function App() {
                             <Route path="/groecery-list" element={<GroceryList />} />
                             <Route path="/users/profile" element={<Profile />} />
                             <Route path="/favorites" element={<Favorites />} />
-                            <Route path="/recipes/:category/:type" element={<CatalogRecipes />} />
+                            {/* <Route path="/recipes/:category/:type" element={<CatalogRecipes />} /> */}
                             <Route path="/create/recipe" element={<CreateRecipe />} />
                             <Route path="/edit/:recipeId" element={<EditRecipe />} />
                             <Route path="/logout" element={<Logout />} />
@@ -46,9 +46,10 @@ function App() {
                         <Route path="/" element={<HomePage />} />
                         <Route path="/details/:recipeId" element={<RecipeDetails />} />
                         <Route path="/recipes/search" element={<Search />} />
-                        <Route path="*" element={<Navigate to="/" replace />} />
-                        {/* <Route path="/details/*" element={<Navigate to="/" replace />}/> */}
+                        <Route path="/catalog/recipes" element={<CatalogRecipes />} />
 
+                        <Route path="*" element={<Navigate to="/" replace />} />
+                        {/* //TODO: Not found page*/}
                     </Routes>
                 </RecipeProvider>
                 <Footer />
