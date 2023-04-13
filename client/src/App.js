@@ -2,6 +2,8 @@ import './App.css';
 
 import { Routes, Route } from 'react-router-dom';
 
+import { PrivateGuard } from './Components/common/PrivateGuard/PrivateGuard.js';
+import { PublicGuard } from './Components/common/PrivateGuard/PublicGuard.js';
 import { RecipeProvider } from './context/RecipeContext.js';
 import { AuthProvider } from './context/AuthContext.js';
 import { HomePage } from "./Components/Home/HomePage.js";
@@ -26,19 +28,24 @@ function App() {
                 <Navigation />
                 <RecipeProvider>
                     <Routes>
+                        <Route element={<PrivateGuard />}>
+                            <Route path="/groecery-list" element={<GroceryList />} />
+                            <Route path="/users/profile" element={<Profile />} />
+                            <Route path="/favorites" element={<Favorites />} />
+                            <Route path="/recipes/:category/:type" element={<CatalogRecipes />} />
+                            <Route path="/create/recipe" element={<CreateRecipe />} />
+                            <Route path="/edit/:recipeId" element={<EditRecipe />} />
+                            <Route path="/logout" element={<Logout />} />
+                        </Route>
+                        <Route element={<PublicGuard/>}>
+                            <Route path="/users/login" element={<Login />} />
+                            <Route path="/users/register" element={<Register />} />
+                        </Route>
                         <Route path="/" element={<HomePage />} />
-                        <Route path="/users/login" element={<Login />} />
-                        <Route path="/users/register" element={<Register />} />
-                        <Route path="/users/profile" element={<Profile />} />
-                        <Route path="/favorites" element={<Favorites />} />
-                        <Route path="/groecery-list" element={<GroceryList />} />
+
                         <Route path="/recipes/:season" element={<CatalogRecipes />} />
                         <Route path="/details/:recipeId" element={<RecipeDetails />} />
-                        <Route path="/edit/:recipeId" element={<EditRecipe />} />
-                        <Route path="/recipes/:category/:type" element={<CatalogRecipes />} />
-                        <Route path="/create/recipe" element={<CreateRecipe />} />
                         <Route path="/recipes/search" element={<Search />} />
-                        <Route path="/logout" element={<Logout />} />
                     </Routes>
                 </RecipeProvider>
                 <Footer />

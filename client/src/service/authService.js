@@ -5,19 +5,19 @@ const baseUrl = 'http://localhost:3030/users';
 
 export const login = (userData) => request.post(`${baseUrl}/login`, userData);
 
-    export const logout = async (accessToken) => {
-        try {
-            const response = await fetch(`${baseUrl}/logout`, {
-                headers: {
-                    'X-Authorization': accessToken
-                }
-            });
-    
-            return response;
-        } catch (error) {
-            console.log(error);
-        }
-    };
-    
+export const logout = async (accessToken) => {
+    try {
+        const response = await fetch(`${baseUrl}/logout`, {
+            headers: {
+                'X-Authorization': accessToken
+            }
+        });
 
-export const register = (userData) =>request.post(`${baseUrl}/register`, userData);
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
+export const register = (userData) => request.post(`${baseUrl}/register`, userData);

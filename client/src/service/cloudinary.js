@@ -1,6 +1,3 @@
-
-import * as request from './requester.js'
-
 export const uploadCloudinary = async (file) => {
     const formData = new FormData();
     formData.append("file", file)

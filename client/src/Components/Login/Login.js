@@ -1,7 +1,8 @@
-import styles from './Login.module.css'
+import styles from './Login.module.css';
 
 import { Link } from 'react-router-dom';
-import * as authService from '../../service/authService.js'
+import * as authService from '../../service/authService.js';
+
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
 
