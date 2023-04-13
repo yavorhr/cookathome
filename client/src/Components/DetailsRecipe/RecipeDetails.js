@@ -9,28 +9,31 @@ import { faUtensils, faCamera, faFireBurner, faPenToSquare, faTrashCan, faHeart,
 
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
-import { RecipeContext } from '../../context/RecipeContext.js';
 
 import { ProductItem } from './ProductItem/ProductItem.js';
 import { Gallery } from './Gallery/Gallery.js';
+import { Spinner } from '../common/Spinner/Spinner.js';
 
 /*TODO : To chane fab icons with svg icons */
 export const RecipeDetails = () => {
     const [recipe, setRecipe] = useState({});
     const [isAlertVisible, setIsAlertVisible] = useState(false);
     const [savedToFavorites, setSavedToFavorites] = useState(false);
-    const { recipeId } = useParams();
+    const [isLoading, setIsLoading] = useState(false);
+
     const navigate = useNavigate();
+    const { recipeId } = useParams();
 
     const { user } = useContext(AuthContext);
-
     const isOwner = user._id == recipe._ownerId;
     const accessToken = user.accessToken;
 
     useEffect(() => {
+        setIsLoading(true);
         const getRecipeById =
             recipeService
                 .getRecipeById(recipeId);
@@ -41,6 +44,11 @@ export const RecipeDetails = () => {
 
         Promise.all([getRecipeById, checkFavoriteRecipesByUserId])
             .then(data => {
+
+                if (data[0].code == '404') {
+                    navigate('/')
+                    return;
+                }
                 setRecipe(data[0]);
 
                 const allFavoriteRecipes = data[1];
@@ -50,6 +58,8 @@ export const RecipeDetails = () => {
                         .some(recipe =>
                             recipe.recipeId == recipeId)
                     && setSavedToFavorites(true)
+
+                setIsLoading(false);
             })
     }, [])
 
@@ -104,6 +114,7 @@ export const RecipeDetails = () => {
     return (
         <>
             <section className={styles["header"]}>
+                {isLoading && <Spinner />}
                 <article>
                     <h1 className={styles["header__h1"]}>{recipe.name}</h1>
                 </article>

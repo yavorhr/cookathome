@@ -43,7 +43,6 @@ export const Search = () => {
                     .includes(search.toLowerCase())));
 
         setCurrentPage(1);
-
         setSearchValue('');
     }
 

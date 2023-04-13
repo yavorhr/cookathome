@@ -9,6 +9,7 @@ import * as recipeService from "../../service/recipeService.js";
 
 import { CardItem } from '../Profile/CardItem/CardItem.js';
 import { Pagination } from '../common/Pagination/Pagination.js';
+import { Spinner } from '../common/Spinner/Spinner.js';
 
 export const CatalogRecipes = ({ }) => {
     const [recipes, setRecipes] = useState([]);
@@ -18,13 +19,16 @@ export const CatalogRecipes = ({ }) => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [recipesPerPage] = useState(1);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true)
         recipeService
             .getRecipesByCategoryAndType(category, type)
             .then(result => {
                 setRecipes(result)
                 setFilteredRecipes(result)
+                setIsLoading(false);
             })
     }, [category, type]);
 
@@ -56,6 +60,7 @@ export const CatalogRecipes = ({ }) => {
     return (
         <section>
             <article>
+                {isLoading && <Spinner/>}
                 {recipes.length > 0 &&
                     <>
                         <h2 className={styles["section-title"]}>{type} recipes</h2>

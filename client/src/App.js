@@ -20,6 +20,8 @@ import { Footer } from "./Components/common/Footer/Footer.js";
 import { Navigation } from './Components/common/Navigation/Navigation.js';
 import { Search } from './Components/Search/Search.js';
 import { Logout } from './Components/Logout/Logout.js';
+import { Navigate } from 'react-router-dom';
+
 
 function App() {
     return (
@@ -37,13 +39,16 @@ function App() {
                             <Route path="/edit/:recipeId" element={<EditRecipe />} />
                             <Route path="/logout" element={<Logout />} />
                         </Route>
-                        <Route element={<PublicGuard/>}>
+                        <Route element={<PublicGuard />}>
                             <Route path="/users/login" element={<Login />} />
                             <Route path="/users/register" element={<Register />} />
                         </Route>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/details/:recipeId" element={<RecipeDetails />} />
                         <Route path="/recipes/search" element={<Search />} />
+                        <Route path="*" element={<Navigate to="/" replace />} />
+                        {/* <Route path="/details/*" element={<Navigate to="/" replace />}/> */}
+
                     </Routes>
                 </RecipeProvider>
                 <Footer />

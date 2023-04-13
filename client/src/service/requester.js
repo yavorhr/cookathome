@@ -28,15 +28,15 @@ const request = async (method, url, data) => {
         
         const response = await buildRequest;
 
-        if (!response.ok) {
-           throw new Error()
-        }
+        // if (!response.ok) {
+        // throw Error ('Ooops')
+        // }
 
         const result = await response.json();
 
         return result;
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
     }
 };
 

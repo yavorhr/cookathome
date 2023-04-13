@@ -8,18 +8,22 @@ import { faMagnifyingGlass, faClock, faV } from '@fortawesome/free-solid-svg-ico
 
 import * as favoritesService from '../../service/favoriteService.js';
 import { FavoritesItem } from './FavoritesItem/FavoritesItem.js';
+import { Spinner } from '../common/Spinner/Spinner.js';
 
 export const Favorites = () => {
     const [recipes, setRecipes] = useState([]);
     const { user } = useContext(AuthContext);
+    const [isLoading, setIsLoading] = useState(false);
 
-    console.log(recipes);
 
     useEffect(() => {
+        setIsLoading(true);
         favoritesService
             .getRecipeByUserId(user._id)
             .then(result =>
                 setRecipes(result));
+
+        setIsLoading(false);
     }, []);
 
     console.log(recipes);
@@ -33,6 +37,7 @@ export const Favorites = () => {
     return (
         <>
             <section>
+                {isLoading && <Spinner/>}
                 <article className={styles["favorites__search-bar"]}>
                     <h1 className={styles["title"]}>Search through your recipies</h1>
                     <form action="">

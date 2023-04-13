@@ -35,7 +35,7 @@ export const NewestRecipes = () => {
     }
 
     const onTypeSelect = (e) => {
-        setType(e.target.textContent)
+        setType(e.target.textContent);
     };
 
     return (
@@ -67,7 +67,7 @@ export const NewestRecipes = () => {
                                 <h3>
                                     <Link to={`/details/${r._id}`}>{r.name}</Link>
                                 </h3>
-                                <p>{recipeService.formatDate(r._createdOn)}<span href="">{r.user["full-name"]}</span> </p>
+                                <p>{recipeService.formatDate(r._createdOn)}<span>{r.user["full-name"]}</span> </p>
                             </div>
                         </li>)
                 }

@@ -5,17 +5,20 @@ import { AuthContext } from '../../context/AuthContext.js';
 import * as productsService from '../../service/productsService.js'
 
 import { FoodItem } from './FoodItem/FoodItem.js';
+import { Spinner } from '../common/Spinner/Spinner.js';
 
 export const GroceryList = () => {
     const [products, setProducts] = useState([]);
     const { user } = useContext(AuthContext);
-
-    console.log(products);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true);
         productsService
             .getProductsByUserId(user._id)
             .then(result => setProducts((result)));
+
+        setIsLoading(false);
     }, []);
 
     const onSubmitHandler = (e) => {
@@ -52,33 +55,34 @@ export const GroceryList = () => {
     }
 
     return (
-            <div className={styles["background"]}>
-                <section className={styles["grocery-list"]}>
-                    <div className={styles["new-task"]}>
-                        <form onSubmit={onSubmitHandler}>
-                            <input
-                                type="text"
-                                name="title"
-                                id="title"
-                                placeholder="Enter product" />
-                            <button className={styles["add-task"]}>Add</button>
-                        </form>
-                    </div>
+        <div className={styles["background"]}>
+            {isLoading && <Spinner />}
+            <section className={styles["grocery-list"]}>
+                <div className={styles["new-task"]}>
+                    <form onSubmit={onSubmitHandler}>
+                        <input
+                            type="text"
+                            name="title"
+                            id="title"
+                            placeholder="Enter product" />
+                        <button className={styles["add-task"]}>Add</button>
+                    </form>
+                </div>
 
-                    {products.length > 0 &&
-                        <ul className={styles["groceries"]}>
-                            {products.map(p =>
-                                <FoodItem
-                                    key={p._id}
-                                    product={p}
-                                    onDeleteProduct={deleteProductHandler}
-                                    onToggle={onToggleHandler} >
-                                </FoodItem>)}
-                        </ul>
-                    }
+                {products.length > 0 &&
+                    <ul className={styles["groceries"]}>
+                        {products.map(p =>
+                            <FoodItem
+                                key={p._id}
+                                product={p}
+                                onDeleteProduct={deleteProductHandler}
+                                onToggle={onToggleHandler} >
+                            </FoodItem>)}
+                    </ul>
+                }
 
-                </section>
-            </div>
-    
+            </section>
+        </div>
+
     );
 }
