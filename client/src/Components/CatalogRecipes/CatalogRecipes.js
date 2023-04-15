@@ -33,6 +33,18 @@ export const CatalogRecipes = ({ }) => {
 
     const sortOptions = ["name", "calories"];
 
+
+    const functions = (array, length, value) => {
+
+        const obj = {
+            name: recipeService.sortRecipesByNameAsc(array, length),
+            calories: recipeService.sortRecipebyCalories(array, length)
+        }
+
+        return obj[value];
+    }
+
+
     // Get current posts
     const lastIndex = currentPage * recipesPerPage;
     const startIndex = lastIndex - recipesPerPage;
@@ -60,6 +72,7 @@ export const CatalogRecipes = ({ }) => {
     const handleSort = (e) => {
         let value = e.target.value;
         setSortValue(value);
+        setRecipes(state => functions(state,state.length, value));
     }
 
     return (
@@ -113,8 +126,6 @@ export const CatalogRecipes = ({ }) => {
                     {sortOptions.map((item, index) => (
                         <option value={item} key={index}>{item}</option>
                     ))}
-
-
                 </select>
             </article>
         </section >

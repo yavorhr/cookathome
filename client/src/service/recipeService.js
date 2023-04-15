@@ -104,6 +104,40 @@ export const sortRecipesByCreationDateDesc = (recipesArray, count) => {
     return result.sort(compare).splice(0, count);
 }
 
+export const sortRecipesByNameAsc = (recipesArray, count) => {
+
+    let result = [];
+    result = [...recipesArray];
+
+    function compare(a, b) {
+        if (a.name < b.name) {
+            return -1;
+        }
+        if (a.name > b.name) {
+            return 1;
+        }
+        return 0;
+    }
+    return result.sort(compare).splice(0, count);
+}
+
+export const sortRecipebyCalories = (recipesArray, count) => {
+
+    let result = [];
+    result = [...recipesArray];
+
+    function compare(a, b) {
+        if (Number(a.calories) < Number(b.calories)) {
+            return -1;
+        }
+        if (Number(a.calories) > Number(b.calories)) {
+            return 1;
+        }
+        return 0;
+    }
+    return result.sort(compare).splice(0, count);
+}
+
 export const findRecipesBySeason = (season) => {
     const toUpperCase = season.charAt(0).toUpperCase() + season.slice(1);
     return toUpperCase;
