@@ -1,3 +1,5 @@
+/* card item */
+
 .card-item {
 	position: relative;
 	transition: 0.8s;
@@ -33,32 +35,15 @@
 	transform: translateY(-8px);
 }
 
-.card-list a {
-	text-decoration: none;
-}
-
-.card-item span {
-	position: absolute;
-	bottom: 0px;
-	left: 0;
-}
-
-.recipes-title {
-	margin-bottom: 0 auto;
-
-	text-align: center;
-	letter-spacing: 1px;
-	font-weight: lighter;
-	color: var(--red);
-}
-
 .card-item .card-title {
 	color: var(--black);
-	font-size: 15px;
+	font-size: 17px;
 	padding: 5px;
 	letter-spacing: 1px;
 	text-align: center;
 }
+
+/* Card description */
 
 .card-item .card-descr {
 	margin-bottom: 5px;
@@ -68,67 +53,6 @@
 	text-align: left;
 	font-style: italic;
 	color: var(--grey);
-}
-
-.card-item p .icon {
-	margin: 15px 5px;
-
-	font-size: 15px;
-	color: var(--grey);
-}
-
-.card-item .recipe-data .item {
-	display: flex;
-	align-items: center;
-	font-size: 14px;
-	color: var(--grey);
-	
-}
-
-.recipe-data {
-	position: absolute;
-	bottom: 0px;
-
-	display: flex;
-	flex-direction: column;
-	align-items: start;
-
-	width: 100%;
-	margin: 0 auto;
-	padding: 0px 7px;
-}
-
-.recipe-level {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: var(--grey);
-	font-weight: lighter;
-	text-align: center;
-	margin: 7px 0px;
-}
-
-.recipe-level p {
-	display: inline-block;
-	color: black;
-	font-style: italic;
-}
-
-.recipe-data .wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 5px;
-
-	width: 100%;
-	margin: 0 auto;
-	padding: 0px 5px;
-}
-
-.user-data .wrapper{
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
 
 /* User data */
@@ -150,4 +74,42 @@
 .user-data p {
 	color: black;
 }
+
+.recipe-data {
+	position: absolute;
+	bottom: 5px;
+
+	display: flex;
+	flex-direction: column;
+
+	margin: 0 auto;
+	padding: 0px 7px;
+}
+
+.wrapper .icon {
+	margin: 15px 5px;
+
+	font-size: 15px;
+	color: var(--grey);
+}
+
+.wrapper .item {
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	color: var(--grey);
+}
+
+.recipe-data .wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 5px;
+
+	width: 100%;
+	margin: 0 auto;
+	padding: 0px 5px;
+}
+
+
 

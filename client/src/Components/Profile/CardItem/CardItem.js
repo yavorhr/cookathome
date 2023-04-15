@@ -29,7 +29,7 @@ export const CardItem = ({
                             <p className={styles["item"]}>
                                 {recipe.calories} kcal
                             </p>
-                            <p className={styles["item"]}>Level: {recipe.level}</p>
+                            <p className={styles["item"]}>Level:  {recipe.level.charAt(0).toUpperCase() + recipe.level.slice(1)}</p>
                         </div>
                     </div>
                 </div>
