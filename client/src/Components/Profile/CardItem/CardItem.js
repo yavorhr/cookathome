@@ -18,17 +18,18 @@ export const CardItem = ({
                     <p className={styles["card-title"]}>{recipe.name}</p>
                     <p className={styles["card-descr"]}>{recipe.description}</p>
                     <div className={styles["recipe-data"]}>
-                        <div className={styles["level-author-wrap"]}>
-                            <p className={styles["recipe-level"]}>Level : <p>{recipe.level}</p> </p>
-                            <p className={styles["recipe-level"]}>Author : <p>John</p> </p>
+                        <div className={styles["user-data"]}>
+                            <img src={recipe.user.imageUrl} alt="" />
+                            <p>{recipe.user["full-name"]}</p>
                         </div>
-                        <div className={styles["recipe-cal-time-wrap"]}>
+                        <div className={styles["wrapper"]}>
                             <p className={styles["item"]}>
                                 <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>{recipe["cook-time"]} min
                             </p>
                             <p className={styles["item"]}>
                                 {recipe.calories} kcal
                             </p>
+                            <p className={styles["item"]}>Level: {recipe.level}</p>
                         </div>
                     </div>
                 </div>

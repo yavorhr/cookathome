@@ -31,7 +31,7 @@ export const CatalogRecipes = ({ }) => {
             })
     }, []);
 
-    const sortOptions = ["name", "calories"];
+    const sortOptions = ["name", "calories", "level", "cook-time"];
 
 
     const functions = (array, length, value) => {
@@ -72,7 +72,7 @@ export const CatalogRecipes = ({ }) => {
     const handleSort = (e) => {
         let value = e.target.value;
         setSortValue(value);
-        setRecipes(state => functions(state,state.length, value));
+        setRecipes(state => functions(state, state.length, value));
     }
 
     return (

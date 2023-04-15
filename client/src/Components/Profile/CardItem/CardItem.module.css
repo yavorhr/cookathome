@@ -3,8 +3,8 @@
 	transition: 0.8s;
 	margin-bottom: 10px;
 	background-color: var(--white);
-	width: 220px;
-	height: 330px;
+	width: 300px;
+	height: 300px;
 }
 
 .image-holder {
@@ -82,21 +82,7 @@
 	align-items: center;
 	font-size: 14px;
 	color: var(--grey);
-}
-
-/* Show all button */
-
-.show-all {
-	font-size: 18px;
-	text-align: end;
-}
-
-.show-all a {
-	color: var(--black);
-}
-
-.show-all a:hover {
-	border-bottom: 1px solid var(--black)
+	
 }
 
 .recipe-data {
@@ -113,6 +99,9 @@
 }
 
 .recipe-level {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	color: var(--grey);
 	font-weight: lighter;
 	text-align: center;
@@ -120,21 +109,45 @@
 }
 
 .recipe-level p {
-	display: inline;
+	display: inline-block;
 	color: black;
 	font-style: italic;
 }
 
-.recipe-cal-time-wrap {
+.recipe-data .wrapper {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	gap: 5px;
 
 	width: 100%;
+	margin: 0 auto;
+	padding: 0px 5px;
 }
 
-.level-author-wrap {
+.user-data .wrapper{
 	display: flex;
+	align-items: center;
 	justify-content: center;
-	gap: 5px
 }
+
+/* User data */
+.user-data {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	gap: 10px;
+
+	width: 100%;
+	margin: 0 auto;
+}
+
+.user-data img {
+	width: 20%;
+	border-radius: 50%;
+}
+
+.user-data p {
+	color: black;
+}
+
