@@ -15,6 +15,111 @@ export const edit = (recipeId, updatedRecipe) => request.put(`${baseUrl}/${recip
 
 /* Helper functions and data */
 
+export const getRandomRecipe = (recipes) => {
+    let randomRecipe = {};
+    const index = Math.floor(Math.random() * recipes.length);
+
+    randomRecipe = { ...recipes[index] };
+
+    return randomRecipe;
+}
+
+export const findRecipesBySeason = (season) => {
+    const toUpperCase = season.charAt(0).toUpperCase() + season.slice(1);
+    return toUpperCase;
+}
+
+export const formatDate = (date) => {
+    return new Date(date).toLocaleDateString()
+}
+
+/* Sorting Helpers */ 
+
+export const sortRecipesByCreationDateDesc = (recipesArray, count) => {
+
+    let result = [];
+    result = [...recipesArray];
+
+    function compare(a, b) {
+        if (formatDate(a._createdOn) < formatDate(b._createdOn)) {
+            return -1;
+        }
+        if (formatDate(a._createdOn) > formatDate(b._createdOn)) {
+            return 1;
+        }
+        return 0;
+    }
+    return result.sort(compare).splice(0, count);
+}
+
+export const sortRecipesByNameAsc = (recipesArray, count) => {
+
+    let result = [];
+    result = [...recipesArray];
+
+    function compare(a, b) {
+        if (a.name < b.name) {
+            return -1;
+        }
+        if (a.name > b.name) {
+            return 1;
+        }
+        return 0;
+    }
+    return result.sort(compare).splice(0, count);
+}
+
+export const sortBylevelDesc = (recipesArray, count) => {
+
+    let result = [];
+    result = [...recipesArray];
+
+    function compare(a, b) {
+        if (a.level < b.level) {
+            return -1;
+        }
+        if (a.level > b.level) {
+            return 1;
+        }
+        return 0;
+    }
+    return result.sort(compare).splice(0, count);
+}
+
+export const sortByCalDesc = (recipesArray, count) => {
+
+    let result = [];
+    result = [...recipesArray];
+
+    function compare(a, b) {
+        if (Number(a.calories) < Number(b.calories)) {
+            return -1;
+        }
+        if (Number(a.calories) > Number(b.calories)) {
+            return 1;
+        }
+        return 0;
+    }
+    return result.sort(compare).splice(0, count);
+}
+
+export const sortByTimeDesc = (recipesArray, count) => {
+
+    let result = [];
+    result = [...recipesArray];
+
+    function compare(a, b) {
+        if (Number(a["cook-time"]) < Number(b["cook-time"])) {
+            return -1;
+        }
+        if (Number(a["cook-time"]) > Number(b["cook-time"])) {
+            return 1;
+        }
+        return 0;
+    }
+    return result.sort(compare).splice(0, count);
+}
+
 export const urlMappingDataRecipes = [
     {
         season:
@@ -76,73 +181,4 @@ export const mealsCategories =
     "Fish": ["Tuna", "Salmon", "Catfish", "Cod", "Bass", "Trout"],
     "Meat": ["Pork", "Lamb", "Duck", "Goat", "Beef", "Chicken", "Turkey"],
     "Veggetarian": ["Fruits", "Vegetables", "Beans", "Nuts", "Seeds", "Pasta", "Rice", "Bread", "Yoghurt", "Soup", "Salad"]
-}
-
-export const getRandomRecipe = (recipes) => {
-    let randomRecipe = {};
-    const index = Math.floor(Math.random() * recipes.length);
-
-    randomRecipe = { ...recipes[index] };
-
-    return randomRecipe;
-}
-
-export const sortRecipesByCreationDateDesc = (recipesArray, count) => {
-
-    let result = [];
-    result = [...recipesArray];
-
-    function compare(a, b) {
-        if (formatDate(a._createdOn) < formatDate(b._createdOn)) {
-            return -1;
-        }
-        if (formatDate(a._createdOn) > formatDate(b._createdOn)) {
-            return 1;
-        }
-        return 0;
-    }
-    return result.sort(compare).splice(0, count);
-}
-
-export const sortRecipesByNameAsc = (recipesArray, count) => {
-
-    let result = [];
-    result = [...recipesArray];
-
-    function compare(a, b) {
-        if (a.name < b.name) {
-            return -1;
-        }
-        if (a.name > b.name) {
-            return 1;
-        }
-        return 0;
-    }
-    return result.sort(compare).splice(0, count);
-}
-
-export const sortRecipebyCalories = (recipesArray, count) => {
-
-    let result = [];
-    result = [...recipesArray];
-
-    function compare(a, b) {
-        if (Number(a.calories) < Number(b.calories)) {
-            return -1;
-        }
-        if (Number(a.calories) > Number(b.calories)) {
-            return 1;
-        }
-        return 0;
-    }
-    return result.sort(compare).splice(0, count);
-}
-
-export const findRecipesBySeason = (season) => {
-    const toUpperCase = season.charAt(0).toUpperCase() + season.slice(1);
-    return toUpperCase;
-}
-
-export const formatDate = (date) => {
-    return new Date(date).toLocaleDateString()
 }

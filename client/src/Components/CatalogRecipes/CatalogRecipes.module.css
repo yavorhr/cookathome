@@ -1,196 +1,17 @@
-/*
-================
-  Search Bar
-================
-*/
-
-.search-bar {
-    /* positioning */
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: var(--search--bckgrnd-clr);
-    /* box-model */
-    padding: 20px;
-    /* type */
-    text-align: center;
-}
-
-.search-bar .title {
-    margin: 30px 0;
-
-    font-size: 40px;
-    letter-spacing: 3px;
-}
-
-.search-bar form {
-    /* display */
+/* Section positioning */
+.catalog {
     display: flex;
-    align-items: center;
-    gap: 20px;
-    /* positioning */
-    max-width: 500px;
-    padding: 30px;
-    margin: 0 auto;
-}
-
-.search-bar .descr {
-    margin-bottom: 10px;
-
-    font-size: 20px;
-    letter-spacing: 2px;
-}
-
-.search-bar input {
-    /* positioning */
-    background-color: transparent;
-    flex: 1;
-    /* border-box */
-    padding: 15px 20px;
-    width: 60%;
-    outline: none;
-    border: 0;
-    border-radius: 60px;
-    background-color: var(--light-gray);
-}
-
-::placeholder {
-    color: var(--white);
-    font-size: 20px;
-}
-
-.search-bar form button {
-    position: relative;
-    /* border box */
-    border: none;
-    width: 30%;
-    border-radius: 30px;
-}
-
-.search-bar form button .icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* border-box */
-    background-color: var(--white);
-    padding: 20px;
-    border-radius: 30px;
-    /* type */
-    font-size: 18px;
-    color: var(--grey);
-
-    opacity: 0.7;
-}
-
-/*
-=========================
-       All Recipies
-=========================
-*/
-
-.section-title {
-    /* positioning */
-    width: 20%;
-    margin: 0 auto;
-    margin-top: 30px;
-    border-bottom: 3px solid var(--brown);
-    /* type */
-    font-size: 25px;
-    text-align: center;
-    letter-spacing: 3px;
-    text-transform: capitalize;
-}
-
-.section-title:hover {
-    border-bottom: 3px solid var(--orange);
-}
-
-.card-list {
-    /* display */
-    display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 10px;
-    /* border box */
-    max-width: 1200px;
-    margin: 40px auto;
+    align-items: start;
+    margin: 20px auto;
 }
 
-/* 
-=============
-  Card Item 
-=============
-*/
-
-.card-list .list-item {
-    border-radius: 10px;
-    margin-bottom: 10px;
+.catalog .search-article {
+    width: 70%;
 }
 
-.card-list .list-item a {
-    display: flex;
-    flex-direction: column;
-}
-
-.list-item .img-holder img {
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-
-    border-radius: 5px 5px 0 0;
-}
-
-.card-list a {
-    text-decoration: none;
-}
-
-.card-list a:hover {
-    border-radius: 10px;
-}
-
-.card-info {
-    display: inline-block;
-    padding-bottom: 10px;
-    background-color: var(--white);
-}
-
-.card-info .card-title {
-    color: var(--black);
-    font-size: 22px;
-    margin: 10px 0;
-    letter-spacing: 1px;
-    text-align: center;
-}
-
-.card-info .card-descr {
-    font-size: 18px;
-    color: var(--grey);
-    padding: 0px 10px;
-    text-align: left;
-}
-
-.card-info span {
-    display: inline-block;
-    color: var(--grey);
-    font-size: 18px;
-    margin-top: 30px;
-    margin-left: 5px;
-}
-
-.recipes-title {
-    margin: 20px 0;
-
-    text-align: center;
-    letter-spacing: 1px;
-    font-weight: lighter;
-    color: var(--black);
-}
-
-
-.card-info .icon {
-    margin: 0 10px;
-    color: var(--grey);
-    font-size: 18px;
+.catalog .sort-article {
+    width: 20%;
 }
 
 /* Search */
@@ -200,22 +21,22 @@
     align-items: center;
     justify-content: center;
 
-    width: 30%;
+    width: 70%;
     margin: 20px auto;
+    gap: 10px;
 }
-
 
 .search-form input {
     /* positioning */
     background-color: transparent;
     flex: 1;
     /* border-box */
-    padding: 15px 20px;
-    width: 50%;
+    padding: 10px 20px;
+    width: 500px;
     outline: none;
-    border: 0;
+
     border-radius: 60px;
-    background-color: var(--light-gray);
+    border: 1px solid var(--blue-ocean);
 }
 
 ::placeholder {
@@ -223,35 +44,62 @@
     font-size: 20px;
 }
 
+/* Search buttons */
+
 .search-form button {
-    position: relative;
-    /* border box */
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: var(--white);
     border: none;
-    background-color: transparent;
-    width: 30%;
-    border-radius: 30px;
+    border-radius: 5px;
+}
+
+.search-btn {
+    background-color: var(--green);
+}
+
+.search-btn:hover {
+    background-color: var(--grass-green);
+}
+
+.reset-btn {
+    background-color: var(--grey);
+}
+
+.reset-btn:hover {
+    background-color: var(--silver);
+}
+
+/* Sort article */
+
+.sort-article{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.sort-article h5 {
+    font-size: 20px;
+}
+
+.sort-article select {
+    position: relative;
+    padding: 6px 12px;
     cursor: pointer;
 }
 
-.search-form button .icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* border-box */
-    background-color: var(--white);
-    padding: 20px;
-    border-radius: 30px;
-    /* type */
-    font-size: 18px;
-    color: var(--grey);
+/* Card list */
 
-    opacity: 0.7;
-}
-
-.search-form button .icon:hover {
-    background-color: var(--light-gray);
-    color: var(--white);
+.card-list {
+    /* display */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* border box */
+    max-width: 1400px;
+    margin: 40px auto;
 }
 
 
