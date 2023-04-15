@@ -1,1 +1,3 @@
-# cookathome
+# SoftUni Practice Server
+
+## Usage
