@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./CardItem.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock } from '@fortawesome/free-solid-svg-icons';
+import { faClock, } from '@fortawesome/free-solid-svg-icons';
 
 /*TODO:To check all css for repaeting styles*/
 
@@ -16,11 +16,21 @@ export const CardItem = ({
                         <img className={styles["card-item__img"]} src={recipe["profile-image"]} alt="recipe-image" />
                     </div>
                     <p className={styles["card-title"]}>{recipe.name}</p>
-                    {/* <p className={styles["card-author"]}>{recipe.user["full-name"]}</p> */}
                     <p className={styles["card-descr"]}>{recipe.description}</p>
-                    <span>
-                        <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>{recipe["cook-time"]} min
-                    </span>
+                    <div className={styles["recipe-data"]}>
+                        <div className={styles["level-author-wrap"]}>
+                            <p className={styles["recipe-level"]}>Level : <p>{recipe.level}</p> </p>
+                            <p className={styles["recipe-level"]}>Author : <p>John</p> </p>
+                        </div>
+                        <div className={styles["recipe-cal-time-wrap"]}>
+                            <p className={styles["item"]}>
+                                <FontAwesomeIcon icon={faClock} className={styles["icon"]}></FontAwesomeIcon>{recipe["cook-time"]} min
+                            </p>
+                            <p className={styles["item"]}>
+                                {recipe.calories} kcal
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </Link>
         </li>

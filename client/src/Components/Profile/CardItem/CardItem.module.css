@@ -37,7 +37,7 @@
 	text-decoration: none;
 }
 
-.card-item span{
+.card-item span {
 	position: absolute;
 	bottom: 0px;
 	left: 0;
@@ -70,22 +70,14 @@
 	color: var(--grey);
 }
 
-.card-item .card-author {
-	margin-bottom: 5px;
-
-	font-size: 15px;
-	text-align: center;
-	color: var(--bg-accent);
-}
-
-.card-item span .icon {
+.card-item p .icon {
 	margin: 15px 5px;
 
 	font-size: 15px;
 	color: var(--grey);
 }
 
-.card-item span {
+.card-item .recipe-data .item {
 	display: flex;
 	align-items: center;
 	font-size: 14px;
@@ -105,4 +97,44 @@
 
 .show-all a:hover {
 	border-bottom: 1px solid var(--black)
+}
+
+.recipe-data {
+	position: absolute;
+	bottom: 0px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+
+	width: 100%;
+	margin: 0 auto;
+	padding: 0px 7px;
+}
+
+.recipe-level {
+	color: var(--grey);
+	font-weight: lighter;
+	text-align: center;
+	margin: 7px 0px;
+}
+
+.recipe-level p {
+	display: inline;
+	color: black;
+	font-style: italic;
+}
+
+.recipe-cal-time-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+}
+
+.level-author-wrap {
+	display: flex;
+	justify-content: center;
+	gap: 5px
 }
