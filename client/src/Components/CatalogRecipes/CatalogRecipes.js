@@ -17,7 +17,7 @@ export const CatalogRecipes = ({ }) => {
     const [sortValue, setSortValue] = useState('');
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [recipesPerPage] = useState(3);
+    const [recipesPerPage] = useState(5);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -33,16 +33,17 @@ export const CatalogRecipes = ({ }) => {
 
     const sortOptions = ["name", "calories", "level", "cook-time"];
 
+
     const functions = (array, length, value) => {
 
         const obj = {
             name: recipeService.sortRecipesByNameAsc(array, length),
-            calories: recipeService.sortByCalDesc(array, length),
-            level: recipeService.sortBylevelDesc(array, length),
-            ["cook-time"]: recipeService.sortByTimeDesc(array, length)
+            calories: recipeService.sortRecipebyCalories(array, length)
         }
+
         return obj[value];
     }
+
 
     // Get current posts
     const lastIndex = currentPage * recipesPerPage;
@@ -62,9 +63,6 @@ export const CatalogRecipes = ({ }) => {
         recipeService.getAll()
             .then(result => setRecipes(result.filter(r => r.name.toLowerCase().includes(search.toLocaleLowerCase()))));
         setSearch('');
-
-        setCurrentPage(1);
-        setSearch('');
     }
 
     const handleReset = () => {
@@ -72,34 +70,14 @@ export const CatalogRecipes = ({ }) => {
     }
 
     const handleSort = (e) => {
-        const value = e.target.value;
-
+        let value = e.target.value;
         setSortValue(value);
-
-        if (value == "Please select") {
-            return;
-        }
         setRecipes(state => functions(state, state.length, value));
     }
 
     return (
-        <section className={styles["catalog"]}>
-            <article className={styles["sort-article"]}>
-                <h5>Sort By:</h5>
-                <select
-                    className={styles["after"]}
-                    name="sort"
-                    id="sort"
-                    onChange={handleSort}
-                    value={sortValue}
-                >
-                    <option value="Please select">Please select</option>
-                    {sortOptions.map((item, index) => (
-                        <option value={item} key={index}>{item}</option>
-                    ))}
-                </select>
-            </article>
-            <article className={styles["search-article"]}>
+        <section>
+            <article>
                 {isLoading && <Spinner />}
                 <form
                     className={styles["search-form"]}
@@ -113,10 +91,9 @@ export const CatalogRecipes = ({ }) => {
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
-                    <button type="submit" className={styles["search-btn"]}>Search</button>
-                    <button className={styles["reset-btn"]} type="submit" onClick={() => handleReset()}>Reset</button>
+                    <button type="submit" >Search</button>
+                    <button type="submit" onClick={() => handleReset()}>Reset</button>
                 </form>
-
                 {recipes.length > 0
                     ?
                     <ul className={styles["card-list"]} type="none">
@@ -129,14 +106,28 @@ export const CatalogRecipes = ({ }) => {
                     </ul>
                     : <h1>No data</h1>
                 }
-                <Pagination
-                    recipesPerPage={recipesPerPage}
-                    totalRecipes={recipes.length}
-                    paginate={paginate}
-                    currentPage={currentPage} />
+                {/* <Pagination
+                            recipesPerPage={recipesPerPage}
+                            totalRecipes={recipes.length}
+                            paginate={paginate}
+                            currentPage={currentPage} /> */}
+
 
             </article>
-
+            <article>
+                <h5>Sort By:</h5>
+                <select
+                    name=""
+                    id=""
+                    onChange={handleSort}
+                    value={sortValue}
+                >
+                    <option value="">Please select</option>
+                    {sortOptions.map((item, index) => (
+                        <option value={item} key={index}>{item}</option>
+                    ))}
+                </select>
+            </article>
         </section >
     );
 }
