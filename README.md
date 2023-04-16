@@ -1,6 +1,41 @@
-# Foobar
+# Cook at home 
 
-Foobar is a Python library for dealing with word pluralization.
+Welcome to my project! This is Single Page Application, based on ReactJS and Node.js. 
+I started this project with the main motivation to develop and deepen my knowledge not just in the ReactJS framework, but CSS and HTML as well.
+
+The project was created through the course [ReactJS](https://softuni.bg/trainings/3973/reactjs-february-2023) at the [Software University]() and it is intetended to be defended as part of succesfully pass of the course. 
+
+The App represents a cooking web site, where users have functionalities such as :
+  - create own recipes
+  - add to favorites
+  - add products to shopping list
+  - store recipe images to Cloudinary
+  
+and others.
+
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+
+## General info
+This project is simple Lorem ipsum dolor generator.
+	
+## Technologies
+Project is created with:
+* Lorem version: 12.3
+* Ipsum version: 2.33
+* Ament library version: 999
+	
+## Setup
+To run this project, install it locally using npm:
+
+```
+$ cd ../lorem
+$ npm install
+$ npm start
+```
+
 
 ## Installation
 
