@@ -26,8 +26,6 @@ The project consists of the main folders - Client and Server.
    - App.js - this is the start point of the application. It imports and renders all components, which are URL mapped with Route react components.
 
  * Server folder - This is REST service for the project, provided by SoftUni and is not changed in any way.  
-   - This service uses authentication and resources are accessible after user provide credentials.
-   - Note that changes to the data will not be persisted! All operations happen in memory and will be wiped when the service is restarted. This service dynamically loads collections from the ./data/ folder, located with the server. For testing purposes a data is stored in the server, which will be loaded and rendered via requests, when the App starts. 
 
 ## Technologies
 
@@ -60,8 +58,11 @@ $ npm start
 ```
 ## Features
 
-
 ## Server configuration and end points
+
+This service uses authentication and resources are accessible after user provide credentials.
+
+Note that changes to the data will not be persisted! All operations happen in memory and will be wiped when the service is restarted. This service dynamically loads collections from the ./data/ folder, located with the server. For testing purposes a data is stored in the server, which will be loaded and rendered via requests, when the App starts. 
 
 * [Authentication](#authentication)
 * [Recipes](#recipes)
@@ -69,24 +70,17 @@ $ npm start
 * [Favorites](#technologies)
 * [Cloudinary API](#technologies)
 
+### Authentication
 
-## Authentication
+This service supports authentication - reading resources is public, but creating, updating and deleting can only be performed by authorized users. Additionally, only the original creator of a resource can edit or delete it.
 
-This is REST service, created for educational purposes. A compiled bundle should be available with every exercise's resources. To execute it, run the included start.bat file, or manually open a command prompt and run node server.js.
+To make an authorized request, add the following header, where {token} is the access token, returned by the service upon successful login or registration:
 
-Note: You do NOT need to download anything from this repository - this is intended for reference only.
-Services
-
-Note that changes to the data will not be persisted! All operations happen in memory and will be wiped when the service is restarted.
-JSON Store
-Read the detailed documentation for this service
-Configuration
-
+X-Authorization: {token}
 
 CRUD Operations
 
-All requests are sent to /jsonstore/:resource. Resources can be nested and have any shape. Individual properties can be accessed by appending /:propName to the endpoint as deep as you require. Supported requests are GET, POST, PUT, PATCH, DELETE
-Authentication
+Send requests to /data/:collection with appropriate method and headers. All operations, except for Read, require an authorization header to be present on the request.
 
 The service is initialized with three users, which can be used for immediate testing:
 
@@ -94,34 +88,63 @@ The service is initialized with three users, which can be used for immediate tes
     george@abv.bg : 123456
     admin@abv.bg : admin
 
-Register
+#### Register
 
-Create a new user by sending a POST request to /users/register with properties email and password. You can add any other property that you need, like username, avatar, etc. The service automatically creates a session and returns an authorization token, that can be used for requests.
-Login
+Create a new user by sending a POST request to */users/register* with properties email and password. You can add any other property that you need, like username, avatar, etc. The service automatically creates a session and returns an authorization token, that can be used for requests.
 
-Login by sending a POST request with email and password to /users/login. The service will respond with an object, containing a standard string token, that can be used for requests.
-Logout
+POST Request body :
+```
+{
+"fullname":"test_user",
+"username":"test_username",
+"email":"test_user@abv.bg",
+"password":"12345",
+"confirm-password":"12345"
+}
+```
+Server respond :
 
-Send an authorized GET request to /users/logout. The service returns an empty response - if you attempt to parse it as JSON, you will receive an error! You can check for this type of response by looking at the status (204 instead of 200) and the content-type header (will not be present).
-Get User Details
+```
+{"full-name":"test_user",
+"username":"test",
+"email":"test@abv.bg",
+"password":"11111",
+"confirm-password":"11111",
+"_createdOn":1681643186644,
+"_id":"94805dbe-9531-47e8-a326-6f611638729d",
+"accessToken":"26258369244fa2d83ad55df6634746fe800752156bbab95ebe11a5890273eab5"}
+
+```
+
+#### Login
+
+Login by sending a POST request with email and password to */users/login*. The service will respond with an object, containing a standard string token, that can be used for requests.
+
+##### POST Request body :
+
+```
+{"email":"peter@abv.bg","password":"123456"}
+```
+
+#### Server respond :
+
+```
+{"email":"peter@abv.bg",
+"imageUrl":"https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Users/user_4_wruxoc.jpg",
+"full-name":"Peter Georgiev Ivanov",
+"_id":"35c62d76-8152-4626-8712-eeb96381bea8",
+"accessToken":"a793d0e1ac3c939f16a01218c2b57164db3283eb50722692aad633117a3d259e"}
+```
+
+#### Logout
+
+Send an authorized GET request to */users/logout*. The service returns an empty response - if you attempt to parse it as JSON, you will receive an error! You can check for this type of response by looking at the status (204 instead of 200) and the content-type header (will not be present).
+
+#### Get User Details
 
 Send an authorized GET request to /users/me. The service will return the record of the user, associated with the passed-in session token.
-Authorized Requests
 
-To make an authorized request, add the following header, where {token} is the access token, returned by the service upon successful login or registration:
 
-X-Authorization: {token}
-
-Admin Override
-
-Any request which includes the X-Admin header will be granted full access to any resource inside the Collections service. The only exception is if the request has an invalid session token, which still throws a 403 with the appropriate message.
-Collections
-Read the detailed documentation for this service
-
-This service uses authentication - reading resources is public, but creating, updating and deleting can only be performed by authorized users. Additionally, only the original creator of a resource can edit or delete it.
-CRUD Operations
-
-Send requests to /data/:collection with appropriate method and headers. All operations, except for Read, require an authorization header to be present on the request (see the Authentication section on how to obtain a valid token).
 
 
 ## License
