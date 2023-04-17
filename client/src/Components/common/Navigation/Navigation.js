@@ -10,7 +10,6 @@ import { ReactComponent as Profile } from './svg//profile3.svg';
 import { ReactComponent as Recipes } from './svg/ladle.svg';
 import { ReactComponent as Search } from './svg/search.svg';
 
-import { Dropdown } from "./Dropdown/Dropdown.js";
 import { NavItem } from './NavItem/NavItem.js'
 import { ProfileDropdown } from './ProfileDropdown/ProfileDropdown.js';
 
