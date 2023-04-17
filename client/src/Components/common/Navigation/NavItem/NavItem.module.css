@@ -5,8 +5,6 @@
   justify-content: center;
 }
 
-/* TODO:to reuse .icon button classes from global class */
-
 .icon-button {
   display: flex;
   align-items: center;

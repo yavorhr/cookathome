@@ -7,11 +7,6 @@ import { useState, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
 
 export const Register = () => {
-
-    /* TODO: validation hook for errors, so it can be re-usable to edit page */
-    /*TODO:// UX WAY TO POP UP ERRORS */
-    /*TODO:// Add checked/error icon in input */
-    /*TODO:// More universal way to check for errors */
     const [userImageUrl, setImageUserUrl] = useState();
     const [validateInput, setValidateInput] = useState(true);
     const [errors, setErrors] = useState({});

@@ -17,8 +17,6 @@ export const Navigation = () => {
     const { user } = useContext(AuthContext);
     const loggedIn = user.email;
 
-    /*TODO: to set profile picture instead of the user profile icon*/
-
     return (
         <nav className={styles["navbar"]}>
             <ul className={styles["navbar-nav"]}>

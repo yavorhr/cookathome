@@ -5,12 +5,12 @@ import * as authService from '../../service/authService.js';
 
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
+import { useState } from 'react';
 
-export const Login = ({
-}) => {
-    const {
-        userLogin
-    } = useContext(AuthContext);
+export const Login = () => {
+    const [sucessLogin, setSuccessLogin] = useState(true);
+
+    const { userLogin } = useContext(AuthContext);
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -19,11 +19,15 @@ export const Login = ({
 
         authService
             .login(userData)
-            .then(result =>
-                userLogin(result))
+            .then(result => {
+                if (result.code == 403) {
+                    setSuccessLogin(false);
+                    return;
+                }
+                userLogin(result)
+            })
     }
 
-    
     //TODO: Validation for matching password. Controlled form
 
     return (
@@ -48,6 +52,7 @@ export const Login = ({
                 </div>
                 <div className={styles["wrapper"]}>
                     <button type="submit" className={styles["submit--login-btn"]}>Login</button>
+                    {!sucessLogin && <p className={`${styles["error"]} ${styles["name"]}`}>Login or password don't match!</p>}
                     <div className={styles["sign-up-link"]}>
                         <p>Not a member ?</p>
                         <Link to="/users/register">Sign up</Link>

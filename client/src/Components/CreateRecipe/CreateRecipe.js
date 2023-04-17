@@ -13,8 +13,6 @@ export const CreateRecipe = ({ }) => {
     const { user } = useContext(AuthContext);
     const { createRecipe } = useContext(RecipeContext);
     const currentRef = useRef();
-
-    /* TODO: validation hook for errors, so it can be re-usable to edit page */
     const [invalidUserInput, setInvalidUserInput] = useState(false);
     const [errors, setErrors] = useState({ imageUrl: false });
     const [images, setImages] = useState([]);
@@ -44,8 +42,6 @@ export const CreateRecipe = ({ }) => {
             [e.target.name]: e.target.value
         }))
     }
-
-    /*TODO:// UX WAY TO POP UP ERRORS */
 
     const onSubmitHandler = (e) => {
         e.preventDefault();

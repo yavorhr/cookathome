@@ -18,5 +18,3 @@ export const RecipeByUser = ({ }) => {
         </div>
     );
 }
-
-/*TODO:Add pagination*/

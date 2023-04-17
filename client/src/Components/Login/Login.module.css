@@ -126,3 +126,15 @@ form .text-field {
     text-decoration: underline;
 }
 
+/* Error */
+.error {
+    margin: 0 auto;
+    background-color: var(--red);
+    padding: 6px;
+    margin-top: 5px;
+    border-radius: 5px;
+    color: var(--white);
+    width: 60%;
+    letter-spacing: 1px;
+    text-align: center;
+}

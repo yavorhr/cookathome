@@ -3,8 +3,6 @@ import styles from "./CardItem.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock, } from '@fortawesome/free-solid-svg-icons';
 
-/*TODO:To check all css for repaeting styles*/
-
 export const CardItem = ({
     recipe }) => {
 

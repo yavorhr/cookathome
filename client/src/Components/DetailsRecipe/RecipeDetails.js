@@ -9,8 +9,6 @@ import { faUtensils, faCamera, faFireBurner, faPenToSquare, faTrashCan, faHeart,
 
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
-
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
 
@@ -18,7 +16,6 @@ import { ProductItem } from './ProductItem/ProductItem.js';
 import { Gallery } from './Gallery/Gallery.js';
 import { Spinner } from '../common/Spinner/Spinner.js';
 
-/*TODO : To chane fab icons with svg icons */
 export const RecipeDetails = () => {
     const [recipe, setRecipe] = useState({});
     const [isAlertVisible, setIsAlertVisible] = useState(false);
