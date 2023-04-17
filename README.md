@@ -1,143 +1,3 @@
-<<<<<<< HEAD
-# Cook at home
-
-## Project description
-
-Welcome to my project! It is ReactJS Single Page Application, which is created as part of my exam defence for the course [React JS](https://softuni.bg/trainings/3727/reactjs-june-2022#lesson-40248) at the [Software University](https://softuni.bg).
-
-The fr
-
-This is **REST service**, created for educational purposes. To execute it, open a command prompt and run `node server.js`.
-
-```
-> cd server
-> node server.js
-```
-
-Note that changes to the data **will not be persisted**! All operations happen in memory and will be wiped when the service is restarted.
-
-## Base URL
-
-The Base URL for the API is: `http://localhost:3030/jsonstore`
-
-The documentation below assumes you are pre-pending the Base URL to the endpoints in order to make requests.
-
-# Endpoints: Todos
-
-- `/todos` -- get todo list/ create todo;
-- `/todos/{todoId}` -- get todo/update todo/ delete todo by provided id;;
-
-## Get todo list
-
-Send a `GET` request to `/todos`. The service will respond with an array of todo objects.
-
-### Success Response:
-
-Code: 200 OK
-
-Content:
-
-```
-[
-  {
-    "_id": string,
-    "text": string,
-    "isCompleted": boolean,
-  }, ...
-]
-```
-
-## Create a new todo
-
-Create a new todo by sending a `POST` request to `/todos` with properties `text` and `isCompleted`. The service will respond with an object, containing newly created todo.
-
-### Body
-
-```
-{
-  "text": string,
-  "isCompleted": boolean
-}
-```
-
-### Success Response:
-
-Code: 200 OK
-
-Content:
-
-```
-{
-  "_id": string,
-  "text": string,
-  "isCompleted": boolean,
-}
-```
-
-## Update todo by provided todoId
-
-Update an existing todo by sending a `PUT` request to `/todos/{todoId}` with property `isCompleted`. The service will respond with an object, containing newly updated todo.
-
-### Body
-
-```
-{
-  isCompleted: boolean,
-}
-```
-
-### Success Response:
-
-Code: 200 OK
-
-Content:
-
-```
-{
-  "_id": string,
-  "text": string,
-  "isCompleted": boolean,
-}
-```
-
-# Foobar
-
-Foobar is a Python library for dealing with word pluralization.
-
-## Installation
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
-```bash
-pip install foobar
-```
-
-## Usage
-
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-=======
 # Cook at home 
 
 Welcome to my project! This is **Single Page Application**, based on **ReactJS** and **Node.js**. 
@@ -146,15 +6,24 @@ I started this project with the main motivation to **develop and deepen** my kno
 The project was created through the course [ReactJS](https://softuni.bg/trainings/3973/reactjs-february-2023) at the [Software University](https://softuni.bg/) and as part of the successfully pass of the course it is intended to be defended.
 
 ## Contents
- - [Introduction](#introduction)
- - [Project structure](#project-structure)
-- [Technologies](#technologies)
- - [Setup](#setup) 
- - [Features](#features)
- - [Server configuration and end points](#server-configuration-and-end-points)
-   - [Authentication](#authentication)
-   - [Collections](#collections)
-- [Status](#status)
+- [Cook at home](#cook-at-home)
+  - [Contents](#contents)
+  - [Introduction](#introduction)
+  - [Project structure](#project-structure)
+  - [Technologies](#technologies)
+  - [Setup](#setup)
+  - [Features](#features)
+  - [Server configuration and end points](#server-configuration-and-end-points)
+    - [Authentication](#authentication)
+      - [Register](#register)
+      - [Login](#login)
+      - [Logout](#logout)
+    - [Collections](#collections)
+  - [Status](#status)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Introduction
 
@@ -338,4 +207,40 @@ The project is still in ealry development phase. Future implementations are cons
 2. Add options to delete/edit resources, which are stored in Cloud.
 3. Add comments functionality.
 4. Deploy in Heroku
->>>>>>> d5a2754797ed3a077c6ac6ff7b574febca5f9a7a
+
+
+Foobar is a Python library for dealing with word pluralization.
+
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+
+```bash
+pip install foobar
+```
+
+## Usage
+
+```python
+import foobar
+
+# returns 'words'
+foobar.pluralize('word')
+
+# returns 'geese'
+foobar.pluralize('goose')
+
+# returns 'phenomenon'
+foobar.singularize('phenomena')
+```
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
