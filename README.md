@@ -5,15 +5,19 @@ I started this project with the main motivation to develop and deepen my knowled
 
 The project was created through the course [ReactJS](https://softuni.bg/trainings/3973/reactjs-february-2023) at the [Software University](https://softuni.bg/) and it is intetended to be defended as part of succesfully pass of the course. 
 
-## Table of contents
-* [Overview and Structure](#general-info)
-* [Technologies](#technologies)
-* [How to start the project](#setup) 
-* [Features](#features)
-* [Server configuration and end points](#server)
-* [Project status](#status)
+## Contents
+ - [Introduction](#introduction)
+ - [Project structure](#project-structure)
+- [Technologies](#technologies)
+ - [Setup](#setup) 
+ - [Features](#features)
+ - [Server configuration and end points](#server)
+   - [Authentication](#authentication)
+   - [Collections](#collections)
 
-## General info
+ [Status](#status)
+
+## Introduction
 
 This project is Single Page Application, which represents a cooking interactive website with different features. For the client-side is used ReactJS. For the server-side is used remote REST service, built with Node.js. In the project I'm striving to use specific programming concepts to the React library such as :
 
@@ -32,6 +36,8 @@ Public parts includes the following resources, which can be accessed without aut
 
 Private part includes :
 -  Favorites, Grocery List, Profile page, Create recipe, Edit & Delete recipe. To be able to edit & delete, the user should be owner of the resource.
+
+## Project structure
 
 The project consists of the two main folders - Client and Server.
  * Client folder - this is where the ReactJS framework is. The folder is divided to sub-folders such as :
@@ -87,15 +93,10 @@ $ npm start
 
 ## Server configuration and end points
 
-This service uses authentication and resources are accessible after user provide credentials.
-
 Note that changes to the data will not be persisted! All operations happen in memory and will be wiped when the service is restarted. This service dynamically loads collections from the ./data/ folder, located with the server. For testing purposes a data is stored in the server, which will be loaded and rendered via requests, when the App starts. 
 
 * [Authentication](#authentication)
-* [Recipes](#recipes)
-* [Products](#technologies)
-* [Favorites](#technologies)
-* [Cloudinary API](#technologies)
+* [Collections](#collections)
 
 ### Authentication
 
@@ -104,10 +105,6 @@ This service supports authentication - reading resources is public, but creating
 To make an authorized request, add the following header, where {token} is the access token, returned by the service upon successful login or registration:
 
 X-Authorization: {token}
-
-CRUD Operations
-
-Send requests to /data/:collection with appropriate method and headers. All operations, except for Read, require an authorization header to be present on the request.
 
 The service is initialized with three users, which can be used for immediate testing:
 
@@ -119,61 +116,85 @@ The service is initialized with three users, which can be used for immediate tes
 
 Create a new user by sending a POST request to */users/register* with properties email and password. You can add any other property that you need, like username, avatar, etc. The service automatically creates a session and returns an authorization token, that can be used for requests.
 
-POST Request body :
+Request body :
+
 ```
 {
-"fullname":"test_user",
-"username":"test_username",
 "email":"test_user@abv.bg",
 "password":"12345",
-"confirm-password":"12345"
 }
 ```
-Server respond :
 
+Respond body :
 ```
-{"full-name":"test_user",
-"username":"test",
-"email":"test@abv.bg",
-"password":"11111",
-"confirm-password":"11111",
-"_createdOn":1681643186644,
-"_id":"94805dbe-9531-47e8-a326-6f611638729d",
-"accessToken":"26258369244fa2d83ad55df6634746fe800752156bbab95ebe11a5890273eab5"}
-
+{"email":"asfdd2@abv.bg",
+"password":"123",
+"confirm-password":"123",
+"_createdOn":1681734566345,
+"_id":"00d43401-747f-40ab-b812-52f5bd95f21f",
+"accessToken":"7465c15b78813ebb1fb1a5e385868fd74ae9c692d4104a7bd2d2e1446572a78c"}
 ```
 
 #### Login
 
 Login by sending a POST request with email and password to */users/login*. The service will respond with an object, containing a standard string token, that can be used for requests.
 
-##### POST Request body :
+```
+{
+"email":"test_user@abv.bg",
+"password":"12345",
+}
+```
 
 ```
-{"email":"peter@abv.bg","password":"123456"}
-```
-
-#### Server respond :
-
-```
-{"email":"peter@abv.bg",
-"imageUrl":"https://res.cloudinary.com/yavorhr/image/upload/v1678541995/Cook%20at%20home/Users/user_4_wruxoc.jpg",
-"full-name":"Peter Georgiev Ivanov",
+{
+"email":"peter@abv.bg",
 "_id":"35c62d76-8152-4626-8712-eeb96381bea8",
-"accessToken":"a793d0e1ac3c939f16a01218c2b57164db3283eb50722692aad633117a3d259e"}
+"accessToken":"a793d0e1ac3c939f16a01218c2b57164db3283eb50722692aad633117a3d259e"
+}
 ```
 
 #### Logout
 
 Send an authorized GET request to */users/logout*. The service returns an empty response - if you attempt to parse it as JSON, you will receive an error! You can check for this type of response by looking at the status (204 instead of 200) and the content-type header (will not be present).
 
-#### Get User Details
+### Collections
 
-Send an authorized GET request to /users/me. The service will return the record of the user, associated with the passed-in session token.
+CRUD Operations
+
+Send requests to /data/:collection with appropriate method and headers. All operations, except for Read, require an authorization header to be present on the request.
+
+Read
+
+An end point is revealed at /data, which grants access to information, stored on the service. GET requests to the service will return the following responses:
+
+    GET /data/:collection - array of all entries in target collection; will return 404 if collection does not exist
+    GET /data/:collection/:id - entry matching the given ID; will return 404 if collection or entry do not exist with appropriate message attached to response
+
+Create
+
+This request requires authorization and content-type headers.
+Send POST request to /data/:collection to create new entry. ID will be generated automatically and will be included in the returned object. If the collection does not exist, it will be created.
+
+Update
+This request requires authorization and content-type headers (see above). Only the owner of the resource can edit it.
+
+Send PUT request to /data/:collection/:id to update a single entry. Note that the existing entry will be replaced!
+Partial Update
+
+This request requires authorization and content-type headers (see above). Only the owner of the resource can edit it.
+
+Delete
+
+This request requires authorization headers. Only the owner of the resource can delete it.
+
+Send DELETE request to /data/:collection/:id to delete a single entry.
 
 
+## Status
 
+The project is still in development phase. Future implementations include :
 
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+1. Add own backend server with Spring MVC.
+2. Add options to delete/edit resources, which are stored in Cloud.
+3. Add comments functionality.
