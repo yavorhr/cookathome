@@ -14,8 +14,7 @@ The project was created through the course [ReactJS](https://softuni.bg/training
  - [Server configuration and end points](#server-configuration-and-end-points)
    - [Authentication](#authentication)
    - [Collections](#collections)
-
- [Status](#status)
+- [Status](#status)
 
 ## Introduction
 
