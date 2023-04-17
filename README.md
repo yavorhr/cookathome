@@ -11,7 +11,7 @@ The project was created through the course [ReactJS](https://softuni.bg/training
 - [Technologies](#technologies)
  - [Setup](#setup) 
  - [Features](#features)
- - [Server configuration and end points](#server)
+ - [Server configuration and end points](#server-configuration-and-end-points)
    - [Authentication](#authentication)
    - [Collections](#collections)
 
