@@ -69,7 +69,6 @@ export const ProfileDropdown = (props) => {
                             <button
                                 className={styles["create-btn"]}
                                 to="/users/create" >Create
-                                {openBtn && <Arrow />}
                             </button>
                         </div>
 
@@ -79,7 +78,8 @@ export const ProfileDropdown = (props) => {
                             <Link
                                 className={styles["link-item"]}
                                 to="/create/recipe"
-                                onClick={openHandler}>Create Recipe</Link>
+                                onClick={openHandler}>Create Recipe
+                            </Link>
                         </div>
                     </>
 

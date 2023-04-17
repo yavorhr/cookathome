@@ -35,7 +35,7 @@
 }
 
 .dropdown-create-btn.active {
-  transform: translateX(68%);
+  transform: translateX(-115%);
 }
 
 .dropdown-create-btn.inactive {
@@ -68,35 +68,11 @@
 
 .profile-wrapper {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
-  gap: 5px;
+  gap: 10px;
 }
 
-/* Create menu arrow svg */
-.profile-wrapper svg {
-  position: relative;
-  top: 6px;
-  left: 5px;
-
-  width: 20px;
-  height: 20px;
-
-  color: var(--white);
-  transition: color .2s ease-in;
-}
-
-.icon-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  --button-size: calc(var(--nav-size) * 0.9);
-  width: var(--button-size);
-  height: var(--button-size);
-
-  transition: filter 300ms;
-}
 
 /* User profile, when logged in */
 
