@@ -165,24 +165,26 @@ CRUD Operations
 
 Send requests to /data/:collection with appropriate method and headers. All operations, except for Read, require an authorization header to be present on the request.
 
-Read
+**Read**
 
 An end point is revealed at **/data**, which grants access to information, stored on the service. GET requests to the service will return the following responses:
 
     GET /data/:collection - array of all entries in target collection; will return 404 if collection does not exist
     GET /data/:collection/:id - entry matching the given ID; will return 404 if collection or entry do not exist with appropriate message attached to response
 
-Create
+**Create**
 
 This request requires authorization and content-type headers.
 **Send POST request to /data/:collection** to create new entry. **ID will be generated automatically** and will be included in the returned object. If the collection does not exist, it will be created.
 
-Update
+**Update**
+
 This request requires authorization and content-type headers. Only the owner of the resource can edit it.
 
 **Send PUT request to /data/:collection/:id** to update a single entry. Note that the existing entry will be replaced!
 
-Delete
+**Delete**
+
 This request requires authorization headers. Only the owner of the resource can delete it.
 
 **Send DELETE request to /data/:collection/:id** to delete a single entry.
