@@ -41,7 +41,7 @@ export const Favorites = () => {
             {recipes.length > 0
                 ? <section className={styles["my-recipes"]}>
                     <div>
-                        <h2 className={styles["my-recipies__title"]}>My recipes</h2>
+                        <h2 className={styles["my-recipes__title"]}>My recipes</h2>
                         <ul className={styles["card-list"]} type="none">
                             {recipes.length > 0 &&
                                 recipes.map(r =>

@@ -37,8 +37,10 @@ export const CatalogRecipes = ({ }) => {
     const functions = (array, length, value) => {
 
         const obj = {
-            name: recipeService.sortRecipesByNameAsc(array, length),
-            calories: recipeService.sortRecipebyCalories(array, length)
+            name: recipeService.sortByNameDesc(array, length),
+            calories: recipeService.sortByCaloriesDesc(array, length),
+            level: recipeService.sortByLevelDesc(array, length),
+            ["cook-time"]: recipeService.sortByTimeDesc(array, length)
         }
 
         return obj[value];
@@ -61,7 +63,12 @@ export const CatalogRecipes = ({ }) => {
         const { search } = Object.fromEntries(new FormData(e.target));
 
         recipeService.getAll()
-            .then(result => setRecipes(result.filter(r => r.name.toLowerCase().includes(search.toLocaleLowerCase()))));
+            .then(result =>
+                setRecipes(result
+                    .filter(r =>
+                        r.name
+                            .toLowerCase()
+                            .includes(search.toLocaleLowerCase()))));
         setSearch('');
     }
 
@@ -106,13 +113,11 @@ export const CatalogRecipes = ({ }) => {
                     </ul>
                     : <h1>No data</h1>
                 }
-                {/* <Pagination
-                            recipesPerPage={recipesPerPage}
-                            totalRecipes={recipes.length}
-                            paginate={paginate}
-                            currentPage={currentPage} /> */}
-
-
+                <Pagination
+                    recipesPerPage={recipesPerPage}
+                    totalRecipes={recipes.length}
+                    paginate={paginate}
+                    currentPage={currentPage} />
             </article>
             <article>
                 <h5>Sort By:</h5>

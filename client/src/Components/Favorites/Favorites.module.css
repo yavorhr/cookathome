@@ -1,6 +1,6 @@
 
 .my-recipes{
-    min-height: 80vh;
+    min-height: 60vh;
 }
 
 .card-list {
@@ -15,7 +15,6 @@
     margin-top: 20px;
 }
 
-
 .title {
     text-decoration: none;
     text-align: center;
@@ -24,9 +23,8 @@
     margin-bottom: 20px;
 }
 
-
 /* My recipes title */
-.my-recipies__title {
+.my-recipes__title {
     /* border box */
     width: 250px;
     margin: 0 auto;
@@ -38,7 +36,7 @@
     letter-spacing: 3px;
 }
 
-.my-recipies__title:hover {
+.my-recipes__title:hover {
     border-bottom: 3px solid var(--orange);
 }
 

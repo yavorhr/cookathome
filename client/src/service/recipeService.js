@@ -105,7 +105,7 @@ export const sortRecipesByCreationDateDesc = (recipesArray, count) => {
     return result.sort(compare).splice(0, count);
 }
 
-export const sortRecipesByNameAsc = (recipesArray, count) => {
+export const sortByNameDesc = (recipesArray, count) => {
 
     let result = [];
     result = [...recipesArray];
@@ -122,7 +122,7 @@ export const sortRecipesByNameAsc = (recipesArray, count) => {
     return result.sort(compare).splice(0, count);
 }
 
-export const sortRecipebyCalories = (recipesArray, count) => {
+export const sortByCaloriesDesc = (recipesArray, count) => {
 
     let result = [];
     result = [...recipesArray];
@@ -132,6 +132,40 @@ export const sortRecipebyCalories = (recipesArray, count) => {
             return -1;
         }
         if (Number(a.calories) > Number(b.calories)) {
+            return 1;
+        }
+        return 0;
+    }
+    return result.sort(compare).splice(0, count);
+}
+
+export const sortByLevelDesc = (recipesArray, count) => {
+
+    let result = [];
+    result = [...recipesArray];
+
+    function compare(a, b) {
+        if (a.level < b.level) {
+            return -1;
+        }
+        if (a.level > b.level) {
+            return 1;
+        }
+        return 0;
+    }
+    return result.sort(compare).splice(0, count);
+}
+
+export const sortByTimeDesc = (recipesArray, count) => {
+
+    let result = [];
+    result = [...recipesArray];
+
+    function compare(a, b) {
+        if (Number(a["cook-time"]) < Number(b["cook-time"])) {
+            return -1;
+        }
+        if (Number(a["cook-time"]) > Number(b["cook-time"])) {
             return 1;
         }
         return 0;
