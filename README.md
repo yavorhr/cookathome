@@ -3,11 +3,11 @@
 Welcome to my project! This is Single Page Application, based on ReactJS and Node.js. 
 I started this project with the main motivation to develop and deepen my knowledge not just in the ReactJS framework, but CSS and HTML as well.
 
-The project was created through the course [ReactJS](https://softuni.bg/trainings/3973/reactjs-february-2023) at the [SoftUni](https://softuni.bg/) and it is intetended to be defended as part of succesfully pass of the course. 
+The project was created through the course [ReactJS](https://softuni.bg/trainings/3973/reactjs-february-2023) at the [Software University](https://softuni.bg/) and it is intetended to be defended as part of succesfully pass of the course. 
 
 ## Table of contents
-* [General info](#general-info)
-* [Overview of technologies](#technologies)
+* [Overview and Structure](#general-info)
+* [Technologies](#technologies)
 * [How to start the project](#setup) 
 * [Features](#features)
 * [Server configuration and end points](#server)
@@ -15,9 +15,25 @@ The project was created through the course [ReactJS](https://softuni.bg/training
 
 ## General info
 
-![structure](https://user-images.githubusercontent.com/76119513/232288390-d0a49a50-87cf-4bd4-b517-0dd901d0bfde.JPG)
+This project is Single Page Application, which represents a cooking interactive website with different features. For the client-side is used ReactJS. For the server-side is used remote REST service, built with Node.js. In the project I'm striving to use specific programming concepts to the React library such as :
 
-The project consists of the main folders - Client and Server.
+1. Stateless and state full components
+2. Controlled forms and form validations
+3. Component Styling
+4. React hooks and custom hooks
+5. Context API
+6. Use of Function components with props & state
+7. // more ....
+
+Depending on that if user is authenticated to the server or not, the app has public and private parts. 
+
+Public parts includes the following resources, which can be accessed without authentication :
+- Catalog, Home page, Login,Register pages, Recipe details
+
+Private part includes :
+-  Favorites, Grocery List, Profile page, Create recipe, Edit & Delete recipe. To be able to edit & delete, the user should be owner of the resource.
+
+The project consists of the two main folders - Client and Server.
  * Client folder - this is where the ReactJS framework is. The folder is divided to sub-folders such as :
    - Components - all components are stored here.
    - context - context API is used to pass data through the component tree without passing props manually. In this project I have created two contexts for keeping data in state of the app - AuthContext and RecipeContenxt.
@@ -26,6 +42,8 @@ The project consists of the main folders - Client and Server.
    - App.js - this is the start point of the application. It imports and renders all components, which are URL mapped with Route react components.
 
  * Server folder - This is REST service for the project, provided by SoftUni and is not changed in any way.  
+
+![structure](https://user-images.githubusercontent.com/76119513/232288390-d0a49a50-87cf-4bd4-b517-0dd901d0bfde.JPG)
 
 ## Technologies
 
@@ -57,6 +75,15 @@ $ npm start
 
 ```
 ## Features
+
+1. Home page - recipe of the day, latest added recipes etc.
+2. Add to favorites
+3. Catalog of Recipes - sorting
+4. Edit / Delete resource, if user is owner
+5. Search
+6. Login / Register
+7. Add to grocery list
+8. Add resources such as profile image & recipe images to Cloudinary 
 
 ## Server configuration and end points
 
