@@ -1,109 +1,105 @@
 /*
-================
-  Search Bar
-================
+ General positioning
 */
 
-.search-bar {
-    /* positioning */
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: var(--search--bckgrnd-clr);
-    /* box-model */
-    padding: 20px;
-    /* type */
-    text-align: center;
+.catalog {
+    display: flex;
+    align-items: start;
+    justify-content: center;
 }
 
-.search-bar .title {
-    margin: 30px 0;
-
-    font-size: 40px;
-    letter-spacing: 3px;
-}
-
-.search-bar form {
-    /* display */
+.sort-article {
     display: flex;
     align-items: center;
-    gap: 20px;
-    /* positioning */
-    max-width: 500px;
-    padding: 30px;
+    justify-content: center;
+    
+    width: 10%;
+    gap: 10px;
+}
+
+.search-article {
+    width: 80%;
+
+}
+
+/* sort article */
+
+.sort-article p {
+    letter-spacing: 1px;
+    font-size: 18px;
+    width: 40%;
+}
+
+.sort-article select{
+    padding: 5px;
+    width: 70%;
+}
+
+/* Search */
+
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 60%;
     margin: 0 auto;
 }
 
-.search-bar .descr {
-    margin-bottom: 10px;
 
-    font-size: 20px;
-    letter-spacing: 2px;
-}
+/* Search input */
 
-.search-bar input {
+.search-form input {
     /* positioning */
     background-color: transparent;
     flex: 1;
     /* border-box */
     padding: 15px 20px;
-    width: 60%;
+    width: 50%;
     outline: none;
-    border: 0;
+    border: 1px solid var(--blue-ocean);
     border-radius: 60px;
-    background-color: var(--light-gray);
+    transition: border .3s ease;
 }
 
-::placeholder {
+.search-form input:focus {
+    border: 2px solid var(--blue-ocean);
+}
+
+/* buttons */
+.search-form button {
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.3s;
     color: var(--white);
-    font-size: 20px;
-}
-
-.search-bar form button {
-    position: relative;
-    /* border box */
+    border-radius: 5px;
+    letter-spacing: 1px;
     border: none;
-    width: 30%;
-    border-radius: 30px;
 }
 
-.search-bar form button .icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* border-box */
-    background-color: var(--white);
-    padding: 20px;
-    border-radius: 30px;
-    /* type */
-    font-size: 18px;
-    color: var(--grey);
-
-    opacity: 0.7;
+.search-btn {
+    background-color: var(--green);
 }
 
-/*
-=========================
-       All Recipies
-=========================
-*/
-
-.section-title {
-    /* positioning */
-    width: 20%;
-    margin: 0 auto;
-    margin-top: 30px;
-    border-bottom: 3px solid var(--brown);
-    /* type */
-    font-size: 25px;
-    text-align: center;
-    letter-spacing: 3px;
-    text-transform: capitalize;
+.search-btn:hover {
+    background-color: var(--grass-green);
 }
 
-.section-title:hover {
-    border-bottom: 3px solid var(--orange);
+.reset-btn {
+    background-color: var(--grey);
 }
+
+.reset-btn:hover {
+    background-color: var(--silver);
+}
+
+.search-form button .icon:hover {
+    background-color: var(--light-gray);
+    color: var(--white);
+}
+
+/* Card list */
 
 .card-list {
     /* display */
@@ -115,145 +111,6 @@
     max-width: 1200px;
     margin: 40px auto;
 }
-
-/* 
-=============
-  Card Item 
-=============
-*/
-
-.card-list .list-item {
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.card-list .list-item a {
-    display: flex;
-    flex-direction: column;
-}
-
-.list-item .img-holder img {
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-
-    border-radius: 5px 5px 0 0;
-}
-
-.card-list a {
-    text-decoration: none;
-}
-
-.card-list a:hover {
-    border-radius: 10px;
-}
-
-.card-info {
-    display: inline-block;
-    padding-bottom: 10px;
-    background-color: var(--white);
-}
-
-.card-info .card-title {
-    color: var(--black);
-    font-size: 22px;
-    margin: 10px 0;
-    letter-spacing: 1px;
-    text-align: center;
-}
-
-.card-info .card-descr {
-    font-size: 18px;
-    color: var(--grey);
-    padding: 0px 10px;
-    text-align: left;
-}
-
-.card-info span {
-    display: inline-block;
-    color: var(--grey);
-    font-size: 18px;
-    margin-top: 30px;
-    margin-left: 5px;
-}
-
-.recipes-title {
-    margin: 20px 0;
-
-    text-align: center;
-    letter-spacing: 1px;
-    font-weight: lighter;
-    color: var(--black);
-}
-
-
-.card-info .icon {
-    margin: 0 10px;
-    color: var(--grey);
-    font-size: 18px;
-}
-
-/* Search */
-
-.search-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 30%;
-    margin: 20px auto;
-}
-
-
-.search-form input {
-    /* positioning */
-    background-color: transparent;
-    flex: 1;
-    /* border-box */
-    padding: 15px 20px;
-    width: 50%;
-    outline: none;
-    border: 0;
-    border-radius: 60px;
-    background-color: var(--light-gray);
-}
-
-::placeholder {
-    color: var(--white);
-    font-size: 20px;
-}
-
-.search-form button {
-    position: relative;
-    /* border box */
-    border: none;
-    background-color: transparent;
-    width: 30%;
-    border-radius: 30px;
-    cursor: pointer;
-}
-
-.search-form button .icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* border-box */
-    background-color: var(--white);
-    padding: 20px;
-    border-radius: 30px;
-    /* type */
-    font-size: 18px;
-    color: var(--grey);
-
-    opacity: 0.7;
-}
-
-.search-form button .icon:hover {
-    background-color: var(--light-gray);
-    color: var(--white);
-}
-
 
 @media screen and (max-width:768px) {
 
