@@ -8,10 +8,8 @@ import { AuthContext } from '../../context/AuthContext.js';
 
 export const Register = () => {
 
-    /*TODO:add upload button for user image */
     /* TODO: validation hook for errors, so it can be re-usable to edit page */
     /*TODO:// UX WAY TO POP UP ERRORS */
-    /*TODO:// To change style of the button when is locked */
     /*TODO:// Add checked/error icon in input */
     /*TODO:// More universal way to check for errors */
     const [userImageUrl, setImageUserUrl] = useState();
@@ -44,9 +42,9 @@ export const Register = () => {
 
         userData.imageUrl = userImageUrl;
         authService.register(userData).
-            then(result => {
+            then(result => 
                 userLogin(result)
-            })
+            )
     }
 
     const onChangeHandler = (e) => {

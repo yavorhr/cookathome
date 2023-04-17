@@ -8,21 +8,23 @@ import { AuthContext } from '../../context/AuthContext.js';
 
 export const Login = ({
 }) => {
-    const { userLogin } = useContext(AuthContext);
+    const {
+        userLogin
+    } = useContext(AuthContext);
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
         const userData = Object.fromEntries(new FormData(e.target));
 
-        /* TRY CATCH in ALL AJAX */
-
         authService
             .login(userData)
-            .then(result => {
-                userLogin(result);
-            })
+            .then(result =>
+                userLogin(result))
     }
+
+    
+    //TODO: Validation for matching password. Controlled form
 
     return (
         <section className={styles["login-section"]}>

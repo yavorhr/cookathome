@@ -3,8 +3,7 @@ import styles from './Favorites.module.css'
 import { AuthContext } from '../../context/AuthContext.js';
 import { useContext, useState, useEffect } from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faClock, faV } from '@fortawesome/free-solid-svg-icons';
+import { faClock, } from '@fortawesome/free-solid-svg-icons';
 
 import * as favoritesService from '../../service/favoriteService.js';
 import { FavoritesItem } from './FavoritesItem/FavoritesItem.js';
@@ -12,9 +11,10 @@ import { Spinner } from '../common/Spinner/Spinner.js';
 
 export const Favorites = () => {
     const [recipes, setRecipes] = useState([]);
-    const { user } = useContext(AuthContext);
-    const [isLoading, setIsLoading] = useState(false);
 
+    const { user } = useContext(AuthContext);
+
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
@@ -22,48 +22,40 @@ export const Favorites = () => {
             .getRecipeByUserId(user._id)
             .then(result =>
                 setRecipes(result));
-
         setIsLoading(false);
     }, []);
 
-    console.log(recipes);
     const removeFromFavoritesById = (recipeId) => {
+        setIsLoading(true);
         favoritesService
             .removeRecipe(recipeId)
-            .then(result =>
-                setRecipes(state => state.filter(r => r._id != recipeId)));
+            .then(result => {
+                setRecipes(state => state.filter(r => r._id != recipeId))
+                setIsLoading(false);
+            })
     }
 
     return (
         <>
-            <section>
-                {isLoading && <Spinner/>}
-                <article className={styles["favorites__search-bar"]}>
-                    <h1 className={styles["title"]}>Search through your recipies</h1>
-                    <form action="">
-                        <input type="text" placeholder="Type recipe title..." name="" />
-                        <button type="submit">
-                            <FontAwesomeIcon icon={faMagnifyingGlass} className={styles["icon"]}></FontAwesomeIcon>
-                        </button>
-                    </form>
-                </article>
-            </section>
+            {isLoading && <Spinner />}
+            {recipes.length > 0
+                ? <section className={styles["my-recipes"]}>
+                    <div>
+                        <h2 className={styles["my-recipies__title"]}>My recipes</h2>
+                        <ul className={styles["card-list"]} type="none">
+                            {recipes.length > 0 &&
+                                recipes.map(r =>
+                                    <FavoritesItem
+                                        key={r._id}
+                                        clockIcon={faClock}
+                                        recipe={r}
+                                        onRemoveRecipe={removeFromFavoritesById} />)
+                            }
+                        </ul>
+                    </div>
+                </section>
 
-            {recipes.length > 0 && <section className={styles["my-recipies"]}>
-                <h2 className={styles["my-recipies__title"]}>My recipies</h2>
-                <ul className={styles["card-list"]} type="none">
-                    {recipes.length > 0 &&
-                        recipes.map(r =>
-                            <FavoritesItem
-                                key={r._id}
-                                clockIcon={faClock}
-                                recipe={r}
-                                onRemoveRecipe={removeFromFavoritesById} />)
-                    }
-                </ul>
-            </section>}
-
-            {recipes.length == 0 && <h2 className={styles["title"]} >You have no favorite recipes yet</h2>}
+                : <h2 className={styles["title"]} >You have no favorite recipes yet</h2>}
         </>
     );
 

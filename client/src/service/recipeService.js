@@ -13,6 +13,7 @@ export const create = (gameData) => request.post(baseUrl, gameData);
 export const remove = (recipeId) => request.del(`${baseUrl}/${recipeId}`);
 export const edit = (recipeId, updatedRecipe) => request.put(`${baseUrl}/${recipeId}`, updatedRecipe);
 
+
 /* Helper functions and data */
 
 export const getRandomRecipe = (recipes) => {

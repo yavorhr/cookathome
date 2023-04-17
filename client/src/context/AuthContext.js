@@ -1,6 +1,7 @@
 import { createContext } from "react";
 import { useLocalStorage } from "../hooks/userLocalStorage.js";
 import { useNavigate } from "react-router-dom";
+import * as authService from '../service/authService.js';
 
 export const AuthContext = createContext();
 
@@ -25,7 +26,7 @@ export const AuthProvider = ({
             user: auth,
             userLogout,
             userLogin,
-            isAuthenticated: Boolean(auth.accessToken)
+            isAuthenticated: Boolean(auth.accessToken),
         }}>
             {children}
         </AuthContext.Provider>

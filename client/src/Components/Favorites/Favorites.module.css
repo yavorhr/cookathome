@@ -1,89 +1,31 @@
-/*
-======================
-    Search bar box
-======================
-*/
 
-.favorites__search-bar {
-    /* positioning */
-    max-width: 1200px;
-    margin: 0 auto;
-    /* box-model */
-    padding: 20px;
-    background-color: var(--search--bckgrnd-clr);
-    /* type */
-    text-align: center;
+.my-recipes{
+    min-height: 80vh;
 }
 
-.favorites__search-bar .title {
-    margin: 15px 0;
-
-    font-size: 40px;
-    letter-spacing: 3px;
-}
-
-.favorites__search-bar form {
+.card-list {
     /* display */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    /* box-model */
-    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    /* border box */
+    padding: 0px;
+    max-width: 1800px;
     margin: 0 auto;
-    /* type */
-    align-items: center;
+    margin-top: 20px;
 }
 
-.favorites__search-bar input {
-    /* positioning */
-    padding: 15px 20px;
-    flex: 1;
-    border: 0;
-    /* border-box */
-    width: 30%;
-    max-width: 500px;
-    outline: none;
-    background-color: var(--light-gray);
-    border-radius: 60px;
+
+.title {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
 }
 
-::placeholder {
-    color: var(--white);
-    font-size: 20px;
-}
 
-.favorites__search-bar form button {
-    position: relative;
-
-    width: 10%;
-    border: none;
-    border-radius: 30px;
-}
-
-.favorites__search-bar form button .icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    /* border-box */
-    background-color: var(--white);
-    padding: 10px;
-
-    border-radius: 30px;
-    /* type */
-    font-size: 18px;
-    color: var(--grey);
-
-    opacity: 0.7;
-    transform: translate(-50%, -50%);
-}
-
-/*
-==============================
-  Favourite recipies section
-==============================
-*/
-
+/* My recipes title */
 .my-recipies__title {
     /* border box */
     width: 250px;
@@ -100,94 +42,15 @@
     border-bottom: 3px solid var(--orange);
 }
 
-.card-list {
-    /* display */
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    /* border box */
-    padding: 0px;
-    max-width: 1800px;
-    margin: 0 auto;
-    margin-top: 20px;
-}
-
-/* Card Item */
-
-.card-list .list-item {
-    border-radius: 10px;
-}
-
-.card-list .list-item a {
-    display: flex;
-    flex-direction: column;
-}
-
-.card-list .list-item .img-holder img {
-    height: 100%;
-
-    width: max-content;
-
-    background-size: cover;
-    background-position: center center;
-    border-radius: 5px 5px 0 0;
-}
-
-.card-list a {
-    text-decoration: none;
-}
-
-.card-list a:hover {
-    border: 1px solid var(--orange);
-    border-radius: 10px;
-}
-
-.card-info {
-    display: inline-block;
-
-    padding-bottom: 10px;
-    background-color: var(--white);
-}
+/* No recipes title */
 
 .title {
-    text-decoration: none;
-    text-align: center;
-    color: black;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-}
+    margin: 15px 0;
 
-.card-info .card-title {
-    color: var(--black);
-    font-size: 22px;
-    margin: 10px 0;
-    letter-spacing: 1px;
-    text-align: center;
-}
-
-.card-info .card-descr {
-    padding: 0px 10px;
-
-    font-size: 18px;
-    color: var(--grey);
-    text-align: left;
-    font-style: italic;
-}
-
-.card-info span {
-    display: inline-block;
-
-    font-size: 18px;
-    margin-top: 20px;
-    margin-left: 5px;
-
-    color: var(--grey);
-}
-
-.card-info span i {
-    margin: 0 10px;
-    font-size: 18px;
-    color: var(--grey);
+    font-size: 40px;
+    letter-spacing: 3px;
+    min-height: 40vh;
+    margin-top: 150px;
 }
 
 /*

@@ -1,4 +1,5 @@
 .list-item {
+    position: relative;
     border-radius: 10px;
 }
 
@@ -37,7 +38,7 @@
 
 .card-info .card-title {
     margin: 10px 0;
-    
+
     color: var(--black);
     font-size: 22px;
     letter-spacing: 1px;
@@ -67,4 +68,25 @@
     margin: 0 10px;
     font-size: 18px;
     color: var(--grey);
+}
+
+/* Remove button */
+
+.list-item button {
+    position: absolute;
+    padding: 10px;
+    border-radius: 4px;
+    opacity: 0.7;
+    cursor: pointer;
+    border: none;
+    outline: none;
+
+    letter-spacing: 1px;
+    transition: all .3s ease;
+}
+
+.list-item button:hover {
+    opacity: 1;
+    background-color: #d3424e;
+    color: var(--white);
 }
