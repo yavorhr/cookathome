@@ -1,17 +1,11 @@
-/*
-=========================
-   User profile section
-=========================
-*/
-
 .user-profile {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 0px;
 	/* box model */
-	max-width: 860px;
-	padding: 15px;
+	max-width: 800px;
+
+	padding: 15px 5px;
 	border-radius: 20px;
 	border: none;
 	border: #A8ACAF;
@@ -30,8 +24,8 @@ User Details Positioning :
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	gap: 15px;
 
+	gap: 15px;
 }
 
 /* 1. User profile picture */
@@ -148,31 +142,42 @@ User Details Positioning :
 
 /* Grid recipes */
 
-.recipes .card-list {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 10px;
-	width: 70%;
-	margin: 0 auto;
+.card-list {
+    /* display */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+	justify-items: center;
+    gap: 10px;
+    /* border box */
+    padding: 10px;
+    max-width: 900px;
+    margin: 20px auto;
+
 }
 
 
-.recipes {}
-
 /*
-=====================
   Responsive Design
-=====================
 */
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:720px) {
+	.user-profile {
+		width: 500px;
+	}
+
 	.user-details {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		gap: 15px;
+	}
+
+	.user-information {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 
 	/* 1. User profile picture */
@@ -209,6 +214,7 @@ User Details Positioning :
 	}
 
 	.card-list {
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(1, 1fr);
+
 	}
 }

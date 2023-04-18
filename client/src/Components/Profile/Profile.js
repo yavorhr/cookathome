@@ -17,7 +17,7 @@ export const Profile = () => {
     const { user } = useContext(AuthContext);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [recipesPerPage] = useState(1);
+    const [recipesPerPage] = useState(3);
 
     useEffect(() => {
         recipeService
