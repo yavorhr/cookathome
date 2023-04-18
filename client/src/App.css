@@ -6,7 +6,7 @@
 
 body {
     min-height: 100vh;
-    display: flex;
+    display: flex;  
     flex-direction: column;
     font-family: "Roboto";
     box-sizing: border-box;

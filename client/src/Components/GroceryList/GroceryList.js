@@ -1,8 +1,8 @@
 import styles from './GroceryList.module.css';
+import * as productsService from '../../service/productsService.js'
 
 import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext.js';
-import * as productsService from '../../service/productsService.js'
 
 import { FoodItem } from './FoodItem/FoodItem.js';
 import { Spinner } from '../common/Spinner/Spinner.js';
