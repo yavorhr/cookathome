@@ -50,9 +50,9 @@ body {
 }
 
 section {
-    margin: 50px auto;
+    margin: 20px auto;
     max-width: 1700px;
-    min-width: 500px;
+    min-width: 400px;
 }
 
 ul {

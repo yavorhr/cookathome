@@ -1,19 +1,16 @@
 import styles from './Favorites.module.css'
+import * as favoritesService from '../../service/favoriteService.js';
+import { faClock, } from '@fortawesome/free-solid-svg-icons';
 
 import { AuthContext } from '../../context/AuthContext.js';
 import { useContext, useState, useEffect } from 'react';
 
-import { faClock, } from '@fortawesome/free-solid-svg-icons';
-
-import * as favoritesService from '../../service/favoriteService.js';
 import { FavoritesItem } from './FavoritesItem/FavoritesItem.js';
 import { Spinner } from '../common/Spinner/Spinner.js';
 
 export const Favorites = () => {
     const [recipes, setRecipes] = useState([]);
-
     const { user } = useContext(AuthContext);
-
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -40,7 +37,7 @@ export const Favorites = () => {
             {isLoading && <Spinner />}
             {recipes.length > 0
                 ? <section className={styles["my-recipes"]}>
-                    <div>
+                    <div className={styles["wrapper"]}>
                         <h2 className={styles["my-recipes__title"]}>My recipes</h2>
                         <ul className={styles["card-list"]} type="none">
                             {recipes.length > 0 &&
