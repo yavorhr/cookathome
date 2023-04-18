@@ -155,7 +155,7 @@ export const CreateRecipe = ({ }) => {
                         </div>
 
                         <div className={`${styles["imageUrl"]} ${styles["wrapper"]} ${styles["flex-col"]} ${styles["mrgn-auto"]}`}>
-                            <label htmlFor="imageUrl">Please select up to 4 images</label>
+                            <label htmlFor="imageUrl">Please choose recipe images</label>
                             <input
                                 type="file"
                                 name="imageUrl"
@@ -328,6 +328,7 @@ export const CreateRecipe = ({ }) => {
                             </div>
 
                             <div className={`${styles["portions"]} ${styles["flex-col"]} ${styles["select-wrapper"]}`}>
+                                
                                 <label htmlFor="portions">Portions</label>
                                 <input
                                     type="text"

@@ -16,13 +16,12 @@
 }
 
 /*
-======================
 Create Recipe Section 
-======================
 */
 
 .create--recipe-section {
-    width: 1200px;
+    max-width: 1200px;
+    min-width: 600px;
     margin: 0 auto;
     margin-top: 30px;
 }
@@ -48,7 +47,7 @@ Create Recipe Section
     border: 1px solid var(--black);
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-    /*type*/
+
     color: var(--white);
 }
 
@@ -129,7 +128,7 @@ Create Recipe Section
 
 .group-wrapper {
     display: flex;
-    height: 150px;
+   
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -137,7 +136,8 @@ Create Recipe Section
 }
 
 .group-wrapper .select-wrapper {
-    width: 20%;
+    max-width: 25%;
+    min-width: 20%;
 }
 
 .create--recipe-section .name,
@@ -237,7 +237,7 @@ Create Recipe Section
 ======================
 */
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:720px) {
     .create--recipe-section .name {
         width: 80%;
     }
@@ -250,10 +250,17 @@ Create Recipe Section
 
     .group-wrapper {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .group-wrapper .select-wrapper {
-        width: 40%;
+        min-width: 30%;
+    }
+
+    .create-recipe-submit-btn {
+        width: max-content;
+
     }
 
 }
