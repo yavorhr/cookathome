@@ -1,52 +1,57 @@
-import styles from './Footer.module.css'
+import styles from './Footer.module.css';
+
+import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faInstagram, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faFacebookF, faInstagram, faTwitter, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export const Footer = () => {
     return (
         <footer>
             <ul className={styles["list-icons"]} type="none">
                 <li>
-                    <a href="">
-                        <FontAwesomeIcon icon={faTwitter} ></FontAwesomeIcon>
-                    </a>
+                    <Link to="https://github.com/yavorhr">
+                        <FontAwesomeIcon icon={faGithub} ></FontAwesomeIcon>
+                    </Link>
                 </li>
                 <li>
-                    <a href="">
+                    <Link to="https://www.facebook.com/yavorhristozov">
                         <FontAwesomeIcon icon={faFacebookF} ></FontAwesomeIcon>
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="">
+                    <Link to="https://www.instagram.com/ywanderwolf">
                         <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="">
+                    <Link to="https://www.linkedin.com/in/yavorhr">
                         <FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon>
-                    </a>
+                    </Link>
                 </li>
             </ul>
             <ul className={styles["list-links"]} type="none">
                 <li>
-                    <a href="">Home</a>
+                    <Link to="/">Home</Link>
                 </li>
                 <li>
-                    <a href="">Recipies</a>
+                    <Link to="/catalog/recipes">Catalog</Link>
                 </li>
                 <li>
-                    <a href="">Newsletter</a>
+                    <Link to="/favorites">Favorites</Link>
                 </li>
                 <li>
-                    <a href="">Contact</a>
+                    <Link to="/groecery-list">Groceries</Link>
                 </li>
                 <li>
-                    <a href="">Team</a>
+                    <Link to="/users/profile">Profile</Link>
                 </li>
             </ul>
-            <p>© Yavor Hristozov</p>
+            <li className={styles["license"]}>
+                <Link to="https://yavorhr.github.io/">© Yavor Hristozov</Link>
+            </li>
         </footer>
 
     )
 }
+

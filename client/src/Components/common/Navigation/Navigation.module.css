@@ -13,6 +13,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
 /* Navbar wrappers */
 .wrapper {
     display: flex;
@@ -66,3 +67,8 @@
     box-shadow: white;
 }
 
+@media screen and (max-width: 720px) {
+    .sign-up-links p {
+        display: none;
+    }
+}
