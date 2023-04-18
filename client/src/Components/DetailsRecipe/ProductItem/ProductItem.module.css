@@ -41,3 +41,18 @@
 	position: absolute;
 	right: 5px;
 }
+
+
+@media screen and (max-width:720px) {
+
+	.food-item{
+		min-width: 320px;
+	}
+
+	.food-item p {
+		font-size: 18px;
+		letter-spacing: 1px;
+		cursor: pointer;
+		padding: 20px 0px;
+	}
+}

@@ -6,7 +6,8 @@ import { faCircleChevronRight, faCircleChevronLeft, faCircleXmark } from '@forta
 import { useState } from 'react';
 
 export const Gallery = ({
-    images }) => {
+    images
+}) => {
 
     const [slideNumber, setSlideNumber] = useState(0);
     const [openModal, setOpenModal] = useState(false);

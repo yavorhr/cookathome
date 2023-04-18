@@ -235,8 +235,7 @@ export const RecipeDetails = () => {
                 </ul>
             </section>
 
-            <section>
-                <div className={styles["cooking-process"]}>
+            <section className={styles["cooking-process"]}>
                     <h2 className={styles["title"]}>How to cook</h2>
 
                     {
@@ -249,8 +248,6 @@ export const RecipeDetails = () => {
                                 </li>)}
                         </ul>
                     }
-
-                </div>
             </section>
         </>
     );

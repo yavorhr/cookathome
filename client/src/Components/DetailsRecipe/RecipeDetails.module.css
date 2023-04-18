@@ -22,9 +22,7 @@
 }
 
 /*
-==================
   Header Section 
-==================
 */
 
 .header {
@@ -241,11 +239,13 @@
 */
 
 .products-section {
-	width: 1200px;
+	margin: 30px auto;
 }
 
+
 .products {
-	width: 70%;
+	max-width: 70%;
+	min-width: 30%;
 	position: relative;
 	margin: 0 auto;
 }
@@ -302,15 +302,19 @@
 	background-color: var(--red);
 }
 
-.products-title{
+.products-title {
 	text-align: center;
 }
 
 /*
-==========================
     How to cook section 
-==========================
 */
+
+.cooking-process {
+	max-width: 1400px;
+	min-width: 400px;
+	padding: 20px;
+}
 
 .cooking-process h2 {
 	margin-bottom: 10px;
@@ -341,22 +345,20 @@
 	list-style: decimal;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:720px) {
 	section {
 		width: 100%;
 	}
-
-	/*
-==================
-  Hero Section 
-==================
-*/
 
 	.hero {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		gap: 20px;
+	}
+
+	.cooking-process{
+		text-align: center;
 	}
 
 	/* Content article User details */
@@ -414,6 +416,7 @@
 	.products {
 		width: 70%;
 	}
+
 
 	.food-item {
 		display: flex;
