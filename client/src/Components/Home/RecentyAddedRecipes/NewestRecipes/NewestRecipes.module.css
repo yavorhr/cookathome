@@ -1,4 +1,13 @@
 
+
+.latest-recipes-section{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 50px;
+}
+
 .latest-recipes__grid {
 	display: grid;
 	grid-template:

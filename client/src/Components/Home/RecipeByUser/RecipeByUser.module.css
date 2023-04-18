@@ -1,10 +1,16 @@
 .recipe-by-user {
-	width: 40%;
+	max-width: 40%;
 }
 
 .recipe-by-user ul {
 	display: flex;
 	flex-direction: column;
-	gap: 15px;;
+	gap: 15px;
+	;
 }
 
+@media screen and (max-width:720px) {
+	.recipe-by-user {
+		display: none;
+	}
+}

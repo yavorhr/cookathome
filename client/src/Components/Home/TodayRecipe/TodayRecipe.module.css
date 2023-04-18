@@ -2,13 +2,13 @@
 
 .today-recipe {
 	position: relative;
-	width: 50%;
+	min-width: 40%;
 }
 
 .today-recipe img {
 	height: 450px;
 	width: 800px;
-	
+
 	z-index: -1;
 }
 

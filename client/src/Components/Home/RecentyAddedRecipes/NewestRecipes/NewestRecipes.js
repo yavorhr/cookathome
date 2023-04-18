@@ -39,7 +39,7 @@ export const NewestRecipes = () => {
     };
 
     return (
-        <>
+        <section className={styles["latest-recipes-section"]}>
             <Navigation category={recipeCategory} />
             <CategoriesList onSelect={onTypeSelect} filter={category} />
 
@@ -71,12 +71,8 @@ export const NewestRecipes = () => {
                             </div>
                         </li>)
                 }
-
-
-
-
             </ul>
-        </>
+        </section>
 
     );
 }
