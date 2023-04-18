@@ -2,7 +2,7 @@
 
 .search-bar {
     /* positioning */
-    max-width: 1200px;
+    max-width: 800px;
     margin: 30px auto;
     background-color: var(--search--bckgrnd-clr);
     /* box-model */
@@ -87,11 +87,28 @@
 
 /* Filtered recipes */
 .list-recipes {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
     gap: 10px;
 
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+@media screen and (max-width:720px) {
+    .search-bar {
+        /* positioning */
+        max-width: 600px;
+    }
+
+    .search-bar .title {
+        font-size: 20px;
+    }
+
+    .list-recipes {
+        max-width: 800px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
