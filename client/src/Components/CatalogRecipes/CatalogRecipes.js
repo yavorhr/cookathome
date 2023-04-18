@@ -88,21 +88,21 @@ export const CatalogRecipes = ({ }) => {
     return (
         <section className={styles["catalog"]}>
             {isLoading && <Spinner />}
-            <article className={styles["sort-article"]}>
-                <p>Sort :</p>
-                <select
-                    name=""
-                    id=""
-                    onChange={handleSort}
-                    value={sortValue}
-                >
-                    <option value="Please select">Please select</option>
-                    {sortOptions.map((item, index) => (
-                        <option value={item} key={index}>{item}</option>
-                    ))}
-                </select>
-            </article>
-            <article className={styles["search-article"]}>
+            <article className={styles["sort-search-article"]}>
+                <article className={styles["sort-article"]}>
+                    <span>Sort by:</span>
+                    <select
+                        name=""
+                        id=""
+                        onChange={handleSort}
+                        value={sortValue}
+                    >
+                        <option value="Please select">Please select</option>
+                        {sortOptions.map((item, index) => (
+                            <option value={item} key={index}>{item}</option>
+                        ))}
+                    </select>
+                </article>
                 <form
                     className={styles["search-form"]}
                     action=""
@@ -118,6 +118,9 @@ export const CatalogRecipes = ({ }) => {
                     <button type="submit" className={styles["search-btn"]}>Search</button>
                     <button className={styles["reset-btn"]} type="submit" onClick={() => handleReset()}>Reset</button>
                 </form>
+            </article>
+
+            <article>
                 {recipes.length > 0
                     ?
                     <ul className={styles["card-list"]} type="none">
@@ -136,9 +139,8 @@ export const CatalogRecipes = ({ }) => {
                     paginate={paginate}
                     currentPage={currentPage} />
             </article>
-            
-        </section >
-        
+        </section>
+
     );
 }
 

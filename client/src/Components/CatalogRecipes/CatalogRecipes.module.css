@@ -1,38 +1,40 @@
 /*
- General positioning
+ Page positioning
 */
 
 .catalog {
     display: flex;
-    align-items: start;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
+
+.sort-search-article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+/* sort article */
 
 .sort-article {
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    width: 10%;
-    gap: 10px;
+    gap: 5px;
+
+    width: 250px;
 }
 
-.search-article {
-    width: 80%;
-
-}
-
-/* sort article */
-
-.sort-article p {
+.sort-article span {
     letter-spacing: 1px;
     font-size: 18px;
-    width: 40%;
 }
 
-.sort-article select{
+.sort-article select {
     padding: 5px;
-    width: 70%;
 }
 
 /* Search */
@@ -43,7 +45,6 @@
     justify-content: center;
     gap: 10px;
 
-    width: 60%;
     margin: 0 auto;
 }
 
@@ -56,7 +57,7 @@
     flex: 1;
     /* border-box */
     padding: 15px 20px;
-    width: 50%;
+    width: 500px;
     outline: none;
     border: 1px solid var(--blue-ocean);
     border-radius: 60px;
@@ -112,84 +113,29 @@
     margin: 40px auto;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:720px) {
 
     /* Grid display */
-
     .card-list {
         /* display */
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 10px;
         /* positioning */
         margin: 0 auto;
         margin-top: 20px;
     }
 
-    .section-title {
-        /* positioning */
-        width: 50%;
-        margin-top: 10px;
-        /* type */
-        font-size: 18px;
-        letter-spacing: 2px;
+    /* Search  */
+
+    .sort-search-article {
+        align-items: start;
+        flex-direction: column-reverse;
+        margin: 0 auto;
     }
 
-    .section-title:hover {
-        border-bottom: 3px solid var(--orange);
+    .sort-article p {
+        display: none;
     }
 
-    /* Search Bar */
-
-    .search-bar .title {
-        margin: 20px 0;
-
-        font-size: 23px;
-        letter-spacing: 2px;
-    }
-
-    .search-bar form {
-        padding: 20px;
-    }
-
-    .search-bar .descr {
-        font-size: 16px;
-        letter-spacing: 2px;
-    }
-
-    .search-bar input {
-        /* positioning */
-        max-width: 500px;
-        padding: 10px 12px;
-    }
-
-
-    /* Card Item */
-
-    .card-info {
-        padding-bottom: 5px;
-    }
-
-    .card-info .card-title {
-        font-size: 18px;
-        margin: 5px 0;
-    }
-
-    .card-info .card-descr {
-        font-size: 15px;
-        padding: 0px 6px;
-
-    }
-
-    .card-info span {
-        display: inline-block;
-        color: var(--grey);
-        font-size: 15px;
-        margin-top: 10px;
-        margin-left: 5px;
-    }
-
-    .card-info span .icon {
-        font-size: 15px;
-    }
 }
