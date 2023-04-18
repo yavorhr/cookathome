@@ -1,18 +1,21 @@
+.wrapper{
+    margin: 10px;
+}
+
 .login-section {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 20%;
-    min-height: 400px;
-    padding: 20px;
+    max-width: 600px;
+    max-height: 500px;
+    padding: 10px;
     background-color: var(--white);
     border-radius: 20px;
     -webkit-box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
     box-shadow: 2px 3px 15px 5px rgba(0, 0, 0, 0.63);
-    height: 55vh;
 }
 
-.login-section form{
+.login-section form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -137,4 +140,8 @@ form .text-field {
     width: 60%;
     letter-spacing: 1px;
     text-align: center;
+}
+
+@media screen and (max-width: 720px) {
+
 }

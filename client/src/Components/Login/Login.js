@@ -9,7 +9,6 @@ import { useState } from 'react';
 
 export const Login = () => {
     const [sucessLogin, setSuccessLogin] = useState(true);
-
     const { userLogin } = useContext(AuthContext);
 
     const onSubmitHandler = (e) => {
@@ -25,40 +24,40 @@ export const Login = () => {
                     return;
                 }
                 userLogin(result)
-            })
+            });
     }
 
-    //TODO: Validation for matching password. Controlled form
-
     return (
-        <section className={styles["login-section"]}>
-            <h1>Login</h1>
-            <form onSubmit={onSubmitHandler}>
-                <div className={styles["text-field"]}>
-                    <input
-                        type="text"
-                        required
-                        name="email" />
-                    <span></span>
-                    <label forname="email">Email</label>
-                </div>
-                <div className={styles["text-field"]}>
-                    <input
-                        type="password"
-                        required
-                        name="password" />
-                    <span></span>
-                    <label forname="password">Password</label>
-                </div>
-                <div className={styles["wrapper"]}>
-                    <button type="submit" className={styles["submit--login-btn"]}>Login</button>
-                    {!sucessLogin && <p className={`${styles["error"]} ${styles["name"]}`}>Login or password don't match!</p>}
-                    <div className={styles["sign-up-link"]}>
-                        <p>Not a member ?</p>
-                        <Link to="/users/register">Sign up</Link>
+        <div className={styles["wrapper"]}>
+            <section className={styles["login-section"]}>
+                <h1>Login</h1>
+                <form onSubmit={onSubmitHandler}>
+                    <div className={styles["text-field"]}>
+                        <input
+                            type="text"
+                            required
+                            name="email" />
+                        <span></span>
+                        <label forname="email">Email</label>
                     </div>
-                </div>
-            </form>
-        </section>
+                    <div className={styles["text-field"]}>
+                        <input
+                            type="password"
+                            required
+                            name="password" />
+                        <span></span>
+                        <label forname="password">Password</label>
+                    </div>
+                    <div className={styles["wrapper"]}>
+                        <button type="submit" className={styles["submit--login-btn"]}>Login</button>
+                        {!sucessLogin && <p className={`${styles["error"]} ${styles["name"]}`}>Login or password don't match!</p>}
+                        <div className={styles["sign-up-link"]}>
+                            <p>Not a member ?</p>
+                            <Link to="/users/register">Sign up</Link>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
     );
 }
