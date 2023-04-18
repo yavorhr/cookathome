@@ -62,9 +62,6 @@ export const EditRecipe = () => {
             return
         }
 
-        console.log(invalidUserInput);
-        console.log(selectMenuErrorOrBlankInput);
-
         setInvalidUserInput(false);
 
         const cookingTimeStr = cookingTimeCategory(Number(recipe["cook-time"] + Number(recipe["prep-time"])))
