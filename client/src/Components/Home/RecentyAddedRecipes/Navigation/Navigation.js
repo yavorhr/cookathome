@@ -16,16 +16,11 @@ export const Navigation = ({
                 <li className={styles["cat-link"]}>
                     Kitchen
                 </li>
-                <li className={styles["cat-link"]}>
-                    Calories
-                </li>
+
                 <li className={styles["cat-link"]}>
                     Season
                 </li>
-                <li className={styles["cat-link"]}>
-                    By time
-                </li>
-
+        
             </ul>
         </nav>);
 }

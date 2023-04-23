@@ -25,7 +25,7 @@ export const RecipeDetails = () => {
     const navigate = useNavigate();
     const { recipeId } = useParams();
 
-    const { user } = useContext(AuthContext);
+    const { user, isAuthenticated } = useContext(AuthContext);
     const isOwner = user._id == recipe._ownerId;
     const accessToken = user.accessToken;
 
@@ -136,20 +136,6 @@ export const RecipeDetails = () => {
                             <p>{recipe.user && recipe.user["full-name"]}</p>
 
                         </div>
-                        <div className={`${styles["user__stats"]} ${styles["dspl-flex-row-center"]}`}>
-                            <div className={styles["stats__wrapper"]}>
-                                <FontAwesomeIcon className={styles["icon"]} icon={faUtensils}></FontAwesomeIcon>
-                                <p>31</p>
-                            </div>
-                            <div className={styles["stats__wrapper"]}>
-                                <FontAwesomeIcon className={styles["icon"]} icon={faCamera}></FontAwesomeIcon>
-                                <p>220</p>
-                            </div>
-                            <div className={styles["stats__wrapper"]}>
-                                <FontAwesomeIcon className={styles["icon"]} icon={faFireBurner}></FontAwesomeIcon>
-                                <p>31</p>
-                            </div>
-                        </div>
                     </div>
                     <div className={styles["user__icons"]}>
                         {
@@ -172,7 +158,7 @@ export const RecipeDetails = () => {
                             </div>
                         }
 
-                        {!isOwner &&
+                        {!isOwner && isAuthenticated &&
                             <div className={styles["main-wrap"]}>
                                 <div className={styles["wrapper"]}>
                                     <button

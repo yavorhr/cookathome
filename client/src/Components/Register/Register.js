@@ -37,9 +37,9 @@ export const Register = () => {
 
         userData.imageUrl = userImageUrl;
         authService.register(userData).
-            then(result => 
+            then(result => {
                 userLogin(result)
-            )
+            })
     }
 
     const onChangeHandler = (e) => {
@@ -80,23 +80,6 @@ export const Register = () => {
             [e.target.name]: !regex.test(urlInput)
         }))
     }
-
-    // const validImageUrl = (e) => {
-    //     const regex = new RegExp(/([a-z\-_0-9\/\:\.]*\.(jpg|jpeg|png|gif))/i);
-    //     const urlInput = e.target.value;
-
-    //     if (!regex.test(urlInput)) {
-    //         e.target.className = styles['red-style'];
-    //     } else {
-    //         e.target.className = styles['green-style'];
-    //     }
-
-    //     setErrors(state => ({
-    //         ...state,
-    //         [e.target.name]: !regex.test(urlInput)
-    //     }))
-    // }
-
 
     const submitImage = (e) => {
         cloudinary

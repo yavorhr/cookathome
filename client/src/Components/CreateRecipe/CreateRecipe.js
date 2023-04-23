@@ -241,9 +241,8 @@ export const CreateRecipe = ({ }) => {
                                 >
                                     <option value="Please select">Please select</option>
                                     <option value="Bulgarian">Bulgarian</option>
-                                    <option value="German">German</option>
-                                    <option value="English">English</option>
-                                    <option value="Serbian">Serbian</option>
+                                    <option value="Italian">Italian</option>
+                                    <option value="Greek">Greek</option>
                                 </select>
                             </div>
                         </div>

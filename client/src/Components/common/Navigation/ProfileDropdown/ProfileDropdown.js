@@ -44,7 +44,7 @@ export const ProfileDropdown = (props) => {
         openHandler();
         navigate('/logout')
     }
-
+console.log(user);
     return (
         <div ref={dropdownRef}>
             <button className={styles["profile-button"]} onClick={() => setOpen(!open)} >

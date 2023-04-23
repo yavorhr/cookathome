@@ -27,5 +27,5 @@ const categories = {
   category: ["veggeterian", "meat"],
   season: ["spring", "summer", "autumn", "winter"],
   level: ["beginner", "intermediate", "advanced", "chef"],
-  kitchen: ["italian", "indian", "chinese", "japanese", "bulgarian", "greek"]
+  kitchen: ["italian", "bulgarian", "greek"]
 }
